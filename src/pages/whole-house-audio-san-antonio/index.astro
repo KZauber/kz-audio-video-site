@@ -1,0 +1,156 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import HeroSection from '../../components/sections/HeroSection.astro';
+import TrustBar from '../../components/sections/TrustBar.astro';
+import TestimonialsSection from '../../components/sections/TestimonialsSection.astro';
+import FAQAccordion from '../../components/sections/FAQAccordion.astro';
+import CTASection from '../../components/sections/CTASection.astro';
+
+const schema = {
+  "@context": "https://schema.org",
+  "@type": "Service",
+  "name": "Whole House Audio Installation",
+  "provider": {
+    "@type": "LocalBusiness",
+    "name": "KZ Audio & Video",
+    "url": "https://kzaudioandvideo.com",
+    "telephone": "+12109814098"
+  },
+  "areaServed": "San Antonio, TX",
+  "description": "Whole house audio design and installation in San Antonio TX. Music in every room, controlled from your phone. Sonos, Denon HEOS, Klipsch, and custom multi-zone systems.",
+  "url": "https://kzaudioandvideo.com/whole-house-audio-san-antonio/"
+};
+
+const breadcrumb = {
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": [
+    { "@type": "ListItem", "position": 1, "name": "Home", "item": "https://kzaudioandvideo.com" },
+    { "@type": "ListItem", "position": 2, "name": "Whole House Audio San Antonio" }
+  ]
+};
+
+const faqs = [
+  {
+    question: 'What is a whole house audio system?',
+    answer: 'A whole house audio system lets you play music in multiple rooms — independently or all at once — controlled from your phone, a wall keypad, or a voice assistant. You might have Sonos in the kitchen and living room, in-ceiling speakers on the patio, and a dedicated amp for the master bedroom. Each zone can play something different, or you can group them together.',
+  },
+  {
+    question: 'What brands do you install?',
+    answer: 'We install Sonos, Denon HEOS, Klipsch, Polk Audio, Niles, and Dayton in-ceiling and in-wall speakers depending on what the room calls for. We don\'t push one brand. We match the equipment to the use case — whether that\'s a simple Sonos system in an existing home or a whole-house wired multi-zone setup in new construction.',
+  },
+  {
+    question: 'Can I add audio to my existing home without major construction?',
+    answer: 'Often yes. Sonos and similar wireless systems can be added to an existing home with minimal disruption. In-ceiling speakers in finished spaces sometimes require fishing wire through walls — we\'re experienced with that and minimize any drywall impact. We\'ll assess what\'s realistic in your home and tell you upfront.',
+  },
+  {
+    question: 'How many zones do I need?',
+    answer: 'Most residential installs run two to six zones — kitchen, living room, master bedroom, patio, pool area, garage. We design around how you actually move through your home and where music makes your life better. There\'s no up-sell to zones you\'ll never use.',
+  },
+  {
+    question: 'Can I control everything from my phone?',
+    answer: 'Yes. Modern whole house audio systems — particularly Sonos — are built around phone control. You can play, pause, switch sources, adjust volume by room, and group zones together from your iOS or Android device. We also install wall keypads if you want dedicated controls in specific rooms.',
+  },
+];
+
+const featured = {
+  name: 'Eric Turner',
+  location: 'San Antonio, TX',
+  service: 'Home AV Client — Nearly 10 Years',
+  quote: "They're honest and will recommend what actually works for your situation rather than upselling you on equipment you don't need. I've never had a bad experience with them and would absolutely recommend them to anyone looking for AV services.",
+};
+---
+
+<BaseLayout
+  title="Whole House Audio Installation San Antonio TX | KZ Audio & Video"
+  description="Whole house audio installation in San Antonio TX. Music in every room, controlled from your phone. Sonos, multi-zone systems, in-ceiling speakers. No subcontractors. Call (210) 981-4098."
+  schema={[schema, breadcrumb]}
+>
+
+  <HeroSection
+    overline="Whole House Audio · San Antonio · Hill Country · Since 2001"
+    heading="Whole House Audio Installation in San Antonio TX"
+    subhead="Music in the kitchen. On the patio. In the master bedroom. Controlled from your phone. KZ Audio & Video designs and installs multi-zone audio systems for San Antonio homes — from a simple Sonos setup to a full wired whole-house system."
+    ctaLabel="Book a Free Consultation"
+    ctaHref="/contact-kz-audio-video-san-antonio-tx/"
+    secondaryCta="Or call: (210) 981-4098"
+    secondaryHref="tel:2109814098"
+    imageSrc="/images/projects/flat-tvs/samsung-frame-tv-marble-wall-san-antonio.jpg"
+    imageAlt="Whole house audio and AV installation in San Antonio Texas custom home"
+  />
+
+  <TrustBar />
+
+  <!-- What We Install -->
+  <section class="section bg-slate-surface">
+    <div class="container-main">
+      <p class="overline mb-3">Multi-Zone Audio Systems</p>
+      <h2 class="font-display text-h2 text-warm-white mb-6">
+        Designed Around How You Live — Not a Spec Sheet
+      </h2>
+      <p class="text-body-lg text-stone mb-12 max-w-2xl">
+        Every whole house audio install we design starts with a walkthrough of your home. We find out where you actually spend time, how many people are using the system, and what control experience you want. Then we design it.
+      </p>
+
+      <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+        <div>
+          <h3 class="font-sans font-semibold text-h3 text-warm-white mb-4">What We Install</h3>
+          <ul class="flex flex-col gap-3">
+            {[
+              'Sonos multi-room audio systems',
+              'Denon HEOS and whole-home audio processors',
+              'In-ceiling and in-wall speakers (Klipsch, Polk, Niles, Dayton)',
+              'Outdoor weatherproof speakers',
+              'Wall keypads and volume controls',
+              'Amplifiers and distribution systems',
+              'New construction pre-wire and trim-out',
+              'Existing home retrofits',
+            ].map((item) => (
+              <li class="flex items-start gap-3 text-body text-stone">
+                <span class="text-gold mt-1 flex-shrink-0">→</span>
+                {item}
+              </li>
+            ))}
+          </ul>
+        </div>
+        <div>
+          <h3 class="font-sans font-semibold text-h3 text-warm-white mb-4">Common Zones</h3>
+          <ul class="flex flex-col gap-3">
+            {[
+              'Kitchen and living areas',
+              'Master bedroom and bathroom',
+              'Home office',
+              'Covered patio and outdoor kitchen',
+              'Pool and backyard',
+              'Garage',
+              'Kids\' rooms and bonus spaces',
+              'Whole home synchronized playback',
+            ].map((item) => (
+              <li class="flex items-start gap-3 text-body text-stone">
+                <span class="text-gold mt-1 flex-shrink-0">→</span>
+                {item}
+              </li>
+            ))}
+          </ul>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <TestimonialsSection featured={featured} />
+
+  <FAQAccordion
+    heading="Whole House Audio — Frequently Asked Questions"
+    faqs={faqs}
+  />
+
+  <CTASection
+    heading="Let's Design Your Whole House Audio System"
+    body="Book a free consultation. We'll walk through your home, talk through what you want, and put together a system that actually fits how you live."
+    ctaLabel="Book a Free Consultation"
+    ctaHref="/contact-kz-audio-video-san-antonio-tx/"
+    secondaryLabel="Call (210) 981-4098"
+    secondaryHref="tel:2109814098"
+  />
+
+</BaseLayout>

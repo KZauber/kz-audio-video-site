@@ -1,0 +1,192 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import HeroSection from '../components/sections/HeroSection.astro';
+import TrustBar from '../components/sections/TrustBar.astro';
+import ServicesGrid from '../components/sections/ServicesGrid.astro';
+import TestimonialsSection from '../components/sections/TestimonialsSection.astro';
+import ProjectsGrid from '../components/sections/ProjectsGrid.astro';
+import CTASection from '../components/sections/CTASection.astro';
+
+const localBusiness = {
+  "@context": "https://schema.org",
+  "@type": "LocalBusiness",
+  "@id": "https://kzaudioandvideo.com",
+  "name": "KZ Audio & Video",
+  "description": "Custom home theater, whole-house audio, outdoor AV, and security camera installation in San Antonio TX and the Texas Hill Country. In the audio business since 1997.",
+  "url": "https://kzaudioandvideo.com",
+  "telephone": "+12109814098",
+  "address": {
+    "@type": "PostalAddress",
+    "addressLocality": "San Antonio",
+    "addressRegion": "TX",
+    "addressCountry": "US"
+  },
+  "geo": {
+    "@type": "GeoCoordinates",
+    "latitude": 29.4241,
+    "longitude": -98.4936
+  },
+  "areaServed": [
+    "San Antonio", "Boerne", "Bulverde", "Canyon Lake",
+    "Helotes", "Stone Oak", "Timberwood Park", "New Braunfels"
+  ],
+  "openingHoursSpecification": {
+    "@type": "OpeningHoursSpecification",
+    "dayOfWeek": ["Monday","Tuesday","Wednesday","Thursday","Friday"],
+    "opens": "08:00",
+    "closes": "17:00"
+  },
+  "aggregateRating": {
+    "@type": "AggregateRating",
+    "ratingValue": "5.0",
+    "reviewCount": "19",
+    "bestRating": "5"
+  },
+  "foundingDate": "2001",
+  "slogan": "In the audio business since 1997. Home AV since 2001."
+};
+
+const featuredProjects = [
+  {
+    title: 'Dedicated Home Theater — Canyon Lake TX',
+    location: 'Canyon Lake, TX',
+    service: 'Home Theater',
+    description: 'Full theater room with custom leather power recliner seating on a raised platform, blue LED accent lighting, projection system, and in-wall surround sound.',
+    imageSrc: '/images/projects/monty-theater/Canyon-Lake-Tesac-Home-Theater-Custom-Seating.jpeg.jpg',
+    imageAlt: 'Custom home theater with leather recliners and blue LED lighting in Canyon Lake Texas',
+  },
+  {
+    title: 'Dedicated Home Theater — San Antonio TX',
+    location: 'San Antonio, TX',
+    service: 'Home Theater',
+    description: 'Epson projector, Screen Innovations fixed-frame screen, Martin Logan on-wall speakers, LED accent lighting. Pre-wire through finished install.',
+    imageSrc: '/images/projects/asanka-theater/theater-room-san-antonio-tx.jpg',
+    imageAlt: 'Home theater installation in San Antonio Texas with projection screen and surround sound',
+  },
+  {
+    title: 'Samsung Frame TV on Marble Fireplace Wall',
+    location: 'San Antonio, TX',
+    service: 'TV Installation',
+    description: 'Samsung Frame TV installed flush on a marble fireplace wall with Sonos Arc soundbar. No visible wiring. Displays fine art when not in use.',
+    imageSrc: '/images/projects/flat-tvs/samsung-frame-tv-marble-wall-san-antonio.jpg',
+    imageAlt: 'Samsung Frame TV installed on marble fireplace wall in San Antonio Texas custom home',
+  },
+  {
+    title: 'Outdoor Patio Projector System — Hill Country',
+    location: 'Hill Country, TX',
+    service: 'Outdoor AV',
+    description: 'Projector ceiling-mounted under a Hill Country limestone arch on a covered patio, with pool-side rock speakers throughout the yard.',
+    imageSrc: '/images/projects/outdoor-av/pool-projector-outdoor-theater.jpeg.jpg',
+    imageAlt: 'Outdoor projector mounted under limestone arch on covered patio near San Antonio Texas',
+  },
+];
+
+const ericTurner = {
+  name: 'Eric Turner',
+  location: 'San Antonio, TX',
+  service: 'Home Theater Client — Nearly 10 Years',
+  quote: "I've been a customer of KZ Audio for going on a decade. Kelly and crew have always been great to work with. They're honest and will recommend what actually works for your situation rather than upselling you on equipment you don't need. I've never had a bad experience with them and would absolutely recommend them to anyone looking for AV services.",
+};
+
+const secondaryReviews = [
+  {
+    name: 'Monty Heins',
+    location: 'Canyon Lake, TX',
+    service: 'Home Theater',
+    quote: 'Billy, Julien and Kelly did an outstanding job on my home theater build. From start to finish they were professional, knowledgeable, and easy to work with. The theater came out better than I had hoped.',
+  },
+  {
+    name: 'Mike Pottorff',
+    location: 'San Antonio, TX',
+    service: 'Home Theater',
+    quote: 'KZ Audio and Video did a great job installing our home theater system. They were professional, on time, and their attention to detail was outstanding.',
+  },
+];
+---
+
+<BaseLayout
+  title="Home Theater Installation San Antonio TX | KZ Audio & Video"
+  description="KZ Audio & Video installs custom home theaters, whole-house audio, and outdoor AV systems in San Antonio and the Hill Country. In the audio business since 1997. No subcontractors. Call (210) 981-4098."
+  schema={localBusiness}
+>
+
+  <HeroSection
+    overline="San Antonio · Boerne · Canyon Lake · Hill Country · Since 2001"
+    heading="Home Theater and AV Installation in San Antonio TX"
+    subhead="KZ Audio & Video designs and installs custom home theater, whole-house audio, and outdoor AV systems for homeowners and custom home builders across San Antonio and the Texas Hill Country. In the audio business since 1997. No subcontractors — ever."
+    ctaLabel="Book a Free Consultation"
+    ctaHref="/contact-kz-audio-video-san-antonio-tx/"
+    secondaryCta="Or call: (210) 981-4098"
+    secondaryHref="tel:2109814098"
+    imageSrc="/images/projects/monty-theater/Home-Theater-Design-Build-Near-San-Antonio-Texas.jpeg.jpg"
+    imageAlt="Custom home theater installation near San Antonio Texas by KZ Audio and Video"
+  />
+
+  <TrustBar />
+
+  <ServicesGrid
+    intro="From a dedicated home theater to speakers on the back patio, KZ handles the design, the installation, and everything after."
+  />
+
+  <TestimonialsSection
+    featured={ericTurner}
+    secondary={secondaryReviews}
+  />
+
+  <ProjectsGrid
+    projects={featuredProjects}
+    overline="Recent Work"
+    heading="Custom Home Theater and AV Projects"
+  />
+
+  <!-- Builder callout -->
+  <section class="section bg-charcoal">
+    <div class="container-main">
+      <div class="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
+        <div>
+          <p class="overline mb-3">For Custom Home Builders</p>
+          <h2 class="font-display text-h2 text-warm-white mb-6">
+            Your Low Voltage and AV Partner for Every Build
+          </h2>
+          <p class="text-body-lg text-stone mb-4">
+            KZ Audio & Video works with custom home builders across San Antonio and the Hill Country. Nine active builder relationships. The longest started in 2009.
+          </p>
+          <p class="text-body text-stone mb-8">
+            We handle pre-wire scheduling, rough-in, trim-out, system programming, and the homeowner walkthrough. You make the introduction. We handle everything after — including the callbacks.
+          </p>
+          <a href="/av-partner-for-home-builders-san-antonio/" class="btn-ghost">
+            Learn About Our Builder Program
+          </a>
+        </div>
+        <div class="flex flex-col gap-4">
+          <blockquote class="card p-6 border-l-4 border-gold rounded-l-none">
+            <p class="text-body text-warm-white italic mb-3">"I have been working with Kelly for 16 years. He and his team are true professionals. They show up on time, do quality work, and handle our homeowners with the utmost professionalism."</p>
+            <footer class="text-caption text-stone uppercase tracking-widest">Theresa Apostolo &middot; Builder Client &middot; 16 Years</footer>
+          </blockquote>
+          <blockquote class="card p-6 border-l-4 border-gold rounded-l-none">
+            <p class="text-body text-warm-white italic mb-3">"KZ Audio and Video is our go-to for all AV and low voltage work on our custom homes. Kelly and his team are reliable, professional, and do excellent work."</p>
+            <footer class="text-caption text-stone uppercase tracking-widest">Winston &middot; Active Builder Client</footer>
+          </blockquote>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- About teaser -->
+  <section class="section bg-slate-surface">
+    <div class="container-main">
+      <p class="overline mb-3">About KZ Audio & Video</p>
+      <h2 class="font-display text-h2 text-warm-white mb-6">In the Audio Business Since 1997</h2>
+      <p class="text-body-lg text-stone mb-4 max-w-2xl">
+        Kelly Zauber started Audio Outlet in 1997 with his best friend. Moved into automotive audio in 1999. Started doing home AV in 2001 and never looked back.
+      </p>
+      <p class="text-body text-stone mb-8 max-w-2xl">
+        Today KZ Audio & Video is Kelly, Billy, and Julian. No subcontractors. Every install is done by someone on this team. Every system is designed around the specific room, the specific client, and how they actually live.
+      </p>
+      <a href="/about-kz-audio-video/" class="btn-text">More about the team &rarr;</a>
+    </div>
+  </section>
+
+  <CTASection />
+
+</BaseLayout>

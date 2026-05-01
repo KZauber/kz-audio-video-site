@@ -1,0 +1,155 @@
+---
+const navLinks = [
+  { label: 'Home Theater',      href: '/home-theater-installation-san-antonio-tx/' },
+  { label: 'Whole House Audio', href: '/whole-house-audio-san-antonio/' },
+  { label: 'Outdoor AV',        href: '/outdoor-audio-video-san-antonio/' },
+  { label: 'Projects',          href: '/home-theater-projects-san-antonio/' },
+  { label: 'For Builders',      href: '/av-partner-for-home-builders-san-antonio/' },
+  { label: 'About',             href: '/about-kz-audio-video/' },
+];
+
+const currentPath = Astro.url.pathname;
+---
+
+<header
+  class="fixed top-0 left-0 right-0 z-50 h-[72px] flex items-center
+         bg-charcoal/95 backdrop-blur-sm border-b border-smoke/0
+         transition-shadow duration-base"
+  id="site-header"
+>
+  <div class="container-wide w-full flex items-center justify-between px-4 sm:px-6 lg:px-8">
+
+    <!-- Logo -->
+    <a href="/" class="flex-shrink-0" aria-label="KZ Audio & Video — Home">
+      <img
+        src="/images/kz-av-logo-transparent.png"
+        alt="KZ Audio & Video"
+        width="160"
+        height="90"
+        class="h-10 w-auto"
+        loading="eager"
+      />
+    </a>
+
+    <!-- Desktop nav -->
+    <nav class="hidden lg:flex items-center gap-8" aria-label="Main navigation">
+      {navLinks.map(({ label, href }) => (
+        <a
+          href={href}
+          class:list={[
+            'font-sans font-medium text-body-sm transition-colors duration-fast',
+            currentPath === href
+              ? 'text-gold'
+              : 'text-stone hover:text-warm-white',
+          ]}
+        >
+          {label}
+        </a>
+      ))}
+    </nav>
+
+    <!-- Desktop CTA -->
+    <div class="hidden lg:flex items-center gap-4">
+      <a href="tel:2109814098" class="text-stone text-body-sm font-sans hover:text-warm-white transition-colors duration-fast">
+        (210) 981-4098
+      </a>
+      <a href="/contact-kz-audio-video-san-antonio-tx/" class="btn-primary py-2 px-5 text-sm">
+        Book a Consult
+      </a>
+    </div>
+
+    <!-- Mobile hamburger -->
+    <button
+      id="mobile-menu-btn"
+      class="lg:hidden flex flex-col gap-[5px] p-2.5 -mr-2.5"
+      aria-label="Open navigation menu"
+      aria-expanded="false"
+      aria-controls="mobile-menu"
+    >
+      <span class="block w-6 h-0.5 bg-warm-white transition-all duration-fast" id="ham-1"></span>
+      <span class="block w-6 h-0.5 bg-warm-white transition-all duration-fast" id="ham-2"></span>
+      <span class="block w-6 h-0.5 bg-warm-white transition-all duration-fast" id="ham-3"></span>
+    </button>
+  </div>
+</header>
+
+<!-- Mobile menu overlay -->
+<div
+  id="mobile-menu"
+  class="fixed inset-0 z-40 bg-charcoal flex flex-col pt-[72px] px-6 pb-8
+         translate-x-full transition-transform duration-[250ms] ease-in-out lg:hidden"
+  aria-label="Mobile navigation"
+  aria-hidden="true"
+>
+  <nav class="flex flex-col gap-1 mt-8">
+    {navLinks.map(({ label, href }) => (
+      <a
+        href={href}
+        class="font-sans font-semibold text-2xl text-warm-white py-3 border-b border-smoke
+               hover:text-gold transition-colors duration-fast"
+      >
+        {label}
+      </a>
+    ))}
+    <a
+      href="/contact-kz-audio-video-san-antonio-tx/"
+      class="font-sans font-semibold text-2xl text-warm-white py-3 border-b border-smoke
+             hover:text-gold transition-colors duration-fast"
+    >
+      Contact
+    </a>
+  </nav>
+
+  <div class="mt-8 flex flex-col gap-3">
+    <a href="tel:2109814098" class="btn-primary justify-center">
+      <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
+        <path d="M6.62 10.79c1.44 2.83 3.76 5.14 6.59 6.59l2.2-2.2c.27-.27.67-.36 1.02-.24 1.12.37 2.33.57 3.57.57.55 0 1 .45 1 1V20c0 .55-.45 1-1 1-9.39 0-17-7.61-17-17 0-.55.45-1 1-1h3.5c.55 0 1 .45 1 1 0 1.25.2 2.45.57 3.57.11.35.03.74-.25 1.02l-2.2 2.2z"/>
+      </svg>
+      Call or Text: (210) 981-4098
+    </a>
+    <a href="/contact-kz-audio-video-san-antonio-tx/" class="btn-ghost justify-center">
+      Book a Free Consultation
+    </a>
+  </div>
+</div>
+
+<script>
+  const btn = document.getElementById('mobile-menu-btn')!;
+  const menu = document.getElementById('mobile-menu')!;
+  const h1 = document.getElementById('ham-1')!;
+  const h2 = document.getElementById('ham-2')!;
+  const h3 = document.getElementById('ham-3')!;
+
+  let open = false;
+
+  btn.addEventListener('click', () => {
+    open = !open;
+    btn.setAttribute('aria-expanded', String(open));
+    menu.setAttribute('aria-hidden', String(!open));
+    menu.classList.toggle('translate-x-full', !open);
+    menu.classList.toggle('translate-x-0', open);
+    // Animate hamburger to X
+    h1.style.transform = open ? 'translateY(7px) rotate(45deg)' : '';
+    h2.style.opacity = open ? '0' : '1';
+    h3.style.transform = open ? 'translateY(-7px) rotate(-45deg)' : '';
+    document.body.style.overflow = open ? 'hidden' : '';
+  });
+
+  // Close on route change
+  document.addEventListener('astro:page-load', () => {
+    open = false;
+    menu.classList.add('translate-x-full');
+    menu.classList.remove('translate-x-0');
+    document.body.style.overflow = '';
+  });
+
+  // Add shadow on scroll
+  const header = document.getElementById('site-header')!;
+  window.addEventListener('scroll', () => {
+    if (window.scrollY > 10) {
+      header.style.boxShadow = '0 1px 0 rgba(201, 168, 76, 0.15)';
+    } else {
+      header.style.boxShadow = '';
+    }
+  }, { passive: true });
+</script>

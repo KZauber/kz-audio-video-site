@@ -1,0 +1,129 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import HeroSection from '../../components/sections/HeroSection.astro';
+import TrustBar from '../../components/sections/TrustBar.astro';
+import TestimonialsSection from '../../components/sections/TestimonialsSection.astro';
+import FAQAccordion from '../../components/sections/FAQAccordion.astro';
+import CTASection from '../../components/sections/CTASection.astro';
+
+const schema = {
+  "@context": "https://schema.org",
+  "@type": "Service",
+  "name": "Surround Sound Installation",
+  "provider": {
+    "@type": "LocalBusiness",
+    "name": "KZ Audio & Video",
+    "url": "https://kzaudioandvideo.com",
+    "telephone": "+12109814098"
+  },
+  "areaServed": "San Antonio, TX",
+  "description": "Surround sound installation in San Antonio TX. 5.1, 7.1, and Dolby Atmos systems properly placed and calibrated. In-wall, in-ceiling, and on-wall speaker installations.",
+  "url": "https://kzaudioandvideo.com/surround-sound-installation-san-antonio/"
+};
+
+const breadcrumb = {
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": [
+    { "@type": "ListItem", "position": 1, "name": "Home", "item": "https://kzaudioandvideo.com" },
+    { "@type": "ListItem", "position": 2, "name": "Surround Sound Installation San Antonio" }
+  ]
+};
+
+const faqs = [
+  {
+    question: 'What is the difference between 5.1, 7.1, and Dolby Atmos?',
+    answer: '5.1 is the standard: front left, front right, center, left surround, right surround, and a subwoofer. 7.1 adds two additional surround speakers at the sides or rear. Dolby Atmos adds height — in-ceiling or up-firing speakers that place sound above you for a three-dimensional experience. The right format depends on your room size, ceiling height, and what you\'re using the system for. We\'ll tell you what actually makes sense for your space.',
+  },
+  {
+    question: 'What does "properly calibrated" mean?',
+    answer: 'Most systems are installed and left at default settings. Proper calibration means running room correction software — Audyssey, Dirac, or manufacturer-specific tools — that measures your room\'s acoustics and adjusts speaker levels, delays, and EQ to compensate. The difference between a calibrated system and a default system in the same room is significant. We don\'t leave a job without running calibration.',
+  },
+  {
+    question: 'Can you install in-wall or in-ceiling speakers?',
+    answer: 'Yes. In-wall and in-ceiling speakers are a significant part of what we install. We run wire clean, patch and paint drywall as needed, and install the speakers flush. In new construction this is pre-wired at rough-in. In finished spaces we fish wire through walls to minimize disruption.',
+  },
+  {
+    question: 'Do you install sound bars?',
+    answer: 'We install Sonos Arc and similar premium sound bars when they\'re the right tool for the space. For a living room where a full surround system isn\'t practical, a well-installed Arc with a sub and surrounds is a serious upgrade. We don\'t push sound bars on theater rooms where dedicated speakers belong.',
+  },
+  {
+    question: 'Can you upgrade my existing surround sound system?',
+    answer: 'Yes. Whether you want to add Dolby Atmos height channels to an existing 5.1 system, replace aging speakers, add a better subwoofer, or upgrade a receiver — we work on systems we didn\'t install. Bring us in to assess and we\'ll tell you what\'s worth upgrading and what isn\'t.',
+  },
+];
+
+const featured = {
+  name: 'Mike Pottorff',
+  location: 'San Antonio, TX',
+  service: 'Home Theater',
+  quote: 'KZ Audio and Video did a great job installing our home theater system. They were professional, on time, and their attention to detail was outstanding.',
+};
+---
+
+<BaseLayout
+  title="Surround Sound Installation San Antonio TX | KZ Audio & Video"
+  description="Surround sound installation in San Antonio TX. 5.1, 7.1, Dolby Atmos — properly placed and calibrated. In-wall and in-ceiling speakers. No subcontractors. Call (210) 981-4098."
+  schema={[schema, breadcrumb]}
+>
+
+  <HeroSection
+    overline="Surround Sound · San Antonio · Hill Country · Since 2001"
+    heading="Surround Sound Installation in San Antonio TX"
+    subhead="5.1, 7.1, Dolby Atmos — properly placed, properly calibrated. Not just plugged in and set to default. KZ Audio & Video installs surround sound systems in San Antonio living rooms, media rooms, and dedicated home theaters."
+    ctaLabel="Book a Free Consultation"
+    ctaHref="/contact-kz-audio-video-san-antonio-tx/"
+    secondaryCta="Or call: (210) 981-4098"
+    secondaryHref="tel:2109814098"
+    imageSrc="/images/projects/asanka-theater/theater-room-san-antonio-tx.jpg"
+    imageAlt="Surround sound installation in San Antonio Texas home theater"
+  />
+
+  <TrustBar />
+
+  <!-- What We Install -->
+  <section class="section bg-slate-surface">
+    <div class="container-main">
+      <p class="overline mb-3">Surround Sound Systems</p>
+      <h2 class="font-display text-h2 text-warm-white mb-6">
+        Placement and Calibration Matter More Than the Gear
+      </h2>
+      <p class="text-body-lg text-stone mb-12 max-w-2xl">
+        A $5,000 surround sound system installed correctly will outperform a $15,000 system that isn't. Speaker placement, proper wiring, and room calibration are what separate a real home theater experience from expensive noise. We do this right.
+      </p>
+
+      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+        {[
+          { title: '5.1 Surround Sound', desc: 'Front left/right, center channel, left/right surrounds, and a subwoofer. The standard configuration — designed and calibrated for your room.' },
+          { title: '7.1 Surround Sound', desc: 'Adds side or rear surround speakers for larger rooms and more immersive sound staging. Properly placed based on your seating layout.' },
+          { title: 'Dolby Atmos', desc: 'Height channels — in-ceiling or up-firing speakers — that place sound in three dimensions above and around you. Requires the right ceiling height and receiver.' },
+          { title: 'In-Wall Speakers', desc: 'Flush-mounted front and surround speakers. Clean walls, no visible hardware except the grille. Run in new construction or fished through finished walls.' },
+          { title: 'In-Ceiling Speakers', desc: 'Atmos height speakers and rear surrounds installed flush in the ceiling. Acoustically placed, not just centered in whatever tile is overhead.' },
+          { title: 'Room Calibration', desc: 'Audyssey MultEQ, Dirac, or manufacturer-specific room correction. Every system we install gets calibrated to the room it\'s in. No exceptions.' },
+        ].map(({ title, desc }) => (
+          <div class="card p-7 flex flex-col gap-3">
+            <h3 class="font-sans font-semibold text-h4 text-warm-white">{title}</h3>
+            <p class="text-body-sm text-stone leading-relaxed">{desc}</p>
+          </div>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <TestimonialsSection featured={featured} />
+
+  <FAQAccordion
+    heading="Surround Sound Installation — Frequently Asked Questions"
+    faqs={faqs}
+  />
+
+  <CTASection
+    heading="Ready for Real Surround Sound?"
+    body="Book a free consultation. We'll look at your room, talk through what format makes sense, and give you a quote."
+    ctaLabel="Book a Free Consultation"
+    ctaHref="/contact-kz-audio-video-san-antonio-tx/"
+    secondaryLabel="Call (210) 981-4098"
+    secondaryHref="tel:2109814098"
+  />
+
+</BaseLayout>

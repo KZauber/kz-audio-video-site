@@ -1,0 +1,133 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import HeroSection from '../../components/sections/HeroSection.astro';
+import TrustBar from '../../components/sections/TrustBar.astro';
+import ServicesGrid from '../../components/sections/ServicesGrid.astro';
+import ProjectsGrid from '../../components/sections/ProjectsGrid.astro';
+import TestimonialsSection from '../../components/sections/TestimonialsSection.astro';
+import CTASection from '../../components/sections/CTASection.astro';
+
+const schema = {
+  "@context": "https://schema.org",
+  "@type": "Service",
+  "name": "Home Theater Installation Canyon Lake",
+  "provider": {
+    "@type": "LocalBusiness",
+    "name": "KZ Audio & Video",
+    "url": "https://kzaudioandvideo.com",
+    "telephone": "+12109814098"
+  },
+  "areaServed": "Canyon Lake, TX",
+  "description": "Custom home theater and AV installation in Canyon Lake TX.",
+  "url": "https://kzaudioandvideo.com/home-theater-installation-canyon-lake-tx/"
+};
+
+const breadcrumb = {
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": [
+    { "@type": "ListItem", "position": 1, "name": "Home", "item": "https://kzaudioandvideo.com" },
+    { "@type": "ListItem", "position": 2, "name": "Home Theater Installation Canyon Lake TX" }
+  ]
+};
+
+const projects = [
+  {
+    title: 'Dedicated Home Theater — Canyon Lake TX',
+    location: 'Canyon Lake, TX',
+    service: 'Home Theater',
+    description: 'Full theater room with custom leather power recliner seating, blue LED accent lighting, projection system, and in-wall surround sound.',
+    imageSrc: '/images/projects/monty-theater/Canyon-Lake-Tesac-Home-Theater-Custom-Seating.jpeg.jpg',
+    imageAlt: 'Custom home theater with leather recliners and blue LED lighting in Canyon Lake Texas',
+  },
+  {
+    title: 'Dedicated Home Theater — San Antonio TX',
+    location: 'San Antonio, TX',
+    service: 'Home Theater',
+    description: 'Epson projector, Screen Innovations fixed-frame screen, Martin Logan on-wall speakers, LED accent lighting.',
+    imageSrc: '/images/projects/asanka-theater/theater-room-san-antonio-tx.jpg',
+    imageAlt: 'Home theater installation in San Antonio Texas with projection screen and surround sound',
+  },
+];
+
+const featured = {
+  name: 'Eric Turner',
+  location: 'San Antonio, TX',
+  service: 'Home Theater Client — Nearly 10 Years',
+  quote: "I've been a customer of KZ Audio for going on a decade. Kelly and crew have always been great to work with. They're honest and will recommend what actually works for your situation rather than upselling you on equipment you don't need.",
+};
+---
+
+<BaseLayout
+  title="Home Theater Installation Canyon Lake TX | KZ Audio & Video"
+  description="Custom home theater and AV installation in Canyon Lake TX. No subcontractors. In the audio business since 1997. Call (210) 981-4098."
+  schema={[schema, breadcrumb]}
+>
+
+  <HeroSection
+    overline="Home Theater Installation · Canyon Lake · Hill Country · Since 2001"
+    heading="Home Theater Installation in Canyon Lake, TX"
+    subhead="KZ Audio & Video designs and installs custom home theaters, whole-house audio, and outdoor AV systems in Canyon Lake and across the Hill Country. Canyon Lake, TX — Hill Country lake community northwest of San Antonio. We've completed multiple theater installs in Canyon Lake. In the audio business since 1997. No subcontractors — ever."
+    ctaLabel="Book a Free Consultation"
+    ctaHref="/contact-kz-audio-video-san-antonio-tx/"
+    secondaryCta="Or call: (210) 981-4098"
+    secondaryHref="tel:2109814098"
+    imageSrc="/images/projects/monty-theater/Canyon-Lake-Tesac-Home-Theater-Custom-Seating.jpeg.jpg"
+    imageAlt="Custom home theater installation in Canyon Lake Texas Hill Country"
+  />
+
+  <TrustBar />
+
+  <ServicesGrid
+    intro="KZ Audio & Video serves Canyon Lake and the surrounding Hill Country. We design, install, and service custom home AV systems — no subcontractors, no third-party labor."
+  />
+
+  <ProjectsGrid
+    projects={projects}
+    overline="Recent Projects"
+    heading="Home Theater Installs Near Canyon Lake"
+  />
+
+  <TestimonialsSection featured={featured} />
+
+  <!-- Why KZ -->
+  <section class="section bg-charcoal">
+    <div class="container-main">
+      <p class="overline mb-3">Why KZ Audio & Video</p>
+      <h2 class="font-display text-h2 text-warm-white mb-10">
+        Serving Canyon Lake Since 2001
+      </h2>
+      <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+        {[
+          {
+            title: 'No Subcontractors',
+            desc: 'Every install is done by Kelly, Billy, or Julian. Not outsourced labor. The people who designed your system are the people installing it.',
+          },
+          {
+            title: '25+ Years in Audio',
+            desc: "Kelly started in audio in 1997. That's a lot of installs, a lot of rooms, and a lot of systems across San Antonio and the Hill Country.",
+          },
+          {
+            title: 'Free Consultation',
+            desc: 'We come to your home in Canyon Lake, look at the room, and give you a real quote. No charge, no obligation.',
+          },
+        ].map(({ title, desc }) => (
+          <div class="flex flex-col gap-3">
+            <h3 class="font-sans font-semibold text-h4 text-warm-white">{title}</h3>
+            <p class="text-body text-stone">{desc}</p>
+          </div>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <CTASection
+    heading="Ready to Get Started in Canyon Lake?"
+    body="Book a free, no-pressure consultation. We'll come to your home in Canyon Lake and talk through what's possible."
+    ctaLabel="Book a Free Consultation"
+    ctaHref="/contact-kz-audio-video-san-antonio-tx/"
+    secondaryLabel="Call (210) 981-4098"
+    secondaryHref="tel:2109814098"
+  />
+
+</BaseLayout>

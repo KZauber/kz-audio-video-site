@@ -1,0 +1,32 @@
+---
+interface Props {
+  title: string;
+  description: string;
+  canonical: string;
+  ogImage: string;
+  noindex?: boolean;
+}
+
+const { title, description, canonical, ogImage, noindex = false } = Astro.props;
+const siteName = 'KZ Audio & Video';
+---
+
+<title>{title}</title>
+<meta name="description" content={description} />
+<link rel="canonical" href={canonical} />
+{noindex && <meta name="robots" content="noindex,nofollow" />}
+
+<!-- Open Graph -->
+<meta property="og:type" content="website" />
+<meta property="og:site_name" content={siteName} />
+<meta property="og:title" content={title} />
+<meta property="og:description" content={description} />
+<meta property="og:url" content={canonical} />
+<meta property="og:image" content={ogImage} />
+<meta property="og:image:alt" content={`${siteName} — Home Theater and AV Installation San Antonio TX`} />
+
+<!-- Twitter -->
+<meta name="twitter:card" content="summary_large_image" />
+<meta name="twitter:title" content={title} />
+<meta name="twitter:description" content={description} />
+<meta name="twitter:image" content={ogImage} />

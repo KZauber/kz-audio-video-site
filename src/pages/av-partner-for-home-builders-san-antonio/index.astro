@@ -1,0 +1,214 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import HeroSection from '../../components/sections/HeroSection.astro';
+import TrustBar from '../../components/sections/TrustBar.astro';
+import TestimonialsSection from '../../components/sections/TestimonialsSection.astro';
+import FAQAccordion from '../../components/sections/FAQAccordion.astro';
+import CTASection from '../../components/sections/CTASection.astro';
+
+const schema = {
+  "@context": "https://schema.org",
+  "@type": "Service",
+  "name": "AV Partner for Custom Home Builders",
+  "provider": {
+    "@type": "LocalBusiness",
+    "name": "KZ Audio & Video",
+    "url": "https://kzaudioandvideo.com",
+    "telephone": "+12109814098"
+  },
+  "areaServed": "San Antonio, TX",
+  "description": "KZ Audio & Video is the low voltage and AV partner for custom home builders in San Antonio and the Texas Hill Country. Pre-wire, rough-in, trim-out, programming, and homeowner walkthroughs. Nine active builder relationships.",
+  "url": "https://kzaudioandvideo.com/av-partner-for-home-builders-san-antonio/"
+};
+
+const breadcrumb = {
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": [
+    { "@type": "ListItem", "position": 1, "name": "Home", "item": "https://kzaudioandvideo.com" },
+    { "@type": "ListItem", "position": 2, "name": "AV Partner for Home Builders San Antonio" }
+  ]
+};
+
+const faqs = [
+  {
+    question: 'What does a builder relationship with KZ actually look like?',
+    answer: 'You make the introduction to your homeowner. We take it from there. We show up for pre-wire on schedule, coordinate with your subs, complete rough-in, and stay in communication with your site supervisor. At trim-out, we install, program, and walk the homeowner through every system. You get one less thing to manage and a homeowner who\'s happy with their AV.',
+  },
+  {
+    question: 'Do you handle the homeowner relationship?',
+    answer: 'Yes — completely. We meet with the homeowner during the design phase to understand what they want. We keep them informed during construction. We do the full walkthrough at the end. Any questions or adjustments after move-in come to us directly. You don\'t field AV calls.',
+  },
+  {
+    question: 'What do you pre-wire for?',
+    answer: 'Home theater, whole-house audio, outdoor audio and video, security cameras, distributed TV, structured wiring (networking and data), and any specialty AV the homeowner wants. We spec the pre-wire based on the homeowner\'s system goals and future-proof it where it makes sense.',
+  },
+  {
+    question: 'How do you handle scheduling with our construction timeline?',
+    answer: 'We coordinate directly with your site supervisor. We show up when the walls are open and when they\'re closed. We\'re familiar with how custom home builds in San Antonio and the Hill Country run. Our longest builder relationship started in 2009 — we understand build schedules.',
+  },
+  {
+    question: 'Do you work with builders outside San Antonio?',
+    answer: 'We work across the San Antonio metro, Boerne, Bulverde, Stone Oak, Timberwood Park, Canyon Lake, New Braunfels, and surrounding Hill Country. If you\'re building in this region, call us. We\'ll tell you if it\'s in our service area.',
+  },
+  {
+    question: 'What if something needs adjustment after the homeowner moves in?',
+    answer: 'We handle it. That\'s what "including the callbacks" means. If a system needs adjustment, recalibration, or the homeowner wants to add something after move-in, they call us — not you. We maintain the relationship.',
+  },
+];
+
+const featured = {
+  name: 'Theresa Apostolo',
+  location: 'San Antonio, TX',
+  service: 'Builder Client — 16 Years',
+  quote: "I have been working with Kelly for 16 years. He and his team are true professionals. They show up on time, do quality work, and handle our homeowners with the utmost professionalism.",
+};
+
+const secondary = [
+  {
+    name: 'Winston',
+    location: 'San Antonio, TX',
+    service: 'Active Builder Client',
+    quote: 'KZ Audio and Video is our go-to for all AV and low voltage work on our custom homes. Kelly and his team are reliable, professional, and do excellent work.',
+  },
+  {
+    name: 'Clay Bostick',
+    location: 'San Antonio, TX',
+    service: 'Custom Home Builder',
+    quote: 'Kelly and his crew are great. They show up when they say they will, the work is clean, and our homeowners love working with them.',
+  },
+];
+---
+
+<BaseLayout
+  title="AV Partner for Custom Home Builders San Antonio TX | KZ Audio & Video"
+  description="KZ Audio & Video is the low voltage and AV partner for custom home builders in San Antonio and the Hill Country. Nine active builder relationships. Pre-wire through homeowner walkthrough. No subcontractors. Call (210) 981-4098."
+  schema={[schema, breadcrumb]}
+>
+
+  <HeroSection
+    overline="For Custom Home Builders · San Antonio · Hill Country · Since 2001"
+    heading="Your Low Voltage and AV Partner for Every Build"
+    subhead="KZ Audio & Video works with custom home builders across San Antonio and the Texas Hill Country. Nine active builder relationships. The longest started in 2009. You make the introduction. We handle everything after — including the callbacks."
+    ctaLabel="Talk to Kelly About Your Next Build"
+    ctaHref="/contact-kz-audio-video-san-antonio-tx/"
+    secondaryCta="Or call: (210) 981-4098"
+    secondaryHref="tel:2109814098"
+    imageSrc="/images/projects/monty-theater/Home-Theater-Design-Build-Near-San-Antonio-Texas.jpeg.jpg"
+    imageAlt="Custom home theater and AV installation for home builders in San Antonio Texas"
+  />
+
+  <TrustBar />
+
+  <!-- The Value Prop -->
+  <section class="section bg-slate-surface">
+    <div class="container-main">
+      <div class="grid grid-cols-1 lg:grid-cols-2 gap-16 items-start">
+        <div>
+          <p class="overline mb-3">What We Do</p>
+          <h2 class="font-display text-h2 text-warm-white mb-6">
+            We Handle Your AV Start to Finish. You Stay Out of It.
+          </h2>
+          <p class="text-body-lg text-stone mb-6">
+            We meet with the homeowner during the design phase, spec the systems, show up for pre-wire on your schedule, coordinate with your site sups, complete rough-in and trim-out, program everything, and do the full homeowner walkthrough at move-in.
+          </p>
+          <p class="text-body text-stone mb-6">
+            After that, we maintain the relationship. Questions after move-in go to us. Change orders after move-in go to us. You don't field AV calls.
+          </p>
+          <p class="text-body text-stone">
+            We've operated this way for builders since 2001. It works because we're accountable — no subcontractors, no third-party labor, every job done by Kelly, Billy, or Julian.
+          </p>
+        </div>
+        <div class="flex flex-col gap-4">
+          {[
+            { label: 'Pre-Wire Scheduling', desc: 'We coordinate with your supe and show up when the walls are open. No missed rough-in windows.' },
+            { label: 'Homeowner Design Meetings', desc: 'We meet with the homeowner directly to spec their systems. You make the intro; we handle the conversation.' },
+            { label: 'Rough-In & Trim-Out', desc: 'Full installation from wire pulls to finished trim — clean work, inspectable, done on your timeline.' },
+            { label: 'Programming & Calibration', desc: 'Every system is programmed and calibrated before the homeowner walks in. They\'re never handed a system that doesn\'t work.' },
+            { label: 'Homeowner Walkthrough', desc: 'We do a full walkthrough with the homeowner — every system, every remote, every app. They know how it works.' },
+            { label: 'Post-Move-In Support', desc: 'We maintain the homeowner relationship after move-in. Adjustments, additions, and callbacks come to us.' },
+          ].map(({ label, desc }) => (
+            <div class="flex gap-4 items-start">
+              <span class="text-gold font-display text-xl mt-0.5 flex-shrink-0">→</span>
+              <div>
+                <p class="font-sans font-semibold text-warm-white mb-1">{label}</p>
+                <p class="text-body-sm text-stone">{desc}</p>
+              </div>
+            </div>
+          ))}
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Stats -->
+  <section class="section bg-charcoal">
+    <div class="container-main">
+      <div class="grid grid-cols-2 lg:grid-cols-4 gap-8 text-center">
+        {[
+          { stat: '9', label: 'Active Builder Relationships' },
+          { stat: '2009', label: 'Longest Builder Partnership — Started' },
+          { stat: '25+', label: 'Years in the AV Business' },
+          { stat: '0', label: 'Subcontractors — Ever' },
+        ].map(({ stat, label }) => (
+          <div class="flex flex-col items-center gap-2">
+            <span class="font-display text-[3.5rem] leading-none text-gold">{stat}</span>
+            <span class="text-caption text-stone uppercase tracking-widest text-center">{label}</span>
+          </div>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <TestimonialsSection
+    heading="What Builders Say"
+    featured={featured}
+    secondary={secondary}
+  />
+
+  <!-- Services List -->
+  <section class="section bg-charcoal">
+    <div class="container-main">
+      <p class="overline mb-3">What We Install</p>
+      <h2 class="font-display text-h2 text-warm-white mb-10">
+        Every Low Voltage and AV System Your Homeowners Want
+      </h2>
+      <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4">
+        {[
+          'Dedicated home theaters',
+          'Media rooms',
+          'Whole house audio (Sonos & multi-zone)',
+          'Outdoor audio and video',
+          'Security camera systems',
+          'Structured wiring & data',
+          'Surround sound systems',
+          'Distributed TV & HDMI systems',
+          'Motorized shades (coordination)',
+          'In-ceiling and in-wall speakers',
+          'Projectors and projection screens',
+          'Smart home AV integration',
+        ].map((item) => (
+          <div class="card p-4 flex items-center gap-3">
+            <span class="text-gold flex-shrink-0">→</span>
+            <span class="text-body text-warm-white">{item}</span>
+          </div>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <FAQAccordion
+    heading="Builder Program — Frequently Asked Questions"
+    faqs={faqs}
+  />
+
+  <CTASection
+    heading="Let's Talk About Your Next Build"
+    body="If you're a custom home builder in San Antonio or the Hill Country, let's have a conversation. We'll tell you how we work and whether we're a good fit for your projects."
+    ctaLabel="Talk to Kelly"
+    ctaHref="/contact-kz-audio-video-san-antonio-tx/"
+    secondaryLabel="Call (210) 981-4098"
+    secondaryHref="tel:2109814098"
+  />
+
+</BaseLayout>

@@ -1,0 +1,193 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import TrustBar from '../../components/sections/TrustBar.astro';
+import TestimonialsSection from '../../components/sections/TestimonialsSection.astro';
+import CTASection from '../../components/sections/CTASection.astro';
+
+const schema = [
+  {
+    "@context": "https://schema.org",
+    "@type": "Person",
+    "name": "Kelly Zauber",
+    "jobTitle": "Owner",
+    "worksFor": { "@type": "LocalBusiness", "name": "KZ Audio & Video" },
+    "description": "Kelly Zauber started Audio Outlet in 1997. Moved into automotive audio in 1999 and home AV in 2001. Owner and lead installer at KZ Audio & Video in San Antonio TX."
+  },
+  {
+    "@context": "https://schema.org",
+    "@type": "BreadcrumbList",
+    "itemListElement": [
+      { "@type": "ListItem", "position": 1, "name": "Home", "item": "https://kzaudioandvideo.com" },
+      { "@type": "ListItem", "position": 2, "name": "About KZ Audio & Video" }
+    ]
+  }
+];
+
+const featured = {
+  name: 'Theresa Apostolo',
+  location: 'San Antonio, TX',
+  service: 'Builder Client — 16 Years',
+  quote: "I have been working with Kelly for 16 years. He and his team are true professionals. They show up on time, do quality work, and handle our homeowners with the utmost professionalism.",
+};
+
+const secondary = [
+  {
+    name: 'Eric Turner',
+    location: 'San Antonio, TX',
+    service: 'Home Theater Client — Nearly 10 Years',
+    quote: "They're honest and will recommend what actually works for your situation rather than upselling you on equipment you don't need.",
+  },
+  {
+    name: 'Clay Bostick',
+    location: 'San Antonio, TX',
+    service: 'Custom Home Builder',
+    quote: 'Kelly and his crew are great. They show up when they say they will, the work is clean, and our homeowners love working with them.',
+  },
+];
+---
+
+<BaseLayout
+  title="About KZ Audio & Video | San Antonio TX AV Installation Since 1997"
+  description="KZ Audio & Video is Kelly Zauber, Billy, and Julian — a three-person team doing custom home theater and AV installation in San Antonio TX since 2001. No subcontractors. In the audio business since 1997."
+  schema={schema}
+>
+
+  <!-- Hero -->
+  <section class="section bg-charcoal pt-32">
+    <div class="container-main">
+      <p class="overline mb-3">About KZ Audio & Video</p>
+      <h1 class="font-display text-h1 text-warm-white mb-6 max-w-3xl">
+        In the Audio Business Since 1997
+      </h1>
+      <p class="text-body-lg text-stone max-w-2xl">
+        Kelly Zauber started Audio Outlet in 1997 with his best friend. Moved into automotive audio in 1999. Started doing home AV in 2001 and never looked back. Today KZ Audio & Video is Kelly, Billy, and Julian. Three people. No subcontractors. Every install done by someone on this team.
+      </p>
+    </div>
+  </section>
+
+  <TrustBar />
+
+  <!-- Kelly -->
+  <section class="section bg-slate-surface">
+    <div class="container-main">
+      <div class="grid grid-cols-1 lg:grid-cols-2 gap-16 items-start">
+        <div>
+          <p class="overline mb-3">Kelly Zauber</p>
+          <h2 class="font-display text-h2 text-warm-white mb-6">Owner & Lead Installer</h2>
+          <p class="text-body-lg text-stone mb-4">
+            Kelly started in audio in 1997 running a retail and installation shop in San Antonio. After a few years in car audio, he made the jump to home AV in 2001 — and that's been the focus ever since.
+          </p>
+          <p class="text-body text-stone mb-4">
+            Twenty-five years later, he still does installs. Not just consultations and project management — he's in the house with his crew, running wire and hanging equipment. That's by design.
+          </p>
+          <p class="text-body text-stone mb-4">
+            Kelly works with homeowners who want someone who actually knows what they're doing and won't sell them something they don't need. He works with custom home builders who need a low voltage partner they can trust to handle homeowners professionally.
+          </p>
+          <p class="text-body text-stone">
+            He's been doing this in San Antonio for a long time. He knows the market, the builders, the neighborhoods, and what a real home theater install looks like — not what a box store brochure says it looks like.
+          </p>
+        </div>
+        <div class="flex flex-col gap-6">
+          <div class="card p-8 border-l-4 border-gold rounded-l-none">
+            <p class="font-display text-h3 text-warm-white italic mb-4">
+              "I still do installs. Not because I have to — because that's the only way to know what's actually happening on a job."
+            </p>
+            <footer class="text-caption text-stone uppercase tracking-widest">Kelly Zauber · Owner</footer>
+          </div>
+          <div class="grid grid-cols-2 gap-4">
+            {[
+              { stat: '1997', label: 'In the audio business since' },
+              { stat: '2001', label: 'Home AV since' },
+              { stat: '25+', label: 'Years of installs' },
+              { stat: '0', label: 'Subcontractors — ever' },
+            ].map(({ stat, label }) => (
+              <div class="card p-5 text-center">
+                <span class="font-display text-[2.5rem] leading-none text-gold block mb-2">{stat}</span>
+                <span class="text-caption text-stone uppercase tracking-widest">{label}</span>
+              </div>
+            ))}
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Billy -->
+  <section class="section bg-charcoal">
+    <div class="container-main">
+      <div class="grid grid-cols-1 lg:grid-cols-2 gap-16 items-start">
+        <div>
+          <p class="overline mb-3">Billy</p>
+          <h2 class="font-display text-h2 text-warm-white mb-6">Installer & Project Lead</h2>
+          <p class="text-body-lg text-stone mb-4">
+            Kelly met Billy when Billy was 15. He came in as a customer — a car audio install on his Impala. He was a client through high school and for a while after that.
+          </p>
+          <p class="text-body text-stone mb-4">
+            Years passed. Billy disappeared from the radar. Then one day he showed up again — and Kelly hired him on the spot. That was over a decade ago. Billy turns 40 this year.
+          </p>
+          <p class="text-body text-stone mb-4">
+            There's a lot of history there, and you can feel it on a job. Billy and Kelly have a working shorthand that comes from doing this together for years. Homeowners notice.
+          </p>
+          <p class="text-body text-stone">
+            Billy is a lead installer and project lead on most of KZ's larger theater and builder jobs. He knows what a finished install should look like — because he's seen a lot of installs and he cares.
+          </p>
+        </div>
+        <div class="card p-8 border-l-4 border-gold rounded-l-none">
+          <p class="font-display text-h3 text-warm-white italic mb-4">
+            "Billy, Julien and Kelly did an outstanding job on my home theater build. From start to finish they were professional, knowledgeable, and easy to work with."
+          </p>
+          <footer class="text-caption text-stone uppercase tracking-widest">Monty Heins · Canyon Lake, TX · Home Theater Client</footer>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Julian -->
+  <section class="section bg-slate-surface">
+    <div class="container-main">
+      <div class="grid grid-cols-1 lg:grid-cols-2 gap-16 items-start">
+        <div>
+          <p class="overline mb-3">Julian</p>
+          <h2 class="font-display text-h2 text-warm-white mb-6">Installer</h2>
+          <p class="text-body-lg text-stone mb-4">
+            Billy brought Julian in a few years back. Kelly knew pretty quickly that he was someone worth keeping around.
+          </p>
+          <p class="text-body text-stone mb-4">
+            Julian is one of those people who can do anything — AV, tile, plumbing, framing. He picks up new skills fast and cares about doing things right. On a custom home theater build, that range matters. The job doesn't stop at the AV equipment.
+          </p>
+          <p class="text-body text-stone">
+            He's the youngest person on the team and one of the most capable. Homeowners who meet all three of them usually say the same thing: these guys actually know what they're doing.
+          </p>
+        </div>
+        <div class="card p-8">
+          <h3 class="font-sans font-semibold text-h4 text-warm-white mb-4">Why No Subcontractors?</h3>
+          <p class="text-body text-stone mb-4">
+            It's a simple policy with real consequences. When you hire KZ Audio & Video, you get Kelly, Billy, and Julian on your job. Not whoever a staffing agency sent over. Not a crew who doesn't know your system.
+          </p>
+          <p class="text-body text-stone mb-4">
+            The people who designed the system are the people who installed it. The people who installed it are the people who answer the phone afterward.
+          </p>
+          <p class="text-body text-stone">
+            That's been true since 2001 and it hasn't changed.
+          </p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <TestimonialsSection
+    heading="What Clients and Builders Say"
+    featured={featured}
+    secondary={secondary}
+  />
+
+  <CTASection
+    heading="Ready to Work With the Team?"
+    body="Book a free, no-pressure consultation. We'll come to your home or job site, talk through what you're looking for, and give you a real quote."
+    ctaLabel="Book a Free Consultation"
+    ctaHref="/contact-kz-audio-video-san-antonio-tx/"
+    secondaryLabel="Call (210) 981-4098"
+    secondaryHref="tel:2109814098"
+  />
+
+</BaseLayout>

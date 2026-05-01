@@ -1,0 +1,53 @@
+---
+interface Props {
+  heading?: string;
+  body?: string;
+  ctaLabel?: string;
+  ctaHref?: string;
+  secondaryLabel?: string;
+  secondaryHref?: string;
+  bgImage?: string;
+}
+
+const {
+  heading      = 'Every project starts with a free in-home consultation.',
+  body         = 'We come to you, look at the space, and tell you exactly what\'s possible. No pressure, no obligation.',
+  ctaLabel     = 'Book Your Consultation',
+  ctaHref      = '/contact-kz-audio-video-san-antonio-tx/',
+  secondaryLabel = 'Or call us directly: (210) 981-4098',
+  secondaryHref  = 'tel:2109814098',
+  bgImage,
+} = Astro.props;
+---
+
+<section class="relative py-24 px-4 sm:px-6 overflow-hidden">
+  {bgImage && (
+    <>
+      <img
+        src={bgImage}
+        alt=""
+        aria-hidden="true"
+        class="absolute inset-0 w-full h-full object-cover object-center opacity-20"
+        loading="lazy"
+      />
+      <div class="absolute inset-0 bg-charcoal/70" aria-hidden="true"></div>
+    </>
+  )}
+  <div class="relative z-10 container-main text-center">
+    <span class="gold-rule mx-auto"></span>
+    <h2 class="font-display text-h2 text-warm-white mb-4 max-w-2xl mx-auto">
+      {heading}
+    </h2>
+    <p class="text-body-lg text-stone mb-10 max-w-xl mx-auto">
+      {body}
+    </p>
+    <div class="flex flex-col sm:flex-row gap-4 justify-center">
+      <a href={ctaHref} class="btn-primary">
+        {ctaLabel}
+      </a>
+      <a href={secondaryHref} class="btn-ghost">
+        {secondaryLabel}
+      </a>
+    </div>
+  </div>
+</section>

@@ -1,0 +1,129 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import HeroSection from '../../components/sections/HeroSection.astro';
+import TrustBar from '../../components/sections/TrustBar.astro';
+import TestimonialsSection from '../../components/sections/TestimonialsSection.astro';
+import FAQAccordion from '../../components/sections/FAQAccordion.astro';
+import CTASection from '../../components/sections/CTASection.astro';
+
+const schema = {
+  "@context": "https://schema.org",
+  "@type": "Service",
+  "name": "AV Repair and Service",
+  "provider": {
+    "@type": "LocalBusiness",
+    "name": "KZ Audio & Video",
+    "url": "https://kzaudioandvideo.com",
+    "telephone": "+12109814098"
+  },
+  "areaServed": "San Antonio, TX",
+  "description": "AV repair and troubleshooting in San Antonio TX. We work on home theaters, surround sound systems, and AV equipment we didn't install. Honest assessment, no guesswork.",
+  "url": "https://kzaudioandvideo.com/av-repair-san-antonio-tx/"
+};
+
+const breadcrumb = {
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": [
+    { "@type": "ListItem", "position": 1, "name": "Home", "item": "https://kzaudioandvideo.com" },
+    { "@type": "ListItem", "position": 2, "name": "AV Repair San Antonio TX" }
+  ]
+};
+
+const faqs = [
+  {
+    question: 'Do you work on systems you didn\'t install?',
+    answer: 'Yes. We service and repair AV systems regardless of who installed them. If your home theater is acting up, your surround sound has stopped working, or your system needs recalibration, give us a call. We\'ll assess it honestly and tell you what\'s fixable and what it costs.',
+  },
+  {
+    question: 'What kinds of problems do you fix?',
+    answer: 'Receivers that won\'t power on, systems that won\'t communicate, speakers that have stopped working, HDMI handshake issues, projector problems, calibration that\'s way off, remote control failures, and system configurations that have never worked right. We also diagnose systems that were installed poorly and recommend the most cost-effective path to getting them working correctly.',
+  },
+  {
+    question: 'My home theater was installed by someone else. Can you help?',
+    answer: 'Yes. We see a fair number of systems that were installed by someone who\'s no longer around, or that the homeowner inherited when they bought the house. We can assess the system, troubleshoot what\'s wrong, and either fix it or give you an honest recommendation on what\'s worth keeping.',
+  },
+  {
+    question: 'How do I know if my equipment can be repaired or needs to be replaced?',
+    answer: 'We\'ll tell you. If a repair costs more than the equipment is worth, we say so. We don\'t fix things for the sake of billing — we tell you the most cost-effective path. Sometimes that\'s a repair. Sometimes it\'s replacing one component. Sometimes it\'s a full upgrade, and sometimes it\'s just a reconfiguration.',
+  },
+  {
+    question: 'Do you do in-home service calls?',
+    answer: 'Yes. We come to you. Most AV problems are system-level issues — components talking to each other, room acoustics, mounting and placement — that need to be assessed in the actual space. We don\'t ask you to bring equipment to us.',
+  },
+];
+
+const featured = {
+  name: 'Eric Turner',
+  location: 'San Antonio, TX',
+  service: 'Home Theater Client — Nearly 10 Years',
+  quote: "Kelly and crew have always been great to work with. They're honest and will recommend what actually works for your situation rather than upselling you on equipment you don't need.",
+};
+---
+
+<BaseLayout
+  title="AV Repair San Antonio TX | Home Theater Service | KZ Audio & Video"
+  description="AV repair and home theater service in San Antonio TX. We work on systems we didn't install. Honest assessment, no guesswork. Call (210) 981-4098."
+  schema={[schema, breadcrumb]}
+>
+
+  <HeroSection
+    overline="AV Repair & Service · San Antonio · Hill Country · Since 2001"
+    heading="AV Repair and Home Theater Service in San Antonio TX"
+    subhead="System acting up? We work on home theaters, surround sound, and AV equipment we didn't install. KZ Audio & Video has been diagnosing and fixing AV systems in San Antonio since 2001. We'll tell you what's wrong and whether it's worth fixing."
+    ctaLabel="Call (210) 981-4098"
+    ctaHref="tel:2109814098"
+    secondaryCta="Or book a service call"
+    secondaryHref="/contact-kz-audio-video-san-antonio-tx/"
+    imageSrc="/images/projects/asanka-theater/theater-room-san-antonio-tx.jpg"
+    imageAlt="AV repair and home theater service in San Antonio Texas"
+  />
+
+  <TrustBar />
+
+  <!-- Services -->
+  <section class="section bg-slate-surface">
+    <div class="container-main">
+      <p class="overline mb-3">AV Repair Services</p>
+      <h2 class="font-display text-h2 text-warm-white mb-6">
+        We'll Tell You What's Wrong. And Whether It's Worth Fixing.
+      </h2>
+      <p class="text-body-lg text-stone mb-12 max-w-2xl">
+        We don't fix things to generate a bill. We assess your system honestly and give you the most cost-effective path forward. Sometimes that's a repair. Sometimes it's a component swap. Sometimes it's an honest "replace it."
+      </p>
+
+      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+        {[
+          { title: 'Home Theater Troubleshooting', desc: 'Full system diagnostics — receiver, projector, display, speakers, sources, and control system. We find what\'s wrong and tell you what it takes to fix it.' },
+          { title: 'Surround Sound Repair', desc: 'Dead channels, calibration issues, receiver problems, speaker failures. We diagnose and repair or recommend replacement when repair isn\'t cost-effective.' },
+          { title: 'HDMI & Connectivity Issues', desc: 'HDMI handshake failures, 4K compatibility problems, signal distribution issues. More common than they should be — we\'ve seen all of them.' },
+          { title: 'System Recalibration', desc: 'Rooms change, equipment ages, people move things. We recalibrate systems to current conditions — whether we installed them or not.' },
+          { title: 'Inherited System Assessment', desc: 'Bought a house with an existing AV system and don\'t know what you have? We\'ll assess it, document it, and tell you what\'s worth keeping.' },
+          { title: 'Projector Service', desc: 'Alignment, lamp replacement, lens cleaning, connectivity. We service and reconfigure projection systems across San Antonio.' },
+        ].map(({ title, desc }) => (
+          <div class="card p-7 flex flex-col gap-3">
+            <h3 class="font-sans font-semibold text-h4 text-warm-white">{title}</h3>
+            <p class="text-body-sm text-stone leading-relaxed">{desc}</p>
+          </div>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <TestimonialsSection featured={featured} />
+
+  <FAQAccordion
+    heading="AV Repair — Frequently Asked Questions"
+    faqs={faqs}
+  />
+
+  <CTASection
+    heading="Something Not Working Right?"
+    body="Give us a call or book a service visit. We'll come out, assess the system, and tell you what's going on — straight."
+    ctaLabel="Call (210) 981-4098"
+    ctaHref="tel:2109814098"
+    secondaryLabel="Book a Service Visit"
+    secondaryHref="/contact-kz-audio-video-san-antonio-tx/"
+  />
+
+</BaseLayout>

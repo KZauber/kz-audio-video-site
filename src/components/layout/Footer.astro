@@ -1,0 +1,117 @@
+---
+const services = [
+  { label: 'Home Theater',      href: '/home-theater-installation-san-antonio-tx/' },
+  { label: 'Whole House Audio', href: '/whole-house-audio-san-antonio/' },
+  { label: 'Outdoor AV',        href: '/outdoor-audio-video-san-antonio/' },
+  { label: 'Surround Sound',    href: '/surround-sound-installation-san-antonio/' },
+  { label: 'Security Cameras',  href: '/security-camera-installation-san-antonio/' },
+  { label: 'AV Repair',         href: '/av-repair-san-antonio-tx/' },
+];
+
+const company = [
+  { label: 'Projects',      href: '/home-theater-projects-san-antonio/' },
+  { label: 'For Builders',  href: '/av-partner-for-home-builders-san-antonio/' },
+  { label: 'About',         href: '/about-kz-audio-video/' },
+  { label: 'FAQ',           href: '/faq-home-theater-av-installation-san-antonio/' },
+  { label: 'Contact',       href: '/contact-kz-audio-video-san-antonio-tx/' },
+];
+
+const areas = [
+  { label: 'San Antonio',     href: '/home-theater-installation-san-antonio-tx/' },
+  { label: 'Boerne',          href: '/home-theater-boerne-tx/' },
+  { label: 'Bulverde',        href: '/home-theater-bulverde-tx/' },
+  { label: 'Canyon Lake',     href: '/home-theater-canyon-lake-tx/' },
+  { label: 'Helotes',         href: '/home-theater-helotes-tx/' },
+  { label: 'Stone Oak',       href: '/home-theater-stone-oak-san-antonio/' },
+  { label: 'Timberwood Park', href: '/home-theater-timberwood-park-tx/' },
+  { label: 'New Braunfels',   href: '/home-theater-new-braunfels-tx/' },
+];
+---
+
+<footer class="bg-slate-surface border-t border-smoke mt-0">
+  <div class="container-wide px-4 sm:px-6 lg:px-8 py-16">
+    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-10">
+
+      <!-- Brand column -->
+      <div class="lg:col-span-1">
+        <a href="/" aria-label="KZ Audio & Video — Home">
+          <img
+            src="/images/kz-av-logo-transparent.png"
+            alt="KZ Audio & Video"
+            width="140"
+            height="79"
+            class="h-9 w-auto mb-4"
+            loading="lazy"
+          />
+        </a>
+        <p class="text-stone text-body-sm leading-relaxed mb-4">
+          In the audio business since 1997.<br />Home AV since 2001.
+        </p>
+        <a
+          href="tel:2109814098"
+          class="text-gold font-sans font-semibold text-body hover:text-gold-light transition-colors duration-fast"
+        >
+          (210) 981-4098
+        </a>
+      </div>
+
+      <!-- Services -->
+      <div>
+        <h3 class="font-sans font-semibold text-caption text-warm-white uppercase tracking-widest mb-4">
+          Services
+        </h3>
+        <ul class="flex flex-col gap-2">
+          {services.map(({ label, href }) => (
+            <li>
+              <a href={href} class="text-stone text-body-sm hover:text-warm-white transition-colors duration-fast">
+                {label}
+              </a>
+            </li>
+          ))}
+        </ul>
+      </div>
+
+      <!-- Company -->
+      <div>
+        <h3 class="font-sans font-semibold text-caption text-warm-white uppercase tracking-widest mb-4">
+          Company
+        </h3>
+        <ul class="flex flex-col gap-2">
+          {company.map(({ label, href }) => (
+            <li>
+              <a href={href} class="text-stone text-body-sm hover:text-warm-white transition-colors duration-fast">
+                {label}
+              </a>
+            </li>
+          ))}
+        </ul>
+      </div>
+
+      <!-- Service Areas -->
+      <div>
+        <h3 class="font-sans font-semibold text-caption text-warm-white uppercase tracking-widest mb-4">
+          Service Areas
+        </h3>
+        <ul class="flex flex-col gap-2">
+          {areas.map(({ label, href }) => (
+            <li>
+              <a href={href} class="text-stone text-body-sm hover:text-warm-white transition-colors duration-fast">
+                {label}
+              </a>
+            </li>
+          ))}
+        </ul>
+      </div>
+    </div>
+
+    <!-- Bottom bar -->
+    <div class="border-t border-smoke mt-12 pt-8 flex flex-col sm:flex-row justify-between items-center gap-4">
+      <p class="text-ash text-body-sm">
+        &copy; {new Date().getFullYear()} KZ Audio & Video. All rights reserved.
+      </p>
+      <p class="text-ash text-body-sm">
+        San Antonio, TX · Serving the Hill Country since 2001
+      </p>
+    </div>
+  </div>
+</footer>

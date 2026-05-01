@@ -1,0 +1,149 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import TrustBar from '../../components/sections/TrustBar.astro';
+import CTASection from '../../components/sections/CTASection.astro';
+
+const schema = {
+  "@context": "https://schema.org",
+  "@type": "CollectionPage",
+  "name": "Home Theater and AV Projects — San Antonio TX",
+  "description": "Custom home theater, outdoor AV, and whole-house audio projects by KZ Audio & Video in San Antonio and the Texas Hill Country.",
+  "url": "https://kzaudioandvideo.com/home-theater-projects-san-antonio/",
+  "provider": {
+    "@type": "LocalBusiness",
+    "name": "KZ Audio & Video"
+  }
+};
+
+const breadcrumb = {
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": [
+    { "@type": "ListItem", "position": 1, "name": "Home", "item": "https://kzaudioandvideo.com" },
+    { "@type": "ListItem", "position": 2, "name": "Home Theater Projects San Antonio" }
+  ]
+};
+
+const projects = [
+  {
+    title: 'Dedicated Home Theater — Canyon Lake TX',
+    location: 'Canyon Lake, TX',
+    service: 'Home Theater',
+    description: 'Full theater room with custom leather power recliner seating on a raised platform, blue LED accent lighting, projection system, and in-wall surround sound. From pre-wire through final calibration.',
+    images: [
+      { src: '/images/projects/monty-theater/Canyon-Lake-Tesac-Home-Theater-Custom-Seating.jpeg.jpg', alt: 'Custom home theater with leather recliners and blue LED lighting in Canyon Lake Texas' },
+      { src: '/images/projects/monty-theater/Home-Theater-Design-Build-Near-San-Antonio-Texas.jpeg.jpg', alt: 'Home theater design and build near San Antonio Texas' },
+    ],
+  },
+  {
+    title: 'Dedicated Home Theater — San Antonio TX',
+    location: 'San Antonio, TX',
+    service: 'Home Theater',
+    description: 'Epson projector, Screen Innovations fixed-frame screen, Martin Logan on-wall speakers, LED accent lighting. Pre-wire through finished install with homeowner walkthrough.',
+    images: [
+      { src: '/images/projects/asanka-theater/theater-room-san-antonio-tx.jpg', alt: 'Home theater installation in San Antonio Texas with projection screen and surround sound' },
+    ],
+  },
+  {
+    title: 'Star Wars Themed Theater — San Antonio TX',
+    location: 'San Antonio, TX',
+    service: 'Home Theater',
+    description: 'JVC projector, custom Star Wars built-in cabinetry and theming, tiered seating, in-wall surround sound. A fully custom dedicated theater built around the client\'s vision.',
+    images: [
+      { src: '/images/projects/davids-theater/david-theater-san-antonio-tx.jpg', alt: 'Star Wars themed home theater with custom cabinetry in San Antonio Texas' },
+    ],
+  },
+  {
+    title: 'New Build Theater — San Antonio TX',
+    location: 'San Antonio, TX',
+    service: 'Home Theater',
+    description: 'Epson projector, Martin Logan on-wall speakers, complete pre-wire and trim-out in new custom home construction. Documented from rough-in through finished install.',
+    images: [
+      { src: '/images/projects/young-theater/young-theater-san-antonio-tx.jpg', alt: 'New construction home theater installation in San Antonio Texas' },
+    ],
+  },
+  {
+    title: 'Samsung Frame TV on Marble Fireplace Wall',
+    location: 'San Antonio, TX',
+    service: 'TV Installation',
+    description: 'Samsung Frame TV installed flush on a marble fireplace wall with Sonos Arc soundbar. No visible wiring. Displays fine art when not in use.',
+    images: [
+      { src: '/images/projects/flat-tvs/samsung-frame-tv-marble-wall-san-antonio.jpg', alt: 'Samsung Frame TV installed on marble fireplace wall in San Antonio Texas' },
+    ],
+  },
+  {
+    title: 'Outdoor Patio Projector System — Hill Country TX',
+    location: 'Hill Country, TX',
+    service: 'Outdoor AV',
+    description: 'Projector ceiling-mounted under a Hill Country limestone arch on a covered patio, with pool-side rock speakers throughout the yard. Designed for the Texas outdoor climate.',
+    images: [
+      { src: '/images/projects/outdoor-av/pool-projector-outdoor-theater.jpeg.jpg', alt: 'Outdoor projector mounted under limestone arch on covered patio near San Antonio Texas' },
+    ],
+  },
+];
+---
+
+<BaseLayout
+  title="Home Theater Projects San Antonio TX | KZ Audio & Video"
+  description="Custom home theater, outdoor AV, and TV installation projects by KZ Audio & Video in San Antonio and the Texas Hill Country. View recent installs."
+  schema={[schema, breadcrumb]}
+>
+
+  <!-- Hero -->
+  <section class="section bg-charcoal pt-32">
+    <div class="container-main">
+      <p class="overline mb-3">Recent Work</p>
+      <h1 class="font-display text-h1 text-warm-white mb-6">
+        Custom Home Theater and AV Projects
+      </h1>
+      <p class="text-body-lg text-stone max-w-2xl">
+        Every project on this page was designed, installed, and calibrated by Kelly, Billy, and Julian — the three people who make up KZ Audio & Video. No subcontractors. No outsourced labor.
+      </p>
+    </div>
+  </section>
+
+  <TrustBar />
+
+  <!-- Projects -->
+  <section class="section bg-slate-surface">
+    <div class="container-main">
+      <div class="flex flex-col gap-16">
+        {projects.map(({ title, location, service, description, images }) => (
+          <div class="grid grid-cols-1 lg:grid-cols-2 gap-10 items-start">
+            <!-- Images -->
+            <div class={`grid gap-4 ${images.length > 1 ? 'grid-cols-2' : 'grid-cols-1'}`}>
+              {images.map(({ src, alt }) => (
+                <div class="overflow-hidden rounded-sm aspect-video">
+                  <img
+                    src={src}
+                    alt={alt}
+                    class="w-full h-full object-cover"
+                    loading="lazy"
+                  />
+                </div>
+              ))}
+            </div>
+            <!-- Content -->
+            <div class="flex flex-col justify-center">
+              <p class="text-caption text-stone uppercase tracking-widest mb-3">
+                {location} &middot; {service}
+              </p>
+              <h2 class="font-display text-h2 text-warm-white mb-4">{title}</h2>
+              <p class="text-body-lg text-stone leading-relaxed">{description}</p>
+            </div>
+          </div>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <CTASection
+    heading="Ready to Build Something Like This?"
+    body="Book a free consultation. We'll come to your home, look at the space, and design a system around how you actually live."
+    ctaLabel="Book a Free Consultation"
+    ctaHref="/contact-kz-audio-video-san-antonio-tx/"
+    secondaryLabel="Call (210) 981-4098"
+    secondaryHref="tel:2109814098"
+  />
+
+</BaseLayout>

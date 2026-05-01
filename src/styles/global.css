@@ -1,0 +1,114 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Playfair+Display:ital,wght@0,600;0,700;1,400;1,600&display=swap');
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    scroll-behavior: smooth;
+  }
+
+  html {
+    background-color: #121416;
+    color: #F2EDE6;
+  }
+
+  body {
+    font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+    font-size: 1rem;
+    line-height: 1.7;
+    color: #F2EDE6;
+    background-color: #121416;
+    -webkit-font-smoothing: antialiased;
+  }
+
+  h1, h2 {
+    font-family: 'Playfair Display', Georgia, serif;
+  }
+
+  h3, h4, h5, h6 {
+    font-family: 'Inter', sans-serif;
+  }
+
+  /* Focus ring — gold for accessibility */
+  *:focus-visible {
+    outline: 2px solid #C9A84C;
+    outline-offset: 2px;
+  }
+
+  /* Tel links inherit color */
+  a[href^="tel"] {
+    color: inherit;
+    text-decoration: none;
+  }
+}
+
+@layer components {
+  /* Section wrapper */
+  .section {
+    @apply py-24 px-4 sm:px-6;
+  }
+
+  .section-sm {
+    @apply py-16 px-4 sm:px-6;
+  }
+
+  /* Container widths */
+  .container-content {
+    @apply max-w-content mx-auto;
+  }
+
+  .container-main {
+    @apply max-w-main mx-auto;
+  }
+
+  .container-wide {
+    @apply max-w-wide mx-auto;
+  }
+
+  /* Overline label */
+  .overline {
+    @apply text-overline text-gold uppercase tracking-widest font-sans;
+  }
+
+  /* Gold divider accent */
+  .gold-rule {
+    @apply block w-12 h-px bg-gold mb-4;
+  }
+
+  /* Buttons */
+  .btn-primary {
+    @apply inline-flex items-center gap-2 bg-gold text-charcoal font-sans font-semibold
+           text-base px-8 py-4 rounded-btn
+           transition-all duration-fast
+           hover:bg-gold-light hover:scale-[1.02]
+           active:scale-[0.98]
+           focus-visible:outline-2 focus-visible:outline-gold focus-visible:outline-offset-2;
+  }
+
+  .btn-ghost {
+    @apply inline-flex items-center gap-2 bg-transparent text-warm-white font-sans font-semibold
+           text-base px-[31px] py-[15px] rounded-btn
+           border border-gold
+           transition-all duration-fast
+           hover:bg-gold/10 hover:text-gold-light
+           focus-visible:outline-2 focus-visible:outline-gold focus-visible:outline-offset-2;
+  }
+
+  .btn-text {
+    @apply text-gold font-sans font-semibold text-body-sm
+           transition-colors duration-fast
+           hover:text-gold-light hover:underline;
+  }
+
+  /* Card base */
+  .card {
+    @apply bg-slate-surface border border-smoke rounded-card
+           transition-all duration-base;
+  }
+
+  .card-hover {
+    @apply hover:border-gold;
+  }
+}

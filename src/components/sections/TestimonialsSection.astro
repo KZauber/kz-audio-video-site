@@ -1,0 +1,50 @@
+---
+interface Testimonial {
+  name: string;
+  location: string;
+  service: string;
+  quote: string;
+}
+
+interface Props {
+  heading?: string;
+  featured: Testimonial;
+  secondary?: Testimonial[];
+}
+
+const {
+  heading = 'What Clients Say',
+  featured,
+  secondary = [],
+} = Astro.props;
+---
+
+<section class="section bg-slate-surface">
+  <div class="container-main">
+    <p class="overline mb-3">{heading}</p>
+
+    <!-- Featured review -->
+    <blockquote class="border-l-4 border-gold pl-8 py-2 mb-10">
+      <p class="font-display italic text-h3 text-warm-white leading-relaxed mb-6">
+        "{featured.quote}"
+      </p>
+      <footer class="text-caption text-stone uppercase tracking-widest">
+        {featured.name} &middot; {featured.location} &middot; {featured.service}
+      </footer>
+    </blockquote>
+
+    <!-- Secondary reviews -->
+    {secondary.length > 0 && (
+      <div class="grid grid-cols-1 md:grid-cols-2 gap-6 mt-8">
+        {secondary.map((t) => (
+          <blockquote class="card card-hover p-6">
+            <p class="text-body text-warm-white italic mb-4">"{t.quote}"</p>
+            <footer class="text-caption text-stone uppercase tracking-widest">
+              {t.name} &middot; {t.location}
+            </footer>
+          </blockquote>
+        ))}
+      </div>
+    )}
+  </div>
+</section>

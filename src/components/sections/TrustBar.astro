@@ -1,0 +1,21 @@
+---
+const stats = [
+  { value: 'Since 1997', label: 'In the Audio Business' },
+  { value: 'Since 2001', label: 'Home AV Installation' },
+  { value: 'No Subs — Ever', label: 'Every Install Is Ours' },
+  { value: '5.0 Stars', label: '19 Google Reviews' },
+];
+---
+
+<section class="bg-slate-surface border-y border-smoke py-10 px-4 sm:px-6">
+  <div class="container-wide">
+    <dl class="grid grid-cols-2 lg:grid-cols-4 gap-8 lg:gap-4">
+      {stats.map(({ value, label }) => (
+        <div class="text-center lg:text-left">
+          <dt class="font-display font-bold text-h3 text-warm-white leading-tight">{value}</dt>
+          <dd class="text-body-sm text-stone mt-1">{label}</dd>
+        </div>
+      ))}
+    </dl>
+  </div>
+</section>

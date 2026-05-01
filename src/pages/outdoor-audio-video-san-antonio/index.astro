@@ -1,0 +1,174 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import HeroSection from '../../components/sections/HeroSection.astro';
+import TrustBar from '../../components/sections/TrustBar.astro';
+import ProjectsGrid from '../../components/sections/ProjectsGrid.astro';
+import TestimonialsSection from '../../components/sections/TestimonialsSection.astro';
+import FAQAccordion from '../../components/sections/FAQAccordion.astro';
+import CTASection from '../../components/sections/CTASection.astro';
+
+const schema = {
+  "@context": "https://schema.org",
+  "@type": "Service",
+  "name": "Outdoor Audio and Video Installation",
+  "provider": {
+    "@type": "LocalBusiness",
+    "name": "KZ Audio & Video",
+    "url": "https://kzaudioandvideo.com",
+    "telephone": "+12109814098"
+  },
+  "areaServed": "San Antonio, TX",
+  "description": "Outdoor audio and video installation in San Antonio TX and the Texas Hill Country. Covered patios, pool decks, outdoor kitchens. Weather-resistant speakers, outdoor TVs, and projector systems.",
+  "url": "https://kzaudioandvideo.com/outdoor-audio-video-san-antonio/"
+};
+
+const breadcrumb = {
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": [
+    { "@type": "ListItem", "position": 1, "name": "Home", "item": "https://kzaudioandvideo.com" },
+    { "@type": "ListItem", "position": 2, "name": "Outdoor Audio & Video San Antonio" }
+  ]
+};
+
+const projects = [
+  {
+    title: 'Outdoor Patio Projector — Hill Country TX',
+    location: 'Hill Country, TX',
+    service: 'Outdoor AV',
+    description: 'Projector ceiling-mounted under a Hill Country limestone arch on a covered patio. Pool-side rock speakers throughout the yard. Clean installs designed for the Texas climate.',
+    imageSrc: '/images/projects/outdoor-av/pool-projector-outdoor-theater.jpeg.jpg',
+    imageAlt: 'Outdoor projector mounted under limestone arch on covered patio near San Antonio Texas',
+  },
+  {
+    title: 'Outdoor Speaker System — San Antonio TX',
+    location: 'San Antonio, TX',
+    service: 'Outdoor Audio',
+    description: 'Weatherproof speakers throughout the backyard, integrated with the whole-house audio system. Phone-controlled, independent zone from inside.',
+    imageSrc: '/images/projects/flat-tvs/samsung-frame-tv-marble-wall-san-antonio.jpg',
+    imageAlt: 'Outdoor audio and AV installation in San Antonio Texas backyard',
+  },
+];
+
+const faqs = [
+  {
+    question: 'What kind of outdoor AV systems do you install?',
+    answer: 'We install weatherproof speaker systems, outdoor TVs, and outdoor projector setups for covered patios, pool decks, outdoor kitchens, and backyards. We design around how the space is used — a patio that\'s primarily for music needs a different solution than a covered outdoor theater. We\'ll tell you what holds up in the Texas heat and humidity.',
+  },
+  {
+    question: 'Do outdoor speakers hold up in the San Antonio climate?',
+    answer: 'The right ones do. We install speakers rated for outdoor use — weather-sealed enclosures, UV-resistant drivers, stainless hardware. The Texas heat and humidity is real, and we spec equipment that\'s designed for it. We\'ve had outdoor installs running reliably for years in this climate.',
+  },
+  {
+    question: 'Can I add an outdoor TV to my covered patio?',
+    answer: 'Yes. We install weatherproof and partial-sun rated outdoor TVs and mount them clean — no visible wiring. We assess the sun exposure, ambient light, and mounting surface and recommend the right display for the location. Not every TV marketed as "outdoor" is built for direct Texas sun — we know the difference.',
+  },
+  {
+    question: 'What about an outdoor projector for movie nights?',
+    answer: 'A covered patio or outdoor theater setup is one of our favorite installs. We ceiling-mount the projector under the cover, run the wire clean through the structure, and pair it with a motorized or fixed-frame screen and outdoor speakers. The result is a proper movie experience outside.',
+  },
+  {
+    question: 'Can my outdoor speakers connect to my whole house audio system?',
+    answer: 'Absolutely — and that\'s usually the best approach. Your patio and backyard become one or more zones in your whole-house system, controlled the same way as every other room. If you already have a Sonos system inside, we add to it. If you\'re starting fresh, we design it all together.',
+  },
+];
+
+const featured = {
+  name: 'Monty Heins',
+  location: 'Canyon Lake, TX',
+  service: 'Home Theater & Outdoor AV',
+  quote: 'Billy, Julien and Kelly did an outstanding job. From start to finish they were professional, knowledgeable, and easy to work with. The theater came out better than I had hoped.',
+};
+---
+
+<BaseLayout
+  title="Outdoor Audio & Video Installation San Antonio TX | KZ Audio & Video"
+  description="Outdoor audio and video installation in San Antonio TX and the Hill Country. Covered patios, pool decks, outdoor projectors, weatherproof speakers. No subcontractors. Call (210) 981-4098."
+  schema={[schema, breadcrumb]}
+>
+
+  <HeroSection
+    overline="Outdoor Audio & Video · San Antonio · Hill Country · Since 2001"
+    heading="Outdoor Audio & Video Installation in San Antonio TX"
+    subhead="Covered patios, pool decks, outdoor kitchens, and backyards. KZ Audio & Video installs weatherproof speaker systems, outdoor TVs, and projector setups designed for the Texas climate — and built to last."
+    ctaLabel="Book a Free Consultation"
+    ctaHref="/contact-kz-audio-video-san-antonio-tx/"
+    secondaryCta="Or call: (210) 981-4098"
+    secondaryHref="tel:2109814098"
+    imageSrc="/images/projects/outdoor-av/pool-projector-outdoor-theater.jpeg.jpg"
+    imageAlt="Outdoor projector and speaker installation on covered patio near San Antonio Texas"
+  />
+
+  <TrustBar />
+
+  <!-- Services -->
+  <section class="section bg-slate-surface">
+    <div class="container-main">
+      <p class="overline mb-3">Outdoor AV Services</p>
+      <h2 class="font-display text-h2 text-warm-white mb-6">
+        Built for the Texas Outdoors
+      </h2>
+      <p class="text-body-lg text-stone mb-12 max-w-2xl">
+        San Antonio's outdoor living season is most of the year. We design and install AV systems that make your patio, pool, and backyard as enjoyable as your living room — and that hold up in the heat.
+      </p>
+
+      <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
+        {[
+          {
+            title: 'Outdoor Speaker Systems',
+            desc: 'In-ground, surface-mount, and rock-style speakers for patios, pool decks, and backyards. Weather-sealed and UV-resistant. Integrated as a zone into your whole-house system.',
+          },
+          {
+            title: 'Outdoor Projector Systems',
+            desc: 'Ceiling-mounted projectors for covered patios, motorized or fixed screens, outdoor-rated audio. A proper outdoor theater experience — not just a screen on a table.',
+          },
+          {
+            title: 'Outdoor TV Installations',
+            desc: 'Weather-resistant and full-sun displays mounted clean on covered patios and outdoor kitchens. No visible wiring. Rated for the Texas climate.',
+          },
+          {
+            title: 'Outdoor Kitchen AV',
+            desc: 'Audio and display integration for outdoor kitchens. Weatherproof speakers, mounted displays, and clean wire management built around the kitchen layout.',
+          },
+          {
+            title: 'Pool Deck Audio',
+            desc: 'In-ground and surface speakers around pool decks and backyard entertaining areas. Independent zone control so the pool has its own volume.',
+          },
+          {
+            title: 'Whole-Home Integration',
+            desc: 'Every outdoor zone ties into your home\'s audio system. Control outdoor speakers from the same app as every room inside.',
+          },
+        ].map(({ title, desc }) => (
+          <div class="card p-7 flex flex-col gap-3">
+            <h3 class="font-sans font-semibold text-h4 text-warm-white">{title}</h3>
+            <p class="text-body-sm text-stone leading-relaxed">{desc}</p>
+          </div>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <ProjectsGrid
+    projects={projects}
+    overline="Outdoor AV Projects"
+    heading="Recent Outdoor Audio & Video Installs"
+    showLink={false}
+  />
+
+  <TestimonialsSection featured={featured} />
+
+  <FAQAccordion
+    heading="Outdoor Audio & Video — Frequently Asked Questions"
+    faqs={faqs}
+  />
+
+  <CTASection
+    heading="Ready to Upgrade Your Outdoor Space?"
+    body="Book a free consultation. We'll look at your patio, pool, and yard and design an outdoor AV system that works — and lasts."
+    ctaLabel="Book a Free Consultation"
+    ctaHref="/contact-kz-audio-video-san-antonio-tx/"
+    secondaryLabel="Call (210) 981-4098"
+    secondaryHref="tel:2109814098"
+  />
+
+</BaseLayout>

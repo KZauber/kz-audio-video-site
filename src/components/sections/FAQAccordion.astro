@@ -1,0 +1,76 @@
+---
+interface FAQ {
+  question: string;
+  answer: string;
+}
+
+interface Props {
+  heading?: string;
+  faqs: FAQ[];
+}
+
+const {
+  heading = 'Frequently Asked Questions',
+  faqs,
+} = Astro.props;
+---
+
+<section class="section bg-charcoal">
+  <div class="container-content">
+    <h2 class="font-display text-h2 text-warm-white mb-10">{heading}</h2>
+
+    <div class="flex flex-col divide-y divide-smoke" id="faq-list">
+      {faqs.map(({ question, answer }, i) => (
+        <div class="py-5">
+          <button
+            type="button"
+            class="w-full text-left flex justify-between items-start gap-4
+                   font-sans font-semibold text-h4 text-warm-white
+                   hover:text-gold transition-colors duration-fast"
+            aria-expanded="false"
+            aria-controls={`faq-answer-${i}`}
+            data-faq-btn
+          >
+            <span>{question}</span>
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              width="20" height="20"
+              viewBox="0 0 24 24"
+              fill="none"
+              stroke="currentColor"
+              stroke-width="2"
+              stroke-linecap="round"
+              stroke-linejoin="round"
+              class="flex-shrink-0 mt-0.5 transition-transform duration-fast"
+              aria-hidden="true"
+              data-faq-icon
+            >
+              <path d="M6 9l6 6 6-6" />
+            </svg>
+          </button>
+          <div
+            id={`faq-answer-${i}`}
+            class="overflow-hidden max-h-0 transition-all duration-base"
+            data-faq-panel
+          >
+            <p class="text-stone text-body leading-relaxed pt-4 pb-2">{answer}</p>
+          </div>
+        </div>
+      ))}
+    </div>
+  </div>
+</section>
+
+<script>
+  document.querySelectorAll('[data-faq-btn]').forEach((btn) => {
+    btn.addEventListener('click', () => {
+      const expanded = btn.getAttribute('aria-expanded') === 'true';
+      const panel = btn.nextElementSibling as HTMLElement;
+      const icon  = btn.querySelector('[data-faq-icon]') as HTMLElement;
+
+      btn.setAttribute('aria-expanded', String(!expanded));
+      panel.style.maxHeight = expanded ? '0' : `${panel.scrollHeight}px`;
+      icon.style.transform  = expanded ? '' : 'rotate(180deg)';
+    });
+  });
+</script>

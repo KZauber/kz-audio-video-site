@@ -1,0 +1,85 @@
+---
+interface Props {
+  overline?: string;
+  heading: string;
+  subhead: string;
+  ctaLabel?: string;
+  ctaHref?: string;
+  secondaryCta?: string;
+  secondaryHref?: string;
+  imageSrc: string;
+  imageAlt: string;
+  /** 'left' (default) or 'center' */
+  align?: 'left' | 'center';
+}
+
+const {
+  overline,
+  heading,
+  subhead,
+  ctaLabel = 'Book a Free Consultation',
+  ctaHref  = '/contact-kz-audio-video-san-antonio-tx/',
+  secondaryCta,
+  secondaryHref = 'tel:2109814098',
+  imageSrc,
+  imageAlt,
+  align = 'left',
+} = Astro.props;
+---
+
+<section class="relative min-h-[90vh] md:min-h-screen flex items-center overflow-hidden">
+  <!-- Background image -->
+  <div class="absolute inset-0">
+    <img
+      src={imageSrc}
+      alt=""
+      aria-hidden="true"
+      class="w-full h-full object-cover object-center"
+      loading="eager"
+      fetchpriority="high"
+    />
+    <!-- Gradient overlay: heavy left, lighter right on desktop; full on mobile -->
+    <div
+      class="absolute inset-0"
+      style="background: linear-gradient(to right, rgba(18,20,22,0.90) 0%, rgba(18,20,22,0.85) 40%, rgba(18,20,22,0.30) 100%)"
+      aria-hidden="true"
+    ></div>
+    <!-- Mobile: full overlay -->
+    <div
+      class="absolute inset-0 md:hidden"
+      style="background: rgba(18,20,22,0.78)"
+      aria-hidden="true"
+    ></div>
+  </div>
+
+  <!-- Content -->
+  <div class="relative z-10 container-wide px-4 sm:px-6 lg:px-8 py-32 md:py-40">
+    <div class:list={[
+      'max-w-xl',
+      align === 'center' ? 'mx-auto text-center' : '',
+    ]}>
+      {overline && (
+        <p class="overline mb-4">{overline}</p>
+      )}
+      <h1 class="font-display text-hero text-warm-white mb-6 leading-tight">
+        {heading}
+      </h1>
+      <p class="text-body-lg text-stone mb-10 max-w-lg">
+        {subhead}
+      </p>
+      <div class:list={[
+        'flex flex-col sm:flex-row gap-4',
+        align === 'center' ? 'justify-center' : '',
+      ]}>
+        <a href={ctaHref} class="btn-primary">
+          {ctaLabel}
+        </a>
+        {secondaryCta && (
+          <a href={secondaryHref} class="btn-ghost">
+            {secondaryCta}
+          </a>
+        )}
+      </div>
+    </div>
+  </div>
+</section>

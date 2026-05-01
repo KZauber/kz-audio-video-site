@@ -1,0 +1,74 @@
+[
+  {
+    "name": "Eric Turner",
+    "location": "San Antonio, TX",
+    "service": "Home Theater",
+    "quote": "I've been a customer of KZ Audio for going on a decade. Kelly and crew have always been great to work with. They're honest and will recommend what actually works for your situation rather than upselling you on equipment you don't need. I've never had a bad experience with them and would absolutely recommend them to anyone looking for AV services.",
+    "rating": 5,
+    "date": "2024-01",
+    "source": "google",
+    "verified": true,
+    "featured": true,
+    "audiences": ["residential"]
+  },
+  {
+    "name": "Monty Heins",
+    "location": "Canyon Lake, TX",
+    "service": "Home Theater",
+    "quote": "Billy, Julien and Kelly did an outstanding job on my home theater build. From start to finish they were professional, knowledgeable, and easy to work with. The theater came out better than I had hoped. I highly recommend KZ Audio and Video.",
+    "rating": 5,
+    "date": "2023-06",
+    "source": "google",
+    "verified": true,
+    "featured": true,
+    "audiences": ["residential"]
+  },
+  {
+    "name": "Mike Pottorff",
+    "location": "San Antonio, TX",
+    "service": "Home Theater",
+    "quote": "KZ Audio and Video did a great job installing our home theater system. They were professional, on time, and their attention to detail was outstanding. I would highly recommend them.",
+    "rating": 5,
+    "date": "2023-09",
+    "source": "google",
+    "verified": true,
+    "featured": false,
+    "audiences": ["residential"]
+  },
+  {
+    "name": "Theresa Apostolo",
+    "location": "San Antonio, TX",
+    "service": "Builder Partnership",
+    "quote": "I have been working with Kelly for 16 years. He and his team are true professionals. They show up on time, do quality work, and handle our homeowners with the utmost professionalism. I would recommend KZ Audio and Video to any builder looking for a reliable AV partner.",
+    "rating": 5,
+    "date": "2024-03",
+    "source": "google",
+    "verified": true,
+    "featured": true,
+    "audiences": ["builder"]
+  },
+  {
+    "name": "Winston",
+    "location": "San Antonio, TX",
+    "service": "Builder Partnership",
+    "quote": "KZ Audio and Video is our go-to for all AV and low voltage work on our custom homes. Kelly and his team are reliable, professional, and do excellent work. Our homeowners are always happy with the results.",
+    "rating": 5,
+    "date": "2024-02",
+    "source": "google",
+    "verified": true,
+    "featured": true,
+    "audiences": ["builder"]
+  },
+  {
+    "name": "Clay Bostick",
+    "location": "San Antonio, TX",
+    "service": "Post-Install Support",
+    "quote": "Great experience from start to finish. Kelly was responsive, knowledgeable, and went above and beyond to make sure everything was working perfectly even after the installation was complete.",
+    "rating": 5,
+    "date": "2023-11",
+    "source": "google",
+    "verified": true,
+    "featured": false,
+    "audiences": ["residential"]
+  }
+]
