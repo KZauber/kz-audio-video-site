@@ -1,0 +1,87 @@
+﻿---
+import BaseLayout from "../../layouts/BaseLayout.astro";
+import HeroSection from "../../components/sections/HeroSection.astro";
+import TrustBar from "../../components/sections/TrustBar.astro";
+import ServicesGrid from "../../components/sections/ServicesGrid.astro";
+import CTASection from "../../components/sections/CTASection.astro";
+
+const schema = {
+  "@context": "https://schema.org",
+  "@type": "Service",
+  "name": "Home Theater Installation Timberwood Park TX",
+  "provider": {
+    "@type": "LocalBusiness",
+    "name": "KZ Audio & Video",
+    "url": "https://kzaudioandvideo.com",
+    "telephone": "+12109814098"
+  },
+  "areaServed": "Timberwood Park, TX",
+  "description": "Custom home theater and AV installation in Timberwood Park TX. KZ Audio & Video serves Timberwood Park and the north Bexar County area with dedicated theaters and whole-house audio. Call (210) 981-4098.",
+  "url": "https://kzaudioandvideo.com/home-theater-timberwood-park-tx/"
+};
+
+const breadcrumb = {
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": [
+    { "@type": "ListItem", "position": 1, "name": "Home", "item": "https://kzaudioandvideo.com" },
+    { "@type": "ListItem", "position": 2, "name": "Home Theater Installation Timberwood Park TX" }
+  ]
+};
+---
+
+<BaseLayout
+  Home Theater Installation Timberwood Park TX="Home Theater Installation Timberwood Park TX | KZ Audio & Video"
+  description="Custom home theater and AV installation in Timberwood Park TX. KZ Audio & Video serves Timberwood Park and the north Bexar County area with dedicated theaters and whole-house audio. Call (210) 981-4098."
+  schema={[schema, breadcrumb]}
+>
+
+  <HeroSection
+    overline="Timberwood Park · San Antonio · Hill Country · Since 1997"
+    heading="Home Theater Installation Timberwood Park TX"
+    subhead="KZ Audio & Video installs custom home theater, whole-house audio, and outdoor AV systems in Timberwood Park TX and the surrounding north Bexar County area. In the audio business since 1997. No subcontractors."
+    ctaLabel="Book a Free Consultation"
+    ctaHref="/contact-kz-audio-video-san-antonio-tx/"
+    secondaryCta="Or call: (210) 981-4098"
+    secondaryHref="tel:2109814098"
+    imageSrc="/images/projects/monty-theater/Home-Theater-Installation-Near-Stone-Oak.jpeg.jpg"
+    imageAlt="/images/projects/monty-theater/Home-Theater-Installation-Near-Stone-Oak.jpeg.jpgALT"
+  />
+
+  <TrustBar />
+
+  <section class="section bg-slate-surface">
+    <div class="container-main">
+      <p class="overline mb-3 reveal">Serving Timberwood Park TX</p>
+      <h2 class="font-display text-h2 text-warm-white mb-6 reveal reveal-delay-1">
+        Home Theater and AV Installation in Timberwood Park
+      </h2>
+      <p class="text-body-lg text-stone mb-8 max-w-2xl reveal reveal-delay-2">
+        Timberwood Park is a well-established Hill Country community with larger custom homes and property. We serve both new builds and existing homes in the area and work with local custom builders active in the Bexar County Hill Country corridor.
+      </p>
+      <p class="text-body text-stone mb-10 max-w-2xl reveal reveal-delay-3">
+        Every project starts with a free in-home consultation. We come to you, look at the space, and tell you exactly what is possible — no pressure, no obligation. We have been serving the Timberwood Park area since 2001.
+      </p>
+      <div class="flex flex-col sm:flex-row gap-4 reveal reveal-delay-4">
+        <a href="/contact-kz-audio-video-san-antonio-tx/" class="btn-primary">Book a Free Consultation</a>
+        <a href="tel:2109814098" class="btn-ghost">Call (210) 981-4098</a>
+      </div>
+    </div>
+  </section>
+
+  <ServicesGrid
+    overline="What We Install in Timberwood Park"
+    heading="Every AV Service Your Timberwood Park Home Needs"
+    intro="From a dedicated home theater to whole-house audio to outdoor speakers on the back patio, KZ Audio & Video handles the design, the installation, and everything after."
+  />
+
+  <CTASection
+    heading="Free In-Home Consultation in Timberwood Park"
+    body="We come to you. Walk through the space. Tell you exactly what is possible. No pressure, no obligation. Serving Timberwood Park and the surrounding area since 2001."
+    ctaLabel="Book Your Consultation"
+    ctaHref="/contact-kz-audio-video-san-antonio-tx/"
+    secondaryLabel="Call (210) 981-4098"
+    secondaryHref="tel:2109814098"
+  />
+
+</BaseLayout>

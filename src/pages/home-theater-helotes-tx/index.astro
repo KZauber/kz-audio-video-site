@@ -1,0 +1,87 @@
+﻿---
+import BaseLayout from "../../layouts/BaseLayout.astro";
+import HeroSection from "../../components/sections/HeroSection.astro";
+import TrustBar from "../../components/sections/TrustBar.astro";
+import ServicesGrid from "../../components/sections/ServicesGrid.astro";
+import CTASection from "../../components/sections/CTASection.astro";
+
+const schema = {
+  "@context": "https://schema.org",
+  "@type": "Service",
+  "name": "Home Theater Installation Helotes TX",
+  "provider": {
+    "@type": "LocalBusiness",
+    "name": "KZ Audio & Video",
+    "url": "https://kzaudioandvideo.com",
+    "telephone": "+12109814098"
+  },
+  "areaServed": "Helotes, TX",
+  "description": "Custom home theater and AV installation in Helotes TX. KZ Audio & Video serves Helotes and northwest San Antonio with dedicated theater rooms, surround sound, and whole-house audio. Call (210) 981-4098.",
+  "url": "https://kzaudioandvideo.com/home-theater-helotes-tx/"
+};
+
+const breadcrumb = {
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": [
+    { "@type": "ListItem", "position": 1, "name": "Home", "item": "https://kzaudioandvideo.com" },
+    { "@type": "ListItem", "position": 2, "name": "Home Theater Installation Helotes TX" }
+  ]
+};
+---
+
+<BaseLayout
+  Home Theater Installation Helotes TX="Home Theater Installation Helotes TX | KZ Audio & Video"
+  description="Custom home theater and AV installation in Helotes TX. KZ Audio & Video serves Helotes and northwest San Antonio with dedicated theater rooms, surround sound, and whole-house audio. Call (210) 981-4098."
+  schema={[schema, breadcrumb]}
+>
+
+  <HeroSection
+    overline="Helotes · San Antonio · Hill Country · Since 1997"
+    heading="Home Theater Installation Helotes TX"
+    subhead="KZ Audio & Video installs custom home theater, whole-house audio, and outdoor AV systems in Helotes TX and northwest San Antonio. In the audio business since 1997. No subcontractors — ever."
+    ctaLabel="Book a Free Consultation"
+    ctaHref="/contact-kz-audio-video-san-antonio-tx/"
+    secondaryCta="Or call: (210) 981-4098"
+    secondaryHref="tel:2109814098"
+    imageSrc="/images/projects/asanka-theater/home-theater-led-lights-san-antonio.jpg"
+    imageAlt="/images/projects/asanka-theater/home-theater-led-lights-san-antonio.jpgALT"
+  />
+
+  <TrustBar />
+
+  <section class="section bg-slate-surface">
+    <div class="container-main">
+      <p class="overline mb-3 reveal">Serving Helotes TX</p>
+      <h2 class="font-display text-h2 text-warm-white mb-6 reveal reveal-delay-1">
+        Home Theater and AV Installation in Helotes
+      </h2>
+      <p class="text-body-lg text-stone mb-8 max-w-2xl reveal reveal-delay-2">
+        Helotes sits at the edge of the Hill Country just northwest of San Antonio — a mix of large custom lots, established neighborhoods, and new construction communities. We serve homeowners across Helotes and work with builders active in the area.
+      </p>
+      <p class="text-body text-stone mb-10 max-w-2xl reveal reveal-delay-3">
+        Every project starts with a free in-home consultation. We come to you, look at the space, and tell you exactly what is possible — no pressure, no obligation. We have been serving the Helotes area since 2001.
+      </p>
+      <div class="flex flex-col sm:flex-row gap-4 reveal reveal-delay-4">
+        <a href="/contact-kz-audio-video-san-antonio-tx/" class="btn-primary">Book a Free Consultation</a>
+        <a href="tel:2109814098" class="btn-ghost">Call (210) 981-4098</a>
+      </div>
+    </div>
+  </section>
+
+  <ServicesGrid
+    overline="What We Install in Helotes"
+    heading="Every AV Service Your Helotes Home Needs"
+    intro="From a dedicated home theater to whole-house audio to outdoor speakers on the back patio, KZ Audio & Video handles the design, the installation, and everything after."
+  />
+
+  <CTASection
+    heading="Free In-Home Consultation in Helotes"
+    body="We come to you. Walk through the space. Tell you exactly what is possible. No pressure, no obligation. Serving Helotes and the surrounding area since 2001."
+    ctaLabel="Book Your Consultation"
+    ctaHref="/contact-kz-audio-video-san-antonio-tx/"
+    secondaryLabel="Call (210) 981-4098"
+    secondaryHref="tel:2109814098"
+  />
+
+</BaseLayout>

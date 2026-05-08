@@ -1,4 +1,4 @@
-@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Playfair+Display:ital,wght@0,600;0,700;1,400;1,600&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Bodoni+Moda:ital,opsz,wght@0,6..96,400;0,6..96,500;0,6..96,600;0,6..96,700;0,6..96,900;1,6..96,400;1,6..96,600&family=Jost:wght@300;400;500;600;700&display=swap');
 
 @tailwind base;
 @tailwind components;
@@ -10,25 +10,29 @@
   }
 
   html {
-    background-color: #121416;
+    background-color: #0E1012;
     color: #F2EDE6;
   }
 
   body {
-    font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+    font-family: 'Jost', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
     font-size: 1rem;
     line-height: 1.7;
     color: #F2EDE6;
-    background-color: #121416;
+    background-color: #0E1012;
     -webkit-font-smoothing: antialiased;
+    /* Subtle noise texture for depth */
+    background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)' opacity='0.035'/%3E%3C/svg%3E");
   }
 
   h1, h2 {
-    font-family: 'Playfair Display', Georgia, serif;
+    font-family: 'Bodoni Moda', Georgia, serif;
+    letter-spacing: -0.02em;
   }
 
   h3, h4, h5, h6 {
-    font-family: 'Inter', sans-serif;
+    font-family: 'Jost', sans-serif;
+    letter-spacing: -0.01em;
   }
 
   /* Focus ring — gold for accessibility */
@@ -80,7 +84,7 @@
   /* Buttons */
   .btn-primary {
     @apply inline-flex items-center gap-2 bg-gold text-charcoal font-sans font-semibold
-           text-base px-8 py-4 rounded-btn
+           text-base px-8 py-4 rounded-btn cursor-pointer
            transition-all duration-fast
            hover:bg-gold-light hover:scale-[1.02]
            active:scale-[0.98]
@@ -89,7 +93,7 @@
 
   .btn-ghost {
     @apply inline-flex items-center gap-2 bg-transparent text-warm-white font-sans font-semibold
-           text-base px-[31px] py-[15px] rounded-btn
+           text-base px-[31px] py-[15px] rounded-btn cursor-pointer
            border border-gold
            transition-all duration-fast
            hover:bg-gold/10 hover:text-gold-light
@@ -97,7 +101,7 @@
   }
 
   .btn-text {
-    @apply text-gold font-sans font-semibold text-body-sm
+    @apply text-gold font-sans font-semibold text-body-sm cursor-pointer
            transition-colors duration-fast
            hover:text-gold-light hover:underline;
   }
@@ -106,9 +110,133 @@
   .card {
     @apply bg-slate-surface border border-smoke rounded-card
            transition-all duration-base;
+    background-image: linear-gradient(135deg, rgba(201,168,76,0.03) 0%, transparent 60%);
   }
 
   .card-hover {
-    @apply hover:border-gold;
+    @apply hover:border-gold/60 cursor-pointer;
+    box-shadow: 0 0 0 0 rgba(201,168,76,0);
+    transition: border-color 300ms ease, box-shadow 300ms ease, transform 300ms ease;
+  }
+
+  .card-hover:hover {
+    box-shadow: 0 0 32px rgba(201,168,76,0.15), 0 8px 32px rgba(0,0,0,0.5);
+    transform: translateY(-2px);
+  }
+
+  /* Section atmospheric backgrounds */
+  .bg-charcoal {
+    background-image: radial-gradient(ellipse at 20% 50%, rgba(201,168,76,0.04) 0%, transparent 60%),
+                      radial-gradient(ellipse at 80% 20%, rgba(201,168,76,0.03) 0%, transparent 50%);
+  }
+
+  .bg-slate-surface {
+    background-image: radial-gradient(ellipse at 80% 80%, rgba(201,168,76,0.04) 0%, transparent 60%);
+  }
+
+  /* Scroll reveal */
+  .reveal {
+    opacity: 0;
+    transform: translateY(32px);
+    transition: opacity 0.7s cubic-bezier(0.22, 1, 0.36, 1),
+                transform 0.7s cubic-bezier(0.22, 1, 0.36, 1);
+  }
+
+  .reveal.is-visible {
+    opacity: 1;
+    transform: none;
+  }
+
+  .reveal-left {
+    opacity: 0;
+    transform: translateX(-32px);
+    transition: opacity 0.7s cubic-bezier(0.22, 1, 0.36, 1),
+                transform 0.7s cubic-bezier(0.22, 1, 0.36, 1);
+  }
+
+  .reveal-left.is-visible {
+    opacity: 1;
+    transform: none;
+  }
+
+  .reveal-delay-1 { transition-delay: 0.08s; }
+  .reveal-delay-2 { transition-delay: 0.16s; }
+  .reveal-delay-3 { transition-delay: 0.24s; }
+  .reveal-delay-4 { transition-delay: 0.32s; }
+  .reveal-delay-5 { transition-delay: 0.40s; }
+  .reveal-delay-6 { transition-delay: 0.48s; }
+
+  /* Hero staggered entrance — orchestrated on page load */
+  @keyframes heroFadeUp {
+    from { opacity: 0; transform: translateY(40px); }
+    to   { opacity: 1; transform: translateY(0); }
+  }
+
+  @keyframes heroFadeIn {
+    from { opacity: 0; }
+    to   { opacity: 1; }
+  }
+
+  @keyframes heroScaleIn {
+    from { opacity: 0; transform: scale(1.06); }
+    to   { opacity: 1; transform: scale(1); }
+  }
+
+  .hero-enter-1 {
+    opacity: 0;
+    animation: heroFadeUp 0.8s cubic-bezier(0.22, 1, 0.36, 1) 0.15s forwards;
+  }
+  .hero-enter-2 {
+    opacity: 0;
+    animation: heroFadeUp 0.9s cubic-bezier(0.22, 1, 0.36, 1) 0.35s forwards;
+  }
+  .hero-enter-3 {
+    opacity: 0;
+    animation: heroFadeUp 0.8s cubic-bezier(0.22, 1, 0.36, 1) 0.55s forwards;
+  }
+  .hero-enter-4 {
+    opacity: 0;
+    animation: heroFadeUp 0.7s cubic-bezier(0.22, 1, 0.36, 1) 0.72s forwards;
+  }
+  .hero-enter-img {
+    opacity: 0;
+    animation: heroScaleIn 1.6s cubic-bezier(0.22, 1, 0.36, 1) 0s forwards;
+  }
+
+  /* Gold shimmer line */
+  @keyframes shimmer {
+    from { transform: translateX(-100%); }
+    to   { transform: translateX(100%); }
+  }
+
+  .gold-shimmer {
+    position: relative;
+    overflow: hidden;
+  }
+
+  .gold-shimmer::after {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(90deg, transparent 0%, rgba(255,255,255,0.12) 50%, transparent 100%);
+    animation: shimmer 3.5s ease-in-out 1.8s infinite;
+  }
+
+  /* Liquid glass card — premium effect */
+  .glass-card {
+    background: rgba(28, 31, 35, 0.6);
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+    border: 1px solid rgba(201, 168, 76, 0.15);
+    border-radius: 8px;
+  }
+
+  /* Gold line accent */
+  .gold-accent-line {
+    display: block;
+    width: 40px;
+    height: 2px;
+    background: linear-gradient(90deg, #C9A84C, transparent);
+    margin-bottom: 1rem;
   }
 }

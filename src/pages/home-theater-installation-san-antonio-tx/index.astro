@@ -1,24 +1,24 @@
----
-import BaseLayout from '../../layouts/BaseLayout.astro';
-import HeroSection from '../../components/sections/HeroSection.astro';
-import TrustBar from '../../components/sections/TrustBar.astro';
-import ProjectsGrid from '../../components/sections/ProjectsGrid.astro';
-import TestimonialsSection from '../../components/sections/TestimonialsSection.astro';
-import FAQAccordion from '../../components/sections/FAQAccordion.astro';
-import CTASection from '../../components/sections/CTASection.astro';
+﻿---
+import BaseLayout from "../../layouts/BaseLayout.astro";
+import HeroSection from "../../components/sections/HeroSection.astro";
+import TrustBar from "../../components/sections/TrustBar.astro";
+import ProjectsGrid from "../../components/sections/ProjectsGrid.astro";
+import TestimonialsSection from "../../components/sections/TestimonialsSection.astro";
+import FAQAccordion from "../../components/sections/FAQAccordion.astro";
+import CTASection from "../../components/sections/CTASection.astro";
 
 const schema = {
   "@context": "https://schema.org",
   "@type": "Service",
-  "name": "Home Theater Installation",
+  "name": "Home Theater Installation San Antonio TX",
   "provider": {
     "@type": "LocalBusiness",
     "name": "KZ Audio & Video",
     "url": "https://kzaudioandvideo.com",
     "telephone": "+12109814098"
   },
-  "areaServed": "San Antonio, TX",
-  "description": "Custom home theater design and installation in San Antonio TX and the Texas Hill Country. Dedicated theater rooms, projectors, screens, surround sound, and custom seating.",
+  "areaServed": ["San Antonio", "Boerne", "Canyon Lake", "Helotes", "Bulverde", "Stone Oak", "New Braunfels"],
+  "description": "Custom home theater design and installation in San Antonio TX and the Texas Hill Country. Dedicated theater rooms, 4K and laser projection, Dolby Atmos surround sound. No subcontractors.",
   "url": "https://kzaudioandvideo.com/home-theater-installation-san-antonio-tx/"
 };
 
@@ -33,186 +33,220 @@ const breadcrumb = {
 
 const projects = [
   {
-    title: 'Dedicated Theater — Canyon Lake TX',
-    location: 'Canyon Lake, TX',
-    service: 'Home Theater',
-    description: 'Full theater room with custom leather power recliner seating on a raised platform, blue LED accent lighting, projection system, and in-wall surround sound.',
-    imageSrc: '/images/projects/monty-theater/Canyon-Lake-Tesac-Home-Theater-Custom-Seating.jpeg.jpg',
-    imageAlt: 'Custom home theater with leather recliners and blue LED lighting in Canyon Lake Texas',
+    title: "Dedicated Home Theater — Canyon Lake TX",
+    location: "Canyon Lake, TX",
+    service: "Home Theater",
+    description: "Full theater room with custom leather power recliner seating on a raised platform, blue LED accent lighting, 4K projection system, and in-wall Dolby Atmos surround sound.",
+    imageSrc: "/images/projects/monty-theater/Canyon-Lake-Tesac-Home-Theater-Custom-Seating.jpeg.jpg",
+    imageAlt: "Custom home theater with leather recliners and blue LED lighting in Canyon Lake Texas",
   },
   {
-    title: 'Dedicated Theater — San Antonio TX',
-    location: 'San Antonio, TX',
-    service: 'Home Theater',
-    description: 'Epson projector, Screen Innovations fixed-frame screen, Martin Logan on-wall speakers, LED accent lighting. Pre-wire through finished install.',
-    imageSrc: '/images/projects/asanka-theater/theater-room-san-antonio-tx.jpg',
-    imageAlt: 'Home theater installation in San Antonio Texas with projection screen and surround sound',
+    title: "Dedicated Home Theater — San Antonio TX",
+    location: "San Antonio, TX",
+    service: "Home Theater",
+    description: "Epson projector, Screen Innovations fixed-frame screen, Martin Logan on-wall speakers, LED accent lighting. Pre-wire through finished install.",
+    imageSrc: "/images/projects/asanka-theater/theater-room-san-antonio-tx.jpg",
+    imageAlt: "Home theater installation in San Antonio Texas with projection screen and surround sound",
   },
   {
-    title: 'Star Wars Theater — San Antonio TX',
-    location: 'San Antonio, TX',
-    service: 'Home Theater',
-    description: 'JVC projector, custom Star Wars built-in cabinetry, tiered seating with in-wall surround sound. A fully themed dedicated space.',
-    imageSrc: '/images/projects/davids-theater/david-theater-san-antonio-tx.jpg',
-    imageAlt: 'Star Wars themed home theater with JVC projector in San Antonio Texas',
+    title: "Dedicated Home Theater — David — San Antonio",
+    location: "San Antonio, TX",
+    service: "Home Theater",
+    description: "Dedicated theater room with 4K laser projector and 7.2.4 Dolby Atmos surround sound. Built around the specific room dimensions.",
+    imageSrc: "/images/projects/davids-theater/david-theater-san-antonio-tx.jpg",
+    imageAlt: "Custom home theater build San Antonio Texas with Dolby Atmos surround sound",
+  },
+];
+
+const featured = {
+  name: "Canyon Lake Homeowner",
+  location: "Canyon Lake, TX",
+  service: "Dedicated Home Theater",
+  quote: "Billy, Julien and Kelly did an outstanding job on my home theater build. From start to finish they were professional, knowledgeable, and easy to work with. The theater came out better than I had hoped.",
+};
+
+const secondary = [
+  {
+    name: "San Antonio Homeowner",
+    location: "San Antonio, TX",
+    service: "Home Theater",
+    quote: "KZ Audio and Video did a great job installing our home theater system. They were professional, on time, and their attention to detail was outstanding.",
   },
   {
-    title: 'New Build Theater — San Antonio TX',
-    location: 'San Antonio, TX',
-    service: 'Home Theater',
-    description: 'Epson projector, Martin Logan on-wall speakers, pre-wire through finished install. Captured at rough-in, trim-out, and final calibration.',
-    imageSrc: '/images/projects/young-theater/young-theater-san-antonio-tx.jpg',
-    imageAlt: 'Home theater installation in new construction home in San Antonio Texas',
+    name: "San Antonio Homeowner",
+    location: "San Antonio, TX",
+    service: "Home AV Client — Nearly 10 Years",
+    quote: "They are honest and will recommend what actually works for your situation rather than upselling you on equipment you do not need. I have never had a bad experience with them.",
   },
 ];
 
 const faqs = [
   {
-    question: 'How much does a home theater installation cost in San Antonio?',
-    answer: 'Most dedicated home theater projects in San Antonio range from $15,000 to $80,000 depending on room size, equipment tier, seating, and acoustic treatment. A well-equipped media room (existing space, no construction) typically starts around $8,000–$15,000. A true dedicated theater with custom seating, a raised platform, and premium projection usually falls in the $30,000–$60,000 range. We provide detailed, itemized quotes at no charge — no pressure, no guessing.',
+    question: "How much does a home theater installation cost in San Antonio?",
+    answer: "Home theater costs vary based on scope. A mid-tier dedicated theater room typically runs $15,000-$40,000 installed. High-end theaters with laser projectors, Dolby Atmos, and motorized seating run $40,000-$80,000+. A media room conversion can be done for $5,000-$12,000. We give you a detailed quote after seeing the space.",
   },
   {
-    question: 'Do you work on new construction homes?',
-    answer: 'Yes — new construction is a significant part of what we do. We work directly with custom home builders across San Antonio and the Hill Country on pre-wire, rough-in, trim-out, programming, and homeowner walkthroughs. We also work with homeowners who are building and want an independent AV contractor rather than going through the builder\'s preferred vendor.',
+    question: "Do you handle the pre-wire and the finish work, or just one?",
+    answer: "We handle the full project: pre-wire, equipment selection, finish installation, calibration, and the homeowner walkthrough. We work with your builder during new construction or handle the retrofit ourselves in existing homes. We never subcontract the install work.",
   },
   {
-    question: 'What projectors and screens do you install?',
-    answer: 'We work with a wide range of projection brands — Epson, JVC, Sony, BenQ — and match the projector to the room\'s throw distance, ambient light conditions, and resolution goals. For screens, we install Screen Innovations, Elite Screens, and Stewart Filmscreen fixed-frame, motorized, and acoustically transparent options. We don\'t push one brand — we recommend what actually fits the room.',
+    question: "What projector brands do you install?",
+    answer: "We install Epson, Sony, BenQ, and JVC 4K projectors depending on room size, ambient light, and budget. For high-end dedicated theaters, Sony laser projectors deliver exceptional image quality. We match the projector to your room.",
   },
   {
-    question: 'Do you use subcontractors?',
-    answer: 'Never. Every job is done by Kelly, Billy, or Julian — the three people on this team. We don\'t bring in outside labor. That\'s not a marketing line; it\'s how we\'ve operated since 2001. It means consistent quality, accountability on every install, and a direct line to the people who actually did the work.',
+    question: "Can you build a theater in a room that is already finished?",
+    answer: "Yes. Retrofit installs in finished rooms require fishing wire through walls and ceilings. We have done hundreds of these. Drywall impact is minimal. We will assess the specific room and tell you exactly what is involved before we start.",
   },
   {
-    question: 'How long does a home theater installation take?',
-    answer: 'A media room conversion in an existing finished space typically takes one to three days. A full dedicated theater — pre-wire, custom construction coordination, trim-out, and calibration — is usually spread across multiple visits over a few weeks, working around the construction schedule. We\'ll give you a realistic timeline during the consultation.',
+    question: "What is Dolby Atmos and do I need it?",
+    answer: "Dolby Atmos adds overhead sound channels so audio moves three-dimensionally around the room. For a dedicated room we typically recommend it. For a living room media setup, a standard 5.1 or 7.1 system often makes more practical sense. We give you an honest recommendation based on your space.",
   },
   {
-    question: 'Do you service equipment you didn\'t install?',
-    answer: 'Yes. We work on systems we didn\'t build. If something\'s acting up — calibration is off, the system won\'t talk to each other, equipment failed — give us a call. We\'ll tell you if it\'s fixable and what it takes.',
-  },
-];
-
-const featured = {
-  name: 'Eric Turner',
-  location: 'San Antonio, TX',
-  service: 'Home Theater Client — Nearly 10 Years',
-  quote: "I've been a customer of KZ Audio for going on a decade. Kelly and crew have always been great to work with. They're honest and will recommend what actually works for your situation rather than upselling you on equipment you don't need.",
-};
-
-const secondary = [
-  {
-    name: 'Monty Heins',
-    location: 'Canyon Lake, TX',
-    service: 'Home Theater',
-    quote: 'Billy, Julien and Kelly did an outstanding job on my home theater build. From start to finish they were professional, knowledgeable, and easy to work with. The theater came out better than I had hoped.',
-  },
-  {
-    name: 'Mike Pottorff',
-    location: 'San Antonio, TX',
-    service: 'Home Theater',
-    quote: 'KZ Audio and Video did a great job installing our home theater system. They were professional, on time, and their attention to detail was outstanding.',
+    question: "How long does a home theater installation take?",
+    answer: "A full dedicated theater room typically takes two to four days after rough-in. A media room conversion is usually one to two days. We give you a timeline before we start and stick to it.",
   },
 ];
 ---
 
 <BaseLayout
   title="Home Theater Installation San Antonio TX | KZ Audio & Video"
-  description="KZ Audio & Video designs and installs custom home theaters in San Antonio and the Texas Hill Country. Dedicated theater rooms, projectors, screens, and surround sound. No subcontractors. Call (210) 981-4098."
+  description="Custom home theater installation in San Antonio TX and the Hill Country. Dedicated theater rooms, 4K projection, Dolby Atmos surround, media room conversions. No subcontractors. In the audio business since 1997. Call (210) 981-4098."
   schema={[schema, breadcrumb]}
 >
 
   <HeroSection
-    overline="Home Theater Installation · San Antonio · Hill Country · Since 2001"
+    overline="Home Theater Installation · San Antonio · Hill Country · Since 1997"
     heading="Custom Home Theater Installation in San Antonio TX"
-    subhead="KZ Audio & Video designs and builds dedicated home theaters and media rooms for San Antonio homeowners and custom home builders. Projectors, screens, surround sound, custom seating — built around your room and how you actually use it."
+    subhead="KZ Audio & Video designs and installs dedicated home theater rooms, media spaces, and projection systems across San Antonio and the Texas Hill Country. 4K and laser projectors, Dolby Atmos surround sound, custom seating. In the audio business since 1997. No subcontractors — ever."
     ctaLabel="Book a Free Consultation"
     ctaHref="/contact-kz-audio-video-san-antonio-tx/"
     secondaryCta="Or call: (210) 981-4098"
     secondaryHref="tel:2109814098"
-    imageSrc="/images/projects/monty-theater/Home-Theater-Design-Build-Near-San-Antonio-Texas.jpeg.jpg"
-    imageAlt="Custom home theater installation near San Antonio Texas by KZ Audio and Video"
+    imageSrc="/images/projects/monty-theater/hero-theater-fixed.jpg"
+    imageAlt="Custom dedicated home theater installation in San Antonio Texas by KZ Audio and Video"
   />
 
   <TrustBar />
 
-  <!-- What We Build -->
   <section class="section bg-slate-surface">
     <div class="container-main">
-      <p class="overline mb-3">What We Build</p>
+      <p class="overline mb-3">Home Theater Design and Build</p>
       <h2 class="font-display text-h2 text-warm-white mb-6">
-        Every Home Theater Project Is Different. That's the Point.
+        Built Around Your Room. Designed for How You Watch.
       </h2>
       <p class="text-body-lg text-stone mb-12 max-w-2xl">
-        We don't have a standard package. We design each system around the specific room, the specific client, and how the family actually lives. That starts with a conversation — not a quote sheet.
+        Before we spec a single piece of equipment, we measure your room, assess the acoustics, and understand how you use the space. Then we design a system that sounds like it was built for that specific room — because it was.
       </p>
 
-      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-        {[
-          {
-            title: 'Dedicated Theater Rooms',
-            desc: 'Full room builds — projection, fixed or motorized screens, tiered seating, in-wall surround sound, acoustic panels, LED accent lighting. We handle everything from pre-wire through final calibration.',
-          },
-          {
-            title: 'Media Rooms',
-            desc: 'Converting an existing space into a serious viewing room. Large-screen display or projector, sound system, blackout window treatments, seating — without needing dedicated construction.',
-          },
-          {
-            title: 'Projection Systems',
-            desc: 'Epson, JVC, Sony, BenQ — matched to your room\'s throw distance, ambient light, and resolution needs. Screen Innovations, Elite, and Stewart screens in fixed-frame, motorized, and acoustically transparent options.',
-          },
-          {
-            title: 'Surround Sound',
-            desc: '5.1, 7.1, Dolby Atmos — designed and placed for the actual room, not plugged in and left at default. In-wall, in-ceiling, and on-wall speaker installations.',
-          },
-          {
-            title: 'Custom Seating & Platforms',
-            desc: 'Raised platforms, tiered layouts, custom leather recliners. We coordinate with the builder or installer and spec the seating to match the screen sight lines.',
-          },
-          {
-            title: 'New Construction Pre-Wire',
-            desc: 'Pre-wire through trim-out for new builds. We work with builders and homeowners from rough-in through the final homeowner walkthrough.',
-          },
-        ].map(({ title, desc }) => (
-          <div class="card p-7 flex flex-col gap-3">
-            <h3 class="font-sans font-semibold text-h4 text-warm-white">{title}</h3>
-            <p class="text-body-sm text-stone leading-relaxed">{desc}</p>
+      <div class="grid grid-cols-1 md:grid-cols-2 gap-12">
+        <div>
+          <h3 class="font-sans font-semibold text-h3 text-warm-white mb-5">Dedicated Theater Rooms</h3>
+          <ul class="flex flex-col gap-3 mb-10">
+            {[
+              "4K and laser projection systems (Epson, Sony, BenQ, JVC)",
+              "Fixed-frame and motorized projection screens",
+              "Dolby Atmos 7.2.4 and 9.2.4 surround sound",
+              "In-wall and in-ceiling speaker systems",
+              "Custom tiered seating platforms",
+              "LED bias and accent lighting control",
+              "Acoustic treatment and room calibration",
+              "Rack-mounted equipment with clean cable management",
+              "Universal control systems (Control4, RTI)",
+            ].map((item) => (
+              <li class="flex items-start gap-3 text-body text-stone">
+                <span class="text-gold mt-1 flex-shrink-0">&rarr;</span>
+                {item}
+              </li>
+            ))}
+          </ul>
+
+          <h3 class="font-sans font-semibold text-h3 text-warm-white mb-5">Media Room Conversions</h3>
+          <ul class="flex flex-col gap-3">
+            {[
+              "Large-format 4K displays (85 to 110 inch)",
+              "Soundbars and 5.1 and 7.1 surround upgrades",
+              "Hidden wire and in-wall power solutions",
+              "Streaming and source device integration",
+              "Existing room retrofits with minimal disruption",
+            ].map((item) => (
+              <li class="flex items-start gap-3 text-body text-stone">
+                <span class="text-gold mt-1 flex-shrink-0">&rarr;</span>
+                {item}
+              </li>
+            ))}
+          </ul>
+        </div>
+
+        <div class="flex flex-col gap-6">
+          <div class="card p-7">
+            <p class="overline mb-3">The KZ Difference</p>
+            <h3 class="font-sans font-semibold text-h3 text-warm-white mb-4">No Subcontractors. No Exceptions.</h3>
+            <p class="text-body text-stone mb-4">
+              Every home theater we build is installed by Kelly, Billy, or Julian. We do not hand your project to a crew you have never met. Every system is calibrated by the person who designed it.
+            </p>
+            <p class="text-body text-stone">
+              We have been doing this since 1997. We design around the problems that make theaters disappointing: rooms that echo, systems that feel unbalanced, equipment that will not integrate. Every decision starts with the room.
+            </p>
           </div>
-        ))}
+
+          <div class="card p-7">
+            <p class="overline mb-3">New Construction</p>
+            <h3 class="font-sans font-semibold text-h3 text-warm-white mb-4">Builder-Ready Pre-Wire</h3>
+            <p class="text-body text-stone">
+              We work with custom home builders throughout the Hill Country and San Antonio. Pre-wire, rough-in, trim-out, programming, and the homeowner walkthrough. Nine active builder relationships — the longest running since 2009.
+            </p>
+          </div>
+        </div>
       </div>
     </div>
   </section>
 
   <ProjectsGrid
     projects={projects}
-    overline="Home Theater Projects"
-    heading="Recent Installs in San Antonio and the Hill Country"
-    showLink={true}
+    overline="Recent Theater Builds"
+    heading="Home Theater Projects in San Antonio and the Hill Country"
   />
 
   <TestimonialsSection featured={featured} secondary={secondary} />
 
-  <!-- Process -->
-  <section class="section bg-charcoal">
+  <section class="section bg-slate-surface">
     <div class="container-main">
-      <p class="overline mb-3">How It Works</p>
-      <h2 class="font-display text-h2 text-warm-white mb-12">
-        From First Call to Final Calibration
+      <p class="overline mb-3">Investment Guide</p>
+      <h2 class="font-display text-h2 text-warm-white mb-6">
+        What Does a Home Theater Cost in San Antonio?
       </h2>
-      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+      <p class="text-body-lg text-stone mb-10 max-w-2xl">
+        We give you a detailed quote after seeing the space. Here is a realistic framework for budgeting.
+      </p>
+
+      <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
         {[
-          { step: '01', title: 'Consultation', desc: 'We talk through the room, the use case, and the budget. No pressure, no sales pitch — just figuring out what makes sense.' },
-          { step: '02', title: 'Design & Quote', desc: 'We spec the system — equipment, layout, wire runs, seating dimensions — and give you an itemized quote with no surprises.' },
-          { step: '03', title: 'Installation', desc: 'Kelly, Billy, and Julian do the work. Pre-wire if the home is under construction. Trim-out and full install on finished spaces.' },
-          { step: '04', title: 'Calibration & Handoff', desc: 'We calibrate the system, walk you through every function, and stay available after. We\'re not gone the day the job is done.' },
-        ].map(({ step, title, desc }) => (
-          <div class="flex flex-col gap-3">
-            <span class="font-display text-[3rem] text-gold leading-none">{step}</span>
-            <h3 class="font-sans font-semibold text-h4 text-warm-white">{title}</h3>
-            <p class="text-body-sm text-stone leading-relaxed">{desc}</p>
+          {
+            tier: "Media Room",
+            range: "$5,000 to $12,000",
+            desc: "Existing room, large 4K display, 5.1 surround or soundbar upgrade, streaming sources, hidden wiring. No construction required.",
+          },
+          {
+            tier: "Mid-Tier Theater",
+            range: "$15,000 to $40,000",
+            desc: "4K projection, fixed-frame screen, 7.1 Dolby Atmos, in-wall speakers, tiered seating platform, acoustic treatment, full control system.",
+          },
+          {
+            tier: "Premium Theater",
+            range: "$40,000 to $80,000+",
+            desc: "Laser projection, motorized screen, 9.2.4 Atmos, custom acoustics, motorized leather seating, full AV and lighting control.",
+          },
+        ].map(({ tier, range, desc }) => (
+          <div class="card p-7">
+            <p class="overline mb-2">{tier}</p>
+            <p class="font-display text-h3 text-gold mb-4">{range}</p>
+            <p class="text-body text-stone">{desc}</p>
           </div>
         ))}
       </div>
+      <p class="text-body-sm text-ash mt-6">
+        Prices are estimates for the San Antonio market. Final pricing depends on room size, materials, and equipment selection. We provide a written quote before any work begins.
+      </p>
     </div>
   </section>
 
@@ -222,12 +256,13 @@ const secondary = [
   />
 
   <CTASection
-    heading="Ready to Build Your Home Theater?"
-    body="Book a free, no-pressure consultation. We'll come to your home, look at the room, talk through what's possible, and give you a real quote."
+    heading="Let us Design Your Home Theater."
+    body="Book a free in-home consultation. We come to you, assess the space, and put together a system designed for that specific room. No pressure. No obligation."
     ctaLabel="Book a Free Consultation"
     ctaHref="/contact-kz-audio-video-san-antonio-tx/"
     secondaryLabel="Call (210) 981-4098"
     secondaryHref="tel:2109814098"
+    bgImage="/images/projects/monty-theater/Home-Theater-Design-Build-Near-San-Antonio-Texas.jpeg.jpg"
   />
 
 </BaseLayout>

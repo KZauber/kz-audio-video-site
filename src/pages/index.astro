@@ -1,4 +1,4 @@
----
+﻿---
 import BaseLayout from '../layouts/BaseLayout.astro';
 import HeroSection from '../components/sections/HeroSection.astro';
 import TrustBar from '../components/sections/TrustBar.astro';
@@ -51,38 +51,54 @@ const featuredProjects = [
     title: 'Dedicated Home Theater — Canyon Lake TX',
     location: 'Canyon Lake, TX',
     service: 'Home Theater',
-    description: 'Full theater room with custom leather power recliner seating on a raised platform, blue LED accent lighting, projection system, and in-wall surround sound.',
-    imageSrc: '/images/projects/monty-theater/Canyon-Lake-Tesac-Home-Theater-Custom-Seating.jpeg.jpg',
-    imageAlt: 'Custom home theater with leather recliners and blue LED lighting in Canyon Lake Texas',
+    description: 'Full dedicated theater room: custom leather power recliner seating on a raised platform, blue LED step lighting, projection screen, and in-wall Dolby surround sound. Built from pre-wire to programming.',
+    imageSrc: '/images/projects/monty-theater/Canyon-Lake-Tesac-Home-Theater-Projection-Screen.jpeg.jpg',
+    imageAlt: 'Custom home theater projection screen with blue LED lighting and leather seating in Canyon Lake Texas',
   },
   {
-    title: 'Dedicated Home Theater — San Antonio TX',
+    title: 'Home Theater — Stone Oak San Antonio',
+    location: 'Stone Oak, San Antonio, TX',
+    service: 'Home Theater',
+    description: 'Epson laser projector, Screen Innovations fixed-frame screen, Martin Logan on-wall speakers front and rear, custom LED lighting. Complete pre-wire through finished install.',
+    imageSrc: '/images/projects/asanka-theater/theater-room-san-antonio-tx.jpg',
+    imageAlt: 'Home theater installation in Stone Oak San Antonio Texas with projection screen and Martin Logan surround sound',
+  },
+  {
+    title: 'Star Wars Home Theater — San Antonio TX',
     location: 'San Antonio, TX',
     service: 'Home Theater',
-    description: 'Epson projector, Screen Innovations fixed-frame screen, Martin Logan on-wall speakers, LED accent lighting. Pre-wire through finished install.',
-    imageSrc: '/images/projects/asanka-theater/theater-room-san-antonio-tx.jpg',
-    imageAlt: 'Home theater installation in San Antonio Texas with projection screen and surround sound',
+    description: 'Custom built-in entertainment wall with fixed-frame projection screen, JVC projector, and complete Dolby Atmos surround system. Designed around the client\'s collection — not a template build.',
+    imageSrc: '/images/projects/davids-theater/home-theater-front-view.jpeg.jpg',
+    imageAlt: 'Custom Star Wars themed home theater with projection screen and built-in display wall in San Antonio Texas',
   },
   {
     title: 'Samsung Frame TV on Marble Fireplace Wall',
     location: 'San Antonio, TX',
     service: 'TV Installation',
-    description: 'Samsung Frame TV installed flush on a marble fireplace wall with Sonos Arc soundbar. No visible wiring. Displays fine art when not in use.',
+    description: 'Samsung Frame TV flush-mounted on a custom marble fireplace wall with Sonos Arc soundbar. Zero visible wiring. Displays fine art when not in use.',
     imageSrc: '/images/projects/flat-tvs/samsung-frame-tv-marble-wall-san-antonio.jpg',
     imageAlt: 'Samsung Frame TV installed on marble fireplace wall in San Antonio Texas custom home',
   },
   {
-    title: 'Outdoor Patio Projector System — Hill Country',
+    title: 'Outdoor Patio Projector — Hill Country TX',
     location: 'Hill Country, TX',
     service: 'Outdoor AV',
-    description: 'Projector ceiling-mounted under a Hill Country limestone arch on a covered patio, with pool-side rock speakers throughout the yard.',
+    description: 'Projector ceiling-mounted under a limestone arch on a covered patio overlooking the pool. Rock speakers throughout the yard for whole-property audio.',
     imageSrc: '/images/projects/outdoor-av/pool-projector-outdoor-theater.jpeg.jpg',
-    imageAlt: 'Outdoor projector mounted under limestone arch on covered patio near San Antonio Texas',
+    imageAlt: 'Outdoor projector mounted under limestone arch on covered patio in Texas Hill Country',
+  },
+  {
+    title: 'Home Theater — Stone Oak, San Antonio TX',
+    location: 'Stone Oak, San Antonio, TX',
+    service: 'Home Theater',
+    description: 'New construction dedicated theater room. Full pre-wire, Epson projector, Martin Logan center channel and subwoofer, in-wall surround speakers, and custom seating platform.',
+    imageSrc: '/images/projects/young-theater/young-theater-san-antonio-tx.jpg',
+    imageAlt: 'Home theater installation in Stone Oak San Antonio with projection system and surround sound',
   },
 ];
 
 const ericTurner = {
-  name: 'Eric Turner',
+  name: 'San Antonio Homeowner',
   location: 'San Antonio, TX',
   service: 'Home Theater Client — Nearly 10 Years',
   quote: "I've been a customer of KZ Audio for going on a decade. Kelly and crew have always been great to work with. They're honest and will recommend what actually works for your situation rather than upselling you on equipment you don't need. I've never had a bad experience with them and would absolutely recommend them to anyone looking for AV services.",
@@ -90,13 +106,13 @@ const ericTurner = {
 
 const secondaryReviews = [
   {
-    name: 'Monty Heins',
+    name: 'Canyon Lake Homeowner',
     location: 'Canyon Lake, TX',
     service: 'Home Theater',
     quote: 'Billy, Julien and Kelly did an outstanding job on my home theater build. From start to finish they were professional, knowledgeable, and easy to work with. The theater came out better than I had hoped.',
   },
   {
-    name: 'Mike Pottorff',
+    name: 'San Antonio Homeowner',
     location: 'San Antonio, TX',
     service: 'Home Theater',
     quote: 'KZ Audio and Video did a great job installing our home theater system. They were professional, on time, and their attention to detail was outstanding.',
@@ -112,14 +128,14 @@ const secondaryReviews = [
 
   <HeroSection
     overline="San Antonio · Boerne · Canyon Lake · Hill Country · Since 2001"
-    heading="Home Theater and AV Installation in San Antonio TX"
-    subhead="KZ Audio & Video designs and installs custom home theater, whole-house audio, and outdoor AV systems for homeowners and custom home builders across San Antonio and the Texas Hill Country. In the audio business since 1997. No subcontractors — ever."
+    heading="Custom Home Theater & AV Installation"
+    subhead="KZ Audio & Video builds dedicated theaters, whole-house audio, and outdoor AV for homeowners and custom builders across San Antonio and the Texas Hill Country. In the business since 1997. No subcontractors — ever."
     ctaLabel="Book a Free Consultation"
     ctaHref="/contact-kz-audio-video-san-antonio-tx/"
-    secondaryCta="Or call: (210) 981-4098"
+    secondaryCta="Call (210) 981-4098"
     secondaryHref="tel:2109814098"
-    imageSrc="/images/projects/monty-theater/Home-Theater-Design-Build-Near-San-Antonio-Texas.jpeg.jpg"
-    imageAlt="Custom home theater installation near San Antonio Texas by KZ Audio and Video"
+    imageSrc="/images/monty-theater-hero.jpg"
+    imageAlt="Custom home theater with projection screen and blue LED lighting installed by KZ Audio and Video in Canyon Lake Texas"
   />
 
   <TrustBar />
@@ -161,11 +177,11 @@ const secondaryReviews = [
         <div class="flex flex-col gap-4">
           <blockquote class="card p-6 border-l-4 border-gold rounded-l-none">
             <p class="text-body text-warm-white italic mb-3">"I have been working with Kelly for 16 years. He and his team are true professionals. They show up on time, do quality work, and handle our homeowners with the utmost professionalism."</p>
-            <footer class="text-caption text-stone uppercase tracking-widest">Theresa Apostolo &middot; Builder Client &middot; 16 Years</footer>
+            <footer class="text-caption text-stone uppercase tracking-widest">Builder Partner &middot; 16 Years</footer>
           </blockquote>
           <blockquote class="card p-6 border-l-4 border-gold rounded-l-none">
             <p class="text-body text-warm-white italic mb-3">"KZ Audio and Video is our go-to for all AV and low voltage work on our custom homes. Kelly and his team are reliable, professional, and do excellent work."</p>
-            <footer class="text-caption text-stone uppercase tracking-widest">Winston &middot; Active Builder Client</footer>
+            <footer class="text-caption text-stone uppercase tracking-widest">Active Builder Partner</footer>
           </blockquote>
         </div>
       </div>

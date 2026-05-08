@@ -22,40 +22,62 @@ const {
   projects,
   showLink = true,
 } = Astro.props;
+
+const delayClasses = ['reveal-delay-2','reveal-delay-3','reveal-delay-4','reveal-delay-5','reveal-delay-6','reveal-delay-6'];
 ---
 
 <section class="section bg-charcoal">
   <div class="container-main">
-    <p class="overline mb-3">{overline}</p>
-    <h2 class="font-display text-h2 text-warm-white mb-10">{heading}</h2>
+    <p class="overline mb-3 reveal">{overline}</p>
+    <h2 class="font-display text-h2 text-warm-white mb-3 reveal reveal-delay-1">{heading}</h2>
+    <p class="text-body-sm text-stone mb-10 reveal reveal-delay-2" style="max-width:48ch;">Every project below was designed, installed, and programmed by our team — no subcontractors.</p>
 
-    <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
-      {projects.map(({ title, location, service, description, imageSrc, imageAlt, href }) => {
+    <!-- Portrait-friendly grid: 3 columns on desktop, 2 on tablet, 1 on mobile -->
+    <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-5">
+      {projects.map(({ title, location, service, description, imageSrc, imageAlt, href }, i) => {
         const Tag = href ? 'a' : 'div';
         return (
           <Tag
             href={href}
             class:list={[
-              'card group overflow-hidden',
-              href ? 'card-hover cursor-pointer no-underline' : '',
+              'group overflow-hidden rounded-card reveal cursor-pointer no-underline',
+              'flex flex-col',
+              delayClasses[Math.min(i, 5)],
             ]}
+            style="background:#161A1E; border:1px solid #252A2F; transition: border-color 300ms ease, box-shadow 300ms ease, transform 300ms ease;"
           >
-            <!-- Image -->
-            <div class="aspect-video overflow-hidden">
+            <!-- Portrait image container — 3:4 ratio works great for 9:16 photos (shows center) -->
+            <div class="overflow-hidden" style="aspect-ratio:3/4; position:relative;">
               <img
                 src={imageSrc}
                 alt={imageAlt}
-                class="w-full h-full object-cover transition-transform duration-base group-hover:scale-[1.03]"
+                class="w-full h-full object-cover object-top transition-transform duration-slow group-hover:scale-[1.04]"
                 loading="lazy"
+                decoding="async"
               />
+              <!-- Subtle bottom gradient so text overlapping feels natural -->
+              <div class="absolute bottom-0 left-0 right-0 h-24 pointer-events-none"
+                style="background: linear-gradient(to top, rgba(22,26,30,0.85) 0%, transparent 100%);"
+              ></div>
+              <!-- Service badge top-right -->
+              <div class="absolute top-3 right-3">
+                <span class="text-[0.65rem] font-sans font-600 uppercase tracking-widest px-2 py-1 rounded"
+                  style="background:rgba(14,16,18,0.75);backdrop-filter:blur(8px);color:#C9A84C;border:1px solid rgba(201,168,76,0.25);">
+                  {service}
+                </span>
+              </div>
             </div>
-            <!-- Content -->
-            <div class="p-6">
-              <p class="text-caption text-stone uppercase tracking-widest mb-2">
-                {location} &middot; {service}
-              </p>
-              <h3 class="font-sans font-semibold text-h4 text-warm-white mb-3">{title}</h3>
-              <p class="text-body-sm text-stone leading-relaxed">{description}</p>
+
+            <!-- Card content -->
+            <div class="p-5 flex flex-col flex-1">
+              <p class="text-[0.7rem] font-sans uppercase tracking-widest text-stone mb-2">{location}</p>
+              <h3 class="font-sans font-semibold text-warm-white mb-3 leading-snug" style="font-size:1rem;">{title}</h3>
+              <p class="text-body-sm text-stone leading-relaxed text-[0.875rem] flex-1">{description}</p>
+              {href && (
+                <p class="mt-4 text-gold text-[0.8rem] font-sans font-semibold uppercase tracking-wider transition-colors duration-fast group-hover:text-gold-light">
+                  View project →
+                </p>
+              )}
             </div>
           </Tag>
         );
@@ -63,7 +85,7 @@ const {
     </div>
 
     {showLink && (
-      <div class="mt-10 text-center">
+      <div class="mt-12 text-center">
         <a href="/home-theater-projects-san-antonio/" class="btn-ghost">
           See All Projects
         </a>
@@ -71,3 +93,12 @@ const {
     )}
   </div>
 </section>
+
+<style>
+  /* Card hover state via JS-free CSS */
+  .group:hover {
+    border-color: rgba(201,168,76,0.45) !important;
+    box-shadow: 0 0 40px rgba(201,168,76,0.10), 0 12px 40px rgba(0,0,0,0.55);
+    transform: translateY(-3px);
+  }
+</style>

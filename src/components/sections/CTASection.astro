@@ -10,44 +10,64 @@ interface Props {
 }
 
 const {
-  heading      = 'Every project starts with a free in-home consultation.',
-  body         = 'We come to you, look at the space, and tell you exactly what\'s possible. No pressure, no obligation.',
-  ctaLabel     = 'Book Your Consultation',
-  ctaHref      = '/contact-kz-audio-video-san-antonio-tx/',
-  secondaryLabel = 'Or call us directly: (210) 981-4098',
+  heading        = 'Every project starts with a free in-home consultation.',
+  body           = 'We come to you, look at the space, and tell you exactly what\'s possible — equipment, layout, cost. No pressure. No obligation.',
+  ctaLabel       = 'Book Your Free Consultation',
+  ctaHref        = '/contact-kz-audio-video-san-antonio-tx/',
+  secondaryLabel = 'Or call (210) 981-4098',
   secondaryHref  = 'tel:2109814098',
-  bgImage,
+  bgImage        = '/images/projects/asanka-theater/theater-room-san-antonio-tx.jpg',
 } = Astro.props;
 ---
 
-<section class="relative py-24 px-4 sm:px-6 overflow-hidden">
-  {bgImage && (
-    <>
-      <img
-        src={bgImage}
-        alt=""
-        aria-hidden="true"
-        class="absolute inset-0 w-full h-full object-cover object-center opacity-20"
-        loading="lazy"
-      />
-      <div class="absolute inset-0 bg-charcoal/70" aria-hidden="true"></div>
-    </>
-  )}
-  <div class="relative z-10 container-main text-center">
-    <span class="gold-rule mx-auto"></span>
-    <h2 class="font-display text-h2 text-warm-white mb-4 max-w-2xl mx-auto">
+<section class="relative py-28 px-4 sm:px-6 overflow-hidden">
+
+  <!-- Background image -->
+  <img
+    src={bgImage}
+    alt=""
+    aria-hidden="true"
+    class="absolute inset-0 w-full h-full object-cover object-top"
+    loading="lazy"
+    decoding="async"
+  />
+
+  <!-- Dark overlay with gold tint -->
+  <div
+    class="absolute inset-0"
+    style="background: linear-gradient(135deg, rgba(14,16,18,0.97) 0%, rgba(14,16,18,0.88) 50%, rgba(14,16,18,0.75) 100%)"
+    aria-hidden="true"
+  ></div>
+
+  <!-- Gold atmospheric glow -->
+  <div
+    class="absolute inset-0 pointer-events-none"
+    style="background: radial-gradient(ellipse at 50% 100%, rgba(201,168,76,0.08) 0%, transparent 65%)"
+    aria-hidden="true"
+  ></div>
+
+  <!-- Content -->
+  <div class="relative z-10 container-main text-center reveal">
+    <span class="gold-accent-line mx-auto mb-6"></span>
+    <h2 class="font-display text-h2 text-warm-white mb-5 max-w-2xl mx-auto" style="letter-spacing:-0.02em;">
       {heading}
     </h2>
-    <p class="text-body-lg text-stone mb-10 max-w-xl mx-auto">
+    <p class="text-body-lg text-stone mb-10 max-w-xl mx-auto" style="font-weight:300;">
       {body}
     </p>
     <div class="flex flex-col sm:flex-row gap-4 justify-center">
-      <a href={ctaHref} class="btn-primary">
+      <a href={ctaHref} class="btn-primary gold-shimmer text-base px-10 py-4">
         {ctaLabel}
       </a>
-      <a href={secondaryHref} class="btn-ghost">
+      <a href={secondaryHref} class="btn-ghost text-base px-8 py-4">
         {secondaryLabel}
       </a>
     </div>
+
+    <!-- Trust micro-copy -->
+    <p class="text-ash text-[0.75rem] font-sans uppercase tracking-widest mt-8">
+      Serving San Antonio &nbsp;·&nbsp; Boerne &nbsp;·&nbsp; Canyon Lake &nbsp;·&nbsp; Hill Country &nbsp;·&nbsp; No Subcontractors
+    </p>
   </div>
+
 </section>

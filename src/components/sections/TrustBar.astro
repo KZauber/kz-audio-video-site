@@ -7,13 +7,17 @@ const stats = [
 ];
 ---
 
-<section class="bg-slate-surface border-y border-smoke py-10 px-4 sm:px-6">
+<section class="border-y border-smoke/60 py-11 px-4 sm:px-6" style="background:linear-gradient(90deg,#111417 0%,#161A1E 50%,#111417 100%);">
   <div class="container-wide">
-    <dl class="grid grid-cols-2 lg:grid-cols-4 gap-8 lg:gap-4">
-      {stats.map(({ value, label }) => (
-        <div class="text-center lg:text-left">
-          <dt class="font-display font-bold text-h3 text-warm-white leading-tight">{value}</dt>
-          <dd class="text-body-sm text-stone mt-1">{label}</dd>
+    <dl class="grid grid-cols-2 lg:grid-cols-4 gap-8 lg:gap-0">
+      {stats.map(({ value, label }, i) => (
+        <div class:list={[
+          "text-center lg:text-left px-6 reveal",
+          i > 0 ? "lg:border-l lg:border-smoke/60" : "",
+          i === 0 ? "reveal-delay-1" : i === 1 ? "reveal-delay-2" : i === 2 ? "reveal-delay-3" : "reveal-delay-4",
+        ]}>
+          <dt class="font-display font-bold text-gold mb-1.5" style="font-size:clamp(1.5rem,2.5vw,2.1rem);letter-spacing:-0.02em;">{value}</dt>
+          <dd class="font-sans text-stone uppercase tracking-widest" style="font-size:0.68rem;letter-spacing:0.14em;">{label}</dd>
         </div>
       ))}
     </dl>

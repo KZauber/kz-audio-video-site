@@ -61,5 +61,29 @@ const {
         Call or Text: (210) 981-4098
       </a>
     </div>
+
+    <script>
+      // Scroll reveal — watches all .reveal and .reveal-left elements
+      const observer = new IntersectionObserver(
+        (entries) => {
+          entries.forEach((entry) => {
+            if (entry.isIntersecting) {
+              entry.target.classList.add('is-visible');
+              observer.unobserve(entry.target);
+            }
+          });
+        },
+        { threshold: 0.12 }
+      );
+
+      function initReveal() {
+        document.querySelectorAll('.reveal, .reveal-left').forEach((el) => {
+          observer.observe(el);
+        });
+      }
+
+      initReveal();
+      document.addEventListener('astro:page-load', initReveal);
+    </script>
   </body>
 </html>

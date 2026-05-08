@@ -1,13 +1,14 @@
 import { defineConfig } from 'astro/config';
 import tailwind from '@astrojs/tailwind';
+import react from '@astrojs/react';
 
 export default defineConfig({
   site: 'https://kzaudioandvideo.com',
   integrations: [
+    react(),
     tailwind(),
   ],
   image: {
-    // Astro handles WebP/AVIF conversion via sharp at build time
     domains: [],
   },
 });
