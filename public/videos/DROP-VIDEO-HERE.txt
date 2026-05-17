@@ -1,0 +1,16 @@
+DROP YOUR SEEDANCE VIDEO HERE
+==============================
+
+File name expected: kz-hero.mp4
+
+Export settings from OpenArt / Seedance:
+  - Format: MP4 (H.264)
+  - Resolution: 1920x1080 or higher (16:9 landscape)
+  - Duration: 8-15 seconds (will loop seamlessly)
+  - File size: aim for under 15MB for fast loading
+
+Once you drop kz-hero.mp4 here, the homepage hero will automatically
+switch from the static image to the looping video — no code changes needed.
+
+The static image (monty-theater-hero.jpg) will still show as the poster frame
+while the video loads, so there's never a flash of empty space.

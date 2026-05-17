@@ -9,6 +9,12 @@ interface Props {
   secondaryHref?: string;
   imageSrc: string;
   imageAlt: string;
+  /**
+   * Optional: path to a looping background video (e.g. '/videos/kz-hero.mp4').
+   * When provided the video plays as the hero background; imageSrc is used as
+   * the poster frame so there is no flash of empty space while the video loads.
+   */
+  videoSrc?: string;
   /** 'left' (default) or 'center' */
   align?: 'left' | 'center';
 }
@@ -23,23 +29,47 @@ const {
   secondaryHref = 'tel:2109814098',
   imageSrc,
   imageAlt,
+  videoSrc,
   align = 'left',
 } = Astro.props;
 ---
 
 <section class="relative w-full min-h-screen flex items-end overflow-hidden" style="background:#0E1012;">
 
-  <!-- Full-bleed background image with cinematic entrance -->
+  <!-- Full-bleed background: video (when provided) or image fallback -->
   <div class="absolute inset-0 hero-enter-img" aria-hidden="true">
-    <img
-      src={imageSrc}
-      alt=""
-      aria-hidden="true"
-      class="w-full h-full object-cover object-top"
-      loading="eager"
-      fetchpriority="high"
-      decoding="async"
-    />
+
+    {videoSrc ? (
+      /* ── VIDEO BACKGROUND ───────────────────────────────────────────────
+         poster= shows the image instantly while the video buffers.
+         autoplay muted loop playsinline are required for browser autoplay. */
+      <video
+        class="w-full h-full object-cover object-center"
+        autoplay
+        muted
+        loop
+        playsinline
+        poster={imageSrc}
+        aria-hidden="true"
+        preload="auto"
+      >
+        <source src={videoSrc} type="video/mp4" />
+        {/* Fallback: show poster image if video fails */}
+        <img src={imageSrc} alt="" aria-hidden="true" class="w-full h-full object-cover" />
+      </video>
+    ) : (
+      /* ── IMAGE BACKGROUND (location pages + any page without video) ─── */
+      <img
+        src={imageSrc}
+        alt=""
+        aria-hidden="true"
+        class="w-full h-full object-cover object-top"
+        loading="eager"
+        fetchpriority="high"
+        decoding="async"
+      />
+    )}
+
     <!-- Cinematic vignette: heavy left + bottom darkening -->
     <div
       class="absolute inset-0"
