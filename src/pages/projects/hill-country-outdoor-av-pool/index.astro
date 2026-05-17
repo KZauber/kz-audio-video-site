@@ -1,0 +1,240 @@
+---
+import BaseLayout from '../../../layouts/BaseLayout.astro';
+import CTASection from '../../../components/sections/CTASection.astro';
+
+const projectSchema = {
+  "@context": "https://schema.org",
+  "@type": "CreativeWork",
+  "name": "Hill Country Outdoor AV — Pool Projector & Rock Speakers",
+  "description": "Outdoor projector ceiling-mounted under a limestone arch on a covered patio overlooking the pool. Rock speakers throughout the yard. Installed by KZ Audio & Video in the Texas Hill Country.",
+  "url": "https://kzaudioandvideo.com/projects/hill-country-outdoor-av-pool/",
+  "creator": {
+    "@type": "LocalBusiness",
+    "name": "KZ Audio & Video",
+    "telephone": "+12109814098",
+    "url": "https://kzaudioandvideo.com"
+  },
+  "locationCreated": {
+    "@type": "Place",
+    "name": "Texas Hill Country, TX"
+  }
+};
+
+const breadcrumb = {
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": [
+    { "@type": "ListItem", "position": 1, "name": "Home", "item": "https://kzaudioandvideo.com" },
+    { "@type": "ListItem", "position": 2, "name": "Projects", "item": "https://kzaudioandvideo.com/home-theater-projects-san-antonio/" },
+    { "@type": "ListItem", "position": 3, "name": "Hill Country Outdoor AV — Pool Projector & Rock Speakers" }
+  ]
+};
+
+const gallery = [
+  { src: '/images/projects/outdoor-av/san-antonio-projector-pool.jpeg.jpg', alt: 'Outdoor projector and pool area in Texas Hill Country' },
+  { src: '/images/projects/outdoor-av/Pool-shot-san-antonio.jpeg.PNG', alt: 'Pool and outdoor theater setup Texas Hill Country' },
+  { src: '/images/projects/outdoor-av/outdoor-rock-speaker-san-antonio.jpeg.PNG', alt: 'Landscape rock speaker blending with yard' },
+  { src: '/images/projects/outdoor-av/Rock-speaker-sandstone-pool-san-antonio.jpeg.PNG', alt: 'Rock speaker near sandstone pool area' },
+  { src: '/images/projects/outdoor-av/ROck-speaker-behind-pool-san-antonio.jpeg.PNG', alt: 'Rock speaker positioned behind pool' },
+  { src: '/images/projects/outdoor-av/speaker-hot-tub-san-antonio.jpeg.PNG', alt: 'Speaker near hot tub in outdoor AV system' },
+  { src: '/images/projects/outdoor-av/speaker-near-hot-tub-san-antonio.jpeg.PNG', alt: 'Outdoor speaker placement near hot tub' },
+];
+---
+
+<BaseLayout
+  title="Hill Country Outdoor AV — Pool Projector & Rock Speakers | KZ Audio & Video"
+  description="Outdoor projector ceiling-mounted under a limestone arch on a covered patio overlooking the pool. Rock speakers throughout the yard. Installed by KZ Audio & Video in the Texas Hill Country. (210) 981-4098."
+  canonical="https://kzaudioandvideo.com/projects/hill-country-outdoor-av-pool/"
+  schema={[projectSchema, breadcrumb]}
+>
+
+  <!-- Hero -->
+  <section class="relative overflow-hidden" style="height:65vh;min-height:420px;">
+    <img
+      src="/images/projects/outdoor-av/pool-projector-outdoor-theater.jpeg.jpg"
+      alt="Outdoor projector mounted under limestone arch on covered patio overlooking pool in Texas Hill Country"
+      class="absolute inset-0 w-full h-full object-cover object-center"
+      loading="eager"
+      fetchpriority="high"
+      decoding="async"
+    />
+    <div class="absolute inset-0" style="background:linear-gradient(to top, rgba(14,16,18,0.92) 0%, rgba(14,16,18,0.55) 50%, rgba(14,16,18,0.3) 100%);" aria-hidden="true"></div>
+    <div class="absolute inset-0 flex flex-col justify-end pb-14 px-6 sm:px-10 lg:px-16">
+      <div class="container-main">
+        <nav class="mb-4" aria-label="Breadcrumb">
+          <ol class="flex items-center gap-2 text-[0.72rem] font-sans uppercase tracking-widest text-stone">
+            <li><a href="/" class="hover:text-gold transition-colors">Home</a></li>
+            <li aria-hidden="true" class="opacity-40">/</li>
+            <li><a href="/home-theater-projects-san-antonio/" class="hover:text-gold transition-colors">Projects</a></li>
+            <li aria-hidden="true" class="opacity-40">/</li>
+            <li class="text-warm-white">Hill Country Outdoor AV</li>
+          </ol>
+        </nav>
+        <p class="overline mb-3">Outdoor AV · Texas Hill Country</p>
+        <h1 class="font-display text-warm-white mb-0" style="font-size:clamp(1.75rem,4vw,3rem);line-height:1.1;letter-spacing:-0.02em;">
+          Outdoor AV Installation — Hill Country, TX
+        </h1>
+      </div>
+    </div>
+  </section>
+
+  <!-- Details bar -->
+  <section class="bg-charcoal border-b border-smoke py-6">
+    <div class="container-main">
+      <dl class="flex flex-wrap gap-x-10 gap-y-3">
+        <div class="flex flex-col gap-0.5">
+          <dt class="text-[0.65rem] font-sans uppercase tracking-widest text-stone">Location</dt>
+          <dd class="text-warm-white text-sm font-sans font-semibold">Texas Hill Country</dd>
+        </div>
+        <div class="flex flex-col gap-0.5">
+          <dt class="text-[0.65rem] font-sans uppercase tracking-widest text-stone">Service</dt>
+          <dd class="text-warm-white text-sm font-sans font-semibold">Outdoor AV</dd>
+        </div>
+        <div class="flex flex-col gap-0.5">
+          <dt class="text-[0.65rem] font-sans uppercase tracking-widest text-stone">Equipment</dt>
+          <dd class="text-warm-white text-sm font-sans font-semibold">Outdoor Projector · Landscape Rock Speakers</dd>
+        </div>
+        <div class="flex flex-col gap-0.5">
+          <dt class="text-[0.65rem] font-sans uppercase tracking-widest text-stone">Rating</dt>
+          <dd class="text-warm-white text-sm font-sans font-semibold">All Equipment Texas Outdoor-Rated</dd>
+        </div>
+      </dl>
+    </div>
+  </section>
+
+  <!-- Project details -->
+  <section class="section bg-slate-surface">
+    <div class="container-main">
+      <div class="grid grid-cols-1 lg:grid-cols-3 gap-10">
+        <div class="lg:col-span-2">
+          <p class="overline mb-3">About This Project</p>
+          <h2 class="font-display text-h2 text-warm-white mb-6">Outdoor Movie Nights Under a Limestone Arch</h2>
+          <div class="flex flex-col gap-4 text-body text-stone leading-relaxed">
+            <p>The projector is ceiling-mounted under a covered limestone arch on a Hill Country patio. When it's time for a movie, the screen drops. When you're just hosting a party, it disappears. The covered patio provides weather protection for the equipment while keeping the aesthetic clean.</p>
+            <p>Rock speakers are distributed throughout the yard — near the pool, behind the pool, and near the hot tub. They blend into the landscaping completely. Guests don't know they're there until the music starts. Every speaker is positioned to create even audio coverage across the full outdoor space.</p>
+            <p>Every piece of equipment in this install is rated for Texas outdoor conditions — the heat, the humidity, and the occasional hard rain. This is not indoor equipment moved outside. It was specced specifically for the environment.</p>
+          </div>
+        </div>
+        <div class="flex flex-col gap-4">
+          <div class="card p-6">
+            <h3 class="font-sans font-semibold text-warm-white mb-4 text-sm uppercase tracking-wider">Project Details</h3>
+            <ul class="flex flex-col gap-3">
+              {[
+                { label: 'Equipment', value: 'Outdoor-rated projector, ceiling mount under limestone arch, landscape rock speakers throughout yard including hot tub area' },
+                { label: 'The setup', value: 'Projector mounted to patio ceiling under covered limestone arch. Screen drops for outdoor movie nights. Rock speakers blend into landscaping' },
+                { label: 'Weather rating', value: 'All equipment rated for Texas outdoor conditions — heat, humidity, rain' },
+                { label: 'Location', value: 'Texas Hill Country' },
+              ].map(({ label, value }) => (
+                <li class="flex flex-col gap-0.5">
+                  <span class="text-[0.65rem] font-sans uppercase tracking-widest text-stone">{label}</span>
+                  <span class="text-warm-white text-sm">{value}</span>
+                </li>
+              ))}
+            </ul>
+          </div>
+          <a href="/contact-kz-audio-video-san-antonio-tx/" class="btn-primary gold-shimmer text-center">
+            Book a Free Consultation
+          </a>
+          <a href="tel:2109814098" class="btn-ghost text-center">
+            Call (210) 981-4098
+          </a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Gallery -->
+  <section class="section bg-charcoal">
+    <div class="container-main">
+      <p class="overline mb-3">Project Gallery</p>
+      <h2 class="font-display text-h2 text-warm-white mb-10">All Project Photos</h2>
+      <div class="grid grid-cols-2 md:grid-cols-3 gap-3">
+        {gallery.map(({ src, alt }) => (
+          <button
+            class="proj-lb-trigger group overflow-hidden rounded-sm focus:outline-none focus-visible:ring-2 focus-visible:ring-gold"
+            data-img={src}
+            data-alt={alt}
+            aria-label={`View full size: ${alt}`}
+            type="button"
+          >
+            <div class="overflow-hidden aspect-video">
+              <img
+                src={src}
+                alt={alt}
+                class="w-full h-full object-cover transition-transform duration-slow group-hover:scale-[1.04]"
+                loading="lazy"
+                decoding="async"
+              />
+            </div>
+          </button>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <CTASection
+    heading="Ready to Build an Outdoor AV System?"
+    body="Book a free consultation. We'll assess your outdoor space and design a system that handles the Texas climate and sounds great doing it."
+    ctaLabel="Book a Free Consultation"
+    ctaHref="/contact-kz-audio-video-san-antonio-tx/"
+    secondaryLabel="Call (210) 981-4098"
+    secondaryHref="tel:2109814098"
+  />
+
+</BaseLayout>
+
+<!-- Lightbox -->
+<div
+  id="proj-lightbox"
+  role="dialog"
+  aria-modal="true"
+  aria-label="Project photo"
+  style="display:none; position:fixed; inset:0; z-index:9999; background:rgba(14,16,18,0.96); cursor:pointer; backdrop-filter:blur(8px);"
+>
+  <button
+    id="proj-lb-close"
+    aria-label="Close photo"
+    style="position:absolute;top:1.25rem;right:1.5rem;background:none;border:none;color:#F2EDE6;font-size:1.75rem;cursor:pointer;line-height:1;opacity:0.7;transition:opacity 150ms;"
+    onmouseover="this.style.opacity='1'" onmouseout="this.style.opacity='0.7'"
+  >&#x2715;</button>
+  <div style="position:absolute;inset:0;display:flex;flex-direction:column;align-items:center;justify-content:center;padding:5rem 1.5rem 2rem;">
+    <img
+      id="proj-lb-img"
+      src=""
+      alt=""
+      style="max-width:100%;max-height:78vh;object-fit:contain;border-radius:0.375rem;box-shadow:0 32px 80px rgba(0,0,0,0.8);"
+    />
+    <p id="proj-lb-caption" style="margin-top:1.25rem;font-family:'Jost',sans-serif;color:#A09080;font-size:0.8rem;text-align:center;max-width:56ch;line-height:1.6;"></p>
+  </div>
+</div>
+
+<script>
+  const lb      = document.getElementById('proj-lightbox') as HTMLElement;
+  const lbImg   = document.getElementById('proj-lb-img') as HTMLImageElement;
+  const lbCap   = document.getElementById('proj-lb-caption') as HTMLElement;
+  const lbClose = document.getElementById('proj-lb-close') as HTMLElement;
+
+  function openLb(img: string, alt: string) {
+    lbImg.src = img;
+    lbImg.alt = alt;
+    lbCap.textContent = alt;
+    lb.style.display = 'block';
+    document.body.style.overflow = 'hidden';
+  }
+
+  function closeLb() {
+    lb.style.display = 'none';
+    document.body.style.overflow = '';
+    lbImg.src = '';
+  }
+
+  document.querySelectorAll<HTMLElement>('.proj-lb-trigger').forEach(el => {
+    const open = () => openLb(el.dataset.img ?? '', el.dataset.alt ?? '');
+    el.addEventListener('click', open);
+    el.addEventListener('keydown', (e: KeyboardEvent) => { if (e.key === 'Enter' || e.key === ' ') { e.preventDefault(); open(); } });
+  });
+
+  lb.addEventListener('click', (e) => { if (e.target !== lbImg) closeLb(); });
+  lbClose.addEventListener('click', closeLb);
+  document.addEventListener('keydown', (e: KeyboardEvent) => { if (e.key === 'Escape') closeLb(); });
+</script>

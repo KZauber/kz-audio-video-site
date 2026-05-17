@@ -35,6 +35,59 @@ const delayClasses = ['reveal-delay-2','reveal-delay-3','reveal-delay-4','reveal
     <!-- Portrait-friendly grid: 3 columns on desktop, 2 on tablet, 1 on mobile -->
     <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-5">
       {projects.map(({ title, location, service, description, imageSrc, imageAlt, href }, i) => (
+        href ? (
+          <a
+            href={href}
+            class:list={[
+              'group overflow-hidden rounded-card reveal cursor-pointer no-underline',
+              'flex flex-col',
+              delayClasses[Math.min(i, 5)],
+            ]}
+            style="background:#161A1E; border:1px solid #252A2F; transition: border-color 300ms ease, box-shadow 300ms ease, transform 300ms ease;"
+            aria-label={`View project: ${title}`}
+          >
+            <!-- Portrait image container — 3:4 ratio -->
+            <div class="overflow-hidden" style="aspect-ratio:3/4; position:relative;">
+              <img
+                src={imageSrc}
+                alt={imageAlt}
+                class="w-full h-full object-cover object-top transition-transform duration-slow group-hover:scale-[1.04]"
+                loading="lazy"
+                decoding="async"
+              />
+              <!-- Subtle bottom gradient -->
+              <div class="absolute bottom-0 left-0 right-0 h-24 pointer-events-none"
+                style="background: linear-gradient(to top, rgba(22,26,30,0.85) 0%, transparent 100%);"
+              ></div>
+              <!-- Service badge top-right -->
+              <div class="absolute top-3 right-3">
+                <span class="text-[0.65rem] font-sans font-600 uppercase tracking-widest px-2 py-1 rounded"
+                  style="background:rgba(14,16,18,0.75);backdrop-filter:blur(8px);color:#C9A84C;border:1px solid rgba(201,168,76,0.25);">
+                  {service}
+                </span>
+              </div>
+              <!-- Arrow icon — visible on hover -->
+              <div class="absolute inset-0 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity duration-200 pointer-events-none">
+                <div style="background:rgba(14,16,18,0.70);backdrop-filter:blur(6px);border:1px solid rgba(201,168,76,0.35);border-radius:50%;width:3rem;height:3rem;display:flex;align-items:center;justify-content:center;">
+                  <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#C9A84C" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                    <line x1="5" y1="12" x2="19" y2="12"></line>
+                    <polyline points="12 5 19 12 12 19"></polyline>
+                  </svg>
+                </div>
+              </div>
+            </div>
+
+            <!-- Card content -->
+            <div class="p-5 flex flex-col flex-1">
+              <p class="text-[0.7rem] font-sans uppercase tracking-widest text-stone mb-2">{location}</p>
+              <h3 class="font-sans font-semibold text-warm-white mb-3 leading-snug" style="font-size:1rem;">{title}</h3>
+              <p class="text-body-sm text-stone leading-relaxed text-[0.875rem] flex-1">{description}</p>
+              <p class="mt-4 text-gold text-[0.8rem] font-sans font-semibold uppercase tracking-wider transition-colors duration-fast group-hover:text-gold-light">
+                View Full Project →
+              </p>
+            </div>
+          </a>
+        ) : (
         <div
           class:list={[
             'group overflow-hidden rounded-card reveal cursor-pointer no-underline',
@@ -93,6 +146,7 @@ const delayClasses = ['reveal-delay-2','reveal-delay-3','reveal-delay-4','reveal
             </p>
           </div>
         </div>
+        )
       ))}
     </div>
 

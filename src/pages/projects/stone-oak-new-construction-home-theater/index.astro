@@ -1,0 +1,243 @@
+---
+import BaseLayout from '../../../layouts/BaseLayout.astro';
+import CTASection from '../../../components/sections/CTASection.astro';
+
+const projectSchema = {
+  "@context": "https://schema.org",
+  "@type": "CreativeWork",
+  "name": "New Construction Home Theater — Stone Oak, San Antonio TX",
+  "description": "New construction dedicated home theater in Stone Oak San Antonio. Full pre-wire, Epson projector, Martin Logan speakers, custom seating platform. Documented from framing through final install.",
+  "url": "https://kzaudioandvideo.com/projects/stone-oak-new-construction-home-theater/",
+  "creator": {
+    "@type": "LocalBusiness",
+    "name": "KZ Audio & Video",
+    "telephone": "+12109814098",
+    "url": "https://kzaudioandvideo.com"
+  },
+  "locationCreated": {
+    "@type": "Place",
+    "name": "Stone Oak, San Antonio, TX"
+  }
+};
+
+const breadcrumb = {
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": [
+    { "@type": "ListItem", "position": 1, "name": "Home", "item": "https://kzaudioandvideo.com" },
+    { "@type": "ListItem", "position": 2, "name": "Projects", "item": "https://kzaudioandvideo.com/home-theater-projects-san-antonio/" },
+    { "@type": "ListItem", "position": 3, "name": "Stone Oak New Construction Home Theater" }
+  ]
+};
+
+const gallery = [
+  { src: '/images/projects/young-theater/Youn-theater-framing.jpeg.PNG', alt: 'Theater room framing during new home construction in Stone Oak' },
+  { src: '/images/projects/young-theater/Young-Theater-Construction-Frame.jpeg.PNG', alt: 'New construction theater room framing San Antonio' },
+  { src: '/images/projects/young-theater/young-framing-walk.jpeg.PNG', alt: 'Walkthrough during theater room framing' },
+  { src: '/images/projects/young-theater/young-ceiling-speaker-wire.jpeg.PNG', alt: 'Ceiling speaker pre-wire during construction' },
+  { src: '/images/projects/young-theater/young-theater-left-speaker-wire.jpeg.PNG', alt: 'Left speaker pre-wire installation' },
+  { src: '/images/projects/young-theater/young-theater-left-speaker.jpeg.PNG', alt: 'Left speaker finished installation' },
+  { src: '/images/projects/young-theater/young-theater-rear-right-speaker-wire.jpeg.PNG', alt: 'Rear right surround speaker wiring' },
+  { src: '/images/projects/young-theater/young-martin-logan-center.jpeg.jpg', alt: 'Martin Logan center channel speaker installation' },
+  { src: '/images/projects/young-theater/young-martin-logan-subwoofer.jpeg.jpg', alt: 'Martin Logan subwoofer installation in dedicated theater' },
+  { src: '/images/projects/young-theater/young-epson-projector-from-door.PNG', alt: 'Epson projector and screen view from theater room door' },
+];
+---
+
+<BaseLayout
+  title="New Construction Home Theater Stone Oak San Antonio | KZ Audio & Video"
+  description="New construction dedicated home theater in Stone Oak San Antonio. Full pre-wire, Epson projector, Martin Logan speakers, custom seating platform. Documented from framing through final install. KZ Audio & Video (210) 981-4098."
+  canonical="https://kzaudioandvideo.com/projects/stone-oak-new-construction-home-theater/"
+  schema={[projectSchema, breadcrumb]}
+>
+
+  <!-- Hero -->
+  <section class="relative overflow-hidden" style="height:65vh;min-height:420px;">
+    <img
+      src="/images/projects/young-theater/young-theater-san-antonio-tx.jpg"
+      alt="New construction home theater installation in Stone Oak San Antonio with projection system and surround sound"
+      class="absolute inset-0 w-full h-full object-cover object-center"
+      loading="eager"
+      fetchpriority="high"
+      decoding="async"
+    />
+    <div class="absolute inset-0" style="background:linear-gradient(to top, rgba(14,16,18,0.92) 0%, rgba(14,16,18,0.55) 50%, rgba(14,16,18,0.3) 100%);" aria-hidden="true"></div>
+    <div class="absolute inset-0 flex flex-col justify-end pb-14 px-6 sm:px-10 lg:px-16">
+      <div class="container-main">
+        <nav class="mb-4" aria-label="Breadcrumb">
+          <ol class="flex items-center gap-2 text-[0.72rem] font-sans uppercase tracking-widest text-stone">
+            <li><a href="/" class="hover:text-gold transition-colors">Home</a></li>
+            <li aria-hidden="true" class="opacity-40">/</li>
+            <li><a href="/home-theater-projects-san-antonio/" class="hover:text-gold transition-colors">Projects</a></li>
+            <li aria-hidden="true" class="opacity-40">/</li>
+            <li class="text-warm-white">Stone Oak New Build</li>
+          </ol>
+        </nav>
+        <p class="overline mb-3">New Construction Home Theater · Stone Oak, San Antonio TX</p>
+        <h1 class="font-display text-warm-white mb-0" style="font-size:clamp(1.75rem,4vw,3rem);line-height:1.1;letter-spacing:-0.02em;">
+          New Construction Home Theater — Stone Oak, San Antonio TX
+        </h1>
+      </div>
+    </div>
+  </section>
+
+  <!-- Details bar -->
+  <section class="bg-charcoal border-b border-smoke py-6">
+    <div class="container-main">
+      <dl class="flex flex-wrap gap-x-10 gap-y-3">
+        <div class="flex flex-col gap-0.5">
+          <dt class="text-[0.65rem] font-sans uppercase tracking-widest text-stone">Location</dt>
+          <dd class="text-warm-white text-sm font-sans font-semibold">Stone Oak, San Antonio TX</dd>
+        </div>
+        <div class="flex flex-col gap-0.5">
+          <dt class="text-[0.65rem] font-sans uppercase tracking-widest text-stone">Service</dt>
+          <dd class="text-warm-white text-sm font-sans font-semibold">New Construction Home Theater</dd>
+        </div>
+        <div class="flex flex-col gap-0.5">
+          <dt class="text-[0.65rem] font-sans uppercase tracking-widest text-stone">Equipment</dt>
+          <dd class="text-warm-white text-sm font-sans font-semibold">Epson Projector · Martin Logan Center & Sub</dd>
+        </div>
+        <div class="flex flex-col gap-0.5">
+          <dt class="text-[0.65rem] font-sans uppercase tracking-widest text-stone">Scope</dt>
+          <dd class="text-warm-white text-sm font-sans font-semibold">Framing Stage Through Finished Install</dd>
+        </div>
+      </dl>
+    </div>
+  </section>
+
+  <!-- Project details -->
+  <section class="section bg-slate-surface">
+    <div class="container-main">
+      <div class="grid grid-cols-1 lg:grid-cols-3 gap-10">
+        <div class="lg:col-span-2">
+          <p class="overline mb-3">About This Project</p>
+          <h2 class="font-display text-h2 text-warm-white mb-6">Documented From Framing Through Final Calibration</h2>
+          <div class="flex flex-col gap-4 text-body text-stone leading-relaxed">
+            <p>This Stone Oak build is rare — photos document every stage from the raw framing walk-through during new construction all the way through the finished theater. If you want to understand what the pre-wire process actually looks like, this project shows it.</p>
+            <p>KZ Audio & Video was brought in at the framing stage. Every speaker position was planned before the drywall went up — ceiling speakers, front stage, rear surrounds, all pre-wired with the walls open. The Martin Logan center channel and subwoofer were specced for the room dimensions at the design phase.</p>
+            <p>The finished theater features an Epson projector, in-wall surround speaker system, custom seating platform, and clean cable management. System programming and homeowner walkthrough were completed at trim-out.</p>
+          </div>
+        </div>
+        <div class="flex flex-col gap-4">
+          <div class="card p-6">
+            <h3 class="font-sans font-semibold text-warm-white mb-4 text-sm uppercase tracking-wider">Project Details</h3>
+            <ul class="flex flex-col gap-3">
+              {[
+                { label: 'Equipment', value: 'Epson projector, Martin Logan center channel and subwoofer, in-wall surround speakers, custom seating platform' },
+                { label: 'Scope', value: 'Pre-wire from framing stage through finished trim-out, system programming, and homeowner walkthrough' },
+                { label: 'What makes this notable', value: 'Photos document every stage from rough framing through the finished theater — rare to have the full build documented' },
+                { label: 'Location', value: 'Stone Oak, San Antonio TX' },
+              ].map(({ label, value }) => (
+                <li class="flex flex-col gap-0.5">
+                  <span class="text-[0.65rem] font-sans uppercase tracking-widest text-stone">{label}</span>
+                  <span class="text-warm-white text-sm">{value}</span>
+                </li>
+              ))}
+            </ul>
+          </div>
+          <a href="/contact-kz-audio-video-san-antonio-tx/" class="btn-primary gold-shimmer text-center">
+            Book a Free Consultation
+          </a>
+          <a href="tel:2109814098" class="btn-ghost text-center">
+            Call (210) 981-4098
+          </a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Gallery -->
+  <section class="section bg-charcoal">
+    <div class="container-main">
+      <p class="overline mb-3">Project Gallery</p>
+      <h2 class="font-display text-h2 text-warm-white mb-10">From Framing to Finished — All Photos</h2>
+      <div class="grid grid-cols-2 md:grid-cols-3 gap-3">
+        {gallery.map(({ src, alt }) => (
+          <button
+            class="proj-lb-trigger group overflow-hidden rounded-sm focus:outline-none focus-visible:ring-2 focus-visible:ring-gold"
+            data-img={src}
+            data-alt={alt}
+            aria-label={`View full size: ${alt}`}
+            type="button"
+          >
+            <div class="overflow-hidden aspect-video">
+              <img
+                src={src}
+                alt={alt}
+                class="w-full h-full object-cover transition-transform duration-slow group-hover:scale-[1.04]"
+                loading="lazy"
+                decoding="async"
+              />
+            </div>
+          </button>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <CTASection
+    heading="Planning a New Construction Theater?"
+    body="Getting us involved at the framing stage makes everything easier. Book a free consultation and we'll walk you through the pre-wire process."
+    ctaLabel="Book a Free Consultation"
+    ctaHref="/contact-kz-audio-video-san-antonio-tx/"
+    secondaryLabel="Call (210) 981-4098"
+    secondaryHref="tel:2109814098"
+  />
+
+</BaseLayout>
+
+<!-- Lightbox -->
+<div
+  id="proj-lightbox"
+  role="dialog"
+  aria-modal="true"
+  aria-label="Project photo"
+  style="display:none; position:fixed; inset:0; z-index:9999; background:rgba(14,16,18,0.96); cursor:pointer; backdrop-filter:blur(8px);"
+>
+  <button
+    id="proj-lb-close"
+    aria-label="Close photo"
+    style="position:absolute;top:1.25rem;right:1.5rem;background:none;border:none;color:#F2EDE6;font-size:1.75rem;cursor:pointer;line-height:1;opacity:0.7;transition:opacity 150ms;"
+    onmouseover="this.style.opacity='1'" onmouseout="this.style.opacity='0.7'"
+  >&#x2715;</button>
+  <div style="position:absolute;inset:0;display:flex;flex-direction:column;align-items:center;justify-content:center;padding:5rem 1.5rem 2rem;">
+    <img
+      id="proj-lb-img"
+      src=""
+      alt=""
+      style="max-width:100%;max-height:78vh;object-fit:contain;border-radius:0.375rem;box-shadow:0 32px 80px rgba(0,0,0,0.8);"
+    />
+    <p id="proj-lb-caption" style="margin-top:1.25rem;font-family:'Jost',sans-serif;color:#A09080;font-size:0.8rem;text-align:center;max-width:56ch;line-height:1.6;"></p>
+  </div>
+</div>
+
+<script>
+  const lb      = document.getElementById('proj-lightbox') as HTMLElement;
+  const lbImg   = document.getElementById('proj-lb-img') as HTMLImageElement;
+  const lbCap   = document.getElementById('proj-lb-caption') as HTMLElement;
+  const lbClose = document.getElementById('proj-lb-close') as HTMLElement;
+
+  function openLb(img: string, alt: string) {
+    lbImg.src = img;
+    lbImg.alt = alt;
+    lbCap.textContent = alt;
+    lb.style.display = 'block';
+    document.body.style.overflow = 'hidden';
+  }
+
+  function closeLb() {
+    lb.style.display = 'none';
+    document.body.style.overflow = '';
+    lbImg.src = '';
+  }
+
+  document.querySelectorAll<HTMLElement>('.proj-lb-trigger').forEach(el => {
+    const open = () => openLb(el.dataset.img ?? '', el.dataset.alt ?? '');
+    el.addEventListener('click', open);
+    el.addEventListener('keydown', (e: KeyboardEvent) => { if (e.key === 'Enter' || e.key === ' ') { e.preventDefault(); open(); } });
+  });
+
+  lb.addEventListener('click', (e) => { if (e.target !== lbImg) closeLb(); });
+  lbClose.addEventListener('click', closeLb);
+  document.addEventListener('keydown', (e: KeyboardEvent) => { if (e.key === 'Escape') closeLb(); });
+</script>

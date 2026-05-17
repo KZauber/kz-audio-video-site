@@ -1,0 +1,247 @@
+---
+import BaseLayout from '../../../layouts/BaseLayout.astro';
+import CTASection from '../../../components/sections/CTASection.astro';
+
+const projectSchema = {
+  "@context": "https://schema.org",
+  "@type": "CreativeWork",
+  "name": "Canyon Lake Dedicated Home Theater",
+  "description": "Custom dedicated home theater in Canyon Lake TX by KZ Audio & Video. Custom leather power recliners, blue LED lighting, projection screen, and in-wall Dolby surround sound.",
+  "url": "https://kzaudioandvideo.com/projects/canyon-lake-dedicated-home-theater/",
+  "creator": {
+    "@type": "LocalBusiness",
+    "name": "KZ Audio & Video",
+    "telephone": "+12109814098",
+    "url": "https://kzaudioandvideo.com"
+  },
+  "locationCreated": {
+    "@type": "Place",
+    "name": "Canyon Lake, TX"
+  }
+};
+
+const breadcrumb = {
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": [
+    { "@type": "ListItem", "position": 1, "name": "Home", "item": "https://kzaudioandvideo.com" },
+    { "@type": "ListItem", "position": 2, "name": "Projects", "item": "https://kzaudioandvideo.com/home-theater-projects-san-antonio/" },
+    { "@type": "ListItem", "position": 3, "name": "Canyon Lake Dedicated Home Theater" }
+  ]
+};
+
+const gallery = [
+  { src: '/images/projects/monty-theater/Canyon-Lake-Tesac-Home-Theater-Custom-Seating.jpeg.jpg', alt: 'Custom leather power recliner seating with blue LED step lighting' },
+  { src: '/images/projects/monty-theater/Canyon-Lake-Tesac-Home-Theater-Custom-Projector-Install.jpeg.PNG', alt: 'Custom projector installation in Canyon Lake home theater' },
+  { src: '/images/projects/monty-theater/Canyon-Lake-Tesac-Home-Theater-Custom-Speaker-Install.jpeg.PNG', alt: 'In-wall speaker installation during construction' },
+  { src: '/images/projects/monty-theater/Canyon-Lake-Tesac-Home-Theater-Seating.jpeg.jpg', alt: 'Home theater seating on raised platform' },
+  { src: '/images/projects/monty-theater/Canyob-Lake-Texas-Home-Theater-Project.jpeg.jpg', alt: 'Canyon Lake Texas home theater project overview' },
+  { src: '/images/projects/monty-theater/Canyon-Lake-Texas-Home-Theater-Speaker-Grill-Paint.jpeg', alt: 'Speaker grill painting during installation' },
+  { src: '/images/projects/monty-theater/Canyon-Lake-Texas-Home-Theater-Speaker-Installation.jpeg.PNG', alt: 'Speaker installation in Canyon Lake theater' },
+  { src: '/images/projects/monty-theater/Canyon-Lake-Texas-Home-Theater-Speaker-Prep.jpeg.PNG', alt: 'Speaker preparation and wiring' },
+  { src: '/images/projects/monty-theater/Home-Theater-Design-Build-Near-San-Antonio-Texas.jpeg.jpg', alt: 'Home theater design and build near San Antonio Texas' },
+  { src: '/images/projects/monty-theater/Home-Theater-Installation-Custom-Lighting.jpeg.jpg', alt: 'Custom LED lighting installation in dedicated home theater' },
+  { src: '/images/projects/monty-theater/Home-Theater-Installation-Near-Stone-Oak.jpeg.jpg', alt: 'Home theater installation near Stone Oak San Antonio' },
+  { src: '/images/projects/monty-theater/Home-Theater-Near-Alamo-Heights-Wiring.jpeg.PNG', alt: 'Pre-wire and wiring work for home theater near San Antonio' },
+  { src: '/images/projects/monty-theater/Home-Theater-Near-San-Antonio-Texas.jpeg.jpg', alt: 'Completed home theater near San Antonio Texas' },
+  { src: '/images/projects/monty-theater/Home-TheaterInstall-Near-Bulverde-Texas.jpeg.jpg', alt: 'Home theater install near Bulverde Texas' },
+];
+---
+
+<BaseLayout
+  title="Canyon Lake Dedicated Home Theater | KZ Audio & Video"
+  description="Custom dedicated home theater in Canyon Lake TX by KZ Audio & Video. Custom leather power recliners, blue LED lighting, projection screen, and in-wall Dolby surround sound. Call (210) 981-4098."
+  canonical="https://kzaudioandvideo.com/projects/canyon-lake-dedicated-home-theater/"
+  schema={[projectSchema, breadcrumb]}
+>
+
+  <!-- Hero -->
+  <section class="relative overflow-hidden" style="height:65vh;min-height:420px;">
+    <img
+      src="/images/projects/monty-theater/Canyon-Lake-Tesac-Home-Theater-Projection-Screen.jpeg.jpg"
+      alt="Custom dedicated home theater projection screen with blue LED lighting and leather seating in Canyon Lake Texas"
+      class="absolute inset-0 w-full h-full object-cover object-center"
+      loading="eager"
+      fetchpriority="high"
+      decoding="async"
+    />
+    <div class="absolute inset-0" style="background:linear-gradient(to top, rgba(14,16,18,0.92) 0%, rgba(14,16,18,0.55) 50%, rgba(14,16,18,0.3) 100%);" aria-hidden="true"></div>
+    <div class="absolute inset-0 flex flex-col justify-end pb-14 px-6 sm:px-10 lg:px-16">
+      <div class="container-main">
+        <nav class="mb-4" aria-label="Breadcrumb">
+          <ol class="flex items-center gap-2 text-[0.72rem] font-sans uppercase tracking-widest text-stone">
+            <li><a href="/" class="hover:text-gold transition-colors">Home</a></li>
+            <li aria-hidden="true" class="opacity-40">/</li>
+            <li><a href="/home-theater-projects-san-antonio/" class="hover:text-gold transition-colors">Projects</a></li>
+            <li aria-hidden="true" class="opacity-40">/</li>
+            <li class="text-warm-white">Canyon Lake Theater</li>
+          </ol>
+        </nav>
+        <p class="overline mb-3">Home Theater · Canyon Lake, TX</p>
+        <h1 class="font-display text-warm-white mb-0" style="font-size:clamp(1.75rem,4vw,3rem);line-height:1.1;letter-spacing:-0.02em;">
+          Dedicated Home Theater Installation — Canyon Lake, TX
+        </h1>
+      </div>
+    </div>
+  </section>
+
+  <!-- Details bar -->
+  <section class="bg-charcoal border-b border-smoke py-6">
+    <div class="container-main">
+      <dl class="flex flex-wrap gap-x-10 gap-y-3">
+        <div class="flex flex-col gap-0.5">
+          <dt class="text-[0.65rem] font-sans uppercase tracking-widest text-stone">Location</dt>
+          <dd class="text-warm-white text-sm font-sans font-semibold">Canyon Lake, TX (Comal County)</dd>
+        </div>
+        <div class="flex flex-col gap-0.5">
+          <dt class="text-[0.65rem] font-sans uppercase tracking-widest text-stone">Service</dt>
+          <dd class="text-warm-white text-sm font-sans font-semibold">Dedicated Home Theater</dd>
+        </div>
+        <div class="flex flex-col gap-0.5">
+          <dt class="text-[0.65rem] font-sans uppercase tracking-widest text-stone">Equipment</dt>
+          <dd class="text-warm-white text-sm font-sans font-semibold">Projection · In-Wall Dolby Surround · Custom Seating</dd>
+        </div>
+        <div class="flex flex-col gap-0.5">
+          <dt class="text-[0.65rem] font-sans uppercase tracking-widest text-stone">Scope</dt>
+          <dd class="text-warm-white text-sm font-sans font-semibold">Pre-Wire Through Calibration</dd>
+        </div>
+      </dl>
+    </div>
+  </section>
+
+  <!-- Project details -->
+  <section class="section bg-slate-surface">
+    <div class="container-main">
+      <div class="grid grid-cols-1 lg:grid-cols-3 gap-10">
+        <div class="lg:col-span-2">
+          <p class="overline mb-3">About This Project</p>
+          <h2 class="font-display text-h2 text-warm-white mb-6">Full Dedicated Theater Room in Canyon Lake</h2>
+          <div class="flex flex-col gap-4 text-body text-stone leading-relaxed">
+            <p>This Canyon Lake build is a fully dedicated theater room — designed from the ground up around the viewing experience. Custom leather power recliner seating on a raised platform, blue LED step lighting along the risers, and full acoustic treatment throughout.</p>
+            <p>The audio system is in-wall Dolby surround from the front stage through the rear surrounds — no visible speaker boxes. Every speaker position was determined by room dimensions before a single wire was pulled.</p>
+            <p>Photos document the full build: from pre-wire and speaker installation during construction through the finished room. KZ Audio & Video handled every stage — pre-wire, rough-in, trim-out, system programming, and homeowner walkthrough.</p>
+          </div>
+        </div>
+        <div class="flex flex-col gap-4">
+          <div class="card p-6">
+            <h3 class="font-sans font-semibold text-warm-white mb-4 text-sm uppercase tracking-wider">Project Details</h3>
+            <ul class="flex flex-col gap-3">
+              {[
+                { label: 'What was built', value: 'Full dedicated theater room with custom platform, blue LED step lighting, and acoustic treatment' },
+                { label: 'Equipment', value: 'Projection screen, in-wall Dolby surround sound, custom leather power recliner seating' },
+                { label: 'Scope', value: 'Pre-wire through final programming and calibration' },
+                { label: 'Location', value: 'Canyon Lake, TX (Comal County)' },
+              ].map(({ label, value }) => (
+                <li class="flex flex-col gap-0.5">
+                  <span class="text-[0.65rem] font-sans uppercase tracking-widest text-stone">{label}</span>
+                  <span class="text-warm-white text-sm">{value}</span>
+                </li>
+              ))}
+            </ul>
+          </div>
+          <a href="/contact-kz-audio-video-san-antonio-tx/" class="btn-primary gold-shimmer text-center">
+            Book a Free Consultation
+          </a>
+          <a href="tel:2109814098" class="btn-ghost text-center">
+            Call (210) 981-4098
+          </a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Gallery -->
+  <section class="section bg-charcoal">
+    <div class="container-main">
+      <p class="overline mb-3">Project Gallery</p>
+      <h2 class="font-display text-h2 text-warm-white mb-10">All Project Photos</h2>
+      <div class="grid grid-cols-2 md:grid-cols-3 gap-3">
+        {gallery.map(({ src, alt }) => (
+          <button
+            class="proj-lb-trigger group overflow-hidden rounded-sm focus:outline-none focus-visible:ring-2 focus-visible:ring-gold"
+            data-img={src}
+            data-alt={alt}
+            aria-label={`View full size: ${alt}`}
+            type="button"
+          >
+            <div class="overflow-hidden aspect-video">
+              <img
+                src={src}
+                alt={alt}
+                class="w-full h-full object-cover transition-transform duration-slow group-hover:scale-[1.04]"
+                loading="lazy"
+                decoding="async"
+              />
+            </div>
+          </button>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <CTASection
+    heading="Ready to Build Your Own Dedicated Theater?"
+    body="Book a free in-home consultation. We come to you, assess the space, and design a system around how you actually live."
+    ctaLabel="Book a Free Consultation"
+    ctaHref="/contact-kz-audio-video-san-antonio-tx/"
+    secondaryLabel="Call (210) 981-4098"
+    secondaryHref="tel:2109814098"
+  />
+
+</BaseLayout>
+
+<!-- Lightbox -->
+<div
+  id="proj-lightbox"
+  role="dialog"
+  aria-modal="true"
+  aria-label="Project photo"
+  style="display:none; position:fixed; inset:0; z-index:9999; background:rgba(14,16,18,0.96); cursor:pointer; backdrop-filter:blur(8px);"
+>
+  <button
+    id="proj-lb-close"
+    aria-label="Close photo"
+    style="position:absolute;top:1.25rem;right:1.5rem;background:none;border:none;color:#F2EDE6;font-size:1.75rem;cursor:pointer;line-height:1;opacity:0.7;transition:opacity 150ms;"
+    onmouseover="this.style.opacity='1'" onmouseout="this.style.opacity='0.7'"
+  >&#x2715;</button>
+  <div style="position:absolute;inset:0;display:flex;flex-direction:column;align-items:center;justify-content:center;padding:5rem 1.5rem 2rem;">
+    <img
+      id="proj-lb-img"
+      src=""
+      alt=""
+      style="max-width:100%;max-height:78vh;object-fit:contain;border-radius:0.375rem;box-shadow:0 32px 80px rgba(0,0,0,0.8);"
+    />
+    <p id="proj-lb-caption" style="margin-top:1.25rem;font-family:'Jost',sans-serif;color:#A09080;font-size:0.8rem;text-align:center;max-width:56ch;line-height:1.6;"></p>
+  </div>
+</div>
+
+<script>
+  const lb      = document.getElementById('proj-lightbox') as HTMLElement;
+  const lbImg   = document.getElementById('proj-lb-img') as HTMLImageElement;
+  const lbCap   = document.getElementById('proj-lb-caption') as HTMLElement;
+  const lbClose = document.getElementById('proj-lb-close') as HTMLElement;
+
+  function openLb(img: string, alt: string) {
+    lbImg.src = img;
+    lbImg.alt = alt;
+    lbCap.textContent = alt;
+    lb.style.display = 'block';
+    document.body.style.overflow = 'hidden';
+  }
+
+  function closeLb() {
+    lb.style.display = 'none';
+    document.body.style.overflow = '';
+    lbImg.src = '';
+  }
+
+  document.querySelectorAll<HTMLElement>('.proj-lb-trigger').forEach(el => {
+    const open = () => openLb(el.dataset.img ?? '', el.dataset.alt ?? '');
+    el.addEventListener('click', open);
+    el.addEventListener('keydown', (e: KeyboardEvent) => { if (e.key === 'Enter' || e.key === ' ') { e.preventDefault(); open(); } });
+  });
+
+  lb.addEventListener('click', (e) => { if (e.target !== lbImg) closeLb(); });
+  lbClose.addEventListener('click', closeLb);
+  document.addEventListener('keydown', (e: KeyboardEvent) => { if (e.key === 'Escape') closeLb(); });
+</script>

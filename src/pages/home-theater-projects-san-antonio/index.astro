@@ -29,6 +29,7 @@ const projects = [
     title: 'Dedicated Home Theater — Canyon Lake TX',
     location: 'Canyon Lake, TX',
     service: 'Home Theater',
+    href: '/projects/canyon-lake-dedicated-home-theater/',
     description: 'Full theater room with custom leather power recliner seating on a raised platform, blue LED accent lighting, projection system, and in-wall surround sound. From pre-wire through final calibration.',
     images: [
       { src: '/images/projects/monty-theater/Canyon-Lake-Tesac-Home-Theater-Custom-Seating.jpeg.jpg', alt: 'Custom home theater with leather recliners and blue LED lighting in Canyon Lake Texas' },
@@ -37,8 +38,9 @@ const projects = [
   },
   {
     title: 'Dedicated Home Theater — San Antonio TX',
-    location: 'San Antonio, TX',
+    location: 'Stone Oak, San Antonio, TX',
     service: 'Home Theater',
+    href: '/projects/stone-oak-home-theater-epson-martin-logan/',
     description: 'Epson projector, Screen Innovations fixed-frame screen, Martin Logan on-wall speakers, LED accent lighting. Pre-wire through finished install with homeowner walkthrough.',
     images: [
       { src: '/images/projects/asanka-theater/theater-room-san-antonio-tx.jpg', alt: 'Home theater installation in San Antonio Texas with projection screen and surround sound' },
@@ -48,6 +50,7 @@ const projects = [
     title: 'Star Wars Themed Theater — San Antonio TX',
     location: 'San Antonio, TX',
     service: 'Home Theater',
+    href: '/projects/star-wars-home-theater-san-antonio/',
     description: 'JVC projector, custom Star Wars built-in cabinetry and theming, tiered seating, in-wall surround sound. A fully custom dedicated theater built around the client\'s vision.',
     images: [
       { src: '/images/projects/davids-theater/david-theater-san-antonio-tx.jpg', alt: 'Star Wars themed home theater with custom cabinetry in San Antonio Texas' },
@@ -55,8 +58,9 @@ const projects = [
   },
   {
     title: 'New Build Theater — San Antonio TX',
-    location: 'San Antonio, TX',
+    location: 'Stone Oak, San Antonio, TX',
     service: 'Home Theater',
+    href: '/projects/stone-oak-new-construction-home-theater/',
     description: 'Epson projector, Martin Logan on-wall speakers, complete pre-wire and trim-out in new custom home construction. Documented from rough-in through finished install.',
     images: [
       { src: '/images/projects/young-theater/young-theater-san-antonio-tx.jpg', alt: 'New construction home theater installation in San Antonio Texas' },
@@ -66,6 +70,7 @@ const projects = [
     title: 'Samsung Frame TV on Marble Fireplace Wall',
     location: 'San Antonio, TX',
     service: 'TV Installation',
+    href: '/projects/samsung-frame-tv-marble-fireplace-san-antonio/',
     description: 'Samsung Frame TV installed flush on a marble fireplace wall with Sonos Arc soundbar. No visible wiring. Displays fine art when not in use.',
     images: [
       { src: '/images/projects/flat-tvs/samsung-frame-tv-marble-wall-san-antonio.jpg', alt: 'Samsung Frame TV installed on marble fireplace wall in San Antonio Texas' },
@@ -75,6 +80,7 @@ const projects = [
     title: 'Outdoor Patio Projector System — Hill Country TX',
     location: 'Hill Country, TX',
     service: 'Outdoor AV',
+    href: '/projects/hill-country-outdoor-av-pool/',
     description: 'Projector ceiling-mounted under a Hill Country limestone arch on a covered patio, with pool-side rock speakers throughout the yard. Designed for the Texas outdoor climate.',
     images: [
       { src: '/images/projects/outdoor-av/pool-projector-outdoor-theater.jpeg.jpg', alt: 'Outdoor projector mounted under limestone arch on covered patio near San Antonio Texas' },
@@ -108,7 +114,7 @@ const projects = [
   <section class="section bg-slate-surface">
     <div class="container-main">
       <div class="flex flex-col gap-16">
-        {projects.map(({ title, location, service, description, images }) => (
+        {projects.map(({ title, location, service, description, images, href }) => (
           <div class="grid grid-cols-1 lg:grid-cols-2 gap-10 items-start">
             <!-- Images -->
             <div class={`grid gap-4 ${images.length > 1 ? 'grid-cols-2' : 'grid-cols-1'}`}>
@@ -119,6 +125,7 @@ const projects = [
                     alt={alt}
                     class="w-full h-full object-cover"
                     loading="lazy"
+                    decoding="async"
                   />
                 </div>
               ))}
@@ -129,7 +136,15 @@ const projects = [
                 {location} &middot; {service}
               </p>
               <h2 class="font-display text-h2 text-warm-white mb-4">{title}</h2>
-              <p class="text-body-lg text-stone leading-relaxed">{description}</p>
+              <p class="text-body-lg text-stone leading-relaxed mb-6">{description}</p>
+              {href && (
+                <a
+                  href={href}
+                  class="inline-flex items-center gap-2 text-gold text-sm font-sans font-semibold uppercase tracking-wider hover:text-gold-light transition-colors duration-fast"
+                >
+                  View Full Project &rarr;
+                </a>
+              )}
             </div>
           </div>
         ))}
