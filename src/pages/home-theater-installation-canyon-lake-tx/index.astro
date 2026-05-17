@@ -90,33 +90,36 @@ const featured = {
 
   <TestimonialsSection featured={featured} />
 
-  <!-- Why KZ -->
+  <!-- Canyon Lake Local Context -->
   <section class="section bg-charcoal">
     <div class="container-main">
-      <p class="overline mb-3">Why KZ Audio & Video</p>
-      <h2 class="font-display text-h2 text-warm-white mb-10">
-        Serving Canyon Lake Since 2001
+      <p class="overline mb-3 reveal">About Canyon Lake</p>
+      <h2 class="font-display text-h2 text-warm-white mb-8 reveal reveal-delay-1">
+        We've Done This Drive Many Times
       </h2>
-      <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
-        {[
-          {
-            title: 'No Subcontractors',
-            desc: 'Every install is done by Kelly, Billy, or Julian. Not outsourced labor. The people who designed your system are the people installing it.',
-          },
-          {
-            title: '25+ Years in Audio',
-            desc: "Kelly started in audio in 1997. That's a lot of installs, a lot of rooms, and a lot of systems across San Antonio and the Hill Country.",
-          },
-          {
-            title: 'Free Consultation',
-            desc: 'We come to your home in Canyon Lake, look at the room, and give you a real quote. No charge, no obligation.',
-          },
-        ].map(({ title, desc }) => (
-          <div class="flex flex-col gap-3">
-            <h3 class="font-sans font-semibold text-h4 text-warm-white">{title}</h3>
-            <p class="text-body text-stone">{desc}</p>
+      <div class="grid grid-cols-1 lg:grid-cols-2 gap-12 mb-12">
+        <div>
+          <p class="text-body-lg text-stone mb-6 reveal reveal-delay-2">
+            Canyon Lake is one of our most active Hill Country markets. The dedicated home theater project in our portfolio — custom leather power recliners, blue LED step lighting, in-wall Dolby surround sound — was built right here in Canyon Lake. We know the area, we know the drive, and we've worked in enough properties along the lake to understand what these homes need.
+          </p>
+          <p class="text-body text-stone reveal reveal-delay-3">
+            Canyon Lake properties are a mix of primary residences, weekend retreats, and vacation homes — many with large covered outdoor spaces that are natural fits for outdoor AV. Whether it's a dedicated theater room, a whole-house audio system, or speakers on a lakeside patio, we've done it here. The consultation is always free, and we always come to you.
+          </p>
+        </div>
+        <div class="flex flex-col gap-6">
+          <div class="reveal reveal-delay-2">
+            <h3 class="font-sans font-semibold text-warm-white mb-2">Proven Work in Canyon Lake</h3>
+            <p class="text-body-sm text-stone">Our Canyon Lake theater build is one of our most-referenced projects. Full pre-wire, custom seating platform, projection system, and in-wall surround — completed start to finish by our team.</p>
           </div>
-        ))}
+          <div class="reveal reveal-delay-3">
+            <h3 class="font-sans font-semibold text-warm-white mb-2">No Subcontractors — Ever</h3>
+            <p class="text-body-sm text-stone">Kelly, Billy, and Julian do every install personally. No third-party labor. The same crew who scoped your project shows up on install day.</p>
+          </div>
+          <div class="reveal reveal-delay-4">
+            <h3 class="font-sans font-semibold text-warm-white mb-2">Free Consultation — We Drive to You</h3>
+            <p class="text-body-sm text-stone">We make the drive to Canyon Lake for every consultation. See the space, understand the goals, give you a real quote. No charge, no pressure.</p>
+          </div>
+        </div>
       </div>
     </div>
   </section>

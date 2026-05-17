@@ -90,33 +90,36 @@ const featured = {
 
   <TestimonialsSection featured={featured} />
 
-  <!-- Why KZ -->
+  <!-- Helotes Local Context -->
   <section class="section bg-charcoal">
     <div class="container-main">
-      <p class="overline mb-3">Why KZ Audio & Video</p>
-      <h2 class="font-display text-h2 text-warm-white mb-10">
-        Serving Helotes Since 2001
+      <p class="overline mb-3 reveal">About Helotes</p>
+      <h2 class="font-display text-h2 text-warm-white mb-8 reveal reveal-delay-1">
+        Northwest San Antonio's Best-Kept Secret for Custom Homes
       </h2>
-      <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
-        {[
-          {
-            title: 'No Subcontractors',
-            desc: 'Every install is done by Kelly, Billy, or Julian. Not outsourced labor. The people who designed your system are the people installing it.',
-          },
-          {
-            title: '25+ Years in Audio',
-            desc: "Kelly started in audio in 1997. That's a lot of installs, a lot of rooms, and a lot of systems across San Antonio and the Hill Country.",
-          },
-          {
-            title: 'Free Consultation',
-            desc: 'We come to your home in Helotes, look at the room, and give you a real quote. No charge, no obligation.',
-          },
-        ].map(({ title, desc }) => (
-          <div class="flex flex-col gap-3">
-            <h3 class="font-sans font-semibold text-h4 text-warm-white">{title}</h3>
-            <p class="text-body text-stone">{desc}</p>
+      <div class="grid grid-cols-1 lg:grid-cols-2 gap-12 mb-12">
+        <div>
+          <p class="text-body-lg text-stone mb-6 reveal reveal-delay-2">
+            Helotes sits right at the edge of San Antonio's northwest corridor — close enough to the city to be convenient, far enough out for large lots and Hill Country character. It's a community where established custom neighborhoods sit alongside newer construction, and the homes tend to have the room layouts that dedicated theater builds are designed for.
+          </p>
+          <p class="text-body text-stone reveal reveal-delay-3">
+            We've done a lot of work in the northwest quadrant over the years — Helotes, Leon Valley, the communities along Culebra and Bandera Road — and Helotes consistently has some of the most serious custom home buyers we meet. These homeowners know what they want and want it done right. That's exactly how we work.
+          </p>
+        </div>
+        <div class="flex flex-col gap-6">
+          <div class="reveal reveal-delay-2">
+            <h3 class="font-sans font-semibold text-warm-white mb-2">No Subcontractors — Ever</h3>
+            <p class="text-body-sm text-stone">Every Helotes install is done by Kelly, Billy, or Julian. No outsourced crew, no handoffs. You deal with the same people from the first call through the final walkthrough.</p>
           </div>
-        ))}
+          <div class="reveal reveal-delay-3">
+            <h3 class="font-sans font-semibold text-warm-white mb-2">Northwest SA Is Our Backyard</h3>
+            <p class="text-body-sm text-stone">We're based in San Antonio and do a significant share of our work on the northwest side. Helotes is not a long-drive market for us — it's a regular stop, and we're there often.</p>
+          </div>
+          <div class="reveal reveal-delay-4">
+            <h3 class="font-sans font-semibold text-warm-white mb-2">Free Consultation — Always</h3>
+            <p class="text-body-sm text-stone">We come to your Helotes home, look at the space, and give you a straight answer about what's possible and what it costs. No charge, no obligation.</p>
+          </div>
+        </div>
       </div>
     </div>
   </section>

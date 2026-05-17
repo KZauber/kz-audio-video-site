@@ -90,33 +90,36 @@ const featured = {
 
   <TestimonialsSection featured={featured} />
 
-  <!-- Why KZ -->
+  <!-- Bulverde Local Context -->
   <section class="section bg-charcoal">
     <div class="container-main">
-      <p class="overline mb-3">Why KZ Audio & Video</p>
-      <h2 class="font-display text-h2 text-warm-white mb-10">
-        Serving Bulverde Since 2001
+      <p class="overline mb-3 reveal">About Bulverde</p>
+      <h2 class="font-display text-h2 text-warm-white mb-8 reveal reveal-delay-1">
+        Why Bulverde Homeowners Call KZ
       </h2>
-      <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
-        {[
-          {
-            title: 'No Subcontractors',
-            desc: 'Every install is done by Kelly, Billy, or Julian. Not outsourced labor. The people who designed your system are the people installing it.',
-          },
-          {
-            title: '25+ Years in Audio',
-            desc: "Kelly started in audio in 1997. That's a lot of installs, a lot of rooms, and a lot of systems across San Antonio and the Hill Country.",
-          },
-          {
-            title: 'Free Consultation',
-            desc: 'We come to your home in Bulverde, look at the room, and give you a real quote. No charge, no obligation.',
-          },
-        ].map(({ title, desc }) => (
-          <div class="flex flex-col gap-3">
-            <h3 class="font-sans font-semibold text-h4 text-warm-white">{title}</h3>
-            <p class="text-body text-stone">{desc}</p>
+      <div class="grid grid-cols-1 lg:grid-cols-2 gap-12 mb-12">
+        <div>
+          <p class="text-body-lg text-stone mb-6 reveal reveal-delay-2">
+            Bulverde sits along the US-281 corridor in north Bexar and Comal County — one of the fastest-growing residential areas in Texas. The large-lot custom homes going up in communities throughout the area are exactly what we're used to working in: dedicated rooms with real acoustic potential, outdoor spaces built for entertainment, and homeowners who want the system done right the first time.
+          </p>
+          <p class="text-body text-stone reveal reveal-delay-3">
+            We serve both new construction in Bulverde's growing communities and existing homes where homeowners are upgrading older AV systems to something that actually performs. Either way, the process starts with a free consultation at your home — we don't quote sight unseen.
+          </p>
+        </div>
+        <div class="flex flex-col gap-6">
+          <div class="reveal reveal-delay-2">
+            <h3 class="font-sans font-semibold text-warm-white mb-2">No Subcontractors — Ever</h3>
+            <p class="text-body-sm text-stone">Every install in Bulverde is done by Kelly, Billy, or Julian. Not a third-party crew. The team that designed your system installs it and stands behind it.</p>
           </div>
-        ))}
+          <div class="reveal reveal-delay-3">
+            <h3 class="font-sans font-semibold text-warm-white mb-2">In the Audio Business Since 1997</h3>
+            <p class="text-body-sm text-stone">Kelly has been in audio since 1997 and home AV since 2001. We've worked in a lot of north Bexar County rooms over the years — enough to know how the acoustics differ between a dedicated theater and a great room conversion.</p>
+          </div>
+          <div class="reveal reveal-delay-4">
+            <h3 class="font-sans font-semibold text-warm-white mb-2">Free Consultation in Bulverde</h3>
+            <p class="text-body-sm text-stone">We drive to Bulverde. Walk the room with you. Tell you what's possible and what it costs. No charge, no obligation — just honest answers about your space.</p>
+          </div>
+        </div>
       </div>
     </div>
   </section>

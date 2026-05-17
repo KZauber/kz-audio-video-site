@@ -90,33 +90,36 @@ const featured = {
 
   <TestimonialsSection featured={featured} />
 
-  <!-- Why KZ -->
+  <!-- Stone Oak Local Context -->
   <section class="section bg-charcoal">
     <div class="container-main">
-      <p class="overline mb-3">Why KZ Audio & Video</p>
-      <h2 class="font-display text-h2 text-warm-white mb-10">
-        Serving Stone Oak Since 2001
+      <p class="overline mb-3 reveal">About Stone Oak</p>
+      <h2 class="font-display text-h2 text-warm-white mb-8 reveal reveal-delay-1">
+        Our Busiest Zip Code in San Antonio
       </h2>
-      <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
-        {[
-          {
-            title: 'No Subcontractors',
-            desc: 'Every install is done by Kelly, Billy, or Julian. Not outsourced labor. The people who designed your system are the people installing it.',
-          },
-          {
-            title: '25+ Years in Audio',
-            desc: "Kelly started in audio in 1997. That's a lot of installs, a lot of rooms, and a lot of systems across San Antonio and the Hill Country.",
-          },
-          {
-            title: 'Free Consultation',
-            desc: 'We come to your home in Stone Oak, look at the room, and give you a real quote. No charge, no obligation.',
-          },
-        ].map(({ title, desc }) => (
-          <div class="flex flex-col gap-3">
-            <h3 class="font-sans font-semibold text-h4 text-warm-white">{title}</h3>
-            <p class="text-body text-stone">{desc}</p>
+      <div class="grid grid-cols-1 lg:grid-cols-2 gap-12 mb-12">
+        <div>
+          <p class="text-body-lg text-stone mb-6 reveal reveal-delay-2">
+            Stone Oak is one of San Antonio's premier residential neighborhoods and consistently one of our highest-volume service areas. The custom homes in the 78258 area — and the newer builds going up in the communities just north along US-281 — represent serious investment, and the homeowners here expect AV work that matches the quality of the rest of the house. That's the standard we hold ourselves to.
+          </p>
+          <p class="text-body text-stone reveal reveal-delay-3">
+            We've installed dedicated theaters, whole-house Sonos audio systems, outdoor speaker setups, and Samsung Frame TVs in Stone Oak homes for over two decades. Media room conversions, dedicated theater builds, new construction pre-wire — it's all familiar territory. If you're in Stone Oak and want AV done right, this is a short conversation.
+          </p>
+        </div>
+        <div class="flex flex-col gap-6">
+          <div class="reveal reveal-delay-2">
+            <h3 class="font-sans font-semibold text-warm-white mb-2">Stone Oak Is Our Most Active Market</h3>
+            <p class="text-body-sm text-stone">We are in Stone Oak regularly. We know the builders active on the north side, we know the neighborhoods, and we're not making a special trip — it's where a significant share of our work happens.</p>
           </div>
-        ))}
+          <div class="reveal reveal-delay-3">
+            <h3 class="font-sans font-semibold text-warm-white mb-2">No Subcontractors — Ever</h3>
+            <p class="text-body-sm text-stone">Kelly, Billy, and Julian do every install in Stone Oak. No third-party labor. You'll see the same faces on day one of the install that you spoke with during the consultation.</p>
+          </div>
+          <div class="reveal reveal-delay-4">
+            <h3 class="font-sans font-semibold text-warm-white mb-2">Free Consultation — We Come to You</h3>
+            <p class="text-body-sm text-stone">We come to your home in Stone Oak, walk the space, and give you a real quote. No charge, no obligation, no sales pressure.</p>
+          </div>
+        </div>
       </div>
     </div>
   </section>

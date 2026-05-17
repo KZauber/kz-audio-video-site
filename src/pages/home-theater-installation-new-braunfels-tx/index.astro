@@ -90,33 +90,36 @@ const featured = {
 
   <TestimonialsSection featured={featured} />
 
-  <!-- Why KZ -->
+  <!-- New Braunfels Local Context -->
   <section class="section bg-charcoal">
     <div class="container-main">
-      <p class="overline mb-3">Why KZ Audio & Video</p>
-      <h2 class="font-display text-h2 text-warm-white mb-10">
-        Serving New Braunfels Since 2001
+      <p class="overline mb-3 reveal">About New Braunfels</p>
+      <h2 class="font-display text-h2 text-warm-white mb-8 reveal reveal-delay-1">
+        One of Texas's Fastest-Growing Custom Home Markets
       </h2>
-      <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
-        {[
-          {
-            title: 'No Subcontractors',
-            desc: 'Every install is done by Kelly, Billy, or Julian. Not outsourced labor. The people who designed your system are the people installing it.',
-          },
-          {
-            title: '25+ Years in Audio',
-            desc: "Kelly started in audio in 1997. That's a lot of installs, a lot of rooms, and a lot of systems across San Antonio and the Hill Country.",
-          },
-          {
-            title: 'Free Consultation',
-            desc: 'We come to your home in New Braunfels, look at the room, and give you a real quote. No charge, no obligation.',
-          },
-        ].map(({ title, desc }) => (
-          <div class="flex flex-col gap-3">
-            <h3 class="font-sans font-semibold text-h4 text-warm-white">{title}</h3>
-            <p class="text-body text-stone">{desc}</p>
+      <div class="grid grid-cols-1 lg:grid-cols-2 gap-12 mb-12">
+        <div>
+          <p class="text-body-lg text-stone mb-6 reveal reveal-delay-2">
+            New Braunfels has been one of the fastest-growing cities in the entire United States for several consecutive years. That growth has brought serious custom home construction to Comal County — from master-planned communities off IH-35 to larger rural custom lots in the surrounding Hill Country. We serve homeowners throughout New Braunfels and regularly work with builders active in the area.
+          </p>
+          <p class="text-body text-stone reveal reveal-delay-3">
+            New Braunfels sits about halfway between San Antonio and Austin — a location that draws buyers from both metros who want Hill Country space without sacrificing access to the city. Many of these buyers are building or purchasing their first true custom home and want AV done right from the ground up. Pre-wire through final programming — that's where we come in.
+          </p>
+        </div>
+        <div class="flex flex-col gap-6">
+          <div class="reveal reveal-delay-2">
+            <h3 class="font-sans font-semibold text-warm-white mb-2">New Construction & Existing Homes</h3>
+            <p class="text-body-sm text-stone">Whether you're pre-wiring a new build or upgrading an existing home in New Braunfels, the process is the same: we design around your specific space and install it ourselves — no subcontractors.</p>
           </div>
-        ))}
+          <div class="reveal reveal-delay-3">
+            <h3 class="font-sans font-semibold text-warm-white mb-2">No Subcontractors — Ever</h3>
+            <p class="text-body-sm text-stone">Kelly, Billy, and Julian do every install. Not a third-party crew dispatched from a list. The same people who spec your system are the ones who show up to build it.</p>
+          </div>
+          <div class="reveal reveal-delay-4">
+            <h3 class="font-sans font-semibold text-warm-white mb-2">Free Consultation in New Braunfels</h3>
+            <p class="text-body-sm text-stone">We make the drive to New Braunfels for every consultation. Look at the space, discuss your goals, give you a real number. No charge, no obligation.</p>
+          </div>
+        </div>
       </div>
     </div>
   </section>

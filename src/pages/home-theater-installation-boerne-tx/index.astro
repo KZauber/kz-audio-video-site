@@ -90,33 +90,36 @@ const featured = {
 
   <TestimonialsSection featured={featured} />
 
-  <!-- Why KZ -->
+  <!-- Boerne Local Context -->
   <section class="section bg-charcoal">
     <div class="container-main">
-      <p class="overline mb-3">Why KZ Audio & Video</p>
-      <h2 class="font-display text-h2 text-warm-white mb-10">
-        Serving Boerne Since 2001
+      <p class="overline mb-3 reveal">About Boerne</p>
+      <h2 class="font-display text-h2 text-warm-white mb-8 reveal reveal-delay-1">
+        Why Boerne Homeowners Call KZ
       </h2>
-      <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
-        {[
-          {
-            title: 'No Subcontractors',
-            desc: 'Every install is done by Kelly, Billy, or Julian. Not outsourced labor. The people who designed your system are the people installing it.',
-          },
-          {
-            title: '25+ Years in Audio',
-            desc: "Kelly started in audio in 1997. That's a lot of installs, a lot of rooms, and a lot of systems across San Antonio and the Hill Country.",
-          },
-          {
-            title: 'Free Consultation',
-            desc: 'We come to your home in Boerne, look at the room, and give you a real quote. No charge, no obligation.',
-          },
-        ].map(({ title, desc }) => (
-          <div class="flex flex-col gap-3">
-            <h3 class="font-sans font-semibold text-h4 text-warm-white">{title}</h3>
-            <p class="text-body text-stone">{desc}</p>
+      <div class="grid grid-cols-1 lg:grid-cols-2 gap-12 mb-12">
+        <div>
+          <p class="text-body-lg text-stone mb-6 reveal reveal-delay-2">
+            Boerne sits about 30 miles northwest of San Antonio on IH-10, right at the start of the Texas Hill Country. It's one of the fastest-growing communities in Kendall County — and the custom home construction happening along Highway 46 and Cibolo Creek Ranch Road is some of the most active we see anywhere in our service area.
+          </p>
+          <p class="text-body text-stone reveal reveal-delay-3">
+            We've worked with custom builders and homeowners in Boerne's established neighborhoods and its newer communities alike. Theater rooms, whole-house audio, outdoor speaker systems on limestone terraces — Boerne properties tend to have the space and the layout to do it right. That's the kind of project we're built for.
+          </p>
+        </div>
+        <div class="flex flex-col gap-6">
+          <div class="reveal reveal-delay-2">
+            <h3 class="font-sans font-semibold text-warm-white mb-2">No Subcontractors — Ever</h3>
+            <p class="text-body-sm text-stone">Every install in Boerne is done by Kelly, Billy, or Julian. Not a subcontractor handed a work order. The same people who designed your system show up to install it.</p>
           </div>
-        ))}
+          <div class="reveal reveal-delay-3">
+            <h3 class="font-sans font-semibold text-warm-white mb-2">In the Audio Business Since 1997</h3>
+            <p class="text-body-sm text-stone">Kelly started Audio Outlet in 1997 and has been doing home AV since 2001. That's over two decades of Hill Country installs — enough experience to know what works in these rooms and what doesn't.</p>
+          </div>
+          <div class="reveal reveal-delay-4">
+            <h3 class="font-sans font-semibold text-warm-white mb-2">We Drive to Boerne — No Charge</h3>
+            <p class="text-body-sm text-stone">Your consultation is free. We come to Boerne, walk your space, and tell you exactly what's possible. No charge, no obligation, no pressure.</p>
+          </div>
+        </div>
       </div>
     </div>
   </section>
