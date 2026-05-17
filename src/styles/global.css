@@ -84,7 +84,7 @@
   /* Buttons */
   .btn-primary {
     @apply inline-flex items-center gap-2 bg-gold text-charcoal font-sans font-semibold
-           text-base px-8 py-4 rounded-btn cursor-pointer
+           text-base px-8 py-4 rounded-btn cursor-pointer whitespace-nowrap
            transition-all duration-fast
            hover:bg-gold-light hover:scale-[1.02]
            active:scale-[0.98]
@@ -93,7 +93,7 @@
 
   .btn-ghost {
     @apply inline-flex items-center gap-2 bg-transparent text-warm-white font-sans font-semibold
-           text-base px-[31px] py-[15px] rounded-btn cursor-pointer
+           text-base px-[31px] py-[15px] rounded-btn cursor-pointer whitespace-nowrap
            border border-gold
            transition-all duration-fast
            hover:bg-gold/10 hover:text-gold-light
