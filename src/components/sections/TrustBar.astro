@@ -1,8 +1,8 @@
 ---
 const stats = [
   { value: 'Since 1997', label: 'In the Audio Business' },
-  { value: 'Since 2001', label: 'Home AV Installation' },
-  { value: 'No Subs — Ever', label: 'Every Install Is Ours' },
+  { value: 'Free Consult', label: 'No Pressure, No Pitch' },
+  { value: 'Clean Install', label: 'We Leave It Like We Found It' },
   { value: '5.0 Stars', label: '19 Google Reviews' },
 ];
 ---
@@ -12,7 +12,7 @@ const stats = [
     <dl class="grid grid-cols-2 lg:grid-cols-4 gap-8 lg:gap-0">
       {stats.map(({ value, label }, i) => (
         <div class:list={[
-          "text-center lg:text-left px-6 reveal",
+          "text-center px-6 reveal",
           i > 0 ? "lg:border-l lg:border-smoke/60" : "",
           i === 0 ? "reveal-delay-1" : i === 1 ? "reveal-delay-2" : i === 2 ? "reveal-delay-3" : "reveal-delay-4",
         ]}>
