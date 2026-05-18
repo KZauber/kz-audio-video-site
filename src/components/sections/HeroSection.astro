@@ -9,21 +9,17 @@ interface Props {
   secondaryHref?: string;
   imageSrc: string;
   imageAlt: string;
-  /**
-   * Optional: path to a looping background video (e.g. '/videos/kz-hero.mp4').
-   * When provided the video plays as the hero background; imageSrc is used as
-   * the poster frame so there is no flash of empty space while the video loads.
-   */
   videoSrc?: string;
-  /** 'left' (default) or 'center' */
   align?: 'left' | 'center';
+  /** Pass true to shrink the H1 for pages where the default hero size is too large */
+  compact?: boolean;
 }
 
 const {
   overline,
   heading,
   subhead,
-  ctaLabel = 'Book a Free Consultation',
+  ctaLabel,
   ctaHref  = '/contact-kz-audio-video-san-antonio-tx/',
   secondaryCta,
   secondaryHref = 'tel:2109814098',
@@ -31,6 +27,7 @@ const {
   imageAlt,
   videoSrc,
   align = 'left',
+  compact = false,
 } = Astro.props;
 ---
 
@@ -101,7 +98,10 @@ const {
         </p>
       )}
 
-      <h1 class="font-display text-hero text-warm-white mb-6 hero-enter-2" style="letter-spacing:-0.03em;line-height:1.02;">
+      <h1
+        class:list={['font-display text-warm-white hero-enter-2', compact ? 'text-h1' : 'text-hero']}
+        style="letter-spacing:-0.03em;line-height:1.02;"
+      >
         {heading}
       </h1>
 
@@ -109,19 +109,21 @@ const {
         {subhead}
       </p>
 
-      <div class:list={[
-        'flex flex-col sm:flex-row gap-4 hero-enter-4',
-        align === 'center' ? 'justify-center' : '',
-      ]}>
-        <a href={ctaHref} class="btn-primary gold-shimmer">
-          {ctaLabel}
-        </a>
-        {secondaryCta && (
-          <a href={secondaryHref} class="btn-ghost">
-            {secondaryCta}
+      {ctaLabel && (
+        <div class:list={[
+          'flex flex-col sm:flex-row gap-4 hero-enter-4',
+          align === 'center' ? 'justify-center' : '',
+        ]}>
+          <a href={ctaHref} class="btn-primary gold-shimmer">
+            {ctaLabel}
           </a>
-        )}
-      </div>
+          {secondaryCta && (
+            <a href={secondaryHref} class="btn-ghost">
+              {secondaryCta}
+            </a>
+          )}
+        </div>
+      )}
 
     </div>
   </div>
