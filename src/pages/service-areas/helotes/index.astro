@@ -1,0 +1,177 @@
+---
+import BaseLayout from '../../../layouts/BaseLayout.astro';
+import HeroSection from '../../../components/sections/HeroSection.astro';
+import TrustBar from '../../../components/sections/TrustBar.astro';
+import CTASection from '../../../components/sections/CTASection.astro';
+import FAQAccordion from '../../../components/sections/FAQAccordion.astro';
+
+const schema = {
+  "@context": "https://schema.org",
+  "@type": "LocalBusiness",
+  "name": "KZ Audio & Video",
+  "url": "https://kzaudioandvideo.com",
+  "telephone": "+12109814098",
+  "description": "Home theater and AV installation in Helotes TX. Serving the Leon Springs corridor and established Hill Country neighborhood since 1997.",
+  "address": {
+    "@type": "PostalAddress",
+    "addressLocality": "San Antonio",
+    "addressRegion": "TX",
+    "addressCountry": "US"
+  },
+  "areaServed": {
+    "@type": "City",
+    "name": "Helotes",
+    "containedInPlace": {
+      "@type": "State",
+      "name": "Texas"
+    }
+  }
+};
+
+const breadcrumb = {
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": [
+    { "@type": "ListItem", "position": 1, "name": "Home", "item": "https://kzaudioandvideo.com" },
+    { "@type": "ListItem", "position": 2, "name": "Service Areas", "item": "https://kzaudioandvideo.com/service-areas/" },
+    { "@type": "ListItem", "position": 3, "name": "Helotes, TX" }
+  ]
+};
+
+const faqs = [
+  {
+    question: 'Do you serve Helotes and the Leon Springs area?',
+    answer: 'Yes. Helotes is one of our established service areas on the northwest side. We\'ve been installing in homes along the Leon Springs corridor for years — everything from media room upgrades in older homes to full AV packages in newer builds.',
+  },
+  {
+    question: 'What types of homes do you typically work in around Helotes?',
+    answer: 'Helotes has a mix — established ranch-style homes on larger lots, newer custom builds, and some gated community homes near the Timberwood Park border. We work comfortably in all of them. Retrofit installs in older homes and full pre-wire in newer construction are both part of our regular scope here.',
+  },
+  {
+    question: 'Is outdoor AV popular in Helotes?',
+    answer: 'Very much so. Helotes properties tend to have outdoor space and the Hill Country backdrop that makes outdoor living a priority. Covered patios with weatherproof speakers and TV mounts are a common request, and we design them to blend with the natural surroundings rather than clutter them.',
+  },
+  {
+    question: 'Can you upgrade an older home theater system in Helotes?',
+    answer: 'Absolutely. Many Helotes homeowners installed AV systems years ago and are ready for an upgrade — better picture quality, modern streaming integration, Dolby Atmos sound. We can assess what you have, recommend what\'s worth keeping, and build on top of it rather than starting from scratch.',
+  },
+];
+---
+
+<BaseLayout
+  title="Home Theater Installation Helotes TX | KZ Audio & Video"
+  description="Home theater and AV installation in Helotes TX. Serving the Leon Springs corridor and surrounding Hill Country neighborhood. Call (210) 981-4098."
+  schema={[schema, breadcrumb]}
+>
+
+  <HeroSection
+    heading="Home Theater & AV Installation in Helotes TX"
+    subhead="Helotes' established Hill Country character calls for AV that feels built-in — not bolted on. We've been serving the Leon Springs corridor for decades."
+    imageSrc="/images/projects/monty-theater/home-theater-near-san-antonio-hero.jpg"
+    imageAlt="Home theater installation in Helotes Texas Hill Country"
+    compact={true}
+  />
+
+  <TrustBar />
+
+  <!-- Services -->
+  <section class="section bg-slate-surface">
+    <div class="container-main">
+      <p class="overline mb-3">Helotes TX AV Services</p>
+      <h2 class="font-display text-h2 text-warm-white mb-4">
+        AV That Fits Helotes Homes
+      </h2>
+      <p class="text-body-lg text-stone mb-10 max-w-2xl">
+        Helotes is a well-established community where homeowners take pride in their properties. We design AV systems that complement the home — clean installations, thoughtful placement, and gear that performs for years.
+      </p>
+      <div class="grid grid-cols-1 sm:grid-cols-2 gap-6 mt-10">
+        {[
+          {
+            title: 'Home Theater',
+            desc: 'Media rooms and dedicated home theaters for Helotes homes. Whether you\'re converting a bonus room or building a true cinema space, we design the system around your room and how you use it.',
+            href: '/home-theater-installation-san-antonio-tx/',
+          },
+          {
+            title: 'Whole House Audio',
+            desc: 'Sonos and multi-zone audio for every room. In-ceiling speakers, wall-mounted keypads, and outdoor zones — all tied together in one easy-to-use system.',
+            href: '/whole-house-audio-san-antonio/',
+          },
+          {
+            title: 'Outdoor AV',
+            desc: 'Helotes\' Hill Country setting is ideal for outdoor living. Covered patio displays, landscape speakers, and pool area audio built to handle the elements.',
+            href: '/outdoor-audio-video-san-antonio/',
+          },
+          {
+            title: 'Security Cameras',
+            desc: 'Professional security camera installations for larger Helotes lots. Remote viewing from your phone, local storage, and camera placement that actually covers what matters.',
+            href: '/security-camera-installation-san-antonio/',
+          },
+        ].map(({ title, desc, href }) => (
+          <a href={href} class="card card-hover flex flex-col gap-3 p-6 reveal">
+            <h3 class="font-sans font-semibold text-h4 text-warm-white">{title}</h3>
+            <p class="text-body text-stone leading-relaxed">{desc}</p>
+            <span class="text-gold text-body-sm font-sans font-medium mt-auto flex items-center gap-1">
+              Learn more
+              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                <path d="M5 12h14M12 5l7 7-7 7"/>
+              </svg>
+            </span>
+          </a>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <!-- Why KZ in Helotes -->
+  <section class="section bg-charcoal">
+    <div class="container-main">
+      <p class="overline mb-3 reveal">The Leon Springs Corridor</p>
+      <h2 class="font-display text-h2 text-warm-white mb-6 reveal reveal-delay-1">
+        Helotes Homeowners Know What They Want — and We Deliver It
+      </h2>
+      <div class="grid grid-cols-1 lg:grid-cols-2 gap-12 reveal reveal-delay-2">
+        <div class="flex flex-col gap-4">
+          <p class="text-body-lg text-stone" style="font-weight:300;">
+            Helotes has the character of a Hill Country neighborhood while staying accessible to San Antonio. It's a community of homeowners who have thought carefully about where they live and how they want their home to function.
+          </p>
+          <p class="text-body text-stone">
+            That translates directly into what they want from AV: systems that work reliably, look integrated rather than cobbled together, and can grow with the home. We've upgraded older theater setups, added multi-room audio to established homes, and built full AV packages in newer construction throughout Helotes and the surrounding areas.
+          </p>
+          <p class="text-body text-stone">
+            The free consultation is where it always starts. We come to you, see the space, and give you honest recommendations — not a catalog pitch.
+          </p>
+        </div>
+        <div class="flex flex-col gap-3">
+          {[
+            'Established home retrofits',
+            'Newer construction installs',
+            'System upgrades & modernization',
+            'Outdoor & patio AV',
+            'Free in-home consultation',
+            'Northwest San Antonio area',
+          ].map((item) => (
+            <div class="flex items-start gap-3 py-3 border-b border-smoke/60">
+              <span class="text-gold flex-shrink-0 mt-0.5">→</span>
+              <span class="text-body text-stone">{item}</span>
+            </div>
+          ))}
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <FAQAccordion
+    heading="Helotes TX AV Installation — FAQs"
+    faqs={faqs}
+  />
+
+  <CTASection
+    heading="Book a Free Consultation in Helotes"
+    body="We come to your Helotes home and design an AV system built around your space — not a showroom floor model."
+    ctaLabel="Book a Free Consultation"
+    ctaHref="/contact-kz-audio-video-san-antonio-tx/"
+    secondaryLabel="Call (210) 981-4098"
+    secondaryHref="tel:2109814098"
+  />
+
+</BaseLayout>

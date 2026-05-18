@@ -1,0 +1,177 @@
+---
+import BaseLayout from '../../../layouts/BaseLayout.astro';
+import HeroSection from '../../../components/sections/HeroSection.astro';
+import TrustBar from '../../../components/sections/TrustBar.astro';
+import CTASection from '../../../components/sections/CTASection.astro';
+import FAQAccordion from '../../../components/sections/FAQAccordion.astro';
+
+const schema = {
+  "@context": "https://schema.org",
+  "@type": "LocalBusiness",
+  "name": "KZ Audio & Video",
+  "url": "https://kzaudioandvideo.com",
+  "telephone": "+12109814098",
+  "description": "Home theater and AV installation in Boerne TX. Hill Country custom home specialists. Whole house audio, outdoor AV, security cameras.",
+  "address": {
+    "@type": "PostalAddress",
+    "addressLocality": "San Antonio",
+    "addressRegion": "TX",
+    "addressCountry": "US"
+  },
+  "areaServed": {
+    "@type": "City",
+    "name": "Boerne",
+    "containedInPlace": {
+      "@type": "State",
+      "name": "Texas"
+    }
+  }
+};
+
+const breadcrumb = {
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": [
+    { "@type": "ListItem", "position": 1, "name": "Home", "item": "https://kzaudioandvideo.com" },
+    { "@type": "ListItem", "position": 2, "name": "Service Areas", "item": "https://kzaudioandvideo.com/service-areas/" },
+    { "@type": "ListItem", "position": 3, "name": "Boerne, TX" }
+  ]
+};
+
+const faqs = [
+  {
+    question: 'Do you install in Boerne and the surrounding Hill Country?',
+    answer: 'Yes. Boerne and the Kendall County area are a regular part of our schedule. The drive from San Antonio is straightforward and we\'re out there often enough that scheduling a consultation is never an issue.',
+  },
+  {
+    question: 'Is Boerne a good area for outdoor AV?',
+    answer: 'Absolutely. The Hill Country setting and the outdoor lifestyle that comes with Boerne homes makes outdoor AV one of our most common requests out here. Covered patios with weather-resistant displays and outdoor speakers, pool areas, and outdoor kitchens all benefit from a well-designed outdoor system. We spec everything for the Hill Country climate.',
+  },
+  {
+    question: 'Can you pre-wire during a new Boerne construction?',
+    answer: 'Yes — and it\'s the smartest time to do it. Boerne is seeing a lot of new high-end custom construction right now. If your home is still in the framing or rough-in phase, we can run all low-voltage cabling — speaker wire, HDMI, data, security — before the walls close. That saves significant cost compared to retrofitting later.',
+  },
+  {
+    question: 'What makes Boerne homes different from San Antonio builds?',
+    answer: 'Boerne custom homes tend to have more acreage, more prominent outdoor living spaces, and architectural details that require careful cable routing. Vaulted ceilings, exposed beam construction, and stone walls are common. We have plenty of experience working in these conditions cleanly.',
+  },
+];
+---
+
+<BaseLayout
+  title="Home Theater Installation Boerne TX | KZ Audio & Video"
+  description="Home theater and AV installation in Boerne TX. Hill Country custom home specialists — whole house audio, outdoor AV, security cameras. Call (210) 981-4098."
+  schema={[schema, breadcrumb]}
+>
+
+  <HeroSection
+    heading="Home Theater & AV Installation in Boerne TX"
+    subhead="The Hill Country's custom home boom is in full swing. KZ Audio & Video brings the same San Antonio expertise to Boerne's high-end new builds and established properties."
+    imageSrc="/images/projects/monty-theater/home-theater-near-san-antonio-hero.jpg"
+    imageAlt="Custom home theater installation in Boerne Texas Hill Country"
+    compact={true}
+  />
+
+  <TrustBar />
+
+  <!-- Services -->
+  <section class="section bg-slate-surface">
+    <div class="container-main">
+      <p class="overline mb-3">Boerne TX AV Services</p>
+      <h2 class="font-display text-h2 text-warm-white mb-4">
+        Hill Country Homes Deserve Hill Country Standards
+      </h2>
+      <p class="text-body-lg text-stone mb-10 max-w-2xl">
+        Boerne's custom home market is one of the most active in the region. We're out here regularly — pre-wiring new construction, upgrading existing homes, and building outdoor AV setups that match the Hill Country lifestyle.
+      </p>
+      <div class="grid grid-cols-1 sm:grid-cols-2 gap-6 mt-10">
+        {[
+          {
+            title: 'Home Theater',
+            desc: 'Dedicated theater and media rooms in Boerne custom builds. Vaulted ceilings and large floor plans give us room to design systems that truly perform — 4K projection, Dolby Atmos surround, acoustic treatment.',
+            href: '/home-theater-installation-san-antonio-tx/',
+          },
+          {
+            title: 'Whole House Audio',
+            desc: 'Multi-zone audio for Boerne's spacious floor plans. From the great room and kitchen to the covered patio and pool area — all controlled from one app.',
+            href: '/whole-house-audio-san-antonio/',
+          },
+          {
+            title: 'Outdoor AV',
+            desc: 'Hill Country outdoor living is a year-round lifestyle. We design weatherproof patio systems — displays, speakers, and subwoofers — that survive the Texas elements.',
+            href: '/outdoor-audio-video-san-antonio/',
+          },
+          {
+            title: 'Security Cameras',
+            desc: 'Larger Boerne properties with long driveways and multiple entry points benefit from well-planned camera coverage. Remote viewing from anywhere.',
+            href: '/security-camera-installation-san-antonio/',
+          },
+        ].map(({ title, desc, href }) => (
+          <a href={href} class="card card-hover flex flex-col gap-3 p-6 reveal">
+            <h3 class="font-sans font-semibold text-h4 text-warm-white">{title}</h3>
+            <p class="text-body text-stone leading-relaxed">{desc}</p>
+            <span class="text-gold text-body-sm font-sans font-medium mt-auto flex items-center gap-1">
+              Learn more
+              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                <path d="M5 12h14M12 5l7 7-7 7"/>
+              </svg>
+            </span>
+          </a>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <!-- Why KZ in Boerne -->
+  <section class="section bg-charcoal">
+    <div class="container-main">
+      <p class="overline mb-3 reveal">Boerne's AV Installer</p>
+      <h2 class="font-display text-h2 text-warm-white mb-6 reveal reveal-delay-1">
+        We Work in Hill Country Homes — Not Just San Antonio Subdivisions
+      </h2>
+      <div class="grid grid-cols-1 lg:grid-cols-2 gap-12 reveal reveal-delay-2">
+        <div class="flex flex-col gap-4">
+          <p class="text-body-lg text-stone" style="font-weight:300;">
+            Boerne is growing fast — and the homes coming out of Kendall County's custom builders are impressive. Vaulted great rooms, Hill Country stone exteriors, massive covered patios, and acreage lots that require thoughtful camera and speaker placement.
+          </p>
+          <p class="text-body text-stone">
+            We've worked with Boerne custom builders and Boerne ISD-area homeowners on everything from full new construction pre-wire packages to single-room upgrades. Our team is comfortable working with the architectural details specific to Hill Country homes — exposed beams, masonry walls, and large open-plan spaces.
+          </p>
+          <p class="text-body text-stone">
+            The consultation is always free. We drive out, see the space, and give you a real assessment — not a quote built off square footage.
+          </p>
+        </div>
+        <div class="flex flex-col gap-3">
+          {[
+            'New construction pre-wire specialists',
+            'High-end custom home experience',
+            'Hill Country outdoor AV expertise',
+            'Vaulted ceiling & beam construction',
+            'Free in-home consultation',
+            'No long drives — we\'re out here often',
+          ].map((item) => (
+            <div class="flex items-start gap-3 py-3 border-b border-smoke/60">
+              <span class="text-gold flex-shrink-0 mt-0.5">→</span>
+              <span class="text-body text-stone">{item}</span>
+            </div>
+          ))}
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <FAQAccordion
+    heading="Boerne TX AV Installation — FAQs"
+    faqs={faqs}
+  />
+
+  <CTASection
+    heading="Book a Free Consultation in Boerne"
+    body="We come to your Boerne home, assess the space, and design a system that fits how you live — and how the Hill Country demands you build."
+    ctaLabel="Book a Free Consultation"
+    ctaHref="/contact-kz-audio-video-san-antonio-tx/"
+    secondaryLabel="Call (210) 981-4098"
+    secondaryHref="tel:2109814098"
+  />
+
+</BaseLayout>

@@ -1,0 +1,214 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import CTASection from '../../components/sections/CTASection.astro';
+import TrustBar from '../../components/sections/TrustBar.astro';
+
+const schema = {
+  "@context": "https://schema.org",
+  "@type": "LocalBusiness",
+  "name": "KZ Audio & Video",
+  "url": "https://kzaudioandvideo.com",
+  "telephone": "+12109814098",
+  "address": {
+    "@type": "PostalAddress",
+    "addressLocality": "San Antonio",
+    "addressRegion": "TX",
+    "addressCountry": "US"
+  },
+  "areaServed": [
+    "San Antonio, TX",
+    "Stone Oak, TX",
+    "Boerne, TX",
+    "Bulverde, TX",
+    "Helotes, TX",
+    "Canyon Lake, TX",
+    "New Braunfels, TX",
+    "Timberwood Park, TX",
+    "Fair Oaks Ranch, TX"
+  ]
+};
+
+const breadcrumb = {
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": [
+    { "@type": "ListItem", "position": 1, "name": "Home", "item": "https://kzaudioandvideo.com" },
+    { "@type": "ListItem", "position": 2, "name": "Service Areas", "item": "https://kzaudioandvideo.com/service-areas/" }
+  ]
+};
+
+const cities = [
+  {
+    slug: 'san-antonio',
+    name: 'San Antonio, TX',
+    description: 'Our home base. Home theaters, whole house audio, outdoor AV, and security cameras across every San Antonio neighborhood.',
+  },
+  {
+    slug: 'stone-oak',
+    name: 'Stone Oak',
+    description: 'North San Antonio\'s premier established neighborhood. We\'ve wired custom homes throughout Stone Oak for over 25 years.',
+  },
+  {
+    slug: 'boerne',
+    name: 'Boerne, TX',
+    description: 'Hill Country\'s fastest-growing community. High-end custom builds and new construction pre-wire are our specialty here.',
+  },
+  {
+    slug: 'bulverde',
+    name: 'Bulverde, TX',
+    description: 'Comal County is booming. Families moving out of San Antonio are building their dream homes — and their dream AV setups.',
+  },
+  {
+    slug: 'helotes',
+    name: 'Helotes, TX',
+    description: 'Established Hill Country living near Leon Springs. We\'ve served Helotes homeowners for decades.',
+  },
+  {
+    slug: 'canyon-lake',
+    name: 'Canyon Lake, TX',
+    description: 'Lakefront homes, vacation retreats, and serious outdoor living. Canyon Lake is built for outdoor AV.',
+  },
+  {
+    slug: 'new-braunfels',
+    name: 'New Braunfels, TX',
+    description: 'Along the Guadalupe River corridor and beyond — custom homes and vacation properties throughout Comal County.',
+  },
+  {
+    slug: 'timberwood-park',
+    name: 'Timberwood Park, TX',
+    description: 'One of San Antonio\'s most prestigious neighborhoods. Large custom homes with serious AV needs.',
+  },
+  {
+    slug: 'fair-oaks-ranch',
+    name: 'Fair Oaks Ranch, TX',
+    description: 'Where Bexar and Kendall County meet. High-end custom builders are very active here — and so are we.',
+  },
+];
+---
+
+<BaseLayout
+  title="Service Areas — San Antonio and the Texas Hill Country | KZ Audio & Video"
+  description="KZ Audio & Video serves San Antonio, Boerne, Bulverde, Stone Oak, Helotes, Canyon Lake, New Braunfels, Timberwood Park, and Fair Oaks Ranch. Home theater, whole house audio, outdoor AV. Call (210) 981-4098."
+  schema={[schema, breadcrumb]}
+>
+
+  <!-- Hero -->
+  <section class="relative pt-[140px] pb-20 px-4 sm:px-6 overflow-hidden bg-charcoal">
+    <div
+      class="absolute inset-0 pointer-events-none"
+      style="background: radial-gradient(ellipse at 30% 50%, rgba(201,168,76,0.06) 0%, transparent 65%)"
+      aria-hidden="true"
+    ></div>
+    <div class="container-main relative z-10">
+      <p class="overline mb-4 reveal">Where We Work</p>
+      <h1 class="font-display text-h1 text-warm-white mb-6 reveal reveal-delay-1" style="letter-spacing:-0.02em;">
+        San Antonio and the Texas Hill Country
+      </h1>
+      <p class="text-body-lg text-stone max-w-2xl reveal reveal-delay-2" style="font-weight:300;">
+        KZ Audio & Video has been installing home theater, whole house audio, outdoor AV, and security camera systems across Greater San Antonio and the surrounding Hill Country since 1997. If you live in any of the communities below, we come to you.
+      </p>
+    </div>
+  </section>
+
+  <TrustBar />
+
+  <!-- City cards grid -->
+  <section class="section bg-slate-surface">
+    <div class="container-main">
+      <h2 class="font-display text-h2 text-warm-white mb-3 reveal">Communities We Serve</h2>
+      <p class="text-body-lg text-stone mb-12 max-w-2xl reveal reveal-delay-1">
+        Every project starts with a free in-home consultation. We come to you — no showroom required.
+      </p>
+
+      <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
+        {cities.map(({ slug, name, description }, i) => (
+          <a
+            href={`/service-areas/${slug}/`}
+            class:list={[
+              "card card-hover flex flex-col gap-4 p-6 reveal",
+              i === 0 ? "reveal-delay-1" : i === 1 ? "reveal-delay-2" : i === 2 ? "reveal-delay-3" : ""
+            ]}
+          >
+            <div class="flex items-center gap-3">
+              <span class="text-gold flex-shrink-0">
+                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                  <path d="M21 10c0 7-9 13-9 13S3 17 3 10a9 9 0 0 1 18 0z"/>
+                  <circle cx="12" cy="10" r="3"/>
+                </svg>
+              </span>
+              <h3 class="font-sans font-semibold text-h4 text-warm-white">{name}</h3>
+            </div>
+            <p class="text-body text-stone leading-relaxed">{description}</p>
+            <span class="text-gold text-body-sm font-sans font-medium mt-auto flex items-center gap-1">
+              View services
+              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                <path d="M5 12h14M12 5l7 7-7 7"/>
+              </svg>
+            </span>
+          </a>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <!-- Services overview -->
+  <section class="section bg-charcoal">
+    <div class="container-main">
+      <h2 class="font-display text-h2 text-warm-white mb-4 reveal">What We Install Everywhere We Go</h2>
+      <p class="text-body-lg text-stone mb-12 max-w-2xl reveal reveal-delay-1">
+        The same four core services — designed, installed, and calibrated to the same standard — whether you're in a Stone Oak custom home or a Canyon Lake lake house.
+      </p>
+      <div class="grid grid-cols-1 sm:grid-cols-2 gap-6">
+        {[
+          {
+            title: 'Home Theater',
+            desc: 'Dedicated rooms and media rooms built for cinema-level picture and sound. 4K projection, Dolby Atmos surround, acoustic treatment.',
+            href: '/home-theater-installation-san-antonio-tx/',
+          },
+          {
+            title: 'Whole House Audio',
+            desc: 'Music in every room, controlled from your phone. Sonos, multi-zone amplifiers, in-ceiling speakers, outdoor speakers.',
+            href: '/whole-house-audio-san-antonio/',
+          },
+          {
+            title: 'Outdoor AV',
+            desc: 'Weatherproof displays, outdoor speakers, and covered-patio setups designed for the Texas climate.',
+            href: '/outdoor-audio-video-san-antonio/',
+          },
+          {
+            title: 'Security Cameras',
+            desc: 'Professional camera systems with remote viewing, local storage, and clean installs that don\'t compromise your home\'s look.',
+            href: '/security-camera-installation-san-antonio/',
+          },
+        ].map(({ title, desc, href }, i) => (
+          <a
+            href={href}
+            class:list={[
+              "card card-hover flex flex-col gap-3 p-6 reveal",
+              i === 0 ? "reveal-delay-1" : i === 1 ? "reveal-delay-2" : i === 2 ? "reveal-delay-3" : "reveal-delay-4"
+            ]}
+          >
+            <h3 class="font-sans font-semibold text-h4 text-warm-white">{title}</h3>
+            <p class="text-body text-stone leading-relaxed">{desc}</p>
+            <span class="text-gold text-body-sm font-sans font-medium mt-auto flex items-center gap-1">
+              Learn more
+              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                <path d="M5 12h14M12 5l7 7-7 7"/>
+              </svg>
+            </span>
+          </a>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <CTASection
+    heading="Not sure if we come to your area?"
+    body="Give us a call or send a message. If your address is within our service area we'll tell you right away — and if you're on the edge, we'll still come out for the right project."
+    ctaLabel="Book a Free Consultation"
+    ctaHref="/contact-kz-audio-video-san-antonio-tx/"
+    secondaryLabel="Call (210) 981-4098"
+    secondaryHref="tel:2109814098"
+  />
+
+</BaseLayout>

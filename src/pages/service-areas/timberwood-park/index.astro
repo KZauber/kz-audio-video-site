@@ -1,0 +1,177 @@
+---
+import BaseLayout from '../../../layouts/BaseLayout.astro';
+import HeroSection from '../../../components/sections/HeroSection.astro';
+import TrustBar from '../../../components/sections/TrustBar.astro';
+import CTASection from '../../../components/sections/CTASection.astro';
+import FAQAccordion from '../../../components/sections/FAQAccordion.astro';
+
+const schema = {
+  "@context": "https://schema.org",
+  "@type": "LocalBusiness",
+  "name": "KZ Audio & Video",
+  "url": "https://kzaudioandvideo.com",
+  "telephone": "+12109814098",
+  "description": "Home theater and AV installation in Timberwood Park TX. Luxury custom home specialists near Helotes and northwest San Antonio.",
+  "address": {
+    "@type": "PostalAddress",
+    "addressLocality": "San Antonio",
+    "addressRegion": "TX",
+    "addressCountry": "US"
+  },
+  "areaServed": {
+    "@type": "Neighborhood",
+    "name": "Timberwood Park",
+    "containedInPlace": {
+      "@type": "State",
+      "name": "Texas"
+    }
+  }
+};
+
+const breadcrumb = {
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": [
+    { "@type": "ListItem", "position": 1, "name": "Home", "item": "https://kzaudioandvideo.com" },
+    { "@type": "ListItem", "position": 2, "name": "Service Areas", "item": "https://kzaudioandvideo.com/service-areas/" },
+    { "@type": "ListItem", "position": 3, "name": "Timberwood Park, TX" }
+  ]
+};
+
+const faqs = [
+  {
+    question: 'Do you install in Timberwood Park?',
+    answer: 'Yes. Timberwood Park is a neighborhood we know well — large custom homes on generous lots near Helotes, with the kind of architectural detail that makes AV design both challenging and rewarding. We\'ve been out there for years.',
+  },
+  {
+    question: 'What makes Timberwood Park homes different for AV?',
+    answer: 'Timberwood Park homes are large — often 4,000+ square feet — with features like dedicated bonus rooms, home offices, multiple living areas, and significant outdoor space. That gives us a lot to work with. Dedicated home theaters in bonus rooms, whole house audio spanning multiple zones, and outdoor AV for covered patios are all common here.',
+  },
+  {
+    question: 'Can you do a full home AV package in Timberwood Park?',
+    answer: 'Absolutely. A full package for a Timberwood Park home typically includes a dedicated home theater or media room, whole house Sonos or multi-zone audio, outdoor speakers and display for the covered patio, and a security camera system. We design it as one integrated system — not separate purchases bolted together.',
+  },
+  {
+    question: 'Do you work with high-end AV brands appropriate for luxury homes?',
+    answer: 'Yes. For Timberwood Park projects we commonly work with Klipsch, JBL Synthesis, Polk Audio, Sonance, and Denon for audio, and Sony and Epson for projection. We match the equipment to the budget and the use case — and we\'ll tell you when a less expensive option performs just as well for your specific application.',
+  },
+];
+---
+
+<BaseLayout
+  title="Home Theater Installation Timberwood Park TX | KZ Audio & Video"
+  description="Home theater and AV installation in Timberwood Park TX. Luxury custom home specialists near Helotes. Whole house audio, outdoor AV. Call (210) 981-4098."
+  schema={[schema, breadcrumb]}
+>
+
+  <HeroSection
+    heading="Home Theater & AV Installation in Timberwood Park TX"
+    subhead="Timberwood Park's large custom homes give us room to design AV systems the way they should be designed — with no compromises."
+    imageSrc="/images/projects/monty-theater/home-theater-near-san-antonio-hero.jpg"
+    imageAlt="Luxury home theater installation in Timberwood Park Texas"
+    compact={true}
+  />
+
+  <TrustBar />
+
+  <!-- Services -->
+  <section class="section bg-slate-surface">
+    <div class="container-main">
+      <p class="overline mb-3">Timberwood Park AV Services</p>
+      <h2 class="font-display text-h2 text-warm-white mb-4">
+        Luxury Homes Deserve Luxury-Level AV Installation
+      </h2>
+      <p class="text-body-lg text-stone mb-10 max-w-2xl">
+        Timberwood Park is one of the area's most prestigious neighborhoods. The homes are large, well-appointed, and built for a lifestyle that AV can significantly enhance — when it's done right.
+      </p>
+      <div class="grid grid-cols-1 sm:grid-cols-2 gap-6 mt-10">
+        {[
+          {
+            title: 'Home Theater',
+            desc: 'True dedicated home theaters in Timberwood Park bonus rooms and custom-built theater spaces. 4K laser projection, Dolby Atmos surround sound with ceiling speakers, acoustic panel treatment, and custom seating.',
+            href: '/home-theater-installation-san-antonio-tx/',
+          },
+          {
+            title: 'Whole House Audio',
+            desc: 'Multi-zone audio for large Timberwood Park floor plans. In-ceiling speakers in every living area, Sonos integration, outdoor zones, and wall keypads in primary rooms.',
+            href: '/whole-house-audio-san-antonio/',
+          },
+          {
+            title: 'Outdoor AV',
+            desc: 'Covered patios and outdoor kitchens in Timberwood Park homes are built for entertaining. We spec outdoor displays and speaker systems that match the scale and quality of the home.',
+            href: '/outdoor-audio-video-san-antonio/',
+          },
+          {
+            title: 'Security Cameras',
+            desc: 'Comprehensive camera coverage for larger properties — long driveways, perimeter, and multiple entry points — with clean installations and remote mobile access.',
+            href: '/security-camera-installation-san-antonio/',
+          },
+        ].map(({ title, desc, href }) => (
+          <a href={href} class="card card-hover flex flex-col gap-3 p-6 reveal">
+            <h3 class="font-sans font-semibold text-h4 text-warm-white">{title}</h3>
+            <p class="text-body text-stone leading-relaxed">{desc}</p>
+            <span class="text-gold text-body-sm font-sans font-medium mt-auto flex items-center gap-1">
+              Learn more
+              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                <path d="M5 12h14M12 5l7 7-7 7"/>
+              </svg>
+            </span>
+          </a>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <!-- Why KZ in Timberwood Park -->
+  <section class="section bg-charcoal">
+    <div class="container-main">
+      <p class="overline mb-3 reveal">Northwest San Antonio's Finest</p>
+      <h2 class="font-display text-h2 text-warm-white mb-6 reveal reveal-delay-1">
+        We Treat Every Timberwood Park Home Like It's Our Own
+      </h2>
+      <div class="grid grid-cols-1 lg:grid-cols-2 gap-12 reveal reveal-delay-2">
+        <div class="flex flex-col gap-4">
+          <p class="text-body-lg text-stone" style="font-weight:300;">
+            Timberwood Park sits at the upper end of what San Antonio's northwest suburbs offer — gated streets, large custom homes, mature trees, and a neighborhood that has retained its character and value for years. The homeowners here have invested significantly in their properties and expect contractors who match that standard.
+          </p>
+          <p class="text-body text-stone">
+            We approach every Timberwood Park project with the same attention to detail we'd apply to our own homes. Cable management is invisible. Equipment is mounted level and true. Every system is tested and calibrated before we leave. And we show up on time.
+          </p>
+          <p class="text-body text-stone">
+            The consultation is free. We'll walk the property, discuss what you have in mind, and come back with a detailed proposal — not a ballpark.
+          </p>
+        </div>
+        <div class="flex flex-col gap-3">
+          {[
+            'Luxury home installation standard',
+            'Full home AV packages',
+            'Dedicated theater room design',
+            'High-end audio brand partnerships',
+            'Invisible cable management',
+            'Free in-home consultation',
+          ].map((item) => (
+            <div class="flex items-start gap-3 py-3 border-b border-smoke/60">
+              <span class="text-gold flex-shrink-0 mt-0.5">→</span>
+              <span class="text-body text-stone">{item}</span>
+            </div>
+          ))}
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <FAQAccordion
+    heading="Timberwood Park AV Installation — FAQs"
+    faqs={faqs}
+  />
+
+  <CTASection
+    heading="Book a Free Consultation in Timberwood Park"
+    body="We come to your home, assess every space, and put together a system recommendation built around what a home of this quality deserves."
+    ctaLabel="Book a Free Consultation"
+    ctaHref="/contact-kz-audio-video-san-antonio-tx/"
+    secondaryLabel="Call (210) 981-4098"
+    secondaryHref="tel:2109814098"
+  />
+
+</BaseLayout>

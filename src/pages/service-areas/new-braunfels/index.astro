@@ -1,0 +1,177 @@
+---
+import BaseLayout from '../../../layouts/BaseLayout.astro';
+import HeroSection from '../../../components/sections/HeroSection.astro';
+import TrustBar from '../../../components/sections/TrustBar.astro';
+import CTASection from '../../../components/sections/CTASection.astro';
+import FAQAccordion from '../../../components/sections/FAQAccordion.astro';
+
+const schema = {
+  "@context": "https://schema.org",
+  "@type": "LocalBusiness",
+  "name": "KZ Audio & Video",
+  "url": "https://kzaudioandvideo.com",
+  "telephone": "+12109814098",
+  "description": "Home theater and AV installation in New Braunfels TX. Serving the Guadalupe River corridor, custom homes, and vacation properties in Comal County.",
+  "address": {
+    "@type": "PostalAddress",
+    "addressLocality": "San Antonio",
+    "addressRegion": "TX",
+    "addressCountry": "US"
+  },
+  "areaServed": {
+    "@type": "City",
+    "name": "New Braunfels",
+    "containedInPlace": {
+      "@type": "State",
+      "name": "Texas"
+    }
+  }
+};
+
+const breadcrumb = {
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": [
+    { "@type": "ListItem", "position": 1, "name": "Home", "item": "https://kzaudioandvideo.com" },
+    { "@type": "ListItem", "position": 2, "name": "Service Areas", "item": "https://kzaudioandvideo.com/service-areas/" },
+    { "@type": "ListItem", "position": 3, "name": "New Braunfels, TX" }
+  ]
+};
+
+const faqs = [
+  {
+    question: 'Do you serve New Braunfels and the surrounding Comal County area?',
+    answer: 'Yes. New Braunfels is part of our regular service area. It\'s about 30 miles northeast of San Antonio and we\'re out there often. We work with custom home buyers, vacation property owners, and established homeowners throughout the Guadalupe River corridor.',
+  },
+  {
+    question: 'New Braunfels is growing fast — can you handle new construction pre-wire there?',
+    answer: 'Absolutely. Comal County is one of the fastest-growing counties in Texas, and New Braunfels is at the center of that growth. We work with local builders on pre-wire packages during the framing stage — running all speaker wire, HDMI, and low-voltage cabling before drywall. It\'s the most cost-effective time to do it.',
+  },
+  {
+    question: 'What about vacation and second homes along the Guadalupe River?',
+    answer: 'Vacation homes and river properties are a big part of what we do in the New Braunfels area. These properties need systems that guests can use easily, cameras that give owners remote visibility, and outdoor AV that handles the river environment. We design all of it.',
+  },
+  {
+    question: 'Can you integrate AV with a smart home system in New Braunfels?',
+    answer: 'Yes. Whether you want full Control4 or Lutron integration or just a simpler Sonos-and-Apple-TV setup, we design the system around your use case. Many New Braunfels custom homeowners want the full smart home package — we can be as comprehensive or as simple as you want.',
+  },
+];
+---
+
+<BaseLayout
+  title="Home Theater Installation New Braunfels TX | KZ Audio & Video"
+  description="Home theater and AV installation in New Braunfels TX. Custom homes, vacation properties, and new construction in Comal County. Call (210) 981-4098."
+  schema={[schema, breadcrumb]}
+>
+
+  <HeroSection
+    heading="Home Theater & AV Installation in New Braunfels TX"
+    subhead="Comal County's growth is bringing some of the best custom home construction in the region. We're here for the pre-wire, the install, and the long term."
+    imageSrc="/images/projects/monty-theater/home-theater-near-san-antonio-hero.jpg"
+    imageAlt="Home theater installation in New Braunfels Texas Comal County"
+    compact={true}
+  />
+
+  <TrustBar />
+
+  <!-- Services -->
+  <section class="section bg-slate-surface">
+    <div class="container-main">
+      <p class="overline mb-3">New Braunfels TX AV Services</p>
+      <h2 class="font-display text-h2 text-warm-white mb-4">
+        Custom Homes. River Properties. New Construction. We Handle All of It.
+      </h2>
+      <p class="text-body-lg text-stone mb-10 max-w-2xl">
+        New Braunfels has a diverse mix of property types — from established river homes to brand-new custom builds on the north side of town. Our AV design adapts to whatever you're working with.
+      </p>
+      <div class="grid grid-cols-1 sm:grid-cols-2 gap-6 mt-10">
+        {[
+          {
+            title: 'Home Theater',
+            desc: 'Dedicated media rooms and home theaters for New Braunfels custom homes. Projectors, large-format TVs, Dolby Atmos surround — designed around your room and how you use it.',
+            href: '/home-theater-installation-san-antonio-tx/',
+          },
+          {
+            title: 'Whole House Audio',
+            desc: 'Sonos and multi-zone audio for New Braunfels homes. In-ceiling speakers throughout, outdoor zones for river view patios, and phone-based control for owners and guests.',
+            href: '/whole-house-audio-san-antonio/',
+          },
+          {
+            title: 'Outdoor AV',
+            desc: 'The Guadalupe River lifestyle is an outdoor one. Covered patios, outdoor kitchens, and river-view decks all benefit from weatherproof speakers and displays built for the elements.',
+            href: '/outdoor-audio-video-san-antonio/',
+          },
+          {
+            title: 'Security Cameras',
+            desc: 'Property security for homes along the river corridor and beyond. Remote viewing, local storage, and camera coverage designed for larger lots and multiple entry points.',
+            href: '/security-camera-installation-san-antonio/',
+          },
+        ].map(({ title, desc, href }) => (
+          <a href={href} class="card card-hover flex flex-col gap-3 p-6 reveal">
+            <h3 class="font-sans font-semibold text-h4 text-warm-white">{title}</h3>
+            <p class="text-body text-stone leading-relaxed">{desc}</p>
+            <span class="text-gold text-body-sm font-sans font-medium mt-auto flex items-center gap-1">
+              Learn more
+              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                <path d="M5 12h14M12 5l7 7-7 7"/>
+              </svg>
+            </span>
+          </a>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <!-- Why KZ in New Braunfels -->
+  <section class="section bg-charcoal">
+    <div class="container-main">
+      <p class="overline mb-3 reveal">The Guadalupe River Corridor</p>
+      <h2 class="font-display text-h2 text-warm-white mb-6 reveal reveal-delay-1">
+        New Braunfels Is Growing. We're Keeping Up.
+      </h2>
+      <div class="grid grid-cols-1 lg:grid-cols-2 gap-12 reveal reveal-delay-2">
+        <div class="flex flex-col gap-4">
+          <p class="text-body-lg text-stone" style="font-weight:300;">
+            New Braunfels has been one of the fastest-growing cities in Texas for several years running. The custom home market along the Guadalupe River corridor and the expanding north side of the city has brought in a new generation of homeowners who want their homes built right from the start — including the AV.
+          </p>
+          <p class="text-body text-stone">
+            We work with builders, homeowners, and vacation property managers throughout Comal County. Our team drives out to New Braunfels regularly — it's part of our established service area, not an exception.
+          </p>
+          <p class="text-body text-stone">
+            Whatever stage your home is in — framing, move-in, or years into ownership — there's a way to build the right AV system. The consultation is free and we tell you what's realistic, not what's the most impressive proposal we can write.
+          </p>
+        </div>
+        <div class="flex flex-col gap-3">
+          {[
+            'Custom home & vacation property experience',
+            'New construction pre-wire',
+            'River property outdoor AV',
+            'Comal County regularly scheduled',
+            'Smart home integration available',
+            'Free in-home consultation',
+          ].map((item) => (
+            <div class="flex items-start gap-3 py-3 border-b border-smoke/60">
+              <span class="text-gold flex-shrink-0 mt-0.5">→</span>
+              <span class="text-body text-stone">{item}</span>
+            </div>
+          ))}
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <FAQAccordion
+    heading="New Braunfels TX AV Installation — FAQs"
+    faqs={faqs}
+  />
+
+  <CTASection
+    heading="Book a Free Consultation in New Braunfels"
+    body="We come to your New Braunfels property and design an AV system that fits the home, the lifestyle, and your budget — with honest numbers upfront."
+    ctaLabel="Book a Free Consultation"
+    ctaHref="/contact-kz-audio-video-san-antonio-tx/"
+    secondaryLabel="Call (210) 981-4098"
+    secondaryHref="tel:2109814098"
+  />
+
+</BaseLayout>

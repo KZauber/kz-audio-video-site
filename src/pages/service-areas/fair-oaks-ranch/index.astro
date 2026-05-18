@@ -1,0 +1,177 @@
+---
+import BaseLayout from '../../../layouts/BaseLayout.astro';
+import HeroSection from '../../../components/sections/HeroSection.astro';
+import TrustBar from '../../../components/sections/TrustBar.astro';
+import CTASection from '../../../components/sections/CTASection.astro';
+import FAQAccordion from '../../../components/sections/FAQAccordion.astro';
+
+const schema = {
+  "@context": "https://schema.org",
+  "@type": "LocalBusiness",
+  "name": "KZ Audio & Video",
+  "url": "https://kzaudioandvideo.com",
+  "telephone": "+12109814098",
+  "description": "Home theater and AV installation in Fair Oaks Ranch TX. High-end custom home specialists on the Bexar-Kendall County border.",
+  "address": {
+    "@type": "PostalAddress",
+    "addressLocality": "San Antonio",
+    "addressRegion": "TX",
+    "addressCountry": "US"
+  },
+  "areaServed": {
+    "@type": "City",
+    "name": "Fair Oaks Ranch",
+    "containedInPlace": {
+      "@type": "State",
+      "name": "Texas"
+    }
+  }
+};
+
+const breadcrumb = {
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": [
+    { "@type": "ListItem", "position": 1, "name": "Home", "item": "https://kzaudioandvideo.com" },
+    { "@type": "ListItem", "position": 2, "name": "Service Areas", "item": "https://kzaudioandvideo.com/service-areas/" },
+    { "@type": "ListItem", "position": 3, "name": "Fair Oaks Ranch, TX" }
+  ]
+};
+
+const faqs = [
+  {
+    question: 'Do you install AV in Fair Oaks Ranch?',
+    answer: 'Yes. Fair Oaks Ranch sits right on the Bexar-Kendall County line and it\'s well within our regular service area. The custom home builders active here are doing impressive work, and we work with both builders and homeowners on AV packages that match the quality of construction.',
+  },
+  {
+    question: 'What types of AV projects do you do in Fair Oaks Ranch?',
+    answer: 'Our most common Fair Oaks Ranch projects are full home AV packages — dedicated home theater, whole house audio with in-ceiling speakers, covered patio outdoor AV, and security cameras. The homes here are built to accommodate all of it, and the homeowners investing in this community typically want to do it right.',
+  },
+  {
+    question: 'Can you coordinate with a custom builder in Fair Oaks Ranch?',
+    answer: 'Yes — and it\'s the ideal scenario. When we get involved during the build, we coordinate the rough-in directly with your builder. All speaker wire, HDMI runs, conduit for cameras, and data cabling go in before the walls close. It saves money compared to retrofitting and gives you a cleaner end result.',
+  },
+  {
+    question: 'How far in advance should I contact you for a new Fair Oaks Ranch build?',
+    answer: 'As early as possible. The rough-in happens during framing, so we want to be in contact well before that stage. If your home is already past framing, don\'t worry — we do plenty of retrofit work and can achieve clean results in finished homes. But if you\'re early in the process, earlier is always better.',
+  },
+];
+---
+
+<BaseLayout
+  title="Home Theater Installation Fair Oaks Ranch TX | KZ Audio & Video"
+  description="Home theater and AV installation in Fair Oaks Ranch TX. High-end custom home specialists on the Bexar-Kendall County border. Call (210) 981-4098."
+  schema={[schema, breadcrumb]}
+>
+
+  <HeroSection
+    heading="Home Theater & AV Installation in Fair Oaks Ranch TX"
+    subhead="On the Bexar-Kendall County border, Fair Oaks Ranch's high-end custom builders are setting a new standard. We bring the same standard to the AV."
+    imageSrc="/images/projects/monty-theater/home-theater-near-san-antonio-hero.jpg"
+    imageAlt="Luxury home theater installation in Fair Oaks Ranch Texas"
+    compact={true}
+  />
+
+  <TrustBar />
+
+  <!-- Services -->
+  <section class="section bg-slate-surface">
+    <div class="container-main">
+      <p class="overline mb-3">Fair Oaks Ranch AV Services</p>
+      <h2 class="font-display text-h2 text-warm-white mb-4">
+        High-End Homes Built for High-End AV
+      </h2>
+      <p class="text-body-lg text-stone mb-10 max-w-2xl">
+        Fair Oaks Ranch is attracting some of the finest custom home builders in the region. The homes being built here have the space, the architecture, and the budget to support full AV packages done properly.
+      </p>
+      <div class="grid grid-cols-1 sm:grid-cols-2 gap-6 mt-10">
+        {[
+          {
+            title: 'Home Theater',
+            desc: 'Dedicated home theaters designed into the floor plan from the start. 4K laser projection, Dolby Atmos with height channels, acoustic treatment, and custom seating — built to perform for decades.',
+            href: '/home-theater-installation-san-antonio-tx/',
+          },
+          {
+            title: 'Whole House Audio',
+            desc: 'Seamless multi-zone audio throughout large Fair Oaks Ranch custom homes. In-ceiling and in-wall speakers, Sonos or multi-zone processors, and outdoor coverage for patios and pool areas.',
+            href: '/whole-house-audio-san-antonio/',
+          },
+          {
+            title: 'Outdoor AV',
+            desc: 'The outdoor living spaces in Fair Oaks Ranch custom homes are built for serious entertaining. We design weatherproof speaker and display systems that match the architecture.',
+            href: '/outdoor-audio-video-san-antonio/',
+          },
+          {
+            title: 'Security Cameras',
+            desc: 'Comprehensive camera systems for gated driveways, property perimeters, and pool areas. Remote viewing and local storage with clean, integrated installations.',
+            href: '/security-camera-installation-san-antonio/',
+          },
+        ].map(({ title, desc, href }) => (
+          <a href={href} class="card card-hover flex flex-col gap-3 p-6 reveal">
+            <h3 class="font-sans font-semibold text-h4 text-warm-white">{title}</h3>
+            <p class="text-body text-stone leading-relaxed">{desc}</p>
+            <span class="text-gold text-body-sm font-sans font-medium mt-auto flex items-center gap-1">
+              Learn more
+              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                <path d="M5 12h14M12 5l7 7-7 7"/>
+              </svg>
+            </span>
+          </a>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <!-- Why KZ in Fair Oaks Ranch -->
+  <section class="section bg-charcoal">
+    <div class="container-main">
+      <p class="overline mb-3 reveal">Bexar-Kendall County Border</p>
+      <h2 class="font-display text-h2 text-warm-white mb-6 reveal reveal-delay-1">
+        The Builders Are Active Here. So Are We.
+      </h2>
+      <div class="grid grid-cols-1 lg:grid-cols-2 gap-12 reveal reveal-delay-2">
+        <div class="flex flex-col gap-4">
+          <p class="text-body-lg text-stone" style="font-weight:300;">
+            Fair Oaks Ranch has become one of the most in-demand addresses for San Antonio's custom home market. The combination of Hill Country character, proximity to San Antonio, and high-quality custom builders has created a community where homes are built to impress — and to last.
+          </p>
+          <p class="text-body text-stone">
+            Homeowners investing at this level deserve AV that reflects the same quality. We work with the builder during construction to run cabling properly, and we come back at trim-out to install the hardware. Or we can work in a finished home when retrofitting is the only option — we do both regularly.
+          </p>
+          <p class="text-body text-stone">
+            The consultation is free. Call us, tell us where you are in the process, and we'll come out and take a look.
+          </p>
+        </div>
+        <div class="flex flex-col gap-3">
+          {[
+            'High-end custom home AV design',
+            'Builder coordination during construction',
+            'Full home packages — theater + audio + outdoor',
+            'Finished home retrofit experience',
+            'Bexar & Kendall County service area',
+            'Free in-home consultation',
+          ].map((item) => (
+            <div class="flex items-start gap-3 py-3 border-b border-smoke/60">
+              <span class="text-gold flex-shrink-0 mt-0.5">→</span>
+              <span class="text-body text-stone">{item}</span>
+            </div>
+          ))}
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <FAQAccordion
+    heading="Fair Oaks Ranch AV Installation — FAQs"
+    faqs={faqs}
+  />
+
+  <CTASection
+    heading="Book a Free Consultation in Fair Oaks Ranch"
+    body="Whether you're building new or upgrading an existing home, we come to Fair Oaks Ranch and design a system worthy of the address."
+    ctaLabel="Book a Free Consultation"
+    ctaHref="/contact-kz-audio-video-san-antonio-tx/"
+    secondaryLabel="Call (210) 981-4098"
+    secondaryHref="tel:2109814098"
+  />
+
+</BaseLayout>

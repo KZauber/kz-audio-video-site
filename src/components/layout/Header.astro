@@ -8,6 +8,18 @@ const navLinks = [
   { label: 'About',             href: '/about-kz-audio-video/' },
 ];
 
+const serviceAreaCities = [
+  { label: 'San Antonio',       href: '/service-areas/san-antonio/' },
+  { label: 'Stone Oak',         href: '/service-areas/stone-oak/' },
+  { label: 'Boerne',            href: '/service-areas/boerne/' },
+  { label: 'Bulverde',          href: '/service-areas/bulverde/' },
+  { label: 'Helotes',           href: '/service-areas/helotes/' },
+  { label: 'Canyon Lake',       href: '/service-areas/canyon-lake/' },
+  { label: 'New Braunfels',     href: '/service-areas/new-braunfels/' },
+  { label: 'Timberwood Park',   href: '/service-areas/timberwood-park/' },
+  { label: 'Fair Oaks Ranch',   href: '/service-areas/fair-oaks-ranch/' },
+];
+
 const currentPath = Astro.url.pathname;
 ---
 
@@ -46,6 +58,47 @@ const currentPath = Astro.url.pathname;
           {label}
         </a>
       ))}
+
+      <!-- Service Areas dropdown -->
+      <div class="relative group">
+        <a
+          href="/service-areas/"
+          class:list={[
+            'font-sans font-medium text-body-sm transition-colors duration-fast flex items-center gap-1',
+            currentPath.startsWith('/service-areas/')
+              ? 'text-gold'
+              : 'text-stone hover:text-warm-white',
+          ]}
+        >
+          Service Areas
+          <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" class="transition-transform duration-fast group-hover:rotate-180">
+            <path d="M6 9l6 6 6-6"/>
+          </svg>
+        </a>
+        <div class="absolute top-full left-0 pt-2 opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-fast z-50">
+          <div class="bg-slate-surface border border-smoke rounded-card p-2 min-w-[200px] flex flex-col gap-1 shadow-lg">
+            {serviceAreaCities.map(({ label, href }) => (
+              <a
+                href={href}
+                class:list={[
+                  'text-body-sm px-3 py-2 rounded hover:bg-graphite transition-colors duration-fast block font-sans',
+                  currentPath === href ? 'text-gold' : 'text-stone hover:text-warm-white',
+                ]}
+              >
+                {label}
+              </a>
+            ))}
+            <div class="border-t border-smoke/60 mt-1 pt-1">
+              <a
+                href="/service-areas/"
+                class="text-body-sm px-3 py-2 rounded hover:bg-graphite transition-colors duration-fast block font-sans text-gold hover:text-warm-white"
+              >
+                All Service Areas →
+              </a>
+            </div>
+          </div>
+        </div>
+      </div>
     </nav>
 
     <!-- Desktop CTA -->
@@ -91,6 +144,13 @@ const currentPath = Astro.url.pathname;
         {label}
       </a>
     ))}
+    <a
+      href="/service-areas/"
+      class="font-sans font-semibold text-2xl text-warm-white py-3 border-b border-smoke
+             hover:text-gold transition-colors duration-fast"
+    >
+      Service Areas
+    </a>
     <a
       href="/contact-kz-audio-video-san-antonio-tx/"
       class="font-sans font-semibold text-2xl text-warm-white py-3 border-b border-smoke

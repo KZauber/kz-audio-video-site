@@ -1,0 +1,177 @@
+---
+import BaseLayout from '../../../layouts/BaseLayout.astro';
+import HeroSection from '../../../components/sections/HeroSection.astro';
+import TrustBar from '../../../components/sections/TrustBar.astro';
+import CTASection from '../../../components/sections/CTASection.astro';
+import FAQAccordion from '../../../components/sections/FAQAccordion.astro';
+
+const schema = {
+  "@context": "https://schema.org",
+  "@type": "LocalBusiness",
+  "name": "KZ Audio & Video",
+  "url": "https://kzaudioandvideo.com",
+  "telephone": "+12109814098",
+  "description": "Home theater and AV installation in Stone Oak, San Antonio TX. Custom home specialists serving North San Antonio since 1997.",
+  "address": {
+    "@type": "PostalAddress",
+    "addressLocality": "San Antonio",
+    "addressRegion": "TX",
+    "addressCountry": "US"
+  },
+  "areaServed": {
+    "@type": "Neighborhood",
+    "name": "Stone Oak",
+    "containedInPlace": {
+      "@type": "City",
+      "name": "San Antonio"
+    }
+  }
+};
+
+const breadcrumb = {
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": [
+    { "@type": "ListItem", "position": 1, "name": "Home", "item": "https://kzaudioandvideo.com" },
+    { "@type": "ListItem", "position": 2, "name": "Service Areas", "item": "https://kzaudioandvideo.com/service-areas/" },
+    { "@type": "ListItem", "position": 3, "name": "Stone Oak" }
+  ]
+};
+
+const faqs = [
+  {
+    question: 'Do you install home theaters in Stone Oak custom homes?',
+    answer: 'Yes — and this is where we spend a lot of our time. Stone Oak has some of the most well-appointed custom homes in San Antonio. We\'ve installed dedicated home theaters, media rooms, and whole house audio systems throughout the neighborhood. Every project starts with a free in-home walkthrough so we understand the space before we quote anything.',
+  },
+  {
+    question: 'Can you work with our builder or interior designer?',
+    answer: 'Absolutely. Many of our Stone Oak clients bring us in during the design phase so we can coordinate with the builder or architect on pre-wire placement, equipment closet sizing, and acoustic wall treatment options before drywall. We work well with the trade community.',
+  },
+  {
+    question: 'What AV upgrades make the most sense in a Stone Oak home?',
+    answer: 'The most common requests we see in Stone Oak are dedicated home theater rooms, whole house audio (Sonos or multi-zone), covered patio outdoor AV, and security cameras. The custom home layouts here typically have the physical space to do all of these right — not crammed into a corner.',
+  },
+  {
+    question: 'Is there a minimum project size?',
+    answer: 'No minimum. We\'ll come out for a single room or a whole-home system. That said, our sweet spot in Stone Oak is full home AV — theater plus audio plus outdoor — because the homes are built for it.',
+  },
+];
+---
+
+<BaseLayout
+  title="Home Theater Installation Stone Oak San Antonio TX | KZ Audio & Video"
+  description="Home theater and AV installation in Stone Oak, San Antonio TX. Custom home specialists. Whole house audio, outdoor AV, security cameras. Call (210) 981-4098."
+  schema={[schema, breadcrumb]}
+>
+
+  <HeroSection
+    heading="Home Theater & AV Installation in Stone Oak"
+    subhead="North San Antonio's established custom home community — and one of our busiest service areas. We've been wiring Stone Oak homes for over 25 years."
+    imageSrc="/images/projects/monty-theater/home-theater-near-san-antonio-hero.jpg"
+    imageAlt="Custom home theater installation in Stone Oak San Antonio Texas"
+    compact={true}
+  />
+
+  <TrustBar />
+
+  <!-- Services -->
+  <section class="section bg-slate-surface">
+    <div class="container-main">
+      <p class="overline mb-3">Stone Oak AV Services</p>
+      <h2 class="font-display text-h2 text-warm-white mb-4">
+        Built for Stone Oak's Custom Homes
+      </h2>
+      <p class="text-body-lg text-stone mb-10 max-w-2xl">
+        Stone Oak's established custom home market demands AV that matches the quality of the home. We design and install systems that do exactly that.
+      </p>
+      <div class="grid grid-cols-1 sm:grid-cols-2 gap-6 mt-10">
+        {[
+          {
+            title: 'Home Theater',
+            desc: 'Dedicated theater rooms designed for the large, open floor plans common in Stone Oak. 4K projection, Dolby Atmos, acoustic treatment, and custom seating coordination.',
+            href: '/home-theater-installation-san-antonio-tx/',
+          },
+          {
+            title: 'Whole House Audio',
+            desc: 'Sonos and multi-zone audio systems for large Stone Oak homes. In-ceiling speakers in every living area, outdoor zones, and wall keypads where you want them.',
+            href: '/whole-house-audio-san-antonio/',
+          },
+          {
+            title: 'Outdoor AV',
+            desc: 'Covered patios, pool areas, and outdoor kitchens with weatherproof displays and speakers. Stone Oak homes have the outdoor space to do this right.',
+            href: '/outdoor-audio-video-san-antonio/',
+          },
+          {
+            title: 'Security Cameras',
+            desc: 'Professional camera coverage for larger lots, long driveways, and multi-entry custom homes — remote viewing from anywhere.',
+            href: '/security-camera-installation-san-antonio/',
+          },
+        ].map(({ title, desc, href }) => (
+          <a href={href} class="card card-hover flex flex-col gap-3 p-6 reveal">
+            <h3 class="font-sans font-semibold text-h4 text-warm-white">{title}</h3>
+            <p class="text-body text-stone leading-relaxed">{desc}</p>
+            <span class="text-gold text-body-sm font-sans font-medium mt-auto flex items-center gap-1">
+              Learn more
+              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                <path d="M5 12h14M12 5l7 7-7 7"/>
+              </svg>
+            </span>
+          </a>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <!-- Why KZ in Stone Oak -->
+  <section class="section bg-charcoal">
+    <div class="container-main">
+      <p class="overline mb-3 reveal">Stone Oak's AV Installer</p>
+      <h2 class="font-display text-h2 text-warm-white mb-6 reveal reveal-delay-1">
+        We Know Stone Oak Homes
+      </h2>
+      <div class="grid grid-cols-1 lg:grid-cols-3 gap-8 reveal reveal-delay-2">
+        <div class="lg:col-span-2 flex flex-col gap-4">
+          <p class="text-body-lg text-stone" style="font-weight:300;">
+            Stone Oak is one of North San Antonio's most established and sought-after neighborhoods — and it's been a core part of our service area for decades. The custom homes here are large, well-built, and deserve AV systems that match the investment the homeowner has made.
+          </p>
+          <p class="text-body text-stone">
+            We've worked in the gated communities, the golf course homes, and the traditional custom builds spread throughout the neighborhood. We understand how these homes are laid out, where the equipment closets typically go, and how to route cabling cleanly through finished spaces.
+          </p>
+          <p class="text-body text-stone">
+            Many of our Stone Oak clients come back for additional rooms or upgrades years after the initial install. That's the relationship we aim to build — a long-term AV partner, not a one-time contractor.
+          </p>
+        </div>
+        <div class="flex flex-col gap-3">
+          {[
+            'Free in-home consultation',
+            'Custom home experience',
+            'Builder & designer coordination',
+            'New construction pre-wire',
+            'Retrofit & finished-home installs',
+            'Clean, concealed cabling',
+          ].map((item) => (
+            <div class="flex items-start gap-3 py-3 border-b border-smoke/60">
+              <span class="text-gold flex-shrink-0 mt-0.5">→</span>
+              <span class="text-body text-stone">{item}</span>
+            </div>
+          ))}
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <FAQAccordion
+    heading="Stone Oak AV Installation — FAQs"
+    faqs={faqs}
+  />
+
+  <CTASection
+    heading="Book a Free Consultation in Stone Oak"
+    body="We come to your home, assess the space, and put together a system recommendation with real numbers. No showroom required."
+    ctaLabel="Book a Free Consultation"
+    ctaHref="/contact-kz-audio-video-san-antonio-tx/"
+    secondaryLabel="Call (210) 981-4098"
+    secondaryHref="tel:2109814098"
+  />
+
+</BaseLayout>

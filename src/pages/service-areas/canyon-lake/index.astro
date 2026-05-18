@@ -1,0 +1,177 @@
+---
+import BaseLayout from '../../../layouts/BaseLayout.astro';
+import HeroSection from '../../../components/sections/HeroSection.astro';
+import TrustBar from '../../../components/sections/TrustBar.astro';
+import CTASection from '../../../components/sections/CTASection.astro';
+import FAQAccordion from '../../../components/sections/FAQAccordion.astro';
+
+const schema = {
+  "@context": "https://schema.org",
+  "@type": "LocalBusiness",
+  "name": "KZ Audio & Video",
+  "url": "https://kzaudioandvideo.com",
+  "telephone": "+12109814098",
+  "description": "Home theater and AV installation in Canyon Lake TX. Lakefront home and vacation property specialists — outdoor AV, whole house audio, security cameras.",
+  "address": {
+    "@type": "PostalAddress",
+    "addressLocality": "San Antonio",
+    "addressRegion": "TX",
+    "addressCountry": "US"
+  },
+  "areaServed": {
+    "@type": "City",
+    "name": "Canyon Lake",
+    "containedInPlace": {
+      "@type": "State",
+      "name": "Texas"
+    }
+  }
+};
+
+const breadcrumb = {
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": [
+    { "@type": "ListItem", "position": 1, "name": "Home", "item": "https://kzaudioandvideo.com" },
+    { "@type": "ListItem", "position": 2, "name": "Service Areas", "item": "https://kzaudioandvideo.com/service-areas/" },
+    { "@type": "ListItem", "position": 3, "name": "Canyon Lake, TX" }
+  ]
+};
+
+const faqs = [
+  {
+    question: 'Do you install AV in Canyon Lake lakefront homes and vacation properties?',
+    answer: 'Yes. Canyon Lake is a regular destination for us. Lakefront homes and vacation retreats have specific AV needs — outdoor systems that handle lake humidity and UV, whole house audio that works for guests and owners alike, and camera systems that give you peace of mind when you\'re not there. We design for all of it.',
+  },
+  {
+    question: 'What outdoor AV works best at a Canyon Lake property?',
+    answer: 'For lakefront and waterfront adjacent properties, we prioritize equipment rated for marine-grade environments or high UV exposure. That includes weatherproof outdoor speakers, marine-grade enclosures for subwoofers, and displays with high-brightness ratings for outdoor use in direct or indirect sunlight. We spec gear that holds up to the lake environment.',
+  },
+  {
+    question: 'Can you set up a system I can control remotely when I\'m not at my Canyon Lake property?',
+    answer: 'Yes. Remote access is a core feature of the systems we install at vacation properties. Sonos gives you full control from anywhere with a phone signal. Security cameras with remote viewing let you check on the property. And smart home integration can let you manage thermostats, locks, and AV from one app.',
+  },
+  {
+    question: 'Can you also install inside a Canyon Lake vacation home?',
+    answer: 'Absolutely — we handle both interior and exterior. Most Canyon Lake projects combine an outdoor entertainment area with an interior media room or living room AV setup. We design everything as one cohesive system so you\'re not juggling multiple apps and remotes.',
+  },
+];
+---
+
+<BaseLayout
+  title="Home Theater Installation Canyon Lake TX | KZ Audio & Video"
+  description="Home theater and AV installation in Canyon Lake TX. Lakefront homes and vacation properties — outdoor AV, whole house audio, security cameras. Call (210) 981-4098."
+  schema={[schema, breadcrumb]}
+>
+
+  <HeroSection
+    heading="Home Theater & AV Installation in Canyon Lake TX"
+    subhead="Lakefront living is built around being outside. We build the AV systems that make outdoor entertainment at Canyon Lake actually work — and keep working."
+    imageSrc="/images/projects/monty-theater/home-theater-near-san-antonio-hero.jpg"
+    imageAlt="Outdoor AV and home theater installation at Canyon Lake Texas"
+    compact={true}
+  />
+
+  <TrustBar />
+
+  <!-- Services -->
+  <section class="section bg-slate-surface">
+    <div class="container-main">
+      <p class="overline mb-3">Canyon Lake TX AV Services</p>
+      <h2 class="font-display text-h2 text-warm-white mb-4">
+        AV for the Outdoor Life Canyon Lake is Built For
+      </h2>
+      <p class="text-body-lg text-stone mb-10 max-w-2xl">
+        Canyon Lake properties prioritize outdoor living — decks, docks, patios, and outdoor kitchens that see serious use. We design AV systems that match that lifestyle, including gear tough enough for the lake environment.
+      </p>
+      <div class="grid grid-cols-1 sm:grid-cols-2 gap-6 mt-10">
+        {[
+          {
+            title: 'Outdoor AV',
+            desc: 'Our most-requested service at Canyon Lake. Weatherproof displays, UV-resistant outdoor speakers, and subwoofers spec\'d for lake environments. Decks, docks, covered patios — we design for where you actually spend time.',
+            href: '/outdoor-audio-video-san-antonio/',
+          },
+          {
+            title: 'Whole House Audio',
+            desc: 'Sonos and multi-zone audio that works for you and your guests. Stream from your phone, hand off control to visitors, and cover indoor and outdoor zones from one system.',
+            href: '/whole-house-audio-san-antonio/',
+          },
+          {
+            title: 'Home Theater',
+            desc: 'Interior media rooms and home theaters for Canyon Lake homes. When the weather drives you inside, you\'ll want somewhere worth being.',
+            href: '/home-theater-installation-san-antonio-tx/',
+          },
+          {
+            title: 'Security Cameras',
+            desc: 'Vacation properties need eyes even when you\'re not there. Remote viewing, local storage, and camera placement that covers driveways, entry points, and waterfront access.',
+            href: '/security-camera-installation-san-antonio/',
+          },
+        ].map(({ title, desc, href }) => (
+          <a href={href} class="card card-hover flex flex-col gap-3 p-6 reveal">
+            <h3 class="font-sans font-semibold text-h4 text-warm-white">{title}</h3>
+            <p class="text-body text-stone leading-relaxed">{desc}</p>
+            <span class="text-gold text-body-sm font-sans font-medium mt-auto flex items-center gap-1">
+              Learn more
+              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                <path d="M5 12h14M12 5l7 7-7 7"/>
+              </svg>
+            </span>
+          </a>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <!-- Why KZ at Canyon Lake -->
+  <section class="section bg-charcoal">
+    <div class="container-main">
+      <p class="overline mb-3 reveal">Lakefront & Vacation Property AV</p>
+      <h2 class="font-display text-h2 text-warm-white mb-6 reveal reveal-delay-1">
+        We Build Systems That Work When You're There — and Hold Up When You're Not
+      </h2>
+      <div class="grid grid-cols-1 lg:grid-cols-2 gap-12 reveal reveal-delay-2">
+        <div class="flex flex-col gap-4">
+          <p class="text-body-lg text-stone" style="font-weight:300;">
+            Canyon Lake is a place people go to unplug — but that doesn't mean they want to give up great entertainment. Lakefront homes and vacation retreats have specific demands: outdoor systems that handle lake humidity and UV, audio that works for a house full of guests, and security systems that give you remote visibility when the property is unoccupied.
+          </p>
+          <p class="text-body text-stone">
+            We've installed in Canyon Lake properties for homeowners who live there full time and those who use it seasonally. The requirements are different but the standard is the same: equipment that performs, installations that look intentional, and service you can count on.
+          </p>
+          <p class="text-body text-stone">
+            Every project starts with a free consultation. We drive out, see the property, and design a system around how you actually use the place.
+          </p>
+        </div>
+        <div class="flex flex-col gap-3">
+          {[
+            'Lake-environment outdoor AV',
+            'Remote control via phone',
+            'Vacation property security cameras',
+            'Guest-friendly Sonos systems',
+            'Indoor & outdoor integration',
+            'Free in-home consultation',
+          ].map((item) => (
+            <div class="flex items-start gap-3 py-3 border-b border-smoke/60">
+              <span class="text-gold flex-shrink-0 mt-0.5">→</span>
+              <span class="text-body text-stone">{item}</span>
+            </div>
+          ))}
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <FAQAccordion
+    heading="Canyon Lake TX AV Installation — FAQs"
+    faqs={faqs}
+  />
+
+  <CTASection
+    heading="Book a Free Consultation in Canyon Lake"
+    body="We come to your Canyon Lake property — lakefront or otherwise — and design an AV setup built for the outdoor living lifestyle."
+    ctaLabel="Book a Free Consultation"
+    ctaHref="/contact-kz-audio-video-san-antonio-tx/"
+    secondaryLabel="Call (210) 981-4098"
+    secondaryHref="tel:2109814098"
+  />
+
+</BaseLayout>
