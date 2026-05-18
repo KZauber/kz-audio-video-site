@@ -99,27 +99,27 @@ const {
   </div>
 
   <!-- Content — anchored to bottom for cinematic feel -->
-  <div class="relative z-10 w-full container-wide px-6 sm:px-8 lg:px-12 pb-14 md:pb-28 pt-40">
+  <div class="relative z-10 w-full container-wide px-6 sm:px-8 lg:px-12 pb-10 md:pb-28 pt-40">
     <div class:list={[
-      'max-w-sm lg:max-w-md',
+      'max-w-[280px] sm:max-w-sm lg:max-w-md',
       align === 'center' ? 'mx-auto text-center' : '',
     ]}>
 
       {overline && (
-        <p class="overline mb-6 hero-enter-1 flex items-center gap-3" style="letter-spacing:0.18em;">
+        <p class="overline mb-4 md:mb-6 hero-enter-1 flex items-center gap-3" style="letter-spacing:0.18em;">
           <span class="block w-10 h-px opacity-70" style="background:linear-gradient(90deg,#C9A84C,transparent);"></span>
           {overline}
         </p>
       )}
 
       <h1
-        class:list={['font-display text-warm-white hero-enter-2', compact ? 'text-h2 md:text-h1' : 'text-h1 md:text-hero']}
+        class:list={['font-display text-warm-white hero-enter-2', compact ? 'text-h3 md:text-h1' : 'text-h2 md:text-hero']}
         style="letter-spacing:-0.03em;line-height:1.05;"
       >
         {heading}
       </h1>
 
-      <p class="text-body text-stone mb-6 md:mb-10 max-w-lg hero-enter-3 md:text-body-lg" style="line-height:1.75;">
+      <p class="text-body-sm text-stone mb-5 md:mb-10 max-w-lg hero-enter-3 md:text-body-lg" style="line-height:1.7;">
         {subhead}
       </p>
 
