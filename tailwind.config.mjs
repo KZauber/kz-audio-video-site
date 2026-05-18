@@ -11,7 +11,7 @@ export default {
         gold:           '#C9A84C', // Primary accent
         'gold-light':   '#DDB96A', // Gold hover states
         'warm-white':   '#F2EDE6', // Primary text on dark
-        stone:          '#A89F94', // Secondary text
+        stone:          '#F2EDE6', // Secondary text
         ash:            '#6B6461', // Muted/placeholder text
         smoke:          '#252A2F', // Borders, dividers
         // Light section override
@@ -28,9 +28,9 @@ export default {
         'h2':      ['clamp(1.8rem,3vw,2.75rem)',      { lineHeight: '1.12', fontWeight: '600' }],
         'h3':      ['1.375rem',                       { lineHeight: '1.3',  fontWeight: '600' }],
         'h4':      ['1.125rem',                       { lineHeight: '1.4',  fontWeight: '600' }],
-        'body-lg': ['1.125rem',                       { lineHeight: '1.75', fontWeight: '300' }],
-        'body':    ['1rem',                           { lineHeight: '1.75', fontWeight: '400' }],
-        'body-sm': ['0.9375rem',                      { lineHeight: '1.6',  fontWeight: '400' }],
+        'body-lg': ['1.2rem',                         { lineHeight: '1.75', fontWeight: '400' }],
+        'body':    ['1.0625rem',                      { lineHeight: '1.75', fontWeight: '400' }],
+        'body-sm': ['1rem',                           { lineHeight: '1.6',  fontWeight: '400' }],
         'caption': ['0.8125rem',                      { lineHeight: '1.5',  fontWeight: '500' }],
         'overline':['0.75rem',                        { lineHeight: '1',    fontWeight: '600' }],
       },
