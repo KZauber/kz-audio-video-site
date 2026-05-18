@@ -10,7 +10,7 @@ import CTASection from '../components/sections/CTASection.astro';
 const localBusiness = {
   "@context": "https://schema.org",
   "@type": "HomeAndConstructionBusiness",
-  "@id": "https://kzaudioandvideo.com",
+  "@id": "https://kzaudioandvideo.com/#business",
   "name": "KZ Audio & Video",
   "description": "Custom home theater, whole-house audio, outdoor AV, and security camera installation in San Antonio TX and the Texas Hill Country. In the audio business since 1997.",
   "url": "https://kzaudioandvideo.com",
@@ -40,10 +40,22 @@ const localBusiness = {
     "@type": "AggregateRating",
     "ratingValue": "5.0",
     "reviewCount": "19",
-    "bestRating": "5"
+    "bestRating": "5",
+    "worstRating": "1"
   },
+  "sameAs": [
+    "https://www.facebook.com/kzaudioandvideo",
+    "https://www.instagram.com/kzaudioandvideo"
+  ],
   "foundingDate": "2001",
   "slogan": "In the audio business since 1997. Home AV since 2001."
+};
+
+const websiteSchema = {
+  "@context": "https://schema.org",
+  "@type": "WebSite",
+  "name": "KZ Audio & Video",
+  "url": "https://kzaudioandvideo.com"
 };
 
 const featuredProjects = [
@@ -127,9 +139,9 @@ const secondaryReviews = [
 ---
 
 <BaseLayout
-  title="Home Theater Installation San Antonio TX | KZ Audio & Video"
-  description="KZ Audio & Video installs custom home theaters, whole-house audio, and outdoor AV systems in San Antonio and the Hill Country. In the audio business since 1997. Call (210) 981-4098."
-  schema={localBusiness}
+  title="KZ Audio & Video | Home Theater & AV Specialists — San Antonio TX"
+  description="KZ Audio & Video installs custom home theaters, whole-house audio, outdoor AV, and security cameras across San Antonio and the Texas Hill Country. In the audio business since 1997. Call (210) 981-4098."
+  schema={[localBusiness, websiteSchema]}
 >
 
   <HeroSection
