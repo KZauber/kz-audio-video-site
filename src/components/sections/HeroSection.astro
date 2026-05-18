@@ -99,7 +99,7 @@ const {
   </div>
 
   <!-- Content — anchored to bottom for cinematic feel -->
-  <div class="relative z-10 w-full container-wide px-6 sm:px-8 lg:px-12 pb-20 md:pb-28 pt-40">
+  <div class="relative z-10 w-full container-wide px-6 sm:px-8 lg:px-12 pb-14 md:pb-28 pt-40">
     <div class:list={[
       'max-w-sm lg:max-w-md',
       align === 'center' ? 'mx-auto text-center' : '',
@@ -113,13 +113,13 @@ const {
       )}
 
       <h1
-        class:list={['font-display text-warm-white hero-enter-2', compact ? 'text-h1' : 'text-hero']}
-        style="letter-spacing:-0.03em;line-height:1.02;"
+        class:list={['font-display text-warm-white hero-enter-2', compact ? 'text-h2 md:text-h1' : 'text-h1 md:text-hero']}
+        style="letter-spacing:-0.03em;line-height:1.05;"
       >
         {heading}
       </h1>
 
-      <p class="text-body-lg text-stone mb-10 max-w-lg hero-enter-3" style="line-height:1.75;">
+      <p class="text-body text-stone mb-6 md:mb-10 max-w-lg hero-enter-3 md:text-body-lg" style="line-height:1.75;">
         {subhead}
       </p>
 
