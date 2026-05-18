@@ -16,21 +16,11 @@ const company = [
   { label: 'Contact',       href: '/contact-kz-audio-video-san-antonio-tx/' },
 ];
 
-const areas = [
-  { label: 'San Antonio',     href: '/home-theater-installation-san-antonio-tx/' },
-  { label: 'Boerne',          href: '/home-theater-boerne-tx/' },
-  { label: 'Bulverde',        href: '/home-theater-bulverde-tx/' },
-  { label: 'Canyon Lake',     href: '/home-theater-canyon-lake-tx/' },
-  { label: 'Helotes',         href: '/home-theater-helotes-tx/' },
-  { label: 'Stone Oak',       href: '/home-theater-stone-oak-san-antonio/' },
-  { label: 'Timberwood Park', href: '/home-theater-timberwood-park-tx/' },
-  { label: 'New Braunfels',   href: '/home-theater-new-braunfels-tx/' },
-];
 ---
 
 <footer class="bg-slate-surface border-t border-smoke mt-0">
   <div class="container-wide px-4 sm:px-6 lg:px-8 py-16">
-    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-10">
+    <div class="grid grid-cols-1 md:grid-cols-3 lg:grid-cols-3 gap-10">
 
       <!-- Brand column -->
       <div class="lg:col-span-1">
@@ -87,21 +77,6 @@ const areas = [
         </ul>
       </div>
 
-      <!-- Service Areas -->
-      <div>
-        <h3 class="font-sans font-semibold text-caption text-warm-white uppercase tracking-widest mb-4">
-          Service Areas
-        </h3>
-        <ul class="flex flex-col gap-2">
-          {areas.map(({ label, href }) => (
-            <li>
-              <a href={href} class="text-stone text-body-sm hover:text-warm-white transition-colors duration-fast">
-                {label}
-              </a>
-            </li>
-          ))}
-        </ul>
-      </div>
     </div>
 
     <!-- Bottom bar -->
