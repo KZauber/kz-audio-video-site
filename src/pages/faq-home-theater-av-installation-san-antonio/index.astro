@@ -1,7 +1,167 @@
----
-import BaseLayout from '../../layouts/BaseLayout.astro';
-import TrustBar from '../../components/sections/TrustBar.astro';
-import CTASection from '../../components/sections/CTASection.astro';
+﻿---
+import BaseLayout from "../../layouts/BaseLayout.astro";
+import TrustBar from "../../components/sections/TrustBar.astro";
+import FAQAccordion from "../../components/sections/FAQAccordion.astro";
+import CTASection from "../../components/sections/CTASection.astro";
+
+const faqPageSchema = {
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    {
+      "@type": "Question",
+      "name": "How much does a home theater installation cost in San Antonio?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Home theater costs vary based on scope. A mid-tier dedicated theater room typically runs $15,000-$40,000 installed. High-end theaters with laser projectors, Dolby Atmos, and motorized seating run $40,000-$80,000+. A media room conversion can be done for $5,000-$12,000. We give you a detailed quote after seeing the space."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Do you handle the pre-wire and the finish work, or just one?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "We handle the full project: pre-wire, equipment selection, finish installation, calibration, and the homeowner walkthrough. We work with your builder during new construction or handle the retrofit ourselves in existing homes."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "What projector brands do you install?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "We install Epson, Sony, BenQ, and JVC 4K projectors depending on room size, ambient light, and budget. For high-end dedicated theaters, Sony laser projectors deliver exceptional image quality. We match the projector to your room."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Can you build a theater in a room that is already finished?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Yes. Retrofit installs in finished rooms require fishing wire through walls and ceilings. We have done hundreds of these. Drywall impact is minimal. We will assess the specific room and tell you exactly what is involved before we start."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "What is Dolby Atmos and do I need it?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Dolby Atmos adds overhead sound channels so audio moves three-dimensionally around the room. For a dedicated room we typically recommend it. For a living room media setup, a standard 5.1 or 7.1 system often makes more practical sense. We give you an honest recommendation based on your space."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "How long does a home theater installation take?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "A full dedicated theater room typically takes two to four days after rough-in. A media room conversion is usually one to two days. We give you a timeline before we start and stick to it."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "What is a whole house audio system?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "A whole house audio system lets you play music in multiple rooms — independently or all at once — controlled from your phone, a wall keypad, or a voice assistant. You might have Sonos in the kitchen and living room, in-ceiling speakers on the patio, and a dedicated amp for the master bedroom. Each zone can play something different, or you can group them together."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "What brands do you install for whole house audio?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "We install Sonos, Denon HEOS, Klipsch, Polk Audio, Niles, and Dayton in-ceiling and in-wall speakers depending on what the room calls for. We match the equipment to the use case — whether that is a simple Sonos system in an existing home or a whole-house wired multi-zone setup in new construction."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Can I add audio to my existing home without major construction?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Often yes. Sonos and similar wireless systems can be added to an existing home with minimal disruption. In-ceiling speakers in finished spaces sometimes require fishing wire through walls — we are experienced with that and minimize any drywall impact. We will assess what is realistic in your home and tell you upfront."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "How many zones do I need?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Most residential installs run two to six zones — kitchen, living room, master bedroom, patio, pool area, garage. We design around how you actually move through your home and where music makes your life better. There is no up-sell to zones you will never use."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Can I control everything from my phone?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Yes. Modern whole house audio systems — particularly Sonos — are built around phone control. You can play, pause, switch sources, adjust volume by room, and group zones together from your iOS or Android device. We also install wall keypads if you want dedicated controls in specific rooms."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "What kind of outdoor AV systems do you install?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "We install weatherproof speaker systems, outdoor TVs, and outdoor projector setups for covered patios, pool decks, outdoor kitchens, and backyards. We design around how the space is used — a patio that is primarily for music needs a different solution than a covered outdoor theater. We will tell you what holds up in the Texas heat and humidity."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Do outdoor speakers hold up in the San Antonio climate?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "The right ones do. We install speakers rated for outdoor use — weather-sealed enclosures, UV-resistant drivers, stainless hardware. The Texas heat and humidity is real, and we spec equipment that is designed for it. We have had outdoor installs running reliably for years in this climate."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Can I add an outdoor TV to my covered patio?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Yes. We install weatherproof and partial-sun rated outdoor TVs and mount them clean with no visible wiring. We assess the sun exposure, ambient light, and mounting surface and recommend the right display for the location. Not every TV marketed as outdoor is built for direct Texas sun — we know the difference."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "What about an outdoor projector for movie nights?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "A covered patio or outdoor theater setup is one of our favorite installs. We ceiling-mount the projector under the cover, run the wire clean through the structure, and pair it with a motorized or fixed-frame screen and outdoor speakers. The result is a proper movie experience outside."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Can my outdoor speakers connect to my whole house audio system?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Absolutely — and that is usually the best approach. Your patio and backyard become one or more zones in your whole-house system, controlled the same way as every other room. If you already have a Sonos system inside, we add to it. If you are starting fresh, we design it all together."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Do you offer free consultations?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Yes. We offer free in-home consultations across San Antonio and the Hill Country. We come to you, assess the space, and put together a system designed for that specific room. No pressure, no obligation."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "What areas do you serve?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "We serve San Antonio and the surrounding Texas Hill Country — including Boerne, Canyon Lake, Helotes, Bulverde, Stone Oak, and New Braunfels. We have been working with homeowners and custom builders in this region since 1997."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Do you work on new construction and existing homes?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Both. We work with custom home builders during new construction — handling pre-wire, rough-in, trim-out, programming, and the homeowner walkthrough. For existing homes we do full retrofit installs. We have nine active builder relationships, the longest running since 2009."
+      }
+    }
+  ]
+};
 
 const breadcrumb = {
   "@context": "https://schema.org",
@@ -12,183 +172,138 @@ const breadcrumb = {
   ]
 };
 
-const faqCategories = [
+const homeTheaterFaqs = [
   {
-    category: 'Home Theater Installation',
-    faqs: [
-      {
-        question: 'How much does a home theater installation cost in San Antonio?',
-        answer: 'Most dedicated home theater projects range from $15,000 to $80,000 depending on room size, equipment tier, seating, and acoustic treatment. A media room conversion (existing space, no construction) typically starts around $8,000–$15,000. We provide detailed, itemized quotes at no charge.',
-      },
-      {
-        question: 'How long does a home theater installation take?',
-        answer: 'A media room in an existing finished space typically takes one to three days. A full dedicated theater — pre-wire, construction coordination, trim-out, and calibration — is usually spread across multiple visits over a few weeks, working around the construction timeline.',
-      },
-      {
-        question: 'What projector brands do you install?',
-        answer: 'We work with Epson, JVC, Sony, and BenQ — matched to the room\'s throw distance, ambient light conditions, and resolution goals. We also install Screen Innovations, Elite Screens, and Stewart Filmscreen fixed-frame, motorized, and acoustically transparent screens.',
-      },
-      {
-        question: 'Do you install surround sound for living rooms (not just dedicated theaters)?',
-        answer: 'Yes. Living room and media room surround sound installs are a significant part of what we do. Whether it\'s a 5.1 system in a living room, a sound bar + sub + surrounds setup, or a full Dolby Atmos configuration — we design it to the room.',
-      },
-    ],
+    question: "How much does a home theater installation cost in San Antonio?",
+    answer: "Home theater costs vary based on scope. A mid-tier dedicated theater room typically runs $15,000-$40,000 installed. High-end theaters with laser projectors, Dolby Atmos, and motorized seating run $40,000-$80,000+. A media room conversion can be done for $5,000-$12,000. We give you a detailed quote after seeing the space.",
   },
   {
-    category: 'Working With KZ Audio & Video',
-    faqs: [
-      {
-        question: 'Do you use subcontractors?',
-        answer: 'We keep our installs in-house whenever possible. Kelly, Billy, and Julian handle the work on every project we take on.',
-      },
-      {
-        question: 'How do I book a consultation?',
-        answer: 'Fill out the contact form on this site, call us at (210) 981-4098, or text us. We\'ll schedule a time to come to your home. The consultation is free, with no obligation.',
-      },
-      {
-        question: 'Do you do in-home estimates?',
-        answer: 'Yes. We come to you. Most AV and home theater systems need to be seen in context — room dimensions, wall construction, ceiling height, existing equipment — to quote accurately. We don\'t give estimates over the phone without seeing the space.',
-      },
-      {
-        question: 'What areas do you serve?',
-        answer: 'We serve San Antonio, Boerne, Bulverde, Canyon Lake, Helotes, Stone Oak, Timberwood Park, New Braunfels, and surrounding areas in the Texas Hill Country.',
-      },
-    ],
+    question: "Do you handle the pre-wire and the finish work, or just one?",
+    answer: "We handle the full project: pre-wire, equipment selection, finish installation, calibration, and the homeowner walkthrough. We work with your builder during new construction or handle the retrofit ourselves in existing homes.",
   },
   {
-    category: 'New Construction & Builders',
-    faqs: [
-      {
-        question: 'Do you work on new construction homes?',
-        answer: 'Yes — new construction is a significant part of what we do. We work with custom home builders on pre-wire, rough-in, trim-out, programming, and homeowner walkthroughs. We also work directly with homeowners building custom homes.',
-      },
-      {
-        question: 'I\'m a custom home builder. How does your builder program work?',
-        answer: 'You make the introduction to your homeowner. We handle everything after — design meeting, pre-wire scheduling, rough-in, trim-out, programming, calibration, and the homeowner walkthrough. Post-move-in questions come to us, not you. We currently have nine active builder relationships. The longest started in 2009.',
-      },
-      {
-        question: 'Can you coordinate with my construction schedule?',
-        answer: 'Yes. We work with your site supervisor and schedule pre-wire around your framing and rough-in windows. We\'re familiar with how custom home builds run in San Antonio and the Hill Country.',
-      },
-    ],
+    question: "What projector brands do you install?",
+    answer: "We install Epson, Sony, BenQ, and JVC 4K projectors depending on room size, ambient light, and budget. For high-end dedicated theaters, Sony laser projectors deliver exceptional image quality. We match the projector to your room.",
   },
   {
-    category: 'AV Repair & Service',
-    faqs: [
-      {
-        question: 'Do you work on systems you didn\'t install?',
-        answer: 'Yes. We service and repair AV systems regardless of who installed them. We diagnose the problem, tell you what it takes to fix it, and give you an honest assessment of whether it\'s worth fixing.',
-      },
-      {
-        question: 'My home theater was installed by someone who\'s no longer around. Can you help?',
-        answer: 'Yes. We see this regularly. We can assess the system, troubleshoot what\'s wrong, and either fix it or give you an honest recommendation on what\'s worth keeping.',
-      },
-    ],
+    question: "Can you build a theater in a room that is already finished?",
+    answer: "Yes. Retrofit installs in finished rooms require fishing wire through walls and ceilings. We have done hundreds of these. Drywall impact is minimal. We will assess the specific room and tell you exactly what is involved before we start.",
   },
   {
-    category: 'Whole House Audio & Outdoor AV',
-    faqs: [
-      {
-        question: 'Can I add whole house audio to my existing home?',
-        answer: 'Often yes. Sonos and similar wireless systems can be added to an existing home with minimal disruption. In-ceiling speakers in finished spaces sometimes require fishing wire — we minimize drywall impact and tell you upfront what\'s involved.',
-      },
-      {
-        question: 'What outdoor speaker systems do you install?',
-        answer: 'We install weatherproof in-ground, surface-mount, and rock-style speakers for patios, pool decks, and backyards. All outdoor equipment is rated for the Texas climate — heat, humidity, and UV exposure.',
-      },
-      {
-        question: 'Can I get an outdoor projector for my covered patio?',
-        answer: 'Yes. We ceiling-mount projectors under covered patios, run the wire clean through the structure, and pair it with a screen and outdoor speakers. A proper outdoor theater experience — not a portable setup.',
-      },
-    ],
+    question: "What is Dolby Atmos and do I need it?",
+    answer: "Dolby Atmos adds overhead sound channels so audio moves three-dimensionally around the room. For a dedicated room we typically recommend it. For a living room media setup, a standard 5.1 or 7.1 system often makes more practical sense. We give you an honest recommendation based on your space.",
+  },
+  {
+    question: "How long does a home theater installation take?",
+    answer: "A full dedicated theater room typically takes two to four days after rough-in. A media room conversion is usually one to two days. We give you a timeline before we start and stick to it.",
   },
 ];
 
-// Build FAQPage schema from all questions
-const allFaqs = faqCategories.flatMap(c => c.faqs);
-const faqSchema = {
-  "@context": "https://schema.org",
-  "@type": "FAQPage",
-  "mainEntity": allFaqs.map(({ question, answer }) => ({
-    "@type": "Question",
-    "name": question,
-    "acceptedAnswer": { "@type": "Answer", "text": answer }
-  }))
-};
+const wholeHouseAudioFaqs = [
+  {
+    question: "What is a whole house audio system?",
+    answer: "A whole house audio system lets you play music in multiple rooms — independently or all at once — controlled from your phone, a wall keypad, or a voice assistant. You might have Sonos in the kitchen and living room, in-ceiling speakers on the patio, and a dedicated amp for the master bedroom. Each zone can play something different, or you can group them together.",
+  },
+  {
+    question: "What brands do you install for whole house audio?",
+    answer: "We install Sonos, Denon HEOS, Klipsch, Polk Audio, Niles, and Dayton in-ceiling and in-wall speakers depending on what the room calls for. We do not push one brand. We match the equipment to the use case — whether that is a simple Sonos system in an existing home or a whole-house wired multi-zone setup in new construction.",
+  },
+  {
+    question: "Can I add audio to my existing home without major construction?",
+    answer: "Often yes. Sonos and similar wireless systems can be added to an existing home with minimal disruption. In-ceiling speakers in finished spaces sometimes require fishing wire through walls — we are experienced with that and minimize any drywall impact. We will assess what is realistic in your home and tell you upfront.",
+  },
+  {
+    question: "How many zones do I need?",
+    answer: "Most residential installs run two to six zones — kitchen, living room, master bedroom, patio, pool area, garage. We design around how you actually move through your home and where music makes your life better. There is no up-sell to zones you will never use.",
+  },
+  {
+    question: "Can I control everything from my phone?",
+    answer: "Yes. Modern whole house audio systems — particularly Sonos — are built around phone control. You can play, pause, switch sources, adjust volume by room, and group zones together from your iOS or Android device. We also install wall keypads if you want dedicated controls in specific rooms.",
+  },
+];
+
+const outdoorAVFaqs = [
+  {
+    question: "What kind of outdoor AV systems do you install?",
+    answer: "We install weatherproof speaker systems, outdoor TVs, and outdoor projector setups for covered patios, pool decks, outdoor kitchens, and backyards. We design around how the space is used — a patio that is primarily for music needs a different solution than a covered outdoor theater. We will tell you what holds up in the Texas heat and humidity.",
+  },
+  {
+    question: "Do outdoor speakers hold up in the San Antonio climate?",
+    answer: "The right ones do. We install speakers rated for outdoor use — weather-sealed enclosures, UV-resistant drivers, stainless hardware. The Texas heat and humidity is real, and we spec equipment that is designed for it. We have had outdoor installs running reliably for years in this climate.",
+  },
+  {
+    question: "Can I add an outdoor TV to my covered patio?",
+    answer: "Yes. We install weatherproof and partial-sun rated outdoor TVs and mount them clean with no visible wiring. We assess the sun exposure, ambient light, and mounting surface and recommend the right display for the location. Not every TV marketed as outdoor is built for direct Texas sun — we know the difference.",
+  },
+  {
+    question: "What about an outdoor projector for movie nights?",
+    answer: "A covered patio or outdoor theater setup is one of our favorite installs. We ceiling-mount the projector under the cover, run the wire clean through the structure, and pair it with a motorized or fixed-frame screen and outdoor speakers. The result is a proper movie experience outside.",
+  },
+  {
+    question: "Can my outdoor speakers connect to my whole house audio system?",
+    answer: "Absolutely — and that is usually the best approach. Your patio and backyard become one or more zones in your whole-house system, controlled the same way as every other room. If you already have a Sonos system inside, we add to it. If you are starting fresh, we design it all together.",
+  },
+];
+
+const generalFaqs = [
+  {
+    question: "Do you offer free consultations?",
+    answer: "Yes. We offer free in-home consultations across San Antonio and the Hill Country. We come to you, assess the space, and put together a system designed for that specific room. No pressure, no obligation.",
+  },
+  {
+    question: "What areas do you serve?",
+    answer: "We serve San Antonio and the surrounding Texas Hill Country — including Boerne, Canyon Lake, Helotes, Bulverde, Stone Oak, and New Braunfels. We have been working with homeowners and custom builders in this region since 1997.",
+  },
+  {
+    question: "Do you work on new construction and existing homes?",
+    answer: "Both. We work with custom home builders during new construction — handling pre-wire, rough-in, trim-out, programming, and the homeowner walkthrough. For existing homes we do full retrofit installs. We have nine active builder relationships, the longest running since 2009.",
+  },
+];
 ---
 
 <BaseLayout
-  title="FAQ — Home Theater & AV Installation San Antonio TX | KZ Audio & Video"
-  description="Answers to common questions about home theater installation, whole house audio, outdoor AV, and working with KZ Audio & Video in San Antonio TX."
-  schema={[faqSchema, breadcrumb]}
+  title="Home Theater & AV FAQ San Antonio TX | KZ Audio & Video"
+  description="Answers to common questions about home theater installation, whole house audio, and outdoor AV in San Antonio TX. KZ Audio & Video — (210) 981-4098."
+  schema={[faqPageSchema, breadcrumb]}
 >
 
-  <!-- Hero -->
   <section class="section bg-charcoal pt-32">
-    <div class="container-main">
-      <p class="overline mb-3">Frequently Asked Questions</p>
-      <h1 class="font-display text-h1 text-warm-white mb-6 max-w-3xl">
-        Home Theater & AV Installation — Common Questions
+    <div class="container-content text-center">
+      <p class="overline mb-4">KZ Audio & Video · San Antonio TX · Since 1997</p>
+      <h1 class="font-display text-h1 text-warm-white mb-6">
+        Home Theater & AV — Frequently Asked Questions
       </h1>
-      <p class="text-body-lg text-stone max-w-2xl">
-        If you don't see what you're looking for here, call us at (210) 981-4098. We're happy to answer questions before any commitment.
+      <p class="text-body-lg text-stone max-w-2xl mx-auto">
+        Answers to the questions we hear most — about home theater installation, whole house audio, and outdoor AV in San Antonio and the Texas Hill Country. Can't find what you need? Call us at <a href="tel:2109814098" class="text-gold hover:underline">(210) 981-4098</a>.
       </p>
     </div>
   </section>
 
   <TrustBar />
 
-  <!-- FAQ Sections -->
-  {faqCategories.map(({ category, faqs }) => (
-    <section class="section bg-slate-surface border-b border-smoke last:border-0">
-      <div class="container-content">
-        <h2 class="font-display text-h2 text-warm-white mb-10">{category}</h2>
-        <div class="flex flex-col divide-y divide-smoke" id={`faq-${category.replace(/\s+/g, '-').toLowerCase()}`}>
-          {faqs.map(({ question, answer }, i) => (
-            <div class="py-5">
-              <button
-                type="button"
-                class="w-full text-left flex justify-between items-start gap-4
-                       font-sans font-semibold text-h4 text-warm-white
-                       hover:text-gold transition-colors duration-fast"
-                aria-expanded="false"
-                aria-controls={`faq-answer-${category}-${i}`}
-                data-faq-btn
-              >
-                <span>{question}</span>
-                <svg
-                  xmlns="http://www.w3.org/2000/svg"
-                  width="20" height="20"
-                  viewBox="0 0 24 24"
-                  fill="none"
-                  stroke="currentColor"
-                  stroke-width="2"
-                  stroke-linecap="round"
-                  stroke-linejoin="round"
-                  class="flex-shrink-0 mt-0.5 transition-transform duration-fast"
-                  aria-hidden="true"
-                  data-faq-icon
-                >
-                  <path d="M6 9l6 6 6-6" />
-                </svg>
-              </button>
-              <div
-                id={`faq-answer-${category}-${i}`}
-                class="overflow-hidden max-h-0 transition-all duration-base"
-                data-faq-panel
-              >
-                <p class="text-stone text-body leading-relaxed pt-4 pb-2">{answer}</p>
-              </div>
-            </div>
-          ))}
-        </div>
-      </div>
-    </section>
-  ))}
+  <FAQAccordion
+    heading="Home Theater — Frequently Asked Questions"
+    faqs={homeTheaterFaqs}
+  />
+
+  <FAQAccordion
+    heading="Whole House Audio — Frequently Asked Questions"
+    faqs={wholeHouseAudioFaqs}
+  />
+
+  <FAQAccordion
+    heading="Outdoor Audio & Video — Frequently Asked Questions"
+    faqs={outdoorAVFaqs}
+  />
+
+  <FAQAccordion
+    heading="General — Process, Timeline & Consultations"
+    faqs={generalFaqs}
+  />
 
   <CTASection
-    heading="Still Have Questions?"
-    body="Call us at (210) 981-4098 or book a free consultation. We'll come to your home and talk through what you're looking for — no pressure, no sales pitch."
+    heading="Still Have Questions? Let's Talk."
+    body="Book a free in-home consultation. We come to you, assess the space, and answer every question you have about your project. No pressure. No obligation."
     ctaLabel="Book a Free Consultation"
     ctaHref="/contact-kz-audio-video-san-antonio-tx/"
     secondaryLabel="Call (210) 981-4098"
@@ -196,16 +311,3 @@ const faqSchema = {
   />
 
 </BaseLayout>
-
-<script>
-  document.querySelectorAll('[data-faq-btn]').forEach((btn) => {
-    btn.addEventListener('click', () => {
-      const expanded = btn.getAttribute('aria-expanded') === 'true';
-      const panel = btn.nextElementSibling as HTMLElement;
-      const icon  = btn.querySelector('[data-faq-icon]') as HTMLElement;
-      btn.setAttribute('aria-expanded', String(!expanded));
-      panel.style.maxHeight = expanded ? '0' : `${panel.scrollHeight}px`;
-      icon.style.transform  = expanded ? '' : 'rotate(180deg)';
-    });
-  });
-</script>
