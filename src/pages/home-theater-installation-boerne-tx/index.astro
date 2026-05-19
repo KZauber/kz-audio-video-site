@@ -1,24 +1,26 @@
-﻿---
+---
 import BaseLayout from '../../layouts/BaseLayout.astro';
 import HeroSection from '../../components/sections/HeroSection.astro';
 import TrustBar from '../../components/sections/TrustBar.astro';
-import ServicesGrid from '../../components/sections/ServicesGrid.astro';
 import ProjectsGrid from '../../components/sections/ProjectsGrid.astro';
 import TestimonialsSection from '../../components/sections/TestimonialsSection.astro';
+import FAQAccordion from '../../components/sections/FAQAccordion.astro';
 import CTASection from '../../components/sections/CTASection.astro';
 
 const schema = {
   "@context": "https://schema.org",
   "@type": "Service",
-  "name": "Home Theater Installation Boerne",
+  "name": "Home Theater Installation Boerne TX",
   "provider": {
     "@type": "LocalBusiness",
+    "@id": "https://kzaudioandvideo.com/#business",
     "name": "KZ Audio & Video",
     "url": "https://kzaudioandvideo.com",
     "telephone": "+12109814098"
   },
   "areaServed": "Boerne, TX",
-  "description": "Custom home theater and AV installation in Boerne TX and the surrounding Hill Country.",
+  "serviceType": "Home Theater Installation",
+  "description": "Custom home theater and AV installation in Boerne TX and Kendall County. Dedicated theater rooms, whole-house audio, outdoor AV for Hill Country custom homes and new construction. KZ Audio & Video — in the audio business since 1997.",
   "url": "https://kzaudioandvideo.com/home-theater-installation-boerne-tx/"
 };
 
@@ -36,97 +38,166 @@ const projects = [
     title: 'Dedicated Home Theater — Canyon Lake TX',
     location: 'Canyon Lake, TX',
     service: 'Home Theater',
-    description: 'Full theater room with custom leather power recliner seating, blue LED accent lighting, projection system, and in-wall surround sound.',
-    imageSrc: '/images/projects/monty-theater/Canyon-Lake-Tesac-Home-Theater-Custom-Seating.jpeg.jpg',
+    description: 'Full theater room with custom leather power recliner seating on a raised platform, blue LED accent lighting, 4K projection, and in-wall Dolby Atmos surround sound.',
+    imageSrc: '/images/projects/monty-theater/home-theater-near-san-antonio-hero.jpg',
     imageAlt: 'Custom home theater with leather recliners and blue LED lighting in Canyon Lake Texas',
+    href: '/projects/canyon-lake-dedicated-home-theater/',
   },
   {
-    title: 'Dedicated Home Theater — San Antonio TX',
-    location: 'San Antonio, TX',
+    title: 'New Construction Home Theater — Stone Oak TX',
+    location: 'Stone Oak, San Antonio, TX',
     service: 'Home Theater',
-    description: 'Epson projector, Screen Innovations fixed-frame screen, Martin Logan on-wall speakers, LED accent lighting.',
-    imageSrc: '/images/projects/asanka-theater/theater-room-san-antonio-tx.jpg',
-    imageAlt: 'Home theater installation in San Antonio Texas with projection screen and surround sound',
+    description: 'New construction dedicated theater room. Full pre-wire, Epson projector, Martin Logan speakers, custom leather seating platform. Built from rough-in to final calibration.',
+    imageSrc: '/images/projects/young-theater/stone-oak-home-theater-hero.jpg',
+    imageAlt: 'New construction home theater Stone Oak San Antonio TX with leather seating and projection screen',
+    href: '/projects/stone-oak-new-construction-home-theater/',
   },
 ];
 
 const featured = {
   name: 'San Antonio Homeowner',
   location: 'San Antonio, TX',
-  service: 'Home Theater Client — Nearly 10 Years',
-  quote: "I've been a customer of KZ Audio for going on a decade. Kelly and crew have always been great to work with. They're honest and will recommend what actually works for your situation rather than upselling you on equipment you don't need.",
+  service: 'Home AV Client — Nearly 10 Years',
+  quote: "They're honest and will recommend what actually works for your situation rather than upselling you on equipment you don't need. I've never had a bad experience with them and would absolutely recommend them to anyone looking for AV services.",
 };
+
+const faqs = [
+  {
+    question: 'Do you serve Boerne and Kendall County?',
+    answer: 'Yes. Boerne is one of our most active Hill Country markets. We make the drive regularly — often for back-to-back jobs in the same week. The consultation is always free and we always come to you.',
+  },
+  {
+    question: 'Do you work with Boerne custom home builders?',
+    answer: 'Yes. We have active builder relationships throughout Kendall County and the IH-10 corridor. We handle pre-wire scheduling, rough-in, trim-out, system programming, and the homeowner walkthrough. Builders we work with make one introduction and we handle everything from that point forward — including the callbacks.',
+  },
+  {
+    question: 'What does a home theater installation cost in Boerne?',
+    answer: 'A media room setup — large 4K display, 5.1 surround, hidden wiring — typically runs $5,000–$12,000. A dedicated theater room with 4K projection, Dolby Atmos, and tiered seating runs $15,000–$40,000. A premium theater with laser projection, motorized seating, and full automation runs $40,000–$80,000+. We give you a detailed quote after seeing the space — never off square footage.',
+  },
+  {
+    question: 'Do you serve Cordillera Ranch, Esperanza, and other Boerne communities?',
+    answer: 'Yes. We work throughout Kendall County including Cordillera Ranch, Esperanza, the communities along Highway 46, Cibolo Canyons, and the established Boerne neighborhoods closer to town. If you are in Boerne or the surrounding area, we come to you.',
+  },
+  {
+    question: 'What makes Hill Country homes different to wire?',
+    answer: 'Boerne custom homes often have vaulted ceilings, exposed beam construction, stone and masonry walls, and open-plan great rooms. These architectural details require more careful routing than a standard subdivision home. We have plenty of experience working cleanly in these conditions — fishing wire through stone, routing through beams, keeping everything invisible.',
+  },
+  {
+    question: 'Can you add outdoor speakers to my Boerne patio?',
+    answer: 'Absolutely — outdoor AV is one of our most common Boerne requests. Covered limestone patios with weatherproof speakers, outdoor TVs, and projector setups are a natural fit for Hill Country properties. We spec everything for the Texas heat and UV exposure. Outdoor zones tie into your whole-house system and are controlled from the same app.',
+  },
+];
 ---
 
 <BaseLayout
   title="Home Theater Installation Boerne TX | KZ Audio & Video"
-  description="Custom home theater and AV installation in Boerne TX and the surrounding Hill Country. In the audio business since 1997. Call (210) 981-4098."
+  description="Custom home theater installation in Boerne TX. Kendall County's Hill Country custom home specialists — dedicated theaters, whole-house audio, outdoor AV, new construction pre-wire. Call (210) 981-4098."
   schema={[schema, breadcrumb]}
 >
 
   <HeroSection
-    overline="Home Theater Installation · Boerne · Hill Country · Since 2001"
+    overline="Boerne · Kendall County · Texas Hill Country"
     heading="Home Theater Installation in Boerne, TX"
-    subhead="KZ Audio & Video designs and installs custom home theaters, whole-house audio, and outdoor AV systems in Boerne and across the Hill Country. Boerne, TX — in the heart of the Texas Hill Country, about 30 miles northwest of San Antonio. In the audio business since 1997."
+    subhead="One of our most active Hill Country markets. We work with Boerne custom builders and homeowners throughout Kendall County — pre-wire, dedicated theaters, whole-house audio, and outdoor AV."
     ctaLabel="Book a Free Consultation"
     ctaHref="/contact-kz-audio-video-san-antonio-tx/"
-    secondaryCta="Or call: (210) 981-4098"
+    secondaryCta="Call (210) 981-4098"
     secondaryHref="tel:2109814098"
     imageSrc="/images/projects/monty-theater/Home-Theater-Design-Build-Near-San-Antonio-Texas.jpeg.jpg"
     imageAlt="Custom home theater installation in Boerne Texas Hill Country"
+    compact={true}
   />
 
   <TrustBar />
 
-  <ServicesGrid
-    intro="KZ Audio & Video serves Boerne and the surrounding Hill Country. We design, install, and service custom home AV systems."
-  />
-
-  <ProjectsGrid
-    projects={projects}
-    overline="Recent Projects"
-    heading="Home Theater Installs Near Boerne"
-  />
-
-  <TestimonialsSection featured={featured} />
-
-  <!-- Boerne Local Context -->
-  <section class="section bg-charcoal">
+  <!-- Local context -->
+  <section class="section bg-slate-surface">
     <div class="container-main">
-      <p class="overline mb-3 reveal">About Boerne</p>
-      <h2 class="font-display text-h2 text-warm-white mb-8 reveal reveal-delay-1">
-        Why Boerne Homeowners Call KZ
+      <p class="overline mb-3 reveal">Boerne, TX — Kendall County</p>
+      <h2 class="font-display text-h2 text-warm-white mb-6 reveal reveal-delay-1">
+        Built for Hill Country Homes
       </h2>
-      <div class="grid grid-cols-1 lg:grid-cols-2 gap-12 mb-12">
+      <div class="grid grid-cols-1 lg:grid-cols-2 gap-12">
         <div>
           <p class="text-body-lg text-stone mb-6 reveal reveal-delay-2">
-            Boerne sits about 30 miles northwest of San Antonio on IH-10, right at the start of the Texas Hill Country. It's one of the fastest-growing communities in Kendall County — and the custom home construction happening along Highway 46 and Cibolo Creek Ranch Road is some of the most active we see anywhere in our service area.
+            Boerne sits about 30 miles northwest of San Antonio along IH-10, at the eastern edge of the Texas Hill Country. Kendall County is one of the fastest-growing counties in Texas, and the custom home construction happening along Highway 46, in Cordillera Ranch, Esperanza, and the communities north of town is some of the most active we see anywhere in our service area.
+          </p>
+          <p class="text-body text-stone mb-6 reveal reveal-delay-3">
+            Hill Country homes come with specific installation challenges — vaulted ceilings, exposed beam construction, stone and masonry walls, large open-plan great rooms. We have plenty of experience working cleanly in these conditions. Routing wire through stone, running speakers in vaulted ceilings, keeping everything invisible in a room with architectural details that can't be touched — this is standard work for our team.
           </p>
           <p class="text-body text-stone reveal reveal-delay-3">
-            We've worked with custom builders and homeowners in Boerne's established neighborhoods and its newer communities alike. Theater rooms, whole-house audio, outdoor speaker systems on limestone terraces — Boerne properties tend to have the space and the layout to do it right. That's the kind of project we're built for.
+            We work throughout the Boerne area including Cordillera Ranch, Esperanza, the IH-10 corridor communities, established in-town neighborhoods, and the newer developments along Highway 46. If you are in Kendall County, we come to you — no travel fee and the consultation is always free.
           </p>
         </div>
         <div class="flex flex-col gap-6">
-          <div class="reveal reveal-delay-2">
-            <h3 class="font-sans font-semibold text-warm-white mb-2">One Team, Every Install</h3>
-            <p class="text-body-sm text-stone">Every install in Boerne is done by Kelly, Billy, or Julian. The same people who designed your system show up to install it.</p>
+          <div class="card p-6 reveal reveal-delay-2">
+            <h3 class="font-sans font-semibold text-warm-white mb-2">New Construction Pre-Wire Specialists</h3>
+            <p class="text-body-sm text-stone">Boerne is seeing serious custom home activity. If your build is still in framing or rough-in, we can run all low-voltage cabling before the walls close — always the most cost-effective approach. We coordinate directly with your builder.</p>
           </div>
-          <div class="reveal reveal-delay-3">
-            <h3 class="font-sans font-semibold text-warm-white mb-2">In the Audio Business Since 1997</h3>
-            <p class="text-body-sm text-stone">Kelly started Audio Outlet in 1997 and has been doing home AV since 2001. That's over two decades of Hill Country installs — enough experience to know what works in these rooms and what doesn't.</p>
+          <div class="card p-6 reveal reveal-delay-3">
+            <h3 class="font-sans font-semibold text-warm-white mb-2">Active Builder Relationships in Kendall County</h3>
+            <p class="text-body-sm text-stone">We have established relationships with custom builders throughout Kendall County. Builders make one introduction and we handle everything — pre-wire scheduling, rough-in, trim-out, programming, and the homeowner walkthrough.</p>
           </div>
-          <div class="reveal reveal-delay-4">
-            <h3 class="font-sans font-semibold text-warm-white mb-2">We Drive to Boerne — No Charge</h3>
-            <p class="text-body-sm text-stone">Your consultation is free. We come to Boerne, walk your space, and tell you exactly what's possible. No charge, no obligation, no pressure.</p>
+          <div class="card p-6 reveal reveal-delay-4">
+            <h3 class="font-sans font-semibold text-warm-white mb-2">Hill Country Outdoor Living</h3>
+            <p class="text-body-sm text-stone">Covered limestone patios, outdoor kitchens, pool areas — outdoor AV is one of our most common Boerne requests. We spec weatherproof systems built for the Texas climate that tie into your whole-house system.</p>
           </div>
         </div>
       </div>
     </div>
   </section>
 
+  <ProjectsGrid
+    projects={projects}
+    overline="Recent Hill Country Projects"
+    heading="Home Theater Installs Near Boerne"
+  />
+
+  <TestimonialsSection featured={featured} />
+
+  <!-- Services -->
+  <section class="section bg-slate-surface">
+    <div class="container-main">
+      <p class="overline mb-3 reveal">What We Install in Boerne</p>
+      <h2 class="font-display text-h2 text-warm-white mb-6 reveal reveal-delay-1">
+        Every AV Service for Kendall County Homes
+      </h2>
+      <div class="grid grid-cols-1 sm:grid-cols-2 gap-6">
+        {[
+          {
+            title: 'Dedicated Home Theater',
+            desc: '4K and laser projection, Dolby Atmos surround, tiered seating platforms, acoustic treatment. Designed around your room — vaulted ceilings, stone walls, and open floor plans are familiar territory for us.',
+          },
+          {
+            title: 'Whole House Audio',
+            desc: 'Multi-zone Sonos and in-ceiling speaker systems for Boerne\'s large floor plans. Great room, kitchen, master bedroom, covered patio, pool — all zones controlled from one app.',
+          },
+          {
+            title: 'Outdoor AV',
+            desc: 'Weatherproof speakers, outdoor TVs, and covered-patio projector setups built for Hill Country outdoor living. UV-rated and designed to hold up in the Texas heat year after year.',
+          },
+          {
+            title: 'Security Cameras',
+            desc: 'Camera coverage for larger Kendall County properties — long driveways, multiple structures, gated entries. Clean professional installation with remote viewing from anywhere.',
+          },
+        ].map(({ title, desc }) => (
+          <div class="card p-7 reveal">
+            <h3 class="font-sans font-semibold text-h4 text-warm-white mb-3">{title}</h3>
+            <p class="text-body text-stone leading-relaxed">{desc}</p>
+          </div>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <FAQAccordion
+    heading="Boerne Home Theater Installation — Frequently Asked Questions"
+    faqs={faqs}
+  />
+
   <CTASection
     heading="Ready to Get Started in Boerne?"
-    body="Book a free, no-pressure consultation. We'll come to your home in Boerne and talk through what's possible."
+    body="Book a free consultation. We'll come to your Boerne home, walk the space, and design a system that fits the house and how you live in it."
     ctaLabel="Book a Free Consultation"
     ctaHref="/contact-kz-audio-video-san-antonio-tx/"
     secondaryLabel="Call (210) 981-4098"

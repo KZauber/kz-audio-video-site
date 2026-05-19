@@ -1,24 +1,26 @@
-﻿---
+---
 import BaseLayout from '../../layouts/BaseLayout.astro';
 import HeroSection from '../../components/sections/HeroSection.astro';
 import TrustBar from '../../components/sections/TrustBar.astro';
-import ServicesGrid from '../../components/sections/ServicesGrid.astro';
 import ProjectsGrid from '../../components/sections/ProjectsGrid.astro';
 import TestimonialsSection from '../../components/sections/TestimonialsSection.astro';
+import FAQAccordion from '../../components/sections/FAQAccordion.astro';
 import CTASection from '../../components/sections/CTASection.astro';
 
 const schema = {
   "@context": "https://schema.org",
   "@type": "Service",
-  "name": "Home Theater Installation Canyon Lake",
+  "name": "Home Theater Installation Canyon Lake TX",
   "provider": {
     "@type": "LocalBusiness",
+    "@id": "https://kzaudioandvideo.com/#business",
     "name": "KZ Audio & Video",
     "url": "https://kzaudioandvideo.com",
     "telephone": "+12109814098"
   },
   "areaServed": "Canyon Lake, TX",
-  "description": "Custom home theater and AV installation in Canyon Lake TX.",
+  "serviceType": "Home Theater Installation",
+  "description": "Custom home theater and AV installation in Canyon Lake TX. Dedicated theater rooms, outdoor AV, whole-house audio for lakefront homes and Hill Country retreats. KZ Audio & Video — in the audio business since 1997.",
   "url": "https://kzaudioandvideo.com/home-theater-installation-canyon-lake-tx/"
 };
 
@@ -36,51 +38,110 @@ const projects = [
     title: 'Dedicated Home Theater — Canyon Lake TX',
     location: 'Canyon Lake, TX',
     service: 'Home Theater',
-    description: 'Full theater room with custom leather power recliner seating, blue LED accent lighting, projection system, and in-wall surround sound.',
-    imageSrc: '/images/projects/monty-theater/Canyon-Lake-Tesac-Home-Theater-Custom-Seating.jpeg.jpg',
+    description: 'Full theater room with custom leather power recliner seating on a raised platform, blue LED accent lighting, 4K projection system, and in-wall Dolby Atmos surround sound. Built from pre-wire through final calibration.',
+    imageSrc: '/images/projects/monty-theater/home-theater-near-san-antonio-hero.jpg',
     imageAlt: 'Custom home theater with leather recliners and blue LED lighting in Canyon Lake Texas',
+    href: '/projects/canyon-lake-dedicated-home-theater/',
   },
   {
-    title: 'Dedicated Home Theater — San Antonio TX',
-    location: 'San Antonio, TX',
+    title: 'Dedicated Home Theater — Stone Oak, San Antonio TX',
+    location: 'Stone Oak, San Antonio, TX',
     service: 'Home Theater',
-    description: 'Epson projector, Screen Innovations fixed-frame screen, Martin Logan on-wall speakers, LED accent lighting.',
-    imageSrc: '/images/projects/asanka-theater/theater-room-san-antonio-tx.jpg',
-    imageAlt: 'Home theater installation in San Antonio Texas with projection screen and surround sound',
+    description: 'Epson projector, Screen Innovations fixed-frame screen, Martin Logan on-wall speakers, LED accent lighting. Pre-wire through finished install.',
+    imageSrc: '/images/projects/asanka-theater/san-antonio-home-theater-project-cover.jpg',
+    imageAlt: 'Home theater installation Stone Oak San Antonio Texas with projection screen and surround sound',
+    href: '/projects/stone-oak-home-theater-epson-martin-logan/',
   },
 ];
 
 const featured = {
-  name: 'San Antonio Homeowner',
-  location: 'San Antonio, TX',
-  service: 'Home Theater Client — Nearly 10 Years',
-  quote: "I've been a customer of KZ Audio for going on a decade. Kelly and crew have always been great to work with. They're honest and will recommend what actually works for your situation rather than upselling you on equipment you don't need.",
+  name: 'Canyon Lake Homeowner',
+  location: 'Canyon Lake, TX',
+  service: 'Dedicated Home Theater',
+  quote: "Billy, Julien and Kelly did an outstanding job on my home theater build. From start to finish they were professional, knowledgeable, and easy to work with. The theater came out better than I had hoped.",
 };
+
+const faqs = [
+  {
+    question: 'Do you serve Canyon Lake and the surrounding area?',
+    answer: 'Yes — Canyon Lake is one of our most active Hill Country markets. We make the drive regularly and have completed multiple installs in the area. The consultation is always free and we always come to you.',
+  },
+  {
+    question: 'We have a vacation home in Canyon Lake. Can you work on a second home?',
+    answer: 'Absolutely. Vacation properties and lake houses are some of our most common Canyon Lake projects. We coordinate around your schedule, can work while the home is unoccupied, and handle everything so you show up to a finished, calibrated system. We are used to working with homeowners who are not on-site every day.',
+  },
+  {
+    question: 'What outdoor AV options work well for Canyon Lake properties?',
+    answer: 'Canyon Lake homes are built for outdoor living. Covered patios with weatherproof speakers and mounted displays, pool deck audio zones, outdoor projector setups under a patio cover — all of it works well here. We spec everything for the Texas heat and humidity. Rock-style landscape speakers blend into the yard completely and sound great around a fire pit or pool.',
+  },
+  {
+    question: 'Can you pre-wire a new construction home in Canyon Lake?',
+    answer: 'Yes. We work with custom home builders throughout the Canyon Lake and Comal County area. If your home is still in the framing or rough-in phase, we can run all low-voltage cabling — speaker wire, HDMI, data, security — before the walls close. That is always the most cost-effective time to do it.',
+  },
+  {
+    question: 'What does a home theater cost in Canyon Lake?',
+    answer: 'A media room conversion in an existing room typically runs $5,000–$12,000. A mid-tier dedicated theater room with 4K projection, Dolby Atmos surround, and tiered seating runs $15,000–$40,000. A premium theater with laser projection, motorized seating, and full automation runs $40,000–$80,000+. We give you a detailed quote after seeing the space — no estimates from square footage.',
+  },
+];
 ---
 
 <BaseLayout
   title="Home Theater Installation Canyon Lake TX | KZ Audio & Video"
-  description="Custom home theater and AV installation in Canyon Lake TX. In the audio business since 1997. Call (210) 981-4098."
+  description="Custom home theater installation in Canyon Lake TX. Dedicated theater rooms, outdoor AV, and whole-house audio for lakefront homes and Hill Country retreats. Call (210) 981-4098."
   schema={[schema, breadcrumb]}
 >
 
   <HeroSection
-    overline="Home Theater Installation · Canyon Lake · Hill Country · Since 2001"
+    overline="Canyon Lake · Comal County · Hill Country"
     heading="Home Theater Installation in Canyon Lake, TX"
-    subhead="KZ Audio & Video designs and installs custom home theaters, whole-house audio, and outdoor AV systems in Canyon Lake and across the Hill Country. Canyon Lake, TX — Hill Country lake community northwest of San Antonio. We've completed multiple theater installs in Canyon Lake. In the audio business since 1997."
+    subhead="We've built dedicated theaters, whole-house audio systems, and outdoor AV setups throughout Canyon Lake. We know the drive, we know the area, and we have the work to show for it."
     ctaLabel="Book a Free Consultation"
     ctaHref="/contact-kz-audio-video-san-antonio-tx/"
-    secondaryCta="Or call: (210) 981-4098"
+    secondaryCta="Call (210) 981-4098"
     secondaryHref="tel:2109814098"
-    imageSrc="/images/projects/monty-theater/Canyon-Lake-Tesac-Home-Theater-Custom-Seating.jpeg.jpg"
-    imageAlt="Custom home theater installation in Canyon Lake Texas Hill Country"
+    imageSrc="/images/projects/monty-theater/home-theater-near-san-antonio-hero.jpg"
+    imageAlt="Custom home theater installation in Canyon Lake Texas with leather seating and projection screen"
+    compact={true}
   />
 
   <TrustBar />
 
-  <ServicesGrid
-    intro="KZ Audio & Video serves Canyon Lake and the surrounding Hill Country. We design, install, and service custom home AV systems."
-  />
+  <!-- Local context -->
+  <section class="section bg-slate-surface">
+    <div class="container-main">
+      <p class="overline mb-3 reveal">Canyon Lake, TX</p>
+      <h2 class="font-display text-h2 text-warm-white mb-6 reveal reveal-delay-1">
+        We've Done This Drive Many Times
+      </h2>
+      <div class="grid grid-cols-1 lg:grid-cols-2 gap-12">
+        <div>
+          <p class="text-body-lg text-stone mb-6 reveal reveal-delay-2">
+            Canyon Lake sits about 45 miles north of San Antonio along the Guadalupe River corridor in Comal County. The community is a mix of primary residences, weekend retreats, and vacation homes — many of them large custom builds with serious square footage and the kind of outdoor living space that begs for a proper AV setup.
+          </p>
+          <p class="text-body text-stone mb-6 reveal reveal-delay-3">
+            The dedicated theater project in our portfolio — custom leather power recliners on a raised platform, blue LED step lighting, 4K projection, in-wall Dolby Atmos surround — was built in Canyon Lake. That homeowner left us the kind of review we post on the front page. We have been back to the area multiple times since.
+          </p>
+          <p class="text-body text-stone reveal reveal-delay-3">
+            We work throughout the Canyon Lake area including properties along the lake, in Rebecca Creek Ranch, Cranes Mill, Canyon Lake Hills, and the newer communities off FM 2673. If you're in Comal County and want AV done right, the drive is not a factor.
+          </p>
+        </div>
+        <div class="flex flex-col gap-6">
+          <div class="card p-6 reveal reveal-delay-2">
+            <h3 class="font-sans font-semibold text-warm-white mb-2">Lakefront and Vacation Properties</h3>
+            <p class="text-body-sm text-stone">We are experienced working in homes that are not primary residences. We coordinate around your schedule, work while the property is unoccupied, and hand you a finished, calibrated system when you arrive.</p>
+          </div>
+          <div class="card p-6 reveal reveal-delay-3">
+            <h3 class="font-sans font-semibold text-warm-white mb-2">Outdoor AV Built for Canyon Lake</h3>
+            <p class="text-body-sm text-stone">Covered patios, pool decks, lakeside fire pit areas — outdoor AV is one of our most common requests in this area. We spec weatherproof systems that hold up in the Texas heat and look clean doing it.</p>
+          </div>
+          <div class="card p-6 reveal reveal-delay-4">
+            <h3 class="font-sans font-semibold text-warm-white mb-2">New Construction Pre-Wire</h3>
+            <p class="text-body-sm text-stone">Canyon Lake and Comal County are seeing active custom home construction. If your build is still in rough-in, we can wire every room before the walls close — the most cost-effective time to do it.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
 
   <ProjectsGrid
     projects={projects}
@@ -90,43 +151,52 @@ const featured = {
 
   <TestimonialsSection featured={featured} />
 
-  <!-- Canyon Lake Local Context -->
-  <section class="section bg-charcoal">
+  <!-- What we install -->
+  <section class="section bg-slate-surface">
     <div class="container-main">
-      <p class="overline mb-3 reveal">About Canyon Lake</p>
-      <h2 class="font-display text-h2 text-warm-white mb-8 reveal reveal-delay-1">
-        We've Done This Drive Many Times
+      <p class="overline mb-3 reveal">What We Install</p>
+      <h2 class="font-display text-h2 text-warm-white mb-6 reveal reveal-delay-1">
+        Every AV Service for Canyon Lake Homes
       </h2>
-      <div class="grid grid-cols-1 lg:grid-cols-2 gap-12 mb-12">
-        <div>
-          <p class="text-body-lg text-stone mb-6 reveal reveal-delay-2">
-            Canyon Lake is one of our most active Hill Country markets. The dedicated home theater project in our portfolio — custom leather power recliners, blue LED step lighting, in-wall Dolby surround sound — was built right here in Canyon Lake. We know the area, we know the drive, and we've worked in enough properties along the lake to understand what these homes need.
-          </p>
-          <p class="text-body text-stone reveal reveal-delay-3">
-            Canyon Lake properties are a mix of primary residences, weekend retreats, and vacation homes — many with large covered outdoor spaces that are natural fits for outdoor AV. Whether it's a dedicated theater room, a whole-house audio system, or speakers on a lakeside patio, we've done it here. The consultation is always free, and we always come to you.
-          </p>
-        </div>
-        <div class="flex flex-col gap-6">
-          <div class="reveal reveal-delay-2">
-            <h3 class="font-sans font-semibold text-warm-white mb-2">Proven Work in Canyon Lake</h3>
-            <p class="text-body-sm text-stone">Our Canyon Lake theater build is one of our most-referenced projects. Full pre-wire, custom seating platform, projection system, and in-wall surround — completed start to finish by our team.</p>
+      <p class="text-body-lg text-stone mb-10 max-w-2xl reveal reveal-delay-2">
+        Whether you want a dedicated theater room, music throughout the house, outdoor speakers by the pool, or security cameras covering the property — we handle all of it. One team, one phone number.
+      </p>
+      <div class="grid grid-cols-1 sm:grid-cols-2 gap-6">
+        {[
+          {
+            title: 'Dedicated Home Theater',
+            desc: '4K and laser projection, Dolby Atmos surround, tiered seating platforms, acoustic treatment, and full control systems. Designed around your room from the first measurement.',
+          },
+          {
+            title: 'Whole House Audio',
+            desc: 'Sonos and multi-zone systems with in-ceiling speakers throughout the home. Pool area, patio, master bedroom, kitchen — all controlled from one app.',
+          },
+          {
+            title: 'Outdoor AV',
+            desc: 'Weatherproof speakers, outdoor TVs, and covered-patio projector setups designed for the Canyon Lake climate. Rock-style landscape speakers for pool decks and fire pit areas.',
+          },
+          {
+            title: 'Security Cameras',
+            desc: 'Professional camera coverage for larger Canyon Lake properties — long driveways, multiple entry points, lakefront access. Remote viewing from anywhere.',
+          },
+        ].map(({ title, desc }) => (
+          <div class="card p-7 reveal">
+            <h3 class="font-sans font-semibold text-h4 text-warm-white mb-3">{title}</h3>
+            <p class="text-body text-stone leading-relaxed">{desc}</p>
           </div>
-          <div class="reveal reveal-delay-3">
-            <h3 class="font-sans font-semibold text-warm-white mb-2">One Team, Every Install</h3>
-            <p class="text-body-sm text-stone">Kelly, Billy, and Julian do every install personally. The same crew who scoped your project shows up on install day.</p>
-          </div>
-          <div class="reveal reveal-delay-4">
-            <h3 class="font-sans font-semibold text-warm-white mb-2">Free Consultation — We Drive to You</h3>
-            <p class="text-body-sm text-stone">We make the drive to Canyon Lake for every consultation. See the space, understand the goals, give you a real quote. No charge, no pressure.</p>
-          </div>
-        </div>
+        ))}
       </div>
     </div>
   </section>
 
+  <FAQAccordion
+    heading="Canyon Lake Home Theater — Frequently Asked Questions"
+    faqs={faqs}
+  />
+
   <CTASection
     heading="Ready to Get Started in Canyon Lake?"
-    body="Book a free, no-pressure consultation. We'll come to your home in Canyon Lake and talk through what's possible."
+    body="Book a free consultation. We'll come to your Canyon Lake home, walk the space, and design a system built for how you use it."
     ctaLabel="Book a Free Consultation"
     ctaHref="/contact-kz-audio-video-san-antonio-tx/"
     secondaryLabel="Call (210) 981-4098"
