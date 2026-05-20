@@ -5,6 +5,17 @@
 [build.environment]
   NODE_VERSION = "20"
 
+# Removed pages — redirect to homepage
+[[redirects]]
+  from = "/av-partner-for-home-builders-san-antonio/"
+  to = "/"
+  status = 301
+
+[[redirects]]
+  from = "/av-partner-for-home-builders-san-antonio"
+  to = "/"
+  status = 301
+
 # Duplicate city page consolidation — redirect old /home-theater-[city]/ to canonical /home-theater-installation-[city]/
 [[redirects]]
   from = "/home-theater-boerne-tx/"
