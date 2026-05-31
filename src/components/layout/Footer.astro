@@ -15,11 +15,21 @@ const company = [
   { label: 'Contact',       href: '/contact-kz-audio-video-san-antonio-tx/' },
 ];
 
+const costGuides = [
+  { label: 'Home Theater Cost',     href: '/home-theater-cost-san-antonio/' },
+  { label: 'Surround Sound Cost',   href: '/surround-sound-cost-san-antonio/' },
+  { label: 'Whole-House Audio Cost', href: '/whole-house-audio-cost-san-antonio/' },
+  { label: 'Outdoor TV & Audio Cost', href: '/outdoor-tv-audio-cost-san-antonio/' },
+  { label: 'Home Automation Cost',  href: '/home-automation-cost-san-antonio/' },
+  { label: 'TV Mounting Cost',      href: '/tv-mounting-cost-san-antonio/' },
+  { label: 'Security Camera Cost',  href: '/security-camera-installation-cost-san-antonio/' },
+];
+
 ---
 
 <footer class="bg-slate-surface border-t border-smoke mt-0">
   <div class="container-wide px-4 sm:px-6 lg:px-8 py-16">
-    <div class="grid grid-cols-1 md:grid-cols-3 lg:grid-cols-3 gap-10">
+    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-10">
 
       <!-- Brand column -->
       <div class="lg:col-span-1">
@@ -67,6 +77,22 @@ const company = [
         </h3>
         <ul class="flex flex-col gap-2">
           {company.map(({ label, href }) => (
+            <li>
+              <a href={href} class="text-stone text-body-sm hover:text-warm-white transition-colors duration-fast">
+                {label}
+              </a>
+            </li>
+          ))}
+        </ul>
+      </div>
+
+      <!-- Cost Guides -->
+      <div>
+        <h3 class="font-sans font-semibold text-caption text-warm-white uppercase tracking-widest mb-4">
+          Cost Guides
+        </h3>
+        <ul class="flex flex-col gap-2">
+          {costGuides.map(({ label, href }) => (
             <li>
               <a href={href} class="text-stone text-body-sm hover:text-warm-white transition-colors duration-fast">
                 {label}

@@ -1,0 +1,329 @@
+---
+import BaseLayout from "../../layouts/BaseLayout.astro";
+import HeroSection from "../../components/sections/HeroSection.astro";
+import TrustBar from "../../components/sections/TrustBar.astro";
+import CTASection from "../../components/sections/CTASection.astro";
+
+const schema = {
+  "@context": "https://schema.org",
+  "@type": "Service",
+  "name": "TV Mounting Cost — San Antonio TX",
+  "provider": {
+    "@type": "LocalBusiness",
+    "name": "KZ Audio & Video",
+    "url": "https://kzaudioandvideo.com",
+    "telephone": "+12109814098",
+  },
+  "areaServed": ["San Antonio", "Boerne", "Canyon Lake", "Helotes", "Bulverde", "Stone Oak", "New Braunfels", "Schertz", "Seguin"],
+  "description": "What professional TV mounting costs in San Antonio TX. Real price ranges for drywall, fireplace, stone, and large TVs, an instant estimate calculator, and answers to common cost questions.",
+  "url": "https://kzaudioandvideo.com/tv-mounting-cost-san-antonio/",
+  "offers": {
+    "@type": "AggregateOffer",
+    "priceCurrency": "USD",
+    "lowPrice": "150",
+    "highPrice": "1500",
+    "offerCount": "4",
+  },
+};
+
+const breadcrumb = {
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": [
+    { "@type": "ListItem", "position": 1, "name": "Home", "item": "https://kzaudioandvideo.com" },
+    { "@type": "ListItem", "position": 2, "name": "TV Mounting Cost San Antonio" },
+  ],
+};
+
+const costFaqs = [
+  {
+    question: "How much does TV mounting cost in San Antonio?",
+    answer:
+      "Professional TV mounting in San Antonio typically costs $200 to $800, depending on complexity. A standard mount on a drywall wall with the wires concealed in-wall runs about $200 to $400. Mounting over a fireplace, on stone or brick, or on a tilting or full-motion articulating mount runs $400 to $800 because of the added labor and materials. Larger displays — 85 inches and up — and runs that require fishing power and HDMI through the wall or adding an in-wall power kit add to the cost. The price includes leveling, securing into studs or proper anchors, concealing the cables for a clean look, and connecting your devices. We do not leave wires hanging. If you want a soundbar or surround sound added at the same time, we can bundle the work and save you a second visit.",
+  },
+  {
+    question: "How much does it cost to mount a TV over a fireplace?",
+    answer:
+      "Mounting a TV over a fireplace in San Antonio typically costs $400 to $800, more than a standard wall mount. The added cost comes from a few things: fireplaces are often faced with brick, stone, or tile that requires masonry drilling and special anchors; the mount usually needs to be a tilting or pull-down type so the screen angles toward seating below; and concealing the wires means routing around or through the fireplace structure to a power and device location off to the side. We also check the heat situation — a TV mounted above a wood-burning or heavily-used gas fireplace needs clearance and sometimes a mantel heat deflector to protect it. The result is a clean, safe, properly-angled install. We assess the fireplace material and heat before quoting so the number is accurate.",
+  },
+  {
+    question: "How much does it cost to hide the wires when mounting a TV?",
+    answer:
+      "Concealing TV wires in San Antonio typically adds $60 to $500 to a mount, depending on the method. A surface-mounted cord cover that paints to match the wall is the budget option at about $60 to $150. The clean, popular choice is in-wall concealment — we fish the HDMI and power cables down inside the wall to a hidden location — which runs about $120 to $350 on a standard drywall wall. If there is no power outlet behind the TV, we add a code-compliant in-wall power relocation kit, which brings the total to roughly $200 to $500. Brick, stone, or two-story runs cost more because of the added labor. Hiding the wires is the single biggest difference between a clean professional install and an amateur one, and it is the part most DIY mounts skip.",
+  },
+  {
+    question: "Can you mount a TV on stone, brick, or concrete, and what does it cost?",
+    answer:
+      "Yes — we mount TVs on stone, brick, concrete, and tile regularly, and it typically adds about $150 to $400 over a standard drywall mount. These surfaces require masonry bits, proper expansion or sleeve anchors rated for the TV's weight, and more careful, slower drilling to avoid cracking the material. Concealing wires on a solid masonry wall is also harder, so we often route cables in a discreet surface raceway or to a nearby wall cavity rather than in-wall. The payoff is a rock-solid mount that will safely hold a large display for years — on masonry, anchor quality is everything, and this is exactly where a botched DIY job ends with a TV on the floor. We assess the wall material and pick anchors rated well above the TV's actual weight.",
+  },
+  {
+    question: "How much does it cost to mount a large TV (85 inches or bigger)?",
+    answer:
+      "Mounting a large TV — 85 inches and up — in San Antonio typically costs $350 to $900, more than a smaller set. Big displays are heavy and awkward, so the job needs a heavy-duty mount rated for the weight, careful location into solid studs (or proper masonry anchors), and usually two installers to lift and level it safely. Wire concealment is the same process but the larger device load often means adding an in-wall power kit. Getting an 85 or 98-inch TV level and centered, secured so it will not sag or pull out, and wired cleanly is genuinely a two-person professional job — this is the size where DIY mounts most often fail. The price reflects the mount hardware, the extra labor, and the safety of doing it right. We confirm your wall can carry the load before we start.",
+  },
+  {
+    question: "What does a tilting or full-motion mount cost versus a fixed mount?",
+    answer:
+      "The mount type affects both hardware and labor. A fixed (flush) mount holds the TV flat against the wall and is the simplest and cheapest. A tilting mount, which angles the screen down slightly for higher placements, adds roughly $50 to $150. A full-motion articulating mount, which swings the TV out and pivots it toward different parts of the room, adds about $100 to $350 because the mount itself costs more and the install requires extra-solid anchoring to carry the leverage when the arm is extended. Full-motion is worth it for corner placements, rooms with seating at different angles, or mounting in one spot but viewing from a kitchen. Fixed is best for a single straight-on viewing position and the cleanest look. We recommend the type based on where you sit and where the TV goes.",
+  },
+  {
+    question: "Should I mount my own TV or hire a pro in San Antonio?",
+    answer:
+      "For a small TV on a simple drywall wall where you do not mind a visible cord, DIY is reasonable. Hire a pro when any of these apply: the TV is large or heavy, the wall is brick, stone, or over a fireplace, you want the wires hidden in-wall, or you want it perfectly level and connected. The two most common DIY problems we get called to fix are TVs anchored into drywall instead of studs (which eventually pull out and fall) and visible cords that ruin the look. Professional mounting buys you correct anchoring rated above the TV's weight, concealed wiring, a perfectly level screen, and connected, working devices. For a flagship TV in your main living space, the modest cost is cheap insurance against a damaged TV or a wall full of holes.",
+  },
+  {
+    question: "Do you mount the TV and add a soundbar or surround sound at the same time?",
+    answer:
+      "Yes, and bundling the work in one visit saves you money and a second appointment. When we mount your TV we can also mount and connect a soundbar with its wires hidden, or install a full surround sound system at the same time — running speaker wire while we already have the wall open for the TV cabling is far more efficient than doing it later. A mounted TV with a clean soundbar typically adds about $150 to $450 over the mount alone; a full surround system is a larger project. Doing it together means one clean install, one set of hidden wires, and one calibration. If you are mounting a TV in your main room, it is the natural time to solve the sound too. We will quote the combined work so you can see the savings.",
+  },
+];
+
+const faqSchema = {
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": costFaqs.map((f) => ({
+    "@type": "Question",
+    "name": f.question,
+    "acceptedAnswer": { "@type": "Answer", "text": f.answer },
+  })),
+};
+
+const calcGroups = [
+  {
+    id: "size",
+    label: "1. TV size?",
+    options: [
+      { t: "Up to 55\"", min: 150, max: 300, on: true },
+      { t: "56–75\"", min: 200, max: 400 },
+      { t: "76–85\"", min: 300, max: 600 },
+      { t: "86\" and up", min: 450, max: 900 },
+    ],
+  },
+  {
+    id: "wall",
+    label: "2. Wall type?",
+    options: [
+      { t: "Drywall (into studs)", min: 0, max: 0, on: true },
+      { t: "Brick / stone", min: 150, max: 400 },
+      { t: "Over a fireplace", min: 200, max: 500 },
+      { t: "Concrete / tile", min: 150, max: 400 },
+    ],
+  },
+  {
+    id: "mount",
+    label: "3. Mount type?",
+    options: [
+      { t: "Fixed (flush)", min: 0, max: 0, on: true },
+      { t: "Tilting", min: 50, max: 150 },
+      { t: "Full-motion articulating", min: 100, max: 350 },
+    ],
+  },
+  {
+    id: "wires",
+    label: "4. Hide the wires?",
+    options: [
+      { t: "Leave exposed", min: 0, max: 0 },
+      { t: "Surface cord cover", min: 60, max: 150 },
+      { t: "In-wall concealment", min: 120, max: 350, on: true },
+      { t: "In-wall + new power outlet", min: 200, max: 500 },
+    ],
+  },
+  {
+    id: "devices",
+    label: "5. Connect devices?",
+    options: [
+      { t: "I'll connect my own", min: 0, max: 0, on: true },
+      { t: "Connect 1–2 devices", min: 40, max: 120 },
+      { t: "Connect + program remote", min: 150, max: 500 },
+    ],
+  },
+  {
+    id: "sound",
+    label: "6. Add sound?",
+    options: [
+      { t: "No", min: 0, max: 0, on: true },
+      { t: "Mount + connect a soundbar", min: 150, max: 450 },
+    ],
+  },
+  {
+    id: "count",
+    label: "7. How many TVs?",
+    options: [
+      { t: "Just one", min: 0, max: 0, on: true },
+      { t: "Two TVs", min: 200, max: 600 },
+      { t: "Three or more", min: 450, max: 1500 },
+    ],
+  },
+];
+---
+
+<BaseLayout
+  title="TV Mounting Cost San Antonio TX | Prices + Free Estimate Calculator"
+  description="What does TV mounting cost in San Antonio? Real prices for drywall, fireplace, stone, and large TVs, plus wire concealment, an instant estimate calculator, and answers to common cost questions. Call (210) 981-4098."
+  schema={[schema, breadcrumb, faqSchema]}
+>
+  <HeroSection
+    heading="How Much Does TV Mounting Cost in San Antonio?"
+    subhead="Real prices for drywall, fireplace, stone, and large-TV mounts — plus wire concealment — with an instant estimate calculator and straight answers."
+    imageSrc="/images/projects/samsung-frame-tv-marble-fireplace-san-antonio/samsung-frame-tv-marble-fireplace-hero.jpg"
+    imageAlt="Professionally mounted TV with hidden wires over a fireplace in San Antonio TX"
+    compact={true}
+  />
+
+  <TrustBar />
+
+  <section class="section bg-slate-surface">
+    <div class="container-main">
+      <p class="overline mb-3">San Antonio TV Mounting Pricing</p>
+      <h2 class="font-display text-h2 text-warm-white mb-6">
+        It Is Not Just Hanging a TV — It Is Hiding the Wires
+      </h2>
+      <p class="text-body-lg text-stone mb-4 max-w-3xl">
+        A standard TV mount is straightforward; the cost climbs with TV size, wall material, the mount type, and — the big one — concealing the wires for a clean look. The difference between a professional mount and an amateur one is almost always in the wiring and the anchoring.
+      </p>
+      <p class="text-body text-stone max-w-3xl">
+        We mount TVs across San Antonio with the wires hidden and the screen dead level, anchored to hold safely for years. Use the calculator for an instant ballpark, then read the honest cost answers below. Want a real number? We can usually quote a mount over the phone, or we come out for anything involving masonry or surround sound.
+      </p>
+    </div>
+  </section>
+
+  <section class="section bg-charcoal">
+    <div class="container-main">
+      <p class="overline mb-3">Instant Estimate</p>
+      <h2 class="font-display text-h2 text-warm-white mb-4">
+        Build Your TV Mounting Estimate
+      </h2>
+      <p class="text-body-lg text-stone mb-10 max-w-2xl">
+        Pick what fits your job. Your estimated range updates as you go — a ballpark for the San Antonio market. Your exact price is confirmed before any work begins.
+      </p>
+
+      <div class="grid grid-cols-1 lg:grid-cols-[1fr_360px] gap-8 items-start">
+        <div class="flex flex-col gap-7" id="calc-form">
+          {calcGroups.map((group) => (
+            <div class="calc-group" data-group={group.id}>
+              <h3 class="font-sans font-semibold text-body-lg text-warm-white mb-3">{group.label}</h3>
+              <div class="flex flex-wrap gap-2.5">
+                {group.options.map((opt) => (
+                  <button
+                    type="button"
+                    class:list={["calc-opt", opt.on ? "is-active" : ""]}
+                    data-min={opt.min}
+                    data-max={opt.max}
+                  >
+                    {opt.t}
+                  </button>
+                ))}
+              </div>
+            </div>
+          ))}
+        </div>
+
+        <div class="card p-7 lg:sticky lg:top-28">
+          <p class="overline mb-2">Your Estimated Range</p>
+          <p class="font-display text-h2 text-gold mb-1" id="calc-result">$270 – $650</p>
+          <p class="text-body-sm text-ash mb-6">Estimate for the San Antonio market. Final price depends on wall type, mount, and wire concealment.</p>
+          <a href="/contact-kz-audio-video-san-antonio-tx/" class="btn-primary gold-shimmer w-full text-center mb-3 cursor-pointer">
+            Get My Exact Quote
+          </a>
+          <a href="tel:2109814098" class="btn-ghost w-full text-center cursor-pointer">
+            Call (210) 981-4098
+          </a>
+          <p class="text-body-sm text-stone mt-5 leading-relaxed">
+            Most mounts we can quote over the phone. Masonry and surround add-ons get a quick visit.
+          </p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="section bg-slate-surface">
+    <div class="container-main">
+      <p class="overline mb-3">Cost Questions, Answered</p>
+      <h2 class="font-display text-h2 text-warm-white mb-12">
+        San Antonio TV Mounting Cost — FAQ
+      </h2>
+
+      <div class="flex flex-col gap-10 max-w-3xl">
+        {costFaqs.map((f) => (
+          <article class="reveal">
+            <h2 class="font-sans font-semibold text-h3 text-warm-white mb-4">{f.question}</h2>
+            <p class="text-body text-stone leading-relaxed">{f.answer}</p>
+          </article>
+        ))}
+      </div>
+
+      <div class="mt-12 flex flex-wrap gap-4">
+        <a href="/home-theater-installation-san-antonio-tx/" class="inline-flex items-center gap-2 text-gold font-sans font-medium cursor-pointer hover:text-warm-white transition-colors">
+          See our home theater & AV service
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+        </a>
+        <a href="/surround-sound-cost-san-antonio/" class="inline-flex items-center gap-2 text-gold font-sans font-medium cursor-pointer hover:text-warm-white transition-colors">
+          Add surround sound — see costs
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <CTASection
+    heading="Get Your TV Mounted Right."
+    body="Level, anchored to hold, and wires hidden. We mount TVs across San Antonio and can add a soundbar or surround sound in the same visit. Call for a quick quote or book a consultation."
+    ctaLabel="Book a Consultation"
+    ctaHref="/contact-kz-audio-video-san-antonio-tx/"
+    secondaryLabel="Call (210) 981-4098"
+    secondaryHref="tel:2109814098"
+    bgImage="/images/projects/monty-theater/Home-Theater-Design-Build-Near-San-Antonio-Texas.jpeg.jpg"
+  />
+
+  <style>
+    .calc-opt {
+      border: 1px solid rgba(255, 255, 255, 0.14);
+      background: rgba(255, 255, 255, 0.03);
+      color: #C9CCD1;
+      border-radius: 10px;
+      padding: 0.6rem 0.95rem;
+      font-size: 0.9rem;
+      font-family: inherit;
+      cursor: pointer;
+      transition: all 0.16s ease;
+      line-height: 1.2;
+    }
+    .calc-opt:hover { border-color: rgba(201, 168, 76, 0.5); color: #F5F3EE; }
+    .calc-opt.is-active {
+      border-color: #C9A84C;
+      background: rgba(201, 168, 76, 0.14);
+      color: #F5F3EE;
+      box-shadow: 0 0 0 1px rgba(201, 168, 76, 0.4);
+    }
+  </style>
+
+  <script is:inline>
+    (function () {
+      function format(n) { return "$" + Math.round(n).toLocaleString("en-US"); }
+      function recalc() {
+        var total = 0, top = 0;
+        var active = document.querySelectorAll(".calc-opt.is-active");
+        for (var i = 0; i < active.length; i++) {
+          total += parseInt(active[i].getAttribute("data-min"), 10) || 0;
+          top += parseInt(active[i].getAttribute("data-max"), 10) || 0;
+        }
+        var out = document.getElementById("calc-result");
+        if (out) out.textContent = format(total) + " – " + format(top);
+      }
+      var groups = document.querySelectorAll(".calc-group");
+      for (var g = 0; g < groups.length; g++) {
+        var opts = groups[g].querySelectorAll(".calc-opt");
+        for (var o = 0; o < opts.length; o++) {
+          opts[o].addEventListener("click", function () {
+            var parent = this.closest(".calc-group");
+            var siblings = parent.querySelectorAll(".calc-opt");
+            for (var s = 0; s < siblings.length; s++) siblings[s].classList.remove("is-active");
+            this.classList.add("is-active");
+            recalc();
+          });
+        }
+      }
+      recalc();
+    })();
+  </script>
+</BaseLayout>

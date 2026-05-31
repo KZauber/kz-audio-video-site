@@ -1,0 +1,325 @@
+---
+import BaseLayout from "../../layouts/BaseLayout.astro";
+import HeroSection from "../../components/sections/HeroSection.astro";
+import TrustBar from "../../components/sections/TrustBar.astro";
+import CTASection from "../../components/sections/CTASection.astro";
+
+const schema = {
+  "@context": "https://schema.org",
+  "@type": "Service",
+  "name": "Outdoor TV & Audio Installation Cost — San Antonio TX",
+  "provider": {
+    "@type": "LocalBusiness",
+    "name": "KZ Audio & Video",
+    "url": "https://kzaudioandvideo.com",
+    "telephone": "+12109814098",
+  },
+  "areaServed": ["San Antonio", "Boerne", "Canyon Lake", "Helotes", "Bulverde", "Stone Oak", "New Braunfels", "Schertz", "Seguin"],
+  "description": "What outdoor TV and speaker installation costs in San Antonio TX. Real price ranges for patio TVs, outdoor speakers, and outdoor projectors, an instant estimate calculator, and answers to common cost questions.",
+  "url": "https://kzaudioandvideo.com/outdoor-tv-audio-cost-san-antonio/",
+  "offers": {
+    "@type": "AggregateOffer",
+    "priceCurrency": "USD",
+    "lowPrice": "2500",
+    "highPrice": "20000",
+    "offerCount": "4",
+  },
+};
+
+const breadcrumb = {
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": [
+    { "@type": "ListItem", "position": 1, "name": "Home", "item": "https://kzaudioandvideo.com" },
+    { "@type": "ListItem", "position": 2, "name": "Outdoor TV & Audio Cost San Antonio" },
+  ],
+};
+
+const costFaqs = [
+  {
+    question: "How much does outdoor TV and speaker installation cost in San Antonio?",
+    answer:
+      "Outdoor entertainment installation in San Antonio typically costs $2,500 to $15,000. A basic setup — a weatherproof outdoor TV on a covered patio with a pair of outdoor speakers — runs about $2,500 to $5,000 installed. A mid-range system with a larger weatherproof display, multiple landscape or rock speakers, and a subwoofer for pool and patio coverage runs $7,000 to $12,000. A full outdoor system with an outdoor projector and screen, multi-zone audio across the yard, and integration with the home's control system runs $12,000 and up. Outdoor gear costs more than indoor equivalents because it must withstand Texas heat, humidity, and direct sun — we spec weather-rated displays, speakers, and wiring built for it. Cost depends on coverage area, whether the space is covered or fully exposed, and the display type. We design it around your patio and how you entertain.",
+  },
+  {
+    question: "Why do outdoor TVs cost more than indoor TVs?",
+    answer:
+      "Outdoor TVs cost more because they are built to survive conditions that would destroy an indoor set. They are sealed against moisture, dust, and insects, use anti-glare screens far brighter than indoor TVs so the picture is visible in daylight, and are rated to handle temperature swings from a Texas summer to a winter cold snap. Partial-sun and full-sun models cost progressively more because they need higher brightness. A quality weatherproof outdoor TV runs roughly $1,800 to $9,000 for the display alone depending on size and sun rating, versus a few hundred dollars for a comparable indoor TV. The premium is real engineering, not a markup — an indoor TV mounted outside will fail, often within a season, and most warranties are voided by outdoor use. We match the TV's sun rating to where it actually hangs.",
+  },
+  {
+    question: "Can I just put a regular indoor TV on my covered patio?",
+    answer:
+      "We do not recommend it, and most manufacturers void the warranty for outdoor use. Even on a covered patio, an indoor TV is exposed to humidity, temperature swings, dust, pollen, and insects that get inside the vents — in the San Antonio climate, that combination shortens its life dramatically, often to a single season or two. Indoor TVs are also not bright enough to see well in daytime patio light, so the picture looks washed out. A weatherproof outdoor TV is sealed, far brighter, and rated for the conditions. If budget is the concern, a smaller partial-sun outdoor TV on a covered patio is the affordable, reliable choice — it costs more upfront than an indoor set but lasts for years instead of failing and needing replacement. We will recommend the right rating for your specific patio.",
+  },
+  {
+    question: "How much do outdoor speakers cost installed?",
+    answer:
+      "Outdoor speaker installation in San Antonio typically costs $800 to $9,000, depending on coverage. A simple pair of weather-rated patio speakers, installed and wired, runs about $800 to $2,000. A landscape system using multiple small satellite speakers and a buried subwoofer to spread even sound across a patio and yard runs $2,000 to $5,000. A full multi-zone outdoor system covering a pool, patio, and outdoor kitchen with separate volume control per area runs $4,000 to $9,000. Outdoor speakers cost more than indoor ones because they are sealed against weather and UV, and the wiring must be outdoor-rated and often buried. The goal outdoors is even coverage at conversation-friendly volume rather than one loud spot, which is why landscape speakers spread across the yard often sound better than two big speakers. We design for even, natural sound.",
+  },
+  {
+    question: "How much does an outdoor projector and screen cost?",
+    answer:
+      "An outdoor projector and screen setup in San Antonio typically costs $6,000 to $15,000 or more installed, depending on permanence and brightness. A retractable or fixed outdoor screen paired with a high-brightness projector, mounted and wired for a covered patio, runs in this range. The cost is higher than an outdoor TV because projection needs darkness to look its best, a high-lumen projector to fight ambient light, a large weather-considerate screen, and protected mounting for the projector. For true backyard-movie-night impact on a large surface, projection is unmatched. For everyday watching — games, news, casual viewing — a weatherproof outdoor TV is more practical and usable in daylight. Many clients do both: a TV for daily use and a drop-down screen for movie nights. We help you decide which fits how you will actually use the space.",
+  },
+  {
+    question: "How much does it cost to add audio and TV around a pool?",
+    answer:
+      "A pool-area entertainment setup in San Antonio typically costs $4,000 to $12,000, depending on scope. A common build is a weatherproof outdoor TV on the covered patio plus landscape or rock speakers spread around the pool deck with a buried subwoofer, all on one easy control. That lands around $5,000 to $9,000. Add a second zone, a larger or full-sun display, or an outdoor projector and it climbs from there. Around water, we use weather and UV-rated speakers and outdoor-rated, often buried, wiring, and we place equipment safely away from splash zones. The audio is tuned for even coverage across the deck rather than one loud area. Given how much of the year is pool season here, this is one of our most requested outdoor projects — and it ties into your whole-house system so the same music plays inside and out.",
+  },
+  {
+    question: "Do outdoor entertainment systems hold up in the Texas heat and weather?",
+    answer:
+      "Yes — when the equipment is rated for it and installed correctly, which is the whole point of professional outdoor installation. We use weatherproof outdoor TVs sealed against moisture and heat, UV and weather-rated speakers, and outdoor-rated wiring run and protected to code. Components are placed thoughtfully: displays shaded from direct afternoon sun where possible, electronics kept out of splash and rain exposure, and connections sealed. Properly specified outdoor gear handles San Antonio summers, humidity, and the occasional freeze for years. What fails is indoor equipment pressed into outdoor duty, or outdoor gear installed carelessly with exposed connections. The added cost of true outdoor-rated components and correct installation is what buys reliability. We stand behind the work and spec everything for this specific climate, not a milder one.",
+  },
+  {
+    question: "Why does outdoor entertainment installation cost vary so much?",
+    answer:
+      "Outdoor quotes vary because the projects do — from a single patio TV and a pair of speakers to a multi-zone backyard with a projector, pool audio, and full integration. The biggest drivers are coverage area (one patio versus a whole yard), display choice (a partial-sun TV, a premium full-sun TV, or a projector and screen), and speaker layout (a simple pair versus landscape speakers with a buried sub). Exposure matters too: a fully sun-exposed installation needs brighter, tougher gear than a covered patio. Buried wiring, multiple zones, and control-system integration all add cost. And outdoor-rated equipment simply costs more than indoor equivalents. A real number depends on seeing the space, the sun exposure, and how you entertain. That is why we walk the patio, check the exposure, and give you a written scope and price.",
+  },
+];
+
+const faqSchema = {
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": costFaqs.map((f) => ({
+    "@type": "Question",
+    "name": f.question,
+    "acceptedAnswer": { "@type": "Answer", "text": f.answer },
+  })),
+};
+
+const calcGroups = [
+  {
+    id: "coverage",
+    label: "1. Coverage area?",
+    options: [
+      { t: "Single patio", min: 800, max: 2500, on: true },
+      { t: "Patio + pool", min: 2000, max: 5000 },
+      { t: "Full yard (multi-zone)", min: 4000, max: 10000 },
+    ],
+  },
+  {
+    id: "display",
+    label: "2. Outdoor display?",
+    options: [
+      { t: "No TV (audio only)", min: 0, max: 0 },
+      { t: "Weatherproof outdoor TV", min: 1800, max: 5000, on: true },
+      { t: "Premium full-sun outdoor TV", min: 4000, max: 9000 },
+      { t: "Outdoor projector + screen", min: 6000, max: 14000 },
+    ],
+  },
+  {
+    id: "speakers",
+    label: "3. Speakers?",
+    options: [
+      { t: "Pair of patio speakers", min: 800, max: 2000, on: true },
+      { t: "Landscape / rock speakers", min: 2000, max: 5000 },
+      { t: "Multi-zone speakers + sub", min: 4000, max: 9000 },
+    ],
+  },
+  {
+    id: "exposure",
+    label: "4. Exposure?",
+    options: [
+      { t: "Covered patio", min: 0, max: 0, on: true },
+      { t: "Partially covered", min: 400, max: 1500 },
+      { t: "Fully exposed (full sun)", min: 1200, max: 4000 },
+    ],
+  },
+  {
+    id: "control",
+    label: "5. Control?",
+    options: [
+      { t: "Remote / app", min: 0, max: 0, on: true },
+      { t: "Integrated (RTI / Control4)", min: 2000, max: 6000 },
+    ],
+  },
+  {
+    id: "wiring",
+    label: "6. Wiring?",
+    options: [
+      { t: "New / open runs", min: 0, max: 0, on: true },
+      { t: "Existing / buried runs", min: 800, max: 4000 },
+    ],
+  },
+  {
+    id: "sub",
+    label: "7. Bass?",
+    options: [
+      { t: "No subwoofer", min: 0, max: 0, on: true },
+      { t: "Add outdoor / buried sub", min: 700, max: 2500 },
+    ],
+  },
+];
+---
+
+<BaseLayout
+  title="Outdoor TV & Audio Cost San Antonio TX | Prices + Free Estimate Calculator"
+  description="What does outdoor TV and speaker installation cost in San Antonio? Real price ranges ($2.5K–$15K), an instant estimate calculator, and answers on outdoor TVs, projectors, and pool audio. Call (210) 981-4098."
+  schema={[schema, breadcrumb, faqSchema]}
+>
+  <HeroSection
+    heading="How Much Does Outdoor TV & Audio Cost in San Antonio?"
+    subhead="Real prices for patio TVs, outdoor speakers, and backyard projectors — plus an instant estimate calculator and straight answers built for the Texas climate."
+    imageSrc="/images/projects/hill-country-outdoor-av-pool/hill-country-outdoor-av-pool-hero.jpg"
+    imageAlt="Outdoor TV and audio installation by a pool at a San Antonio Hill Country home"
+    compact={true}
+  />
+
+  <TrustBar />
+
+  <section class="section bg-slate-surface">
+    <div class="container-main">
+      <p class="overline mb-3">San Antonio Outdoor AV Pricing</p>
+      <h2 class="font-display text-h2 text-warm-white mb-6">
+        Built for the Texas Sun, Heat, and Patio Season
+      </h2>
+      <p class="text-body-lg text-stone mb-4 max-w-3xl">
+        Outdoor entertainment runs from a single weatherproof patio TV to a multi-zone backyard with a projector and pool audio. The price depends on coverage, the display you choose, and how exposed the space is to the elements.
+      </p>
+      <p class="text-body text-stone max-w-3xl">
+        We design outdoor systems for the San Antonio climate — weather-rated displays and speakers, outdoor wiring done right. Use the calculator for an instant ballpark, then read the honest cost answers below. When you want a real number, we walk the patio, check the sun exposure, and hand you a written quote — free, no obligation.
+      </p>
+    </div>
+  </section>
+
+  <section class="section bg-charcoal">
+    <div class="container-main">
+      <p class="overline mb-3">Instant Estimate</p>
+      <h2 class="font-display text-h2 text-warm-white mb-4">
+        Build Your Outdoor Entertainment Estimate
+      </h2>
+      <p class="text-body-lg text-stone mb-10 max-w-2xl">
+        Pick what fits your space. Your estimated range updates as you go — a ballpark for the San Antonio market. Your written quote comes after a free in-home consultation.
+      </p>
+
+      <div class="grid grid-cols-1 lg:grid-cols-[1fr_360px] gap-8 items-start">
+        <div class="flex flex-col gap-7" id="calc-form">
+          {calcGroups.map((group) => (
+            <div class="calc-group" data-group={group.id}>
+              <h3 class="font-sans font-semibold text-body-lg text-warm-white mb-3">{group.label}</h3>
+              <div class="flex flex-wrap gap-2.5">
+                {group.options.map((opt) => (
+                  <button
+                    type="button"
+                    class:list={["calc-opt", opt.on ? "is-active" : ""]}
+                    data-min={opt.min}
+                    data-max={opt.max}
+                  >
+                    {opt.t}
+                  </button>
+                ))}
+              </div>
+            </div>
+          ))}
+        </div>
+
+        <div class="card p-7 lg:sticky lg:top-28">
+          <p class="overline mb-2">Your Estimated Range</p>
+          <p class="font-display text-h2 text-gold mb-1" id="calc-result">$3,400 – $9,500</p>
+          <p class="text-body-sm text-ash mb-6">Estimate for the San Antonio market. Final price depends on equipment, coverage, and sun exposure.</p>
+          <a href="/contact-kz-audio-video-san-antonio-tx/" class="btn-primary gold-shimmer w-full text-center mb-3 cursor-pointer">
+            Get My Exact Quote
+          </a>
+          <a href="tel:2109814098" class="btn-ghost w-full text-center cursor-pointer">
+            Call (210) 981-4098
+          </a>
+          <p class="text-body-sm text-stone mt-5 leading-relaxed">
+            We walk the patio, check the exposure, and give you a written quote — at no charge.
+          </p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="section bg-slate-surface">
+    <div class="container-main">
+      <p class="overline mb-3">Cost Questions, Answered</p>
+      <h2 class="font-display text-h2 text-warm-white mb-12">
+        San Antonio Outdoor TV & Audio Cost — FAQ
+      </h2>
+
+      <div class="flex flex-col gap-10 max-w-3xl">
+        {costFaqs.map((f) => (
+          <article class="reveal">
+            <h2 class="font-sans font-semibold text-h3 text-warm-white mb-4">{f.question}</h2>
+            <p class="text-body text-stone leading-relaxed">{f.answer}</p>
+          </article>
+        ))}
+      </div>
+
+      <div class="mt-12 flex flex-wrap gap-4">
+        <a href="/outdoor-audio-video-san-antonio/" class="inline-flex items-center gap-2 text-gold font-sans font-medium cursor-pointer hover:text-warm-white transition-colors">
+          See our outdoor AV service
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+        </a>
+        <a href="/whole-house-audio-cost-san-antonio/" class="inline-flex items-center gap-2 text-gold font-sans font-medium cursor-pointer hover:text-warm-white transition-colors">
+          See whole-house audio costs
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <CTASection
+    heading="Get a Real Number for Your Backyard."
+    body="The calculator gives you a ballpark. A free in-home consultation gives you the truth. We walk the space, check the sun and layout, and put a written quote in your hands. No pressure, no obligation."
+    ctaLabel="Book a Free Consultation"
+    ctaHref="/contact-kz-audio-video-san-antonio-tx/"
+    secondaryLabel="Call (210) 981-4098"
+    secondaryHref="tel:2109814098"
+    bgImage="/images/projects/monty-theater/Home-Theater-Design-Build-Near-San-Antonio-Texas.jpeg.jpg"
+  />
+
+  <style>
+    .calc-opt {
+      border: 1px solid rgba(255, 255, 255, 0.14);
+      background: rgba(255, 255, 255, 0.03);
+      color: #C9CCD1;
+      border-radius: 10px;
+      padding: 0.6rem 0.95rem;
+      font-size: 0.9rem;
+      font-family: inherit;
+      cursor: pointer;
+      transition: all 0.16s ease;
+      line-height: 1.2;
+    }
+    .calc-opt:hover { border-color: rgba(201, 168, 76, 0.5); color: #F5F3EE; }
+    .calc-opt.is-active {
+      border-color: #C9A84C;
+      background: rgba(201, 168, 76, 0.14);
+      color: #F5F3EE;
+      box-shadow: 0 0 0 1px rgba(201, 168, 76, 0.4);
+    }
+  </style>
+
+  <script is:inline>
+    (function () {
+      function format(n) { return "$" + Math.round(n).toLocaleString("en-US"); }
+      function recalc() {
+        var total = 0, top = 0;
+        var active = document.querySelectorAll(".calc-opt.is-active");
+        for (var i = 0; i < active.length; i++) {
+          total += parseInt(active[i].getAttribute("data-min"), 10) || 0;
+          top += parseInt(active[i].getAttribute("data-max"), 10) || 0;
+        }
+        var out = document.getElementById("calc-result");
+        if (out) out.textContent = format(total) + " – " + format(top);
+      }
+      var groups = document.querySelectorAll(".calc-group");
+      for (var g = 0; g < groups.length; g++) {
+        var opts = groups[g].querySelectorAll(".calc-opt");
+        for (var o = 0; o < opts.length; o++) {
+          opts[o].addEventListener("click", function () {
+            var parent = this.closest(".calc-group");
+            var siblings = parent.querySelectorAll(".calc-opt");
+            for (var s = 0; s < siblings.length; s++) siblings[s].classList.remove("is-active");
+            this.classList.add("is-active");
+            recalc();
+          });
+        }
+      }
+      recalc();
+    })();
+  </script>
+</BaseLayout>

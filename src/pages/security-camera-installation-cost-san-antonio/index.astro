@@ -1,0 +1,326 @@
+---
+import BaseLayout from "../../layouts/BaseLayout.astro";
+import HeroSection from "../../components/sections/HeroSection.astro";
+import TrustBar from "../../components/sections/TrustBar.astro";
+import CTASection from "../../components/sections/CTASection.astro";
+
+const schema = {
+  "@context": "https://schema.org",
+  "@type": "Service",
+  "name": "Security Camera Installation Cost — San Antonio TX",
+  "provider": {
+    "@type": "LocalBusiness",
+    "name": "KZ Audio & Video",
+    "url": "https://kzaudioandvideo.com",
+    "telephone": "+12109814098",
+  },
+  "areaServed": ["San Antonio", "Boerne", "Canyon Lake", "Helotes", "Bulverde", "Stone Oak", "New Braunfels", "Schertz", "Seguin"],
+  "description": "What security camera installation costs in San Antonio TX. Real price ranges by camera count, wired vs wireless guidance, an instant estimate calculator, and answers to common cost questions.",
+  "url": "https://kzaudioandvideo.com/security-camera-installation-cost-san-antonio/",
+  "offers": {
+    "@type": "AggregateOffer",
+    "priceCurrency": "USD",
+    "lowPrice": "1000",
+    "highPrice": "15000",
+    "offerCount": "4",
+  },
+};
+
+const breadcrumb = {
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": [
+    { "@type": "ListItem", "position": 1, "name": "Home", "item": "https://kzaudioandvideo.com" },
+    { "@type": "ListItem", "position": 2, "name": "Security Camera Installation Cost San Antonio" },
+  ],
+};
+
+const costFaqs = [
+  {
+    question: "How much does security camera installation cost in San Antonio?",
+    answer:
+      "Professional security camera installation in San Antonio typically costs $1,000 to $8,000, depending on the number of cameras and the system. A basic setup of two to four cameras with an app and cloud or local recording runs about $1,000 to $2,500 installed. A whole-home wired system of five to eight 4K PoE cameras with a local NVR for recording runs $2,500 to $5,000. A large system of nine or more cameras covering a big property, with high-capacity recording and smart-home integration, runs $5,000 to $8,000 and up. The main cost drivers are camera count, wired versus wireless, camera resolution and features, recording storage, and the labor to run wire on an existing home. KZ Audio & Video designs coverage around your property's actual entry points and gives a written quote after a free assessment.",
+  },
+  {
+    question: "How much does security camera installation cost per camera?",
+    answer:
+      "As a planning number, a professionally installed security camera in San Antonio runs about $250 to $600 per camera, including the camera, wiring, mounting, and configuration. Per-camera cost drops as you add cameras because the recorder (NVR), network equipment, and setup labor are shared across the whole system. Wired PoE cameras cost a bit more per unit to install than wireless ones because of the cabling, but they are more reliable and do not depend on Wi-Fi or batteries. Premium 4K cameras with color night vision or specialty features (like license-plate capture) cost more per camera. The recorder and storage are a separate shared cost on top of the per-camera figure. We size the system to cover your real vulnerable points rather than just hitting a camera count.",
+  },
+  {
+    question: "Wired vs wireless security cameras — what is the cost difference?",
+    answer:
+      "Wireless (Wi-Fi) cameras are cheaper and faster to install because there is no cabling — they are the budget choice for a few cameras, though they depend on Wi-Fi signal and either batteries or a nearby outlet. Wired PoE (Power over Ethernet) cameras cost more to install — expect roughly $500 to $2,500 more across a system for the cabling labor — but they are the right long-term choice: one cable carries both power and data, they record continuously and reliably, they are not subject to Wi-Fi dropouts or dead batteries, and they support higher resolution. For a serious whole-home or property system you want to trust, we recommend wired PoE. For renters or a couple of quick coverage points, wireless is reasonable. We will tell you which makes sense for your situation honestly.",
+  },
+  {
+    question: "Do I need an NVR, and how much does cloud vs local recording cost?",
+    answer:
+      "You need somewhere to store footage, and there are two paths. Local recording uses an NVR (network video recorder) — a one-time cost of about $400 to $3,000 depending on capacity and how many days of footage you want to keep — with no monthly fee, and your video stays on-site and private. Cloud recording has little or no upfront hardware cost but charges a monthly subscription per camera, which adds up over time. For most homeowners we recommend a local NVR: you own it, there is no ongoing bill, and 24/7 recording with weeks of history is straightforward. Cloud makes sense for a couple of cameras or where running to an NVR is impractical. Some systems do both — local recording plus optional cloud backup of key clips. We size storage to the days of history you actually want.",
+  },
+  {
+    question: "How many security cameras do I need for my home?",
+    answer:
+      "Most San Antonio homes are well covered by four to eight cameras, but the right number depends on your property, not a formula. We start with the vulnerable points: every exterior door, the driveway and garage, the back yard and any gate, and a wide view of the front approach. A typical single-story home on a standard lot is covered well by four to six cameras. A two-story home, a corner lot, or a property with a pool, casita, or shop needs more to eliminate blind spots. The goal is coverage of entry points and approaches, not cameras for the sake of a number — a well-placed six-camera system beats a poorly-placed twelve-camera one. We walk the property, identify the gaps, and recommend the placement that actually protects it, then you decide the scope.",
+  },
+  {
+    question: "Is professional security camera installation worth it versus DIY?",
+    answer:
+      "For one or two simple wireless cameras, DIY is reasonable. For a real whole-property system, professional installation is worth it, and here is why: camera placement is the entire game — the wrong height or angle gives you useless footage of the top of someone's head or a glare-washed image, while correct placement captures faces and plates. We also run wiring cleanly and protected, configure the recorder and storage properly, set up reliable remote viewing and alerts, and make sure the system actually records when something happens rather than failing silently. The difference shows up the day you need the footage. A botched DIY system that records nothing useful is worse than no system at all. We design coverage that holds up as evidence and works reliably for years.",
+  },
+  {
+    question: "How much does it cost to cover a large lot or acreage in the Hill Country?",
+    answer:
+      "Covering a large lot or Hill Country acreage typically costs $4,000 to $12,000 or more, above a standard home system. The added cost comes from distance and infrastructure: long cable runs to a gate, barn, casita, or shop; weatherproof and sometimes long-range cameras; network equipment to extend reliable connectivity across the property; and sometimes a separate recorder or links between buildings. Driveway and gate cameras, often with license-plate capture, are common on these properties. Acreage also means more entry points and approaches to cover than a city lot. The system is built to handle the distances and the elements while keeping everything on one app and recorder. We walk the property, map the runs and coverage, and give you a written scope — every acreage job is different, so the quote is specific to your land.",
+  },
+  {
+    question: "Can security cameras integrate with my smart home, and what does it cost?",
+    answer:
+      "Yes. Security cameras can integrate with a smart home platform like Control4 or RTI so your feeds appear on the same touchscreens and app as your AV, lighting, and shades — and so events can trigger actions, like a camera at the gate showing on the living room TV or lights turning on with motion at night. Adding this integration typically costs about $1,000 to $4,000 on top of the camera system, depending on the platform and how deep the integration goes. If you do not have an automation system, the cameras run perfectly well on their own dedicated app — integration is an enhancement, not a requirement. For clients building or already running a Control4 home, folding the cameras in is a natural, high-value addition. We will tell you whether it is worth it for your setup.",
+  },
+];
+
+const faqSchema = {
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": costFaqs.map((f) => ({
+    "@type": "Question",
+    "name": f.question,
+    "acceptedAnswer": { "@type": "Answer", "text": f.answer },
+  })),
+};
+
+const calcGroups = [
+  {
+    id: "count",
+    label: "1. How many cameras?",
+    options: [
+      { t: "2–4 cameras", min: 1000, max: 2500, on: true },
+      { t: "5–8 cameras", min: 2200, max: 4500 },
+      { t: "9–12 cameras", min: 4000, max: 7000 },
+      { t: "13+ cameras", min: 6500, max: 12000 },
+    ],
+  },
+  {
+    id: "type",
+    label: "2. Camera type?",
+    options: [
+      { t: "Wireless / Wi-Fi", min: 0, max: 0, on: true },
+      { t: "Wired PoE (recommended)", min: 500, max: 2500 },
+      { t: "Premium 4K PoE", min: 1500, max: 5000 },
+    ],
+  },
+  {
+    id: "storage",
+    label: "3. Recording / storage?",
+    options: [
+      { t: "Cloud (subscription)", min: 0, max: 0, on: true },
+      { t: "Local NVR (no monthly)", min: 400, max: 1500 },
+      { t: "High-capacity NVR (30+ days)", min: 1000, max: 3000 },
+    ],
+  },
+  {
+    id: "property",
+    label: "4. Property size?",
+    options: [
+      { t: "Standard lot", min: 0, max: 0, on: true },
+      { t: "Large lot / acreage", min: 800, max: 3000 },
+      { t: "Multiple buildings", min: 1500, max: 5000 },
+    ],
+  },
+  {
+    id: "specialty",
+    label: "5. Night vision / specialty?",
+    options: [
+      { t: "Standard night vision", min: 0, max: 0, on: true },
+      { t: "Color night vision / spotlight", min: 400, max: 1500 },
+      { t: "License-plate / specialty cams", min: 800, max: 3000 },
+    ],
+  },
+  {
+    id: "wiring",
+    label: "6. Your home is…",
+    options: [
+      { t: "New construction (pre-wire)", min: 0, max: 0, on: true },
+      { t: "Existing finished home (retrofit)", min: 500, max: 2500 },
+    ],
+  },
+  {
+    id: "integration",
+    label: "7. Smart home integration?",
+    options: [
+      { t: "Standalone app", min: 0, max: 0, on: true },
+      { t: "Integrate (Control4 / RTI)", min: 1000, max: 4000 },
+    ],
+  },
+];
+---
+
+<BaseLayout
+  title="Security Camera Installation Cost San Antonio TX | Estimate Calculator"
+  description="What does security camera installation cost in San Antonio? Real price ranges by camera count, wired vs wireless and NVR vs cloud guidance, an instant estimate calculator, and cost FAQs. Call (210) 981-4098."
+  schema={[schema, breadcrumb, faqSchema]}
+>
+  <HeroSection
+    heading="How Much Does Security Camera Installation Cost in San Antonio?"
+    subhead="Real prices by camera count, an instant estimate calculator, and straight answers on wired vs wireless, NVR vs cloud, and how many cameras you actually need."
+    imageSrc="/images/projects/monty-theater/home-theater-near-san-antonio-hero.jpg"
+    imageAlt="Professional security camera installation at a San Antonio TX home"
+    compact={true}
+  />
+
+  <TrustBar />
+
+  <section class="section bg-slate-surface">
+    <div class="container-main">
+      <p class="overline mb-3">San Antonio Security Camera Pricing</p>
+      <h2 class="font-display text-h2 text-warm-white mb-6">
+        Priced by Cameras, Coverage, and How You Record
+      </h2>
+      <p class="text-body-lg text-stone mb-4 max-w-3xl">
+        A camera system is priced by the number of cameras, whether they are wired or wireless, how you store footage, and the size of the property to cover. The real value is in placement — cameras in the right spots that capture usable footage when it matters.
+      </p>
+      <p class="text-body text-stone max-w-3xl">
+        We design camera coverage around your property's actual entry points across San Antonio and the Hill Country. Use the calculator for an instant ballpark, then read the honest cost answers below. When you want a real number, we walk the property, map the coverage, and hand you a written quote — free, no obligation.
+      </p>
+    </div>
+  </section>
+
+  <section class="section bg-charcoal">
+    <div class="container-main">
+      <p class="overline mb-3">Instant Estimate</p>
+      <h2 class="font-display text-h2 text-warm-white mb-4">
+        Build Your Security Camera Estimate
+      </h2>
+      <p class="text-body-lg text-stone mb-10 max-w-2xl">
+        Pick what fits your property. Your estimated range updates as you go — a ballpark for the San Antonio market. Your written quote comes after a free assessment.
+      </p>
+
+      <div class="grid grid-cols-1 lg:grid-cols-[1fr_360px] gap-8 items-start">
+        <div class="flex flex-col gap-7" id="calc-form">
+          {calcGroups.map((group) => (
+            <div class="calc-group" data-group={group.id}>
+              <h3 class="font-sans font-semibold text-body-lg text-warm-white mb-3">{group.label}</h3>
+              <div class="flex flex-wrap gap-2.5">
+                {group.options.map((opt) => (
+                  <button
+                    type="button"
+                    class:list={["calc-opt", opt.on ? "is-active" : ""]}
+                    data-min={opt.min}
+                    data-max={opt.max}
+                  >
+                    {opt.t}
+                  </button>
+                ))}
+              </div>
+            </div>
+          ))}
+        </div>
+
+        <div class="card p-7 lg:sticky lg:top-28">
+          <p class="overline mb-2">Your Estimated Range</p>
+          <p class="font-display text-h2 text-gold mb-1" id="calc-result">$1,000 – $2,500</p>
+          <p class="text-body-sm text-ash mb-6">Estimate for the San Antonio market. Final price depends on cameras, storage, and property size.</p>
+          <a href="/contact-kz-audio-video-san-antonio-tx/" class="btn-primary gold-shimmer w-full text-center mb-3 cursor-pointer">
+            Get My Exact Quote
+          </a>
+          <a href="tel:2109814098" class="btn-ghost w-full text-center cursor-pointer">
+            Call (210) 981-4098
+          </a>
+          <p class="text-body-sm text-stone mt-5 leading-relaxed">
+            We walk the property, map the coverage, and give you a written quote — at no charge.
+          </p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="section bg-slate-surface">
+    <div class="container-main">
+      <p class="overline mb-3">Cost Questions, Answered</p>
+      <h2 class="font-display text-h2 text-warm-white mb-12">
+        San Antonio Security Camera Cost — FAQ
+      </h2>
+
+      <div class="flex flex-col gap-10 max-w-3xl">
+        {costFaqs.map((f) => (
+          <article class="reveal">
+            <h2 class="font-sans font-semibold text-h3 text-warm-white mb-4">{f.question}</h2>
+            <p class="text-body text-stone leading-relaxed">{f.answer}</p>
+          </article>
+        ))}
+      </div>
+
+      <div class="mt-12 flex flex-wrap gap-4">
+        <a href="/security-camera-installation-san-antonio/" class="inline-flex items-center gap-2 text-gold font-sans font-medium cursor-pointer hover:text-warm-white transition-colors">
+          See our security camera service
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+        </a>
+        <a href="/home-automation-cost-san-antonio/" class="inline-flex items-center gap-2 text-gold font-sans font-medium cursor-pointer hover:text-warm-white transition-colors">
+          See home automation costs
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <CTASection
+    heading="Get a Real Number for Your Property."
+    body="The calculator gives you a ballpark. A free assessment gives you the truth. We walk the property, find the blind spots, and put a written quote in your hands. No pressure, no obligation."
+    ctaLabel="Book a Free Assessment"
+    ctaHref="/contact-kz-audio-video-san-antonio-tx/"
+    secondaryLabel="Call (210) 981-4098"
+    secondaryHref="tel:2109814098"
+    bgImage="/images/projects/monty-theater/Home-Theater-Design-Build-Near-San-Antonio-Texas.jpeg.jpg"
+  />
+
+  <style>
+    .calc-opt {
+      border: 1px solid rgba(255, 255, 255, 0.14);
+      background: rgba(255, 255, 255, 0.03);
+      color: #C9CCD1;
+      border-radius: 10px;
+      padding: 0.6rem 0.95rem;
+      font-size: 0.9rem;
+      font-family: inherit;
+      cursor: pointer;
+      transition: all 0.16s ease;
+      line-height: 1.2;
+    }
+    .calc-opt:hover { border-color: rgba(201, 168, 76, 0.5); color: #F5F3EE; }
+    .calc-opt.is-active {
+      border-color: #C9A84C;
+      background: rgba(201, 168, 76, 0.14);
+      color: #F5F3EE;
+      box-shadow: 0 0 0 1px rgba(201, 168, 76, 0.4);
+    }
+  </style>
+
+  <script is:inline>
+    (function () {
+      function format(n) { return "$" + Math.round(n).toLocaleString("en-US"); }
+      function recalc() {
+        var total = 0, top = 0;
+        var active = document.querySelectorAll(".calc-opt.is-active");
+        for (var i = 0; i < active.length; i++) {
+          total += parseInt(active[i].getAttribute("data-min"), 10) || 0;
+          top += parseInt(active[i].getAttribute("data-max"), 10) || 0;
+        }
+        var out = document.getElementById("calc-result");
+        if (out) out.textContent = format(total) + " – " + format(top);
+      }
+      var groups = document.querySelectorAll(".calc-group");
+      for (var g = 0; g < groups.length; g++) {
+        var opts = groups[g].querySelectorAll(".calc-opt");
+        for (var o = 0; o < opts.length; o++) {
+          opts[o].addEventListener("click", function () {
+            var parent = this.closest(".calc-group");
+            var siblings = parent.querySelectorAll(".calc-opt");
+            for (var s = 0; s < siblings.length; s++) siblings[s].classList.remove("is-active");
+            this.classList.add("is-active");
+            recalc();
+          });
+        }
+      }
+      recalc();
+    })();
+  </script>
+</BaseLayout>
