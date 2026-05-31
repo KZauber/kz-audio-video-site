@@ -1,0 +1,333 @@
+---
+import BaseLayout from "../../layouts/BaseLayout.astro";
+import HeroSection from "../../components/sections/HeroSection.astro";
+import TrustBar from "../../components/sections/TrustBar.astro";
+import CTASection from "../../components/sections/CTASection.astro";
+
+const schema = {
+  "@context": "https://schema.org",
+  "@type": "Service",
+  "name": "Home Theater & AV Installation Cost — San Antonio TX",
+  "provider": {
+    "@type": "LocalBusiness",
+    "name": "KZ Audio & Video",
+    "url": "https://kzaudioandvideo.com",
+    "telephone": "+12109814098",
+  },
+  "areaServed": ["San Antonio", "Boerne", "Canyon Lake", "Helotes", "Bulverde", "Stone Oak", "New Braunfels", "Schertz", "Seguin"],
+  "description": "What home theater, surround sound, whole-house audio, and AV installation costs in San Antonio TX. Real price ranges, an instant estimate calculator, and answers to the most common cost questions.",
+  "url": "https://kzaudioandvideo.com/home-theater-cost-san-antonio/",
+  "offers": {
+    "@type": "AggregateOffer",
+    "priceCurrency": "USD",
+    "lowPrice": "1200",
+    "highPrice": "80000",
+    "offerCount": "5",
+  },
+};
+
+const breadcrumb = {
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": [
+    { "@type": "ListItem", "position": 1, "name": "Home", "item": "https://kzaudioandvideo.com" },
+    { "@type": "ListItem", "position": 2, "name": "Home Theater Cost San Antonio" },
+  ],
+};
+
+// Cost questions — visible H2 answer blocks AND FAQPage schema (self-contained for AI citation)
+const costFaqs = [
+  {
+    question: "How much does a home theater cost in San Antonio?",
+    answer:
+      "In San Antonio, a home theater costs between $5,000 and $80,000 or more, depending on scope. A media room conversion — a large 4K TV, surround sound, and hidden wiring in an existing room — runs $5,000 to $12,000. A mid-tier dedicated theater with 4K projection, 7.1 Dolby Atmos, tiered seating, and acoustic treatment runs $15,000 to $40,000. A premium dedicated theater with laser projection, a 9.2.4 Atmos layout, custom acoustics, and motorized leather seating runs $40,000 to $80,000 and up. The biggest cost drivers are room size, projector type, speaker count, and whether the room is new construction or an existing retrofit. KZ Audio & Video provides a written quote after a free in-home consultation — no obligation.",
+  },
+  {
+    question: "How much does surround sound installation cost in San Antonio?",
+    answer:
+      "Surround sound installation in San Antonio typically costs $1,500 to $10,000, depending on the system. A premium soundbar with a wireless subwoofer, professionally installed and hidden, runs about $800 to $2,000. A true 5.1 surround system — three front speakers, two surrounds, and a subwoofer with an AV receiver — runs $1,800 to $4,000 installed. A 7.1 Dolby Atmos system that adds in-ceiling height channels runs $4,000 to $9,000. Reference 9.2.4 Atmos systems for dedicated theaters run higher. Cost depends on speaker brand, whether speakers are in-wall or in-ceiling versus bookshelf, receiver capability, and the labor to fish wire through finished walls. We design the system around your room and tell you honestly when a simpler setup makes more sense than the most expensive option.",
+  },
+  {
+    question: "How much does a 4K projector and screen cost installed?",
+    answer:
+      "A 4K projector and screen, professionally installed in San Antonio, typically costs $4,000 to $25,000 for the projection components. An entry-level 4K projector with a quality fixed-frame screen runs $3,500 to $8,000 installed. A laser projector — 4K, brighter, with 20,000-plus hours of life and no bulbs to replace — paired with a larger or motorized screen runs $8,000 to $18,000 or more. Premium reference laser projectors with masking motorized screens run higher still. The right choice depends on room size, how much ambient light the room has, and screen size. Lamp projectors cost less upfront but need bulb replacement every few years; laser projectors cost more initially but perform better and cost less to maintain. For a serious dedicated theater, laser is usually the right call.",
+  },
+  {
+    question: "Is it cheaper to install a home theater during new construction?",
+    answer:
+      "Yes. Installing a home theater during new construction is meaningfully cheaper than retrofitting a finished room, because the labor is far lower. In new construction, we run speaker wire, HDMI, power, and network cabling through open framing before the drywall goes up — fast and clean. In a finished room, that same wiring has to be fished through closed walls and ceilings, which takes significantly more labor and time. Pre-wiring during construction also lets us place speakers, the projector, and the screen in their ideal positions instead of working around existing conditions. If you are building a custom home in San Antonio or the Hill Country, the smartest and least expensive time to plan your theater is during the framing stage. KZ Audio & Video works directly with builders to pre-wire homes before walls close.",
+  },
+  {
+    question: "How much does whole-house audio cost in San Antonio?",
+    answer:
+      "Whole-house audio in San Antonio typically costs $6,000 to $30,000, driven mostly by the number of zones. A starter system covering two or three zones — a living room, kitchen, and patio with in-ceiling speakers and app control — runs about $6,000 to $12,000. A mid-sized system covering five or six zones throughout the home runs $12,000 to $20,000. A large multi-zone system spanning an entire custom home with eight or more zones, high-end speakers, and full integration runs $20,000 and up. Cost depends on zone count, speaker quality, the control platform (app-based versus Control4 or RTI), and whether it is wired during construction or retrofitted. Each zone can be controlled independently from a phone, wall keypad, or voice. We design the layout around how you actually live in the home.",
+  },
+  {
+    question: "How much does outdoor TV and speaker installation cost?",
+    answer:
+      "Outdoor entertainment installation in San Antonio typically costs $2,500 to $15,000. A basic setup — a weatherproof outdoor TV on a covered patio with a pair of outdoor speakers — runs about $2,500 to $5,000 installed. A mid-range system with a larger weatherproof display, multiple landscape or rock speakers, and a subwoofer for pool and patio coverage runs $7,000 to $12,000. A full outdoor system with an outdoor projector and screen, multi-zone audio across the yard, and integration with the home's control system runs $12,000 and up. Outdoor gear costs more than indoor equivalents because it must withstand Texas heat, humidity, and sun — we spec weather-rated displays, speakers, and wiring built for it. Cost depends on coverage area, whether the space is covered, and display type.",
+  },
+  {
+    question: "How much does TV mounting cost in San Antonio?",
+    answer:
+      "Professional TV mounting in San Antonio typically costs $200 to $800, depending on complexity. A standard mount on a drywall wall with the wires concealed in-wall runs about $200 to $400. Mounting over a fireplace, on stone or brick, or on a tilting or full-motion articulating mount runs $400 to $800 because of the added labor and materials. Larger displays — 85 inches and up — and runs that require fishing power and HDMI through the wall or adding an in-wall power kit add to the cost. The price includes leveling, securing into studs or proper anchors, concealing the cables for a clean look, and connecting your devices. We do not leave wires hanging. If you want surround sound or a soundbar added at the same time, we can bundle the work.",
+  },
+  {
+    question: "Why do home theater quotes vary so much?",
+    answer:
+      "Home theater quotes vary because the term covers everything from a $5,000 media room to an $80,000 dedicated cinema. The biggest variables are room size, which dictates speaker layout and screen size; display type, where a laser projector can cost five times an entry-level model; speaker count, from a simple 5.1 to a 13-speaker 9.2.4 Atmos array; seating, from using existing furniture to a custom tiered platform with motorized leather recliners; and the control system, from app-based to a dealer-programmed Control4 setup. Retrofit versus new construction also changes labor cost significantly. A vague online quote means little without seeing the room. That is why KZ Audio & Video does a free in-home consultation — we measure the space, understand how you use it, and give you a written scope and price you can rely on.",
+  },
+];
+
+const faqSchema = {
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": costFaqs.map((f) => ({
+    "@type": "Question",
+    "name": f.question,
+    "acceptedAnswer": { "@type": "Answer", "text": f.answer },
+  })),
+};
+
+// Calculator option groups — each option carries a min/max dollar contribution
+const calcGroups = [
+  {
+    id: "project",
+    label: "1. What are you looking to build?",
+    options: [
+      { t: "Media room (existing room)", min: 4000, max: 9000, on: true },
+      { t: "Dedicated home theater", min: 12000, max: 28000 },
+      { t: "Whole-house audio", min: 6000, max: 18000 },
+      { t: "Outdoor entertainment", min: 2500, max: 9000 },
+      { t: "TV mounting + sound", min: 1200, max: 4000 },
+    ],
+  },
+  {
+    id: "size",
+    label: "2. How big is the space?",
+    options: [
+      { t: "Small (one room / 1–2 zones)", min: 0, max: 0, on: true },
+      { t: "Medium (large room / 3–5 zones)", min: 1500, max: 4000 },
+      { t: "Large (300+ sq ft / 6+ zones)", min: 4000, max: 12000 },
+    ],
+  },
+  {
+    id: "display",
+    label: "3. Display or screen?",
+    options: [
+      { t: "Keep my current TV", min: 0, max: 0 },
+      { t: "New large 4K TV (75–98\")", min: 1500, max: 5000, on: true },
+      { t: "4K projector + screen", min: 3500, max: 8000 },
+      { t: "Laser projector + premium screen", min: 8000, max: 18000 },
+      { t: "Audio only — no display", min: 0, max: 0 },
+    ],
+  },
+  {
+    id: "sound",
+    label: "4. Sound system?",
+    options: [
+      { t: "Premium soundbar + sub", min: 600, max: 1800 },
+      { t: "5.1 surround", min: 1800, max: 3800, on: true },
+      { t: "7.1 Dolby Atmos", min: 4000, max: 9000 },
+      { t: "9.2.4 Atmos (reference)", min: 9000, max: 20000 },
+    ],
+  },
+  {
+    id: "seating",
+    label: "5. Seating & comfort?",
+    options: [
+      { t: "Use my existing seating", min: 0, max: 0, on: true },
+      { t: "Add power recliners", min: 1800, max: 4500 },
+      { t: "Tiered platform + motorized leather", min: 5000, max: 15000 },
+      { t: "Not applicable", min: 0, max: 0 },
+    ],
+  },
+  {
+    id: "control",
+    label: "6. Smart control / automation?",
+    options: [
+      { t: "None — use the remotes", min: 0, max: 0, on: true },
+      { t: "App-based control", min: 1000, max: 2800 },
+      { t: "Control4 or RTI (dedicated)", min: 4000, max: 12000 },
+    ],
+  },
+  {
+    id: "build",
+    label: "7. Your space is…",
+    options: [
+      { t: "New construction (pre-wire)", min: 0, max: 0, on: true },
+      { t: "Existing finished room (retrofit)", min: 600, max: 3000 },
+    ],
+  },
+];
+---
+
+<BaseLayout
+  title="Home Theater Cost San Antonio TX | Prices + Free Estimate Calculator"
+  description="What does a home theater cost in San Antonio? Real price ranges ($5K–$80K+), an instant estimate calculator, and answers to the most-asked AV cost questions. KZ Audio & Video. Call (210) 981-4098."
+  schema={[schema, breadcrumb, faqSchema]}
+>
+  <HeroSection
+    heading="How Much Does a Home Theater Cost in San Antonio?"
+    subhead="Real price ranges, an instant estimate calculator, and straight answers to the cost questions homeowners ask most. No guesswork."
+    imageSrc="/images/projects/monty-theater/home-theater-near-san-antonio-hero.jpg"
+    imageAlt="Custom home theater installation in San Antonio TX with projection screen and surround sound"
+    compact={true}
+  />
+
+  <TrustBar />
+
+  <!-- Intro -->
+  <section class="section bg-slate-surface">
+    <div class="container-main">
+      <p class="overline mb-3">San Antonio AV Pricing</p>
+      <h2 class="font-display text-h2 text-warm-white mb-6">
+        The Honest Answer: $5,000 to $80,000+
+      </h2>
+      <p class="text-body-lg text-stone mb-4 max-w-3xl">
+        That range is not a dodge — it reflects a real difference in scope. A media room conversion is a different project than a dedicated cinema, and where the money goes is the only way to understand what your project should cost.
+      </p>
+      <p class="text-body text-stone max-w-3xl">
+        We have installed home theater and AV systems across San Antonio and the Hill Country since 1997. Use the calculator below for an instant ballpark, then scroll down for straight answers to the questions people ask most. When you are ready for a real number, we come to you, measure the space, and put a written quote in your hands — free, no obligation.
+      </p>
+    </div>
+  </section>
+
+  <!-- Estimate Calculator -->
+  <section class="section bg-charcoal">
+    <div class="container-main">
+      <p class="overline mb-3">Instant Estimate</p>
+      <h2 class="font-display text-h2 text-warm-white mb-4">
+        Build Your Estimate in 30 Seconds
+      </h2>
+      <p class="text-body-lg text-stone mb-10 max-w-2xl">
+        Pick what fits your project. Your estimated investment range updates as you go. This is a ballpark for the San Antonio market — your written quote comes after a free in-home consultation.
+      </p>
+
+      <div class="grid grid-cols-1 lg:grid-cols-[1fr_360px] gap-8 items-start">
+        <!-- Questions -->
+        <div class="flex flex-col gap-7" id="calc-form">
+          {calcGroups.map((group) => (
+            <div class="calc-group" data-group={group.id}>
+              <h3 class="font-sans font-semibold text-body-lg text-warm-white mb-3">{group.label}</h3>
+              <div class="flex flex-wrap gap-2.5">
+                {group.options.map((opt) => (
+                  <button
+                    type="button"
+                    class:list={["calc-opt", opt.on ? "is-active" : ""]}
+                    data-min={opt.min}
+                    data-max={opt.max}
+                  >
+                    {opt.t}
+                  </button>
+                ))}
+              </div>
+            </div>
+          ))}
+        </div>
+
+        <!-- Result panel (sticky on desktop) -->
+        <div class="card p-7 lg:sticky lg:top-28">
+          <p class="overline mb-2">Your Estimated Range</p>
+          <p class="font-display text-h2 text-gold mb-1" id="calc-result">$7,300 – $17,800</p>
+          <p class="text-body-sm text-ash mb-6">Estimate for the San Antonio market. Final price depends on equipment, materials, and your specific room.</p>
+          <a href="/contact-kz-audio-video-san-antonio-tx/" class="btn-primary gold-shimmer w-full text-center mb-3 cursor-pointer">
+            Get My Exact Quote
+          </a>
+          <a href="tel:2109814098" class="btn-ghost w-full text-center cursor-pointer">
+            Call (210) 981-4098
+          </a>
+          <p class="text-body-sm text-stone mt-5 leading-relaxed">
+            We come to your home, assess the space, and give you a written scope and price — at no charge.
+          </p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Cost question H2 answers (AI-citation targets) -->
+  <section class="section bg-slate-surface">
+    <div class="container-main">
+      <p class="overline mb-3">Cost Questions, Answered</p>
+      <h2 class="font-display text-h2 text-warm-white mb-12">
+        San Antonio Home Theater & AV Cost — FAQ
+      </h2>
+
+      <div class="flex flex-col gap-10 max-w-3xl">
+        {costFaqs.map((f) => (
+          <article class="reveal">
+            <h2 class="font-sans font-semibold text-h3 text-warm-white mb-4">{f.question}</h2>
+            <p class="text-body text-stone leading-relaxed">{f.answer}</p>
+          </article>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <CTASection
+    heading="Get a Real Number for Your Space."
+    body="The calculator gives you a ballpark. A free in-home consultation gives you the truth. We come to you, measure the room, and put a written quote in your hands. No pressure, no obligation."
+    ctaLabel="Book a Free Consultation"
+    ctaHref="/contact-kz-audio-video-san-antonio-tx/"
+    secondaryLabel="Call (210) 981-4098"
+    secondaryHref="tel:2109814098"
+    bgImage="/images/projects/monty-theater/Home-Theater-Design-Build-Near-San-Antonio-Texas.jpeg.jpg"
+  />
+
+  <style>
+    .calc-opt {
+      border: 1px solid rgba(255, 255, 255, 0.14);
+      background: rgba(255, 255, 255, 0.03);
+      color: #C9CCD1;
+      border-radius: 10px;
+      padding: 0.6rem 0.95rem;
+      font-size: 0.9rem;
+      font-family: inherit;
+      cursor: pointer;
+      transition: all 0.16s ease;
+      line-height: 1.2;
+    }
+    .calc-opt:hover {
+      border-color: rgba(201, 168, 76, 0.5);
+      color: #F5F3EE;
+    }
+    .calc-opt.is-active {
+      border-color: #C9A84C;
+      background: rgba(201, 168, 76, 0.14);
+      color: #F5F3EE;
+      box-shadow: 0 0 0 1px rgba(201, 168, 76, 0.4);
+    }
+  </style>
+
+  <script is:inline>
+    (function () {
+      function format(n) {
+        return "$" + Math.round(n).toLocaleString("en-US");
+      }
+      function recalc() {
+        var total = 0, top = 0;
+        var active = document.querySelectorAll(".calc-opt.is-active");
+        for (var i = 0; i < active.length; i++) {
+          total += parseInt(active[i].getAttribute("data-min"), 10) || 0;
+          top += parseInt(active[i].getAttribute("data-max"), 10) || 0;
+        }
+        var out = document.getElementById("calc-result");
+        if (out) out.textContent = format(total) + " – " + format(top);
+      }
+      var groups = document.querySelectorAll(".calc-group");
+      for (var g = 0; g < groups.length; g++) {
+        var opts = groups[g].querySelectorAll(".calc-opt");
+        for (var o = 0; o < opts.length; o++) {
+          opts[o].addEventListener("click", function () {
+            var parent = this.closest(".calc-group");
+            var siblings = parent.querySelectorAll(".calc-opt");
+            for (var s = 0; s < siblings.length; s++) siblings[s].classList.remove("is-active");
+            this.classList.add("is-active");
+            recalc();
+          });
+        }
+      }
+      recalc();
+    })();
+  </script>
+</BaseLayout>
