@@ -1,0 +1,294 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import HeroSection from '../../components/sections/HeroSection.astro';
+import TrustBar from '../../components/sections/TrustBar.astro';
+import FAQAccordion from '../../components/sections/FAQAccordion.astro';
+import CTASection from '../../components/sections/CTASection.astro';
+
+const schema = {
+  "@context": "https://schema.org",
+  "@type": "Service",
+  "name": "Outdoor Entertainment System Installation San Antonio TX",
+  "provider": {
+    "@type": "LocalBusiness",
+    "@id": "https://kzaudioandvideo.com/#business",
+    "name": "KZ Audio & Video",
+    "url": "https://kzaudioandvideo.com",
+    "telephone": "+12109814098"
+  },
+  "areaServed": "San Antonio, TX",
+  "serviceType": "Outdoor Entertainment System Installation",
+  "description": "Outdoor entertainment systems for San Antonio homeowners — patio speakers, pool deck audio, outdoor TVs, projector setups, and whole-property multi-zone audio. Weather-resistant equipment rated for Texas heat and humidity.",
+  "url": "https://kzaudioandvideo.com/outdoor-entertainment-system-san-antonio/"
+};
+
+const breadcrumb = {
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": [
+    { "@type": "ListItem", "position": 1, "name": "Home", "item": "https://kzaudioandvideo.com" },
+    { "@type": "ListItem", "position": 2, "name": "Outdoor Entertainment Systems San Antonio TX" }
+  ]
+};
+
+const faqs = [
+  {
+    question: "How much does an outdoor entertainment system cost in San Antonio?",
+    answer: "It depends on scope. A clean patio speaker system — two or four weatherproof speakers with a Sonos amp — typically runs around $2,500 installed. A full outdoor theater with a ceiling-mounted projector, motorized screen, and outdoor surround sound lands around $7,000–$9,000. Whole-property multi-zone audio covering the patio, pool deck, and yard can run $12,000–$18,000 depending on how many zones and how much wire run is involved. We give you an exact number after the free consultation — no guessing.",
+  },
+  {
+    question: "Do outdoor speakers hold up in the San Antonio heat and humidity?",
+    answer: "The right ones do. We install speakers specifically rated for outdoor use — UV-resistant enclosures, weather-sealed drivers, stainless hardware. Brands like Sonos Outdoor, Polk Audio Atrium, and Klipsch outdoor series are built for exactly this climate. We've had installs running reliably for years in San Antonio summers. Consumer speakers pulled off a shelf at a big-box store won't last — but that's not what we install.",
+  },
+  {
+    question: "Can I connect my outdoor speakers to my existing Sonos system?",
+    answer: "Yes — and that's usually the cleanest approach. If you already have Sonos inside, we add outdoor zones to the same system. Your patio, pool deck, and yard get their own zones, controlled from the same Sonos app you already use. You can sync them with the indoor music or run them independently. If you don't have a whole-house system yet, we can design one from the ground up with outdoor zones built in from day one.",
+  },
+  {
+    question: "What outdoor TV brands do you install, and how do I know which one is right for my patio?",
+    answer: "We primarily install SunBrite outdoor TVs, which are purpose-built for full-sun and partial-sun environments — not repurposed indoor displays with an 'outdoor' sticker on the box. The right model depends on how much direct sunlight the mounting location gets. Full-sun locations (facing south or west with no cover) need a different brightness spec than a shaded covered patio. We assess the space during the consultation and recommend accordingly. SunBrite also handles heat differently than a standard TV — important in San Antonio summers.",
+  },
+  {
+    question: "What is a rock speaker and where does it make sense?",
+    answer: "Rock speakers are outdoor speakers molded to look like natural stones or boulders. They blend into landscaping around pool decks, garden beds, and yards where you want audio without visible hardware. We install Klipsch and similar brands that actually sound good — not novelty items. They're a great solution when you want sound in a yard area but don't have a structure to mount surface speakers on. They're weather-sealed and rated for outdoor use.",
+  },
+  {
+    question: "Do you work with pool builders and deck contractors?",
+    answer: "Yes — and if your contractor didn't mention AV during the build, calling us right after the project wraps is the second-best time. We work alongside contractors all over San Antonio and can run conduit and wire before concrete gets poured or decking goes down. If you're mid-project or just finished, we'll design around what's there. The free consultation is the starting point either way.",
+  },
+];
+---
+
+<BaseLayout
+  title="Outdoor Entertainment Systems San Antonio TX | KZ Audio & Video"
+  description="Outdoor entertainment systems for San Antonio homeowners — patio speakers, pool deck audio, outdoor TVs, projector setups, and multi-zone audio. Call (210) 981-4098."
+  schema={[schema, breadcrumb]}
+>
+
+  <HeroSection
+    overline="Outdoor Entertainment · San Antonio TX · Since 1997"
+    heading="Outdoor Entertainment Systems San Antonio TX"
+    subhead="San Antonio's outdoor living season runs May through October — and your patio, pool deck, and backyard should be as dialed in as your living room. We design and install outdoor speaker systems, weatherproof TVs, projector theaters, and whole-property multi-zone audio built for the Texas heat."
+    ctaLabel="Book a Free Outdoor AV Consultation"
+    ctaHref="/contact-kz-audio-video-san-antonio-tx/"
+    secondaryCta="Or call: (210) 981-4098"
+    secondaryHref="tel:2109814098"
+    imageSrc="/images/projects/outdoor-av/outdoor-av-hero.jpg"
+    imageAlt="Outdoor entertainment system installation on covered patio in San Antonio Texas"
+  />
+
+  <TrustBar />
+
+  <!-- Summer Intro -->
+  <section class="section bg-charcoal">
+    <div class="container-main">
+      <p class="overline mb-3 reveal">Summer Is the Season</p>
+      <h2 class="font-display text-h2 text-warm-white mb-8 reveal reveal-delay-1">
+        Your Covered Patio Is a Second Living Room — Treat It Like One
+      </h2>
+      <div class="grid grid-cols-1 lg:grid-cols-2 gap-12 mb-12">
+        <div>
+          <p class="text-body-lg text-stone mb-6 reveal reveal-delay-2">
+            San Antonio homeowners live outside from May through October. New pools get finished, decks go up, outdoor kitchens get built — and then the entertainment side gets figured out after the fact. That's where we come in. KZ Audio &amp; Video has been designing outdoor AV systems in San Antonio since 1997, and we know exactly what holds up in this climate and what doesn't.
+          </p>
+          <p class="text-body text-stone mb-6 reveal reveal-delay-3">
+            A covered patio with the right speakers and an outdoor TV is a completely different experience than dragging a Bluetooth speaker outside. Multi-zone audio that flows from your kitchen through the patio and out to the pool deck — controlled from your phone — is what turns a backyard into a space people actually want to be in all summer. We design it, install it, and make sure it runs reliably season after season.
+          </p>
+          <p class="text-body text-stone reveal reveal-delay-4">
+            If you just finished a pool or deck project and your contractor didn't mention AV — that's normal. Most don't. But calling us right after the project wraps is the second-best time to get this done right. We work with contractors all over San Antonio and can design around whatever you just built.
+          </p>
+        </div>
+        <div class="flex flex-col gap-6">
+          <div class="card p-6 reveal reveal-delay-2">
+            <h3 class="font-sans font-semibold text-warm-white mb-2">Patio Speaker System</h3>
+            <p class="text-body-sm text-stone mb-3">Starting around $2,500 installed. Weatherproof speakers, clean wire management, integrated into your whole-house audio system.</p>
+            <p class="text-body-sm text-amber-400 font-semibold">From $2,500</p>
+          </div>
+          <div class="card p-6 reveal reveal-delay-3">
+            <h3 class="font-sans font-semibold text-warm-white mb-2">Full Outdoor Theater</h3>
+            <p class="text-body-sm text-stone mb-3">Ceiling-mounted projector under your patio cover, motorized or fixed screen, outdoor surround sound. Movie nights outside done right.</p>
+            <p class="text-body-sm text-amber-400 font-semibold">From $7,000–$9,000</p>
+          </div>
+          <div class="card p-6 reveal reveal-delay-4">
+            <h3 class="font-sans font-semibold text-warm-white mb-2">Whole-Property Multi-Zone Audio</h3>
+            <p class="text-body-sm text-stone mb-3">Kitchen flows to patio flows to pool deck flows to yard. Every zone independent. All controlled from one app.</p>
+            <p class="text-body-sm text-amber-400 font-semibold">From $12,000+</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Patio Audio -->
+  <section class="section bg-slate-surface">
+    <div class="container-main">
+      <p class="overline mb-3 reveal">Patio Audio</p>
+      <h2 class="font-display text-h2 text-warm-white mb-6 reveal reveal-delay-1">
+        Covered Patio Speaker Systems
+      </h2>
+      <div class="grid grid-cols-1 lg:grid-cols-2 gap-12 items-start">
+        <div>
+          <p class="text-body-lg text-stone mb-6 reveal reveal-delay-2">
+            A covered patio is the most common starting point for outdoor AV in San Antonio. Ceiling-mounted or surface-mounted speakers, clean wire run through the patio structure, and integration into your home's audio system. You end up with sound that's actually well-distributed across the space — not one Bluetooth speaker sitting on a table.
+          </p>
+          <p class="text-body text-stone mb-6 reveal reveal-delay-3">
+            We install Sonos Outdoor speakers, Polk Audio Atrium series, and Klipsch outdoor speakers depending on the space, coverage requirements, and budget. All of these are weather-sealed and UV-rated for outdoor use. We'll tell you which brand and model makes sense for your specific space — not a generic recommendation.
+          </p>
+          <p class="text-body text-stone reveal reveal-delay-4">
+            Outdoor zones integrate cleanly into a Sonos whole-house system if you already have one, or we can set up outdoor audio as a standalone system with its own amp and control. The patio becomes its own zone — turn it up, turn it down, or sync it with the kitchen from your phone.
+          </p>
+        </div>
+        <div class="flex flex-col gap-5">
+          <div class="reveal reveal-delay-2">
+            <h3 class="font-sans font-semibold text-warm-white mb-2">Brands We Install</h3>
+            <ul class="text-body-sm text-stone space-y-1">
+              <li>Sonos Outdoor (Era 100 Outdoor, Outdoor by Sonos)</li>
+              <li>Polk Audio Atrium series</li>
+              <li>Klipsch AW-series outdoor speakers</li>
+              <li>Landscape rock speakers for yard integration</li>
+            </ul>
+          </div>
+          <div class="reveal reveal-delay-3">
+            <h3 class="font-sans font-semibold text-warm-white mb-2">Typical Patio Setup</h3>
+            <p class="text-body-sm text-stone">Two to four ceiling or surface-mount speakers, Sonos Amp or similar, wire run clean through the patio structure, added as a zone to your home audio system. Clean, no visible hardware, controlled from your phone.</p>
+          </div>
+          <div class="reveal reveal-delay-4">
+            <h3 class="font-sans font-semibold text-warm-white mb-2">Pool Deck &amp; Yard Audio</h3>
+            <p class="text-body-sm text-stone">For areas beyond the covered patio — pool decks, fire pit areas, and open yards — we use in-ground speakers or rock-style landscape speakers that blend into the surroundings and sound better than they look.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Outdoor TV -->
+  <section class="section bg-charcoal">
+    <div class="container-main">
+      <p class="overline mb-3 reveal">Outdoor Television</p>
+      <h2 class="font-display text-h2 text-warm-white mb-6 reveal reveal-delay-1">
+        Outdoor TV Installation for Covered Patios and Outdoor Kitchens
+      </h2>
+      <div class="grid grid-cols-1 lg:grid-cols-2 gap-12 items-start">
+        <div>
+          <p class="text-body-lg text-stone mb-6 reveal reveal-delay-2">
+            Not every TV marketed as "outdoor" is actually built for outdoor use in a Texas climate. Some are repurposed commercial displays or indoor TVs with weatherproof housing bolted on. We install SunBrite outdoor TVs — displays purpose-built for outdoor environments, with anti-glare screens, weatherproof enclosures, and thermal management designed for the heat load of a San Antonio summer.
+          </p>
+          <p class="text-body text-stone mb-6 reveal reveal-delay-3">
+            The right model depends on your specific installation. A shaded covered patio needs a different brightness spec than a south-facing wall that gets afternoon sun. We assess the sun exposure and mounting conditions during the consultation and recommend the right display for the location.
+          </p>
+          <p class="text-body text-stone reveal reveal-delay-4">
+            Installation is clean — no visible wiring. We route cables through the wall or patio structure, mount the TV at the right height and angle for how you actually use the space, and connect it to your AV system or a dedicated outdoor streaming setup. Apple TV, Fire TV, and similar devices all work in protected outdoor enclosures if needed.
+          </p>
+        </div>
+        <div class="flex flex-col gap-5">
+          <div class="reveal reveal-delay-2">
+            <h3 class="font-sans font-semibold text-warm-white mb-2">SunBrite Outdoor TVs</h3>
+            <p class="text-body-sm text-stone">Full-sun and partial-sun models available. Anti-glare screens, weatherproof housing, built-in heating elements for cold nights. The standard we install for covered patios, outdoor kitchens, and pool-facing walls.</p>
+          </div>
+          <div class="reveal reveal-delay-3">
+            <h3 class="font-sans font-semibold text-warm-white mb-2">Outdoor Kitchen Integration</h3>
+            <p class="text-body-sm text-stone">TV and audio designed around the outdoor kitchen layout. We work with the structure as-built and route everything clean — cable management is part of every install, not an afterthought.</p>
+          </div>
+          <div class="reveal reveal-delay-4">
+            <h3 class="font-sans font-semibold text-warm-white mb-2">No Visible Wiring</h3>
+            <p class="text-body-sm text-stone">Every outdoor TV installation we do has clean wire management. Cables run through the structure or conduit — never draped down the wall. Same standards we hold indoor installs to.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Outdoor Theater -->
+  <section class="section bg-slate-surface">
+    <div class="container-main">
+      <p class="overline mb-3 reveal">Outdoor Theater</p>
+      <h2 class="font-display text-h2 text-warm-white mb-6 reveal reveal-delay-1">
+        Outdoor Movie Nights Under Your Covered Patio
+      </h2>
+      <div class="grid grid-cols-1 lg:grid-cols-2 gap-12 items-start">
+        <div>
+          <p class="text-body-lg text-stone mb-6 reveal reveal-delay-2">
+            A covered patio is almost perfect for an outdoor projector theater. The patio cover handles the ambient light problem, protects the projector, and gives you a ceiling mount point. Add a Screen Innovations motorized screen and outdoor surround sound and you have a legitimate movie theater outside — the kind that makes your house the destination on summer Friday nights.
+          </p>
+          <p class="text-body text-stone mb-6 reveal reveal-delay-3">
+            We ceiling-mount the projector under the patio cover, run cabling clean through the patio structure, and pair it with a Screen Innovations outdoor screen — either fixed-frame or motorized depending on how the space is used. When you want to watch, the screen drops. When you're done, it goes back up and the space is your patio again.
+          </p>
+          <p class="text-body text-stone reveal reveal-delay-4">
+            Audio for an outdoor theater needs to account for open space — sound doesn't bounce around the way it does in a room. We design speaker placement accordingly: typically a front pair under the patio with surround speakers positioned around the seating area. The result is audio that feels immersive outside without being loud enough to bother the neighbors.
+          </p>
+        </div>
+        <div class="flex flex-col gap-5">
+          <div class="reveal reveal-delay-2">
+            <h3 class="font-sans font-semibold text-warm-white mb-2">Screen Innovations Outdoor Screens</h3>
+            <p class="text-body-sm text-stone">Fixed-frame and motorized outdoor screens designed for ambient light environments. The motorized option drops when you want it and retracts when you don't — the patio stays functional either way.</p>
+          </div>
+          <div class="reveal reveal-delay-3">
+            <h3 class="font-sans font-semibold text-warm-white mb-2">Projector Selection</h3>
+            <p class="text-body-sm text-stone">Outdoor projector setups need more lumens than indoor theater projectors because you're competing with ambient light even on a covered patio at night. We spec the right projector for the throw distance and light conditions in your specific space.</p>
+          </div>
+          <div class="reveal reveal-delay-4">
+            <h3 class="font-sans font-semibold text-warm-white mb-2">Typical Outdoor Theater Package</h3>
+            <p class="text-body-sm text-stone">Ceiling-mounted projector, Screen Innovations 120" motorized outdoor screen, four weatherproof speakers (stereo or surround), Sonos or standalone AV receiver, clean cabling through patio structure. Starts around $7,000–$9,000 installed.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Multi-Zone Audio -->
+  <section class="section bg-charcoal">
+    <div class="container-main">
+      <p class="overline mb-3 reveal">Multi-Zone Audio</p>
+      <h2 class="font-display text-h2 text-warm-white mb-6 reveal reveal-delay-1">
+        Kitchen → Patio → Pool Deck → Yard. One System, Every Zone.
+      </h2>
+      <div class="grid grid-cols-1 lg:grid-cols-2 gap-12 items-start">
+        <div>
+          <p class="text-body-lg text-stone mb-6 reveal reveal-delay-2">
+            The most compelling outdoor audio setup isn't just patio speakers — it's audio that flows naturally from inside the house to the covered patio to the pool deck to the yard, with each zone independently controllable. Music plays everywhere without dropping out as you move through the property. Each zone has its own volume. You can sync them or run them separately.
+          </p>
+          <p class="text-body text-stone mb-6 reveal reveal-delay-3">
+            Sonos is the platform we most commonly use for multi-zone whole-property audio. It's reliable, it sounds good, and the app is genuinely easy to use. The outdoor zones — patio, pool deck, yard — integrate with the same app as every room inside. If you already have Sonos in the house, we extend it. If you're starting fresh, we design the whole system.
+          </p>
+          <p class="text-body text-stone reveal reveal-delay-4">
+            For larger properties or higher-end audio requirements, we also install Anthem, Klipsch, and commercial-grade distribution systems. We'll recommend what makes sense for your property size, the number of zones, and how serious you are about audio quality. Most San Antonio homeowners are well-served by a Sonos-based system. Some want more. We do both.
+          </p>
+        </div>
+        <div class="flex flex-col gap-5">
+          <div class="reveal reveal-delay-2">
+            <h3 class="font-sans font-semibold text-warm-white mb-2">Example Multi-Zone Property Layout</h3>
+            <ul class="text-body-sm text-stone space-y-2">
+              <li><span class="text-warm-white">Zone 1:</span> Kitchen / Living Room (existing or new)</li>
+              <li><span class="text-warm-white">Zone 2:</span> Covered Patio (ceiling or surface speakers)</li>
+              <li><span class="text-warm-white">Zone 3:</span> Pool Deck (in-ground or surface speakers)</li>
+              <li><span class="text-warm-white">Zone 4:</span> Yard / Fire Pit (rock or in-ground speakers)</li>
+            </ul>
+          </div>
+          <div class="reveal reveal-delay-3">
+            <h3 class="font-sans font-semibold text-warm-white mb-2">Contractor Coordination</h3>
+            <p class="text-body-sm text-stone">If you're mid-construction on a pool or deck project, this is the best time to call us. We coordinate with your contractor to run conduit and speaker wire before concrete gets poured. It saves money and produces a cleaner result than retrofitting after the fact.</p>
+          </div>
+          <div class="reveal reveal-delay-4">
+            <h3 class="font-sans font-semibold text-warm-white mb-2">Working With Your Contractor</h3>
+            <p class="text-body-sm text-stone">Did your pool builder or deck contractor mention AV? Most don't bring it up. We work with contractors all over San Antonio — if you're in the planning or construction phase, have them call us. We'll coordinate directly and make sure the infrastructure is in place before it gets covered up.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <FAQAccordion
+    heading="Outdoor Entertainment Systems — Frequently Asked Questions"
+    faqs={faqs}
+  />
+
+  <CTASection
+    heading="Book Your Free Outdoor AV Consultation"
+    body="We come to your property, look at the patio, pool, and yard, and design an outdoor entertainment system that works for how you actually live outside. No charge, no obligation."
+    ctaLabel="Book a Free Outdoor AV Consultation"
+    ctaHref="/contact-kz-audio-video-san-antonio-tx/"
+    secondaryLabel="Call (210) 981-4098"
+    secondaryHref="tel:2109814098"
+  />
+
+</BaseLayout>

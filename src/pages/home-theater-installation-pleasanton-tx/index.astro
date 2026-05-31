@@ -1,0 +1,206 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import HeroSection from '../../components/sections/HeroSection.astro';
+import TrustBar from '../../components/sections/TrustBar.astro';
+import FAQAccordion from '../../components/sections/FAQAccordion.astro';
+import CTASection from '../../components/sections/CTASection.astro';
+
+const schema = {
+  "@context": "https://schema.org",
+  "@type": "Service",
+  "name": "Home Theater Installation Pleasanton TX",
+  "provider": {
+    "@type": "LocalBusiness",
+    "@id": "https://kzaudioandvideo.com/#business",
+    "name": "KZ Audio & Video",
+    "url": "https://kzaudioandvideo.com",
+    "telephone": "+12109814098"
+  },
+  "areaServed": "Pleasanton, TX",
+  "serviceType": "Home Theater Installation",
+  "description": "Custom home theater and AV installation in Pleasanton TX and Atascosa County. Dedicated theaters, whole-house audio, and outdoor AV for custom homes on acreage. KZ Audio & Video, in business since 1997.",
+  "url": "https://kzaudioandvideo.com/home-theater-installation-pleasanton-tx/"
+};
+
+const breadcrumb = {
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": [
+    { "@type": "ListItem", "position": 1, "name": "Home", "item": "https://kzaudioandvideo.com" },
+    { "@type": "ListItem", "position": 2, "name": "Home Theater Installation Pleasanton TX" }
+  ]
+};
+
+const faqs = [
+  {
+    question: "Do you serve Pleasanton and Atascosa County?",
+    answer: "Yes. We make the trip south to Pleasanton regularly. Atascosa County custom homes — particularly the larger ranch and acreage properties — are exactly the kind of projects we specialize in. The consultation is always free and we always come to you, whether you're in town or out on a property on US-281.",
+  },
+  {
+    question: "What does home theater installation cost in Pleasanton?",
+    answer: "A media room setup — a large 4K display, Dolby Atmos surround, and clean hidden wiring — typically runs $5,000–$12,000. A dedicated home theater room with 4K laser projection, full Dolby Atmos, and tiered seating runs $15,000–$40,000. A premium theater with laser projection, motorized seating, and full automation runs $40,000–$80,000+. We quote after seeing the room — the size and layout of the space determines the system design, and we never quote blind.",
+  },
+  {
+    question: "Can you install a home theater in a custom ranch home on acreage?",
+    answer: "Yes, and ranch and custom acreage homes are some of our best-suited projects. Larger floor plans give us room to design properly — dedicated theater spaces, dedicated equipment rooms, multi-zone whole-house audio distributed across a large footprint. We're comfortable with the longer cable runs, the outbuilding wiring, and the outdoor AV requirements that come with a larger property.",
+  },
+  {
+    question: "Do you do outdoor AV for covered patios and outdoor entertainment areas?",
+    answer: "Absolutely. Covered outdoor living spaces, outdoor kitchens, pool and hot tub areas — outdoor AV is one of our most common requests in this part of South Texas. We spec weatherproof speakers, outdoor-rated displays, and projector setups built to hold up in the Texas heat and UV. Outdoor zones tie directly into your whole-house system and are controlled from the same app.",
+  },
+  {
+    question: "Can you wire a new custom home build in Atascosa County?",
+    answer: "Yes. If your home is still in framing or rough-in, we can run all low-voltage cabling — speaker wire, HDMI, network, security camera cable — before the walls close. Pre-wire is always the most cost-effective approach and gives you the cleanest final result. We coordinate directly with your builder and handle everything from rough-in through final calibration and the homeowner walkthrough.",
+  },
+  {
+    question: "What's the best system for a large great room or open-plan living space?",
+    answer: "A large open-plan great room has specific acoustic challenges — high ceilings, hard surfaces, and large volume all work against surround sound performance. We spec Dolby Atmos systems with in-ceiling height channels, which are particularly effective in vaulted and open spaces. For display, a large 85\"–98\" TV or a short-throw projector works well depending on ambient light. We'll assess the room and recommend the right approach for the specific space.",
+  },
+];
+---
+
+<BaseLayout
+  title="Home Theater Installation Pleasanton TX | KZ Audio & Video"
+  description="Custom home theater installation in Pleasanton TX and Atascosa County. Dedicated theaters, whole-house audio, and outdoor AV for ranch homes and custom builds. Call (210) 981-4098."
+  schema={[schema, breadcrumb]}
+>
+
+  <HeroSection
+    overline="Pleasanton · Atascosa County · South of San Antonio"
+    heading="Home Theater Installation in Pleasanton, TX"
+    subhead="Atascosa County custom homes and ranch properties deserve a proper AV system. KZ Audio & Video installs dedicated home theaters, whole-house audio, and outdoor AV in Pleasanton and the surrounding area — no subcontractors, free in-home consultation."
+    ctaLabel="Book a Free Consultation"
+    ctaHref="/contact-kz-audio-video-san-antonio-tx/"
+    secondaryCta="Call (210) 981-4098"
+    secondaryHref="tel:2109814098"
+    imageSrc="/images/projects/monty-theater/Home-Theater-Design-Build-Near-San-Antonio-Texas.jpeg.jpg"
+    imageAlt="Custom home theater installation in Pleasanton Texas Atascosa County"
+    compact={true}
+  />
+
+  <TrustBar />
+
+  <!-- Local context -->
+  <section class="section bg-slate-surface">
+    <div class="container-main">
+      <p class="overline mb-3 reveal">Pleasanton, TX — Atascosa County</p>
+      <h2 class="font-display text-h2 text-warm-white mb-6 reveal reveal-delay-1">
+        Custom Homes, Ranch Properties, and a Growing Bedroom Community
+      </h2>
+      <div class="grid grid-cols-1 lg:grid-cols-2 gap-12">
+        <div>
+          <p class="text-body-lg text-stone mb-6 reveal reveal-delay-2">
+            Pleasanton is the Atascosa County seat, sitting about 40 miles south of San Antonio on US-281. It's a community built on agriculture, ranching, and the oil and gas industry — Eagle Ford Shale activity has brought significant economic activity to the region, and the custom homes on acreage throughout the county reflect that. When Pleasanton homeowners build, they build well.
+          </p>
+          <p class="text-body text-stone mb-6 reveal reveal-delay-3">
+            The area is also growing as a San Antonio bedroom community. The US-281 corridor is a manageable commute, and the property values in Atascosa County give buyers substantially more square footage and acreage for their dollar than comparable SA metro locations. That growth has brought a new wave of custom construction — larger homes with dedicated media rooms, game rooms, and outdoor living areas designed for the Texas climate.
+          </p>
+          <p class="text-body text-stone reveal reveal-delay-3">
+            Jourdanton is 10 miles to the south. Kenedy is further south along US-281. We serve the entire Atascosa County area — if you're in this part of South Texas, we come to you. The consultation is free and includes a written quote before any work begins.
+          </p>
+        </div>
+        <div class="flex flex-col gap-6">
+          <div class="card p-6 reveal reveal-delay-2">
+            <h3 class="font-sans font-semibold text-warm-white mb-2">Ranch & Acreage Homes</h3>
+            <p class="text-body-sm text-stone">Large Atascosa County properties with long cable runs, multiple buildings, and expansive outdoor living areas are a good fit for our team. We handle the scope — longer wire runs, outbuilding wiring, multi-zone outdoor audio — without issue.</p>
+          </div>
+          <div class="card p-6 reveal reveal-delay-3">
+            <h3 class="font-sans font-semibold text-warm-white mb-2">New Construction Pre-Wire</h3>
+            <p class="text-body-sm text-stone">If your custom Atascosa County home is still in framing or rough-in, we can run all low-voltage cabling before the walls close. This is always the most cost-effective approach — contact us as early in the build as possible.</p>
+          </div>
+          <div class="card p-6 reveal reveal-delay-4">
+            <h3 class="font-sans font-semibold text-warm-white mb-2">Outdoor Living Systems</h3>
+            <p class="text-body-sm text-stone">Covered patios, outdoor kitchens, and entertainment areas are a natural fit for South Texas living. We install weatherproof speakers, outdoor TVs, and projector setups built to last in the heat and UV conditions of the area.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Services -->
+  <section class="section">
+    <div class="container-main">
+      <p class="overline mb-3 reveal">What We Install in Pleasanton</p>
+      <h2 class="font-display text-h2 text-warm-white mb-6 reveal reveal-delay-1">
+        Every AV Service for Atascosa County Homes
+      </h2>
+      <div class="grid grid-cols-1 sm:grid-cols-2 gap-6">
+        {[
+          {
+            title: "Dedicated Home Theater",
+            desc: "4K laser projection, Dolby Atmos surround, tiered seating, acoustic treatment, and full automation. Custom homes in Atascosa County often have a dedicated media or game room that's perfect for a full theater build — we design the system around the room, not the other way around.",
+          },
+          {
+            title: "Media Room & Great Room AV",
+            desc: "A large 4K display — 85\" to 98\" — with a quality Dolby Atmos sound system and clean hidden wiring transforms a great room into a genuinely impressive viewing space. This is the right move for homes where the main living area does double duty as the primary entertainment space.",
+          },
+          {
+            title: "Whole-House Audio",
+            desc: "Multi-zone Sonos in-ceiling speaker systems distributed throughout a large floor plan — main living areas, kitchen, master suite, game room, and covered patio — all controlled from one app. Especially effective in the larger Atascosa County custom homes where a single-zone system can't cover the footprint.",
+          },
+          {
+            title: "Outdoor AV",
+            desc: "Covered porches, outdoor kitchens, pool areas, and extended outdoor living spaces with weatherproof speakers and outdoor TVs. We design outdoor systems to handle the South Texas climate and tie all outdoor zones into your whole-house control system.",
+          },
+        ].map(({ title, desc }) => (
+          <div class="card p-7 reveal">
+            <h3 class="font-sans font-semibold text-h4 text-warm-white mb-3">{title}</h3>
+            <p class="text-body text-stone leading-relaxed">{desc}</p>
+          </div>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <!-- Why KZ -->
+  <section class="section bg-slate-surface">
+    <div class="container-main">
+      <p class="overline mb-3 reveal">Why KZ Audio & Video</p>
+      <h2 class="font-display text-h2 text-warm-white mb-6 reveal reveal-delay-1">
+        The Same Team Since 1997. We Come to You.
+      </h2>
+      <div class="grid grid-cols-1 lg:grid-cols-2 gap-12">
+        <div>
+          <p class="text-body-lg text-stone mb-6 reveal reveal-delay-2">
+            KZ Audio & Video has been installing AV systems in the San Antonio area since 1997. Kelly, Billy, and Julian are the team. They handle the consultation, design the system, do the installation, and answer the phone afterward. We don't use subcontractors — ever.
+          </p>
+          <p class="text-body text-stone mb-6 reveal reveal-delay-3">
+            For Pleasanton and Atascosa County clients, that means the same people who designed your system show up to install it. We've built a reputation in this business over nearly 30 years by being straightforward about what we recommend and why. If a particular component or approach isn't the right fit for your situation, we'll tell you.
+          </p>
+          <p class="text-body text-stone reveal reveal-delay-3">
+            We hold a 5.0 Google rating because every recommendation we make is in the client's interest — not the invoice. We'll quote a phased project if that makes sense financially, recommend a mid-range solution when it delivers the same real-world performance as a premium one, and be honest about what a space can and can't do acoustically before a dollar is spent.
+          </p>
+        </div>
+        <div class="flex flex-col gap-6">
+          <div class="card p-6 reveal reveal-delay-2">
+            <h3 class="font-sans font-semibold text-warm-white mb-2">Free In-Home Consultation</h3>
+            <p class="text-body-sm text-stone">We come to your Pleasanton property, walk the space, and give you a written quote. No charge for the consultation and no sales pressure on the quote. We drive to Atascosa County regularly.</p>
+          </div>
+          <div class="card p-6 reveal reveal-delay-3">
+            <h3 class="font-sans font-semibold text-warm-white mb-2">No Subcontractors</h3>
+            <p class="text-body-sm text-stone">Kelly, Billy, and Julian do every install. The person who designs the system is the one who installs it. That level of continuity is important on larger acreage properties where the complexity requires real experience.</p>
+          </div>
+          <div class="card p-6 reveal reveal-delay-4">
+            <h3 class="font-sans font-semibold text-warm-white mb-2">Post-Install Support</h3>
+            <p class="text-body-sm text-stone">When something needs attention after the install — and eventually something always does — you call the same number and reach the same people. No ticket system, no third-party service dispatch.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <FAQAccordion
+    heading="Home Theater Installation Pleasanton TX — Frequently Asked Questions"
+    faqs={faqs}
+  />
+
+  <CTASection
+    heading="Ready to Get Started in Pleasanton?"
+    body="Book a free consultation. We'll come to your Atascosa County home or property, assess the space, and design a system that fits how you live in it."
+    ctaLabel="Book a Free Consultation"
+    ctaHref="/contact-kz-audio-video-san-antonio-tx/"
+    secondaryLabel="Call (210) 981-4098"
+    secondaryHref="tel:2109814098"
+  />
+
+</BaseLayout>

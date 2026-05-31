@@ -1,0 +1,209 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import HeroSection from '../../components/sections/HeroSection.astro';
+import TrustBar from '../../components/sections/TrustBar.astro';
+import FAQAccordion from '../../components/sections/FAQAccordion.astro';
+import CTASection from '../../components/sections/CTASection.astro';
+
+const schema = {
+  "@context": "https://schema.org",
+  "@type": "Service",
+  "name": "Home Theater Installation Floresville TX",
+  "provider": {
+    "@type": "LocalBusiness",
+    "@id": "https://kzaudioandvideo.com/#business",
+    "name": "KZ Audio & Video",
+    "url": "https://kzaudioandvideo.com",
+    "telephone": "+12109814098"
+  },
+  "areaServed": "Floresville, TX",
+  "serviceType": "Home Theater Installation",
+  "url": "https://kzaudioandvideo.com/home-theater-installation-floresville-tx/"
+};
+
+const breadcrumb = {
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": [
+    { "@type": "ListItem", "position": 1, "name": "Home", "item": "https://kzaudioandvideo.com" },
+    { "@type": "ListItem", "position": 2, "name": "Home Theater Installation Floresville TX" }
+  ]
+};
+
+const faqs = [
+  {
+    question: "Do you travel to Floresville for home theater consultations?",
+    answer: "Yes. Floresville is about 30 miles southeast of San Antonio on US-181 — well within our regular service area. The consultation is free. We come to your home, look at the space, talk through what you want, and give you a real number. No charge, no obligation. Wilson County has been part of our service area for years.",
+  },
+  {
+    question: "What's a typical home theater project for a custom home in Floresville?",
+    answer: "Custom homes on acreage in Wilson County typically have a bonus room or dedicated media room that becomes the theater. A common project includes a 4K projector, a 120\" or 135\" fixed-frame or motorized screen, 7.1 surround sound with in-wall or on-wall speakers, a quality AV receiver, and a streaming source. More involved builds add Dolby Atmos height channels, acoustic treatment, and a lighting control system. We design around what the room can realistically do and what your goals actually are.",
+  },
+  {
+    question: "Can you also install whole-house audio and outdoor speakers in Floresville?",
+    answer: "Yes. We design and install full-property AV systems — indoor multi-zone audio, home theater, outdoor speakers for covered porches and patios, and outdoor TV or projector setups. Properties in Wilson County often have the outdoor living infrastructure (covered patios, outdoor kitchens, pools) that makes whole-property audio a natural extension. We can scope it all in one project or phase it over time.",
+  },
+  {
+    question: "Do you handle pre-wire for new construction in Wilson County?",
+    answer: "Yes, and new construction is the best time to call us. Before drywall closes, we run in-wall speaker wire, HDMI and low-voltage conduit, and plan equipment room or closet locations. It's significantly less expensive to do it now than to retrofit after the fact, and the result is cleaner. We work with builders and GCs throughout Wilson County and coordinate directly with your construction team.",
+  },
+  {
+    question: "What equipment brands do you install in Floresville?",
+    answer: "For home theater we install Epson, Sony, and JVC projectors; Screen Innovations screens; Martin Logan, Klipsch, and Polk Audio speakers; Denon, Marantz, and Anthem receivers. For whole-house audio we primarily use Sonos. For outdoor AV, Sonos Outdoor, Polk Atrium, and SunBrite outdoor TVs. We're not brand-exclusive — we recommend what's right for the space and budget.",
+  },
+  {
+    question: "Do you serve Poth and Stockdale in addition to Floresville?",
+    answer: "Yes. We serve Wilson County including Floresville, Poth, Stockdale, and the surrounding area. If you're on a rural property or custom home in Wilson County, we make the drive. The free consultation applies wherever you are in the county.",
+  },
+];
+---
+
+<BaseLayout
+  title="Home Theater Installation Floresville TX | KZ Audio & Video"
+  description="Home theater and AV installation in Floresville TX and Wilson County. Custom homes on acreage, new construction pre-wire, outdoor AV. In the business since 1997. Call (210) 981-4098."
+  schema={[schema, breadcrumb]}
+>
+
+  <HeroSection
+    overline="Home Theater Installation · Floresville TX · Wilson County · Since 1997"
+    heading="Home Theater Installation in Floresville, TX"
+    subhead="KZ Audio & Video serves Floresville and Wilson County. Custom home theater, whole-house audio, and outdoor AV for custom homes on acreage — designed and installed by the same team that's been doing this in the San Antonio area since 1997. We come to you."
+    ctaLabel="Book a Free Consultation"
+    ctaHref="/contact-kz-audio-video-san-antonio-tx/"
+    secondaryCta="Or call: (210) 981-4098"
+    secondaryHref="tel:2109814098"
+    imageSrc="/images/projects/asanka-theater/theater-room-san-antonio-tx.jpg"
+    imageAlt="Custom home theater installation in Floresville Texas Wilson County"
+  />
+
+  <TrustBar />
+
+  <!-- Local Context -->
+  <section class="section bg-charcoal">
+    <div class="container-main">
+      <p class="overline mb-3 reveal">Serving Wilson County</p>
+      <h2 class="font-display text-h2 text-warm-white mb-8 reveal reveal-delay-1">
+        Floresville Is Growing — And the Custom Homes Being Built Here Deserve Real AV
+      </h2>
+      <div class="grid grid-cols-1 lg:grid-cols-2 gap-12">
+        <div>
+          <p class="text-body-lg text-stone mb-6 reveal reveal-delay-2">
+            Floresville sits about 30 miles southeast of San Antonio on US-181 — the Wilson County seat, known historically for peanut farming and agriculture, and increasingly a bedroom community for San Antonio workers who want land and space without paying Bexar County prices. The custom homes going up in Wilson County on large lots and acreage are serious builds: dedicated office spaces, bonus rooms, outdoor kitchens, covered porches. The AV side deserves the same level of attention.
+          </p>
+          <p class="text-body text-stone mb-6 reveal reveal-delay-3">
+            Competition for quality AV services is lighter in Wilson County than in the core San Antonio market — which means when you find a contractor who does this right, it's worth holding onto them. KZ Audio &amp; Video has served homeowners in this part of South Texas for years. We know the area, we know the property types, and we make the drive. The consultation is free.
+          </p>
+          <p class="text-body text-stone reveal reveal-delay-4">
+            We also serve Poth, Stockdale, and surrounding Wilson County communities. If you're on a property southeast of San Antonio, we cover you.
+          </p>
+        </div>
+        <div class="flex flex-col gap-6">
+          <div class="reveal reveal-delay-2">
+            <h3 class="font-sans font-semibold text-warm-white mb-2">Custom Homes on Large Lots</h3>
+            <p class="text-body-sm text-stone">The acreage properties and custom builds in Wilson County give you the space to do AV right — dedicated rooms, outdoor zones, and whole-property audio that works at real scale. We design systems around what the property can actually do.</p>
+          </div>
+          <div class="reveal reveal-delay-3">
+            <h3 class="font-sans font-semibold text-warm-white mb-2">Bedroom Community Growth</h3>
+            <p class="text-body-sm text-stone">Floresville residents often work in San Antonio but build or buy in Wilson County for the space and value. Many are purchasing or building their first serious custom home. Pre-wire during construction is the best investment you can make in the AV side — and we work with your builder to get it done.</p>
+          </div>
+          <div class="reveal reveal-delay-4">
+            <h3 class="font-sans font-semibold text-warm-white mb-2">No Subcontractors — Same Team Every Time</h3>
+            <p class="text-body-sm text-stone">Kelly, Billy, and Julian do every install. You're not getting a crew you've never met. The same people who spec the system show up to build it, and they're reachable directly if something ever needs attention.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Services -->
+  <section class="section bg-slate-surface">
+    <div class="container-main">
+      <p class="overline mb-3 reveal">What We Install in Floresville</p>
+      <h2 class="font-display text-h2 text-warm-white mb-10 reveal reveal-delay-1">
+        Full-Property AV for Wilson County Homes
+      </h2>
+      <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
+        {[
+          {
+            title: "Dedicated Home Theater Rooms",
+            desc: "Projector and screen systems, 7.1 or Dolby Atmos surround sound, in-wall speakers, acoustic treatment, and AV receiver — designed for a purpose-built theater room in a custom home on acreage.",
+          },
+          {
+            title: "Living Room & Media Room",
+            desc: "Large-screen display, real surround sound, clean wire management, and streaming integration for existing rooms. A significant upgrade from a soundbar. A completely different experience.",
+          },
+          {
+            title: "Whole-House Audio",
+            desc: "Multi-zone audio throughout the home using Sonos or a custom distribution system. Living areas, bedrooms, covered porches, and outdoor zones — all controlled from one app.",
+          },
+          {
+            title: "Outdoor Entertainment",
+            desc: "Covered porch and patio speakers, outdoor TVs, and projector setups for outdoor living areas. Weatherproof and UV-rated equipment that holds up in South Texas heat and humidity.",
+          },
+          {
+            title: "Surround Sound Installation",
+            desc: "In-wall and in-ceiling speaker installation in living rooms and media spaces. From a clean 5.1 to full Atmos — designed for the specific room dimensions and layout.",
+          },
+          {
+            title: "Pre-Wire & New Construction",
+            desc: "Speaker wire, HDMI, and low-voltage conduit during construction — before drywall closes. Coordinate directly with your builder. The most cost-effective approach by a wide margin.",
+          },
+        ].map(({ title, desc }) => (
+          <div class="card p-7 flex flex-col gap-3">
+            <h3 class="font-sans font-semibold text-h4 text-warm-white">{title}</h3>
+            <p class="text-body-sm text-stone leading-relaxed">{desc}</p>
+          </div>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <!-- Why KZ -->
+  <section class="section bg-charcoal">
+    <div class="container-main">
+      <p class="overline mb-3 reveal">Why KZ Audio &amp; Video</p>
+      <h2 class="font-display text-h2 text-warm-white mb-8 reveal reveal-delay-1">
+        Twenty-Seven Years of AV Installs in South Texas
+      </h2>
+      <div class="grid grid-cols-1 lg:grid-cols-2 gap-12">
+        <div>
+          <p class="text-body-lg text-stone mb-6 reveal reveal-delay-2">
+            KZ Audio &amp; Video has been installing home AV systems in the greater San Antonio area since 1997. We started when home theater meant CRT projectors and LaserDisc, and we've been through every technology cycle since. That history isn't nostalgia — it means we've developed deep opinions about what lasts, what doesn't, and what equipment is actually worth the money at different price points.
+          </p>
+          <p class="text-body text-stone reveal reveal-delay-3">
+            Our 5.0 Google rating comes from homeowners who hired us on complex, expensive installs and came back afterward to say the work held up. For a Wilson County homeowner who wants a serious AV installation done once and done right — that track record is what you're hiring. We're not a national franchise. We're a small team that's been in this market for a long time and intends to stay here.
+          </p>
+        </div>
+        <div class="flex flex-col gap-5">
+          <div class="reveal reveal-delay-2">
+            <h3 class="font-sans font-semibold text-warm-white mb-1">In Business Since 1997</h3>
+            <p class="text-body-sm text-stone">Nearly three decades in the San Antonio market. We know the custom home builders in this region, the equipment that holds up in this climate, and what a proper AV install looks like from start to finish.</p>
+          </div>
+          <div class="reveal reveal-delay-3">
+            <h3 class="font-sans font-semibold text-warm-white mb-1">5.0 Google Rating</h3>
+            <p class="text-body-sm text-stone">Consistent across every review, across many years. Not because every install is easy — because we do the hard ones right and stand behind the work.</p>
+          </div>
+          <div class="reveal reveal-delay-4">
+            <h3 class="font-sans font-semibold text-warm-white mb-1">Free Consultation in Floresville</h3>
+            <p class="text-body-sm text-stone">We drive to Floresville and Wilson County for every consultation. Look at the space, discuss your goals, give you a real number. No charge. No obligation.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <FAQAccordion
+    heading="Home Theater Installation in Floresville TX — FAQ"
+    faqs={faqs}
+  />
+
+  <CTASection
+    heading="Ready to Get Started in Floresville?"
+    body="Book a free, no-pressure consultation. We come to your home in Floresville or anywhere in Wilson County, look at the space, and give you a real plan and a real number."
+    ctaLabel="Book a Free Consultation"
+    ctaHref="/contact-kz-audio-video-san-antonio-tx/"
+    secondaryLabel="Call (210) 981-4098"
+    secondaryHref="tel:2109814098"
+  />
+
+</BaseLayout>

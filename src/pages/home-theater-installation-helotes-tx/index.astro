@@ -1,24 +1,26 @@
-﻿---
+---
 import BaseLayout from '../../layouts/BaseLayout.astro';
 import HeroSection from '../../components/sections/HeroSection.astro';
 import TrustBar from '../../components/sections/TrustBar.astro';
-import ServicesGrid from '../../components/sections/ServicesGrid.astro';
 import ProjectsGrid from '../../components/sections/ProjectsGrid.astro';
 import TestimonialsSection from '../../components/sections/TestimonialsSection.astro';
+import FAQAccordion from '../../components/sections/FAQAccordion.astro';
 import CTASection from '../../components/sections/CTASection.astro';
 
 const schema = {
   "@context": "https://schema.org",
   "@type": "Service",
-  "name": "Home Theater Installation Helotes",
+  "name": "Home Theater Installation Helotes TX",
   "provider": {
     "@type": "LocalBusiness",
+    "@id": "https://kzaudioandvideo.com/#business",
     "name": "KZ Audio & Video",
     "url": "https://kzaudioandvideo.com",
     "telephone": "+12109814098"
   },
   "areaServed": "Helotes, TX",
-  "description": "Custom home theater and AV installation in Helotes TX and northwest San Antonio.",
+  "serviceType": "Home Theater Installation",
+  "description": "Custom home theater and AV installation in Helotes TX by KZ Audio & Video — serving northwest San Antonio since 1997. Call (210) 981-4098.",
   "url": "https://kzaudioandvideo.com/home-theater-installation-helotes-tx/"
 };
 
@@ -33,104 +35,198 @@ const breadcrumb = {
 
 const projects = [
   {
-    title: 'Dedicated Home Theater — Canyon Lake TX',
-    location: 'Canyon Lake, TX',
-    service: 'Home Theater',
-    description: 'Full theater room with custom leather power recliner seating, blue LED accent lighting, projection system, and in-wall surround sound.',
-    imageSrc: '/images/projects/monty-theater/Canyon-Lake-Tesac-Home-Theater-Custom-Seating.jpeg.jpg',
-    imageAlt: 'Custom home theater with leather recliners and blue LED lighting in Canyon Lake Texas',
+    title: "Dedicated Home Theater — Canyon Lake TX",
+    location: "Canyon Lake, TX",
+    service: "Home Theater",
+    description: "Full theater room with custom leather power recliner seating on a raised platform, blue LED accent lighting, 4K projection, and in-wall Dolby Atmos surround sound.",
+    imageSrc: "/images/projects/monty-theater/home-theater-near-san-antonio-hero.jpg",
+    imageAlt: "Custom home theater with leather recliners and blue LED lighting in Canyon Lake Texas",
+    href: "/projects/canyon-lake-dedicated-home-theater/",
   },
   {
-    title: 'Dedicated Home Theater — San Antonio TX',
-    location: 'San Antonio, TX',
-    service: 'Home Theater',
-    description: 'Epson projector, Screen Innovations fixed-frame screen, Martin Logan on-wall speakers, LED accent lighting.',
-    imageSrc: '/images/projects/asanka-theater/theater-room-san-antonio-tx.jpg',
-    imageAlt: 'Home theater installation in San Antonio Texas with projection screen and surround sound',
+    title: "New Construction Home Theater — Stone Oak TX",
+    location: "Stone Oak, San Antonio, TX",
+    service: "Home Theater",
+    description: "New construction dedicated theater room. Full pre-wire, Epson projector, Martin Logan speakers, custom leather seating platform.",
+    imageSrc: "/images/projects/young-theater/stone-oak-home-theater-hero.jpg",
+    imageAlt: "New construction home theater Stone Oak San Antonio TX",
+    href: "/projects/stone-oak-new-construction-home-theater/",
   },
 ];
 
 const featured = {
-  name: 'San Antonio Homeowner',
-  location: 'San Antonio, TX',
-  service: 'Home Theater Client — Nearly 10 Years',
-  quote: "I've been a customer of KZ Audio for going on a decade. Kelly and crew have always been great to work with. They're honest and will recommend what actually works for your situation rather than upselling you on equipment you don't need.",
+  name: "Canyon Lake Homeowner",
+  location: "Canyon Lake, TX",
+  service: "Home Theater",
+  quote: "Billy, Julien and Kelly did an outstanding job on my home theater build. From start to finish they were professional, knowledgeable, and easy to work with. The theater came out better than I had hoped.",
 };
+
+const faqs = [
+  {
+    question: "How much does home theater installation cost in Helotes, TX?",
+    answer: "Most dedicated home theater installs in Helotes fall between $15,000 and $60,000 depending on room size, projection or display choice, speaker configuration, and seating. Living-room conversions with a 75\" to 85\" TV, soundbar upgrade, or entry-level surround system start lower — around $3,000 to $8,000. We quote every project after a free in-home consultation because the room drives most of the cost. We do not quote sight unseen.",
+  },
+  {
+    question: "Do you serve Helotes? How far is it from your base?",
+    answer: "Yes. Helotes is a regular market for us — along the Bandera Road and Loop 1604 corridor in northwest San Antonio. We are based in San Antonio and have completed numerous installs in Helotes and the surrounding northwest communities including Leon Valley and the areas along Culebra Road. Drive time is not a factor for us in this area.",
+  },
+  {
+    question: "Helotes homes have large covered patios — can you install outdoor AV as well?",
+    answer: "Absolutely. Covered outdoor spaces are one of the most common add-ons we do in Helotes. A typical covered patio setup includes weatherproof in-ceiling or landscape speakers, a commercial-grade outdoor display rated for direct ambient light, and integration into a whole-house audio controller so the same music plays inside and out. We spec everything for the Texas heat — no consumer gear, nothing that fails after one summer.",
+  },
+  {
+    question: "What other AV services do you offer in Helotes?",
+    answer: "Beyond home theater, we install whole-house audio (multi-room, controlled from your phone), outdoor speaker systems for covered patios and pool areas, 4K TV mounting with concealed wiring, surround sound upgrades, home networking infrastructure, and security camera systems. Many Helotes homeowners combine a theater room with whole-house audio in a single project — we handle all of it with one crew and one point of contact.",
+  },
+  {
+    question: "Do you work with custom home builders in the Helotes area?",
+    answer: "Yes. We have active relationships with custom builders throughout the northwest San Antonio market. If you are in the pre-wire or rough-in phase on a new custom home in Helotes, now is the time to call us. Pre-wire is the most cost-effective stage to plan your theater, whole-house audio, and outdoor AV. Retrofitting conduit and wire into a finished wall always costs more than running it before drywall. We work directly with builders and homeowners at this stage.",
+  },
+  {
+    question: "How do I get started with KZ Audio & Video in Helotes?",
+    answer: "Call us at (210) 981-4098 or book through the contact form on this site. We will schedule a free in-home consultation at your Helotes property — typically within a week. At the consultation, Kelly, Billy, or Julian walks the space with you, listens to what you want, looks at the room, and gives you a straight answer on what is possible and what it will cost. No pressure, no sales pitch — just honest information so you can make a good decision.",
+  },
+];
 ---
 
 <BaseLayout
   title="Home Theater Installation Helotes TX | KZ Audio & Video"
-  description="Custom home theater and AV installation in Helotes TX and northwest San Antonio. In the audio business since 1997. Call (210) 981-4098."
+  description="Custom home theater and AV installation in Helotes TX. KZ Audio & Video — named team, no subcontractors, 5.0 Google rating, in the audio business since 1997. Call (210) 981-4098."
   schema={[schema, breadcrumb]}
 >
-
   <HeroSection
-    overline="Home Theater Installation · Helotes · Northwest San Antonio · Since 2001"
-    heading="Home Theater Installation in Helotes, TX"
-    subhead="KZ Audio & Video designs and installs custom home theaters, whole-house audio, and outdoor AV systems in Helotes and across the Northwest San Antonio. Helotes, TX — a community at the edge of San Antonio's northwest growth corridor. In the audio business since 1997."
-    ctaLabel="Book a Free Consultation"
-    ctaHref="/contact-kz-audio-video-san-antonio-tx/"
-    secondaryCta="Or call: (210) 981-4098"
-    secondaryHref="tel:2109814098"
-    imageSrc="/images/projects/asanka-theater/theater-room-san-antonio-tx.jpg"
-    imageAlt="Custom home theater installation in Helotes Texas near San Antonio"
+    heading="Home Theater Installation Helotes TX"
+    subhead="KZ Audio & Video designs and installs custom home theaters, whole-house audio, and outdoor AV systems in Helotes and across northwest San Antonio. Named team, no subcontractors, 5.0 Google rating. In the audio business since 1997."
+    imageSrc="/images/projects/monty-theater/home-theater-near-san-antonio-hero.jpg"
+    imageAlt="Custom home theater installation in Helotes Texas near San Antonio with leather recliners and 4K projection"
+    compact={true}
   />
 
   <TrustBar />
 
-  <ServicesGrid
-    intro="KZ Audio & Video serves Helotes and the surrounding Northwest San Antonio. We design, install, and service custom home AV systems."
-  />
-
-  <ProjectsGrid
-    projects={projects}
-    overline="Recent Projects"
-    heading="Home Theater Installs Near Helotes"
-  />
-
-  <TestimonialsSection featured={featured} />
-
-  <!-- Helotes Local Context -->
+  <!-- Primary local content section -->
   <section class="section bg-charcoal">
     <div class="container-main">
-      <p class="overline mb-3 reveal">About Helotes</p>
+      <p class="overline mb-3 reveal">Serving Helotes, TX</p>
       <h2 class="font-display text-h2 text-warm-white mb-8 reveal reveal-delay-1">
-        Northwest San Antonio's Best-Kept Secret for Custom Homes
+        Northwest San Antonio's Custom Home Market Deserves Custom AV
       </h2>
       <div class="grid grid-cols-1 lg:grid-cols-2 gap-12 mb-12">
         <div>
           <p class="text-body-lg text-stone mb-6 reveal reveal-delay-2">
-            Helotes sits right at the edge of San Antonio's northwest corridor — close enough to the city to be convenient, far enough out for large lots and Hill Country character. It's a community where established custom neighborhoods sit alongside newer construction, and the homes tend to have the room layouts that dedicated theater builds are designed for.
+            Helotes sits at the western edge of San Antonio's northwest growth corridor — along Loop 1604 and Bandera Road, backed up against the Medina River basin and the Leon Creek greenbelt. It has the feel of a small Texas town while being fifteen minutes from everything the city offers. The homes reflect that balance: large lots, ranch-style footprints, and more recently, custom builds with the kind of room layouts that dedicated theater installs are designed for.
+          </p>
+          <p class="text-body text-stone mb-6 reveal reveal-delay-2">
+            We have done a significant amount of work in this part of the city over the years. Helotes homeowners tend to be deliberate buyers — they research the equipment, they know what they want, and they expect the install to be done right. That is exactly how we work. Kelly has been in the audio business since 1997. Billy and Julian round out the install crew. Every project in Helotes is handled by this team — nobody is subcontracted, no day-labor crew shows up to run your wire.
           </p>
           <p class="text-body text-stone reveal reveal-delay-3">
-            We've done a lot of work in the northwest quadrant over the years — Helotes, Leon Valley, the communities along Culebra and Bandera Road — and Helotes consistently has some of the most serious custom home buyers we meet. These homeowners know what they want and want it done right. That's exactly how we work.
+            Whether you are in one of the established ranch-style neighborhoods off Bandera Road or in a newer custom build near John T. Floore Country Store, the square footage and room layouts we see in Helotes consistently support serious theater builds. Dedicated media rooms, bonus rooms over garages, and detached casitas are all common in this market. The covered back patio is nearly universal here — and a covered outdoor living space with quality audio and a weatherproof display is one of the highest-return projects we do in this area.
           </p>
         </div>
         <div class="flex flex-col gap-6">
           <div class="reveal reveal-delay-2">
-            <h3 class="font-sans font-semibold text-warm-white mb-2">One Team, Every Install</h3>
-            <p class="text-body-sm text-stone">Every Helotes install is done by Kelly, Billy, or Julian. You deal with the same people from the first call through the final walkthrough.</p>
+            <h3 class="font-sans font-semibold text-warm-white mb-2">One Team for the Entire Project</h3>
+            <p class="text-body-sm text-stone">Kelly, Billy, and Julian handle everything — design, installation, and follow-up service. You will deal with the same three people from the first call through the final walkthrough. No subcontractors, no strangers in your home.</p>
           </div>
           <div class="reveal reveal-delay-3">
-            <h3 class="font-sans font-semibold text-warm-white mb-2">Northwest SA Is Our Backyard</h3>
-            <p class="text-body-sm text-stone">We're based in San Antonio and do a significant share of our work on the northwest side. Helotes is not a long-drive market for us — it's a regular stop, and we're there often.</p>
+            <h3 class="font-sans font-semibold text-warm-white mb-2">Northwest San Antonio Is Our Regular Territory</h3>
+            <p class="text-body-sm text-stone">Helotes is not a long-haul job for us. We are in this market regularly — along Bandera Road, Culebra Road, and the communities hugging Loop 1604. We know the neighborhoods and we know the homes.</p>
           </div>
           <div class="reveal reveal-delay-4">
-            <h3 class="font-sans font-semibold text-warm-white mb-2">Free Consultation — Always</h3>
-            <p class="text-body-sm text-stone">We come to your Helotes home, look at the space, and give you a straight answer about what's possible and what it costs. No charge, no obligation.</p>
+            <h3 class="font-sans font-semibold text-warm-white mb-2">Builder Pre-Wire Coordination</h3>
+            <p class="text-body-sm text-stone">If your Helotes home is under construction, call us before drywall. Pre-wire is the most cost-effective phase to plan your theater, whole-house audio, and outdoor AV. We coordinate directly with builders and GCs.</p>
+          </div>
+          <div class="reveal reveal-delay-4">
+            <h3 class="font-sans font-semibold text-warm-white mb-2">5.0 Google Rating</h3>
+            <p class="text-body-sm text-stone">Every review we have earned reflects a real install by the same team. We do not inflate ratings with volume marketing — we earn them one project at a time.</p>
           </div>
         </div>
       </div>
     </div>
   </section>
 
+  <!-- Services section with Helotes angle -->
+  <section class="section bg-slate-surface">
+    <div class="container-main">
+      <p class="overline mb-3 reveal">What We Install in Helotes</p>
+      <h2 class="font-display text-h2 text-warm-white mb-4 reveal reveal-delay-1">
+        Full-Service AV for Helotes Homes
+      </h2>
+      <p class="text-body-lg text-stone mb-12 max-w-3xl reveal reveal-delay-2">
+        Helotes homes have the space for serious audio and video systems. Here is what we install in this market.
+      </p>
+      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+        <div class="reveal reveal-delay-1">
+          <h3 class="font-sans font-semibold text-warm-white mb-3">Dedicated Home Theaters</h3>
+          <p class="text-body-sm text-stone">
+            The homes in Helotes frequently have the floor plan for a true dedicated theater room — either a purpose-built media room, a converted bonus space, or a room added during new construction. We handle the full scope: acoustic treatment, projection or large-format display, in-wall or in-ceiling speaker systems, Dolby Atmos height channels, custom seating platforms, LED accent lighting, and equipment racks. A properly built dedicated theater is the highest-performing AV room we build, and Helotes homes have the square footage to support it.
+          </p>
+        </div>
+        <div class="reveal reveal-delay-2">
+          <h3 class="font-sans font-semibold text-warm-white mb-3">Outdoor AV for Covered Patios</h3>
+          <p class="text-body-sm text-stone">
+            Covered back patios are standard in Helotes. A well-equipped outdoor space — weatherproof speakers rated for Texas summers, a commercial-grade display positioned for ambient light, and integration into the home's whole-house audio — extends your entertainment footprint beyond the living room. We spec outdoor AV correctly: commercial-rated equipment, proper weatherproofing, and wiring that will not fail after two years in the heat. No consumer gear installed outdoors.
+          </p>
+        </div>
+        <div class="reveal reveal-delay-3">
+          <h3 class="font-sans font-semibold text-warm-white mb-3">Whole-House Audio</h3>
+          <p class="text-body-sm text-stone">
+            Multi-room audio lets you play different music in different rooms — or the same music throughout the house and out to the patio — all controlled from your phone. We install systems using Sonos and Russound platforms depending on the scope of the project. This is one of the most-requested upgrades we do in the northwest market, and it integrates cleanly with outdoor speaker systems and home theater rooms.
+          </p>
+        </div>
+        <div class="reveal reveal-delay-1">
+          <h3 class="font-sans font-semibold text-warm-white mb-3">TV Mounting and Surround Sound Upgrades</h3>
+          <p class="text-body-sm text-stone">
+            Not every project needs to be a full theater build. We mount 4K displays up to 98 inches with fully concealed wiring — no surface-run conduit. We upgrade existing living rooms with 5.1 or 7.1 surround sound systems, clean up receiver setups, and add streaming infrastructure. If your current setup is underperforming, we will tell you exactly what needs to change and what does not.
+          </p>
+        </div>
+        <div class="reveal reveal-delay-2">
+          <h3 class="font-sans font-semibold text-warm-white mb-3">Home Networking Infrastructure</h3>
+          <p class="text-body-sm text-stone">
+            Modern AV systems depend on reliable networking. We install enterprise-grade wireless access points and structured wiring for homes that need consistent coverage across large floor plans — especially in Helotes where lot sizes and home footprints make consumer routers inadequate. A properly designed network is the foundation everything else runs on.
+          </p>
+        </div>
+        <div class="reveal reveal-delay-3">
+          <h3 class="font-sans font-semibold text-warm-white mb-3">Security Cameras</h3>
+          <p class="text-body-sm text-stone">
+            We install commercial-grade security camera systems for Helotes homes — fixed and PTZ cameras, NVR-based recording, remote viewing from your phone. Large lots and long driveways common to this market benefit from perimeter coverage. We integrate cameras into the same structured wiring infrastructure as your AV systems to minimize conduit runs and wall penetrations.
+          </p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Why the room matters section -->
+  <section class="section bg-charcoal">
+    <div class="container-main max-w-3xl">
+      <p class="overline mb-3 reveal">Room Design</p>
+      <h2 class="font-display text-h2 text-warm-white mb-6 reveal reveal-delay-1">
+        Why the Room Drives Every Decision in Helotes
+      </h2>
+      <p class="text-body-lg text-stone mb-6 reveal reveal-delay-2">
+        The most common mistake homeowners make when planning a home theater is starting with equipment rather than the room. Speaker placement, screen size, projector throw distance, acoustic treatment — all of it is determined by the physical space. An 11-foot ceiling behaves differently than an 8-foot ceiling. A carpeted room with soft furnishings performs differently than a tiled great room with hard walls.
+      </p>
+      <p class="text-body text-stone mb-6 reveal reveal-delay-2">
+        Helotes homes come in enough variety that no two projects are identical. A 1990s ranch-style home on a large Bandera Road lot has different constraints than a 2022 custom build with a pre-framed media room. We have worked in both. The free consultation exists for this reason — we look at the actual room before recommending anything. Dimensions, ceiling height, wall construction, window placement, existing wiring, and your budget all factor in before we write a single line item.
+      </p>
+      <p class="text-body text-stone reveal reveal-delay-3">
+        Families in Helotes who are close to SeaWorld San Antonio and who build their social lives around home entertaining understand what a quality theater room delivers. It is not about having the most expensive equipment. It is about a system tuned to the room, installed cleanly, and designed to be used by real people every day — not managed by the homeowner with a remote the size of a cutting board.
+      </p>
+    </div>
+  </section>
+
+  <ProjectsGrid projects={projects} overline="Recent Work" heading="Home Theater Projects Near Helotes" />
+
+  <TestimonialsSection featured={featured} />
+
+  <FAQAccordion heading="Home Theater Installation Helotes TX — FAQ" faqs={faqs} />
+
   <CTASection
-    heading="Ready to Get Started in Helotes?"
-    body="Book a free, no-pressure consultation. We'll come to your home in Helotes and talk through what's possible."
-    ctaLabel="Book a Free Consultation"
+    heading="Free In-Home Consultation — Helotes TX"
+    body="We come to you. Walk the space. Tell you exactly what is possible at your budget. No charge, no obligation."
+    ctaLabel="Book Your Free Consultation"
     ctaHref="/contact-kz-audio-video-san-antonio-tx/"
     secondaryLabel="Call (210) 981-4098"
     secondaryHref="tel:2109814098"
   />
-
 </BaseLayout>

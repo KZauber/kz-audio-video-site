@@ -1,24 +1,26 @@
-﻿---
+---
 import BaseLayout from '../../layouts/BaseLayout.astro';
 import HeroSection from '../../components/sections/HeroSection.astro';
 import TrustBar from '../../components/sections/TrustBar.astro';
-import ServicesGrid from '../../components/sections/ServicesGrid.astro';
 import ProjectsGrid from '../../components/sections/ProjectsGrid.astro';
 import TestimonialsSection from '../../components/sections/TestimonialsSection.astro';
+import FAQAccordion from '../../components/sections/FAQAccordion.astro';
 import CTASection from '../../components/sections/CTASection.astro';
 
 const schema = {
   "@context": "https://schema.org",
   "@type": "Service",
-  "name": "Home Theater Installation Bulverde",
+  "name": "Home Theater Installation Bulverde TX",
   "provider": {
     "@type": "LocalBusiness",
+    "@id": "https://kzaudioandvideo.com/#business",
     "name": "KZ Audio & Video",
     "url": "https://kzaudioandvideo.com",
     "telephone": "+12109814098"
   },
   "areaServed": "Bulverde, TX",
-  "description": "Custom home theater and AV installation in Bulverde TX and the North San Antonio Hill Country.",
+  "serviceType": "Home Theater Installation",
+  "description": "Custom home theater and AV installation in Bulverde TX by KZ Audio & Video — new construction pre-wire, custom builds, no subcontractors. Call (210) 981-4098.",
   "url": "https://kzaudioandvideo.com/home-theater-installation-bulverde-tx/"
 };
 
@@ -33,104 +35,198 @@ const breadcrumb = {
 
 const projects = [
   {
-    title: 'Dedicated Home Theater — Canyon Lake TX',
-    location: 'Canyon Lake, TX',
-    service: 'Home Theater',
-    description: 'Full theater room with custom leather power recliner seating, blue LED accent lighting, projection system, and in-wall surround sound.',
-    imageSrc: '/images/projects/monty-theater/Canyon-Lake-Tesac-Home-Theater-Custom-Seating.jpeg.jpg',
-    imageAlt: 'Custom home theater with leather recliners and blue LED lighting in Canyon Lake Texas',
+    title: "Dedicated Home Theater — Canyon Lake TX",
+    location: "Canyon Lake, TX",
+    service: "Home Theater",
+    description: "Full theater room with custom leather power recliner seating on a raised platform, blue LED accent lighting, 4K projection, and in-wall Dolby Atmos surround sound.",
+    imageSrc: "/images/projects/monty-theater/home-theater-near-san-antonio-hero.jpg",
+    imageAlt: "Custom home theater with leather recliners and blue LED lighting in Canyon Lake Texas",
+    href: "/projects/canyon-lake-dedicated-home-theater/",
   },
   {
-    title: 'Dedicated Home Theater — San Antonio TX',
-    location: 'San Antonio, TX',
-    service: 'Home Theater',
-    description: 'Epson projector, Screen Innovations fixed-frame screen, Martin Logan on-wall speakers, LED accent lighting.',
-    imageSrc: '/images/projects/asanka-theater/theater-room-san-antonio-tx.jpg',
-    imageAlt: 'Home theater installation in San Antonio Texas with projection screen and surround sound',
+    title: "New Construction Home Theater — Stone Oak TX",
+    location: "Stone Oak, San Antonio, TX",
+    service: "Home Theater",
+    description: "New construction dedicated theater room. Full pre-wire, Epson projector, Martin Logan speakers, custom leather seating platform.",
+    imageSrc: "/images/projects/young-theater/stone-oak-home-theater-hero.jpg",
+    imageAlt: "New construction home theater Stone Oak San Antonio TX",
+    href: "/projects/stone-oak-new-construction-home-theater/",
   },
 ];
 
 const featured = {
-  name: 'San Antonio Homeowner',
-  location: 'San Antonio, TX',
-  service: 'Home Theater Client — Nearly 10 Years',
-  quote: "I've been a customer of KZ Audio for going on a decade. Kelly and crew have always been great to work with. They're honest and will recommend what actually works for your situation rather than upselling you on equipment you don't need.",
+  name: "Canyon Lake Homeowner",
+  location: "Canyon Lake, TX",
+  service: "Home Theater",
+  quote: "Billy, Julien and Kelly did an outstanding job on my home theater build. From start to finish they were professional, knowledgeable, and easy to work with. The theater came out better than I had hoped.",
 };
+
+const faqs = [
+  {
+    question: "How much does home theater installation cost in Bulverde, TX?",
+    answer: "A dedicated home theater in Bulverde typically ranges from $15,000 to $65,000 depending on room size, projector or display choice, speaker configuration, acoustic treatment, and seating. Homes with pre-framed media rooms in new construction — common in the Bulverde and Spring Branch corridor — come in at the lower end of that range because the infrastructure is already in place. Retrofitting a finished room costs more. The free consultation is where we give you an accurate number for your specific home.",
+  },
+  {
+    question: "Do you serve Bulverde? How far is it from your base?",
+    answer: "Yes. Bulverde is a market we serve regularly. We are based in San Antonio and travel north on US-281 routinely for projects in Bulverde, Spring Branch, and the broader Comal County area. Canyon Lake is about 30 minutes from Bulverde — we have active projects in that corridor. Distance is not a barrier for us in this area.",
+  },
+  {
+    question: "My Bulverde home is new construction — when should I call you?",
+    answer: "Before drywall. Pre-wire is the highest-leverage phase of any AV project. Once walls are closed, adding speaker wire, HDMI runs, conduit, and low-voltage structured wiring costs significantly more in labor and materials than running everything during the rough-in phase. We work directly with custom builders in the Bulverde area and coordinate with your GC. If you have a builder relationship, introduce us early. If you are the homeowner, call us as soon as framing is complete.",
+  },
+  {
+    question: "What other AV services do you offer in Bulverde?",
+    answer: "In addition to dedicated home theaters, we install whole-house audio for multi-room music distribution, outdoor speaker systems for pools, covered patios, and fire pit areas, 4K TV mounting with concealed wiring, surround sound upgrades, enterprise-grade home networking, and security camera systems. Bulverde properties on acreage often benefit from perimeter camera coverage and extended Wi-Fi infrastructure — we handle that alongside the AV work. Many projects in this market combine a theater room, whole-house audio, and outdoor AV in a single engagement.",
+  },
+  {
+    question: "Do you work with custom home builders in Bulverde?",
+    answer: "Yes — builder relationships are a core part of how we work. We have nine active builder relationships across the greater San Antonio market, including in the Bulverde and Spring Branch corridor where new custom construction is accelerating. If you are a builder looking for a reliable AV pre-wire and installation partner, or a homeowner who wants to recommend us to your builder, call (210) 981-4098. We integrate cleanly into the construction schedule and do not create delays.",
+  },
+  {
+    question: "How do I get started with KZ Audio & Video in Bulverde?",
+    answer: "Call (210) 981-4098 or use the contact form on this site. We will schedule a free in-home consultation at your Bulverde property — typically within a week. Kelly, Billy, or Julian will walk the space with you, look at the room, listen to what you want, and give you a straight answer on what is possible and what it costs. No obligation, no sales pitch. If it makes sense to move forward, we write a proposal. If it does not, we tell you that too.",
+  },
+];
 ---
 
 <BaseLayout
   title="Home Theater Installation Bulverde TX | KZ Audio & Video"
-  description="Custom home theater and AV installation in Bulverde TX and the North San Antonio Hill Country. In the audio business since 1997. Call (210) 981-4098."
+  description="Custom home theater and AV installation in Bulverde TX. New construction pre-wire, dedicated theaters, whole-house audio. No subcontractors. 5.0 Google rating. Call (210) 981-4098."
   schema={[schema, breadcrumb]}
 >
-
   <HeroSection
-    overline="Home Theater Installation · Bulverde · Hill Country · Since 2001"
-    heading="Home Theater Installation in Bulverde, TX"
-    subhead="KZ Audio & Video designs and installs custom home theaters, whole-house audio, and outdoor AV systems in Bulverde and across the Hill Country. Bulverde, TX — a fast-growing Hill Country community north of San Antonio. In the audio business since 1997."
-    ctaLabel="Book a Free Consultation"
-    ctaHref="/contact-kz-audio-video-san-antonio-tx/"
-    secondaryCta="Or call: (210) 981-4098"
-    secondaryHref="tel:2109814098"
-    imageSrc="/images/projects/monty-theater/Home-Theater-Design-Build-Near-San-Antonio-Texas.jpeg.jpg"
-    imageAlt="Custom home theater installation in Bulverde Texas near San Antonio"
+    heading="Home Theater Installation Bulverde TX"
+    subhead="KZ Audio & Video installs custom home theaters, whole-house audio, and outdoor AV systems in Bulverde and across Comal County. Nine active builder relationships. Named team, no subcontractors. In the audio business since 1997."
+    imageSrc="/images/projects/monty-theater/home-theater-near-san-antonio-hero.jpg"
+    imageAlt="Custom home theater installation in Bulverde Texas near San Antonio with 4K projection and surround sound"
+    compact={true}
   />
 
   <TrustBar />
 
-  <ServicesGrid
-    intro="KZ Audio & Video serves Bulverde and the surrounding Hill Country. We design, install, and service custom home AV systems."
-  />
-
-  <ProjectsGrid
-    projects={projects}
-    overline="Recent Projects"
-    heading="Home Theater Installs Near Bulverde"
-  />
-
-  <TestimonialsSection featured={featured} />
-
-  <!-- Bulverde Local Context -->
+  <!-- Primary local content section -->
   <section class="section bg-charcoal">
     <div class="container-main">
-      <p class="overline mb-3 reveal">About Bulverde</p>
+      <p class="overline mb-3 reveal">Serving Bulverde, TX</p>
       <h2 class="font-display text-h2 text-warm-white mb-8 reveal reveal-delay-1">
-        Why Bulverde Homeowners Call KZ
+        Bulverde Is One of the Fastest-Growing Custom Home Markets in Texas
       </h2>
       <div class="grid grid-cols-1 lg:grid-cols-2 gap-12 mb-12">
         <div>
           <p class="text-body-lg text-stone mb-6 reveal reveal-delay-2">
-            Bulverde sits along the US-281 corridor in north Bexar and Comal County — one of the fastest-growing residential areas in Texas. The large-lot custom homes going up in communities throughout the area are exactly what we're used to working in: dedicated rooms with real acoustic potential, outdoor spaces built for entertainment, and homeowners who want the system done right the first time.
+            Bulverde sits along the US-281 and Highway 46 corridors in Comal County, north of San Antonio. It is growing fast — tech workers and professionals relocating from Austin, families from the Medical Center and Stone Oak corridors moving north for land, custom builders putting up some of the most ambitious residential projects in the greater San Antonio region. The homes coming out of this market are large, well-designed, and increasingly built with entertainment in mind.
+          </p>
+          <p class="text-body text-stone mb-6 reveal reveal-delay-2">
+            New construction is the defining feature of the Bulverde market right now. We have active builder relationships throughout the Spring Branch corridor and into Comal County, which means we are often on the ground in these neighborhoods during framing — before the walls close, before the wiring is set. Pre-wire for home theater, whole-house audio, outdoor AV, and structured low-voltage is dramatically more cost-effective during rough-in than after a home is finished. If your Bulverde home is under construction, we need to talk before drywall goes up.
           </p>
           <p class="text-body text-stone reveal reveal-delay-3">
-            We serve both new construction in Bulverde's growing communities and existing homes where homeowners are upgrading older AV systems to something that actually performs. Either way, the process starts with a free consultation at your home — we don't quote sight unseen.
+            For homeowners already in finished Bulverde homes, the picture is different but the opportunity is the same. The large floor plans, dedicated bonus rooms, and expansive outdoor living spaces — pools, fire pits, covered patios with views — common to acreage properties in this area support serious AV installations. The Canyon Lake area is thirty minutes away. Natural Bridge Caverns is nearby. Bulverde homeowners are active, outdoors-oriented, and entertaining at home. A well-built theater and outdoor audio setup fits naturally into how these properties are used.
           </p>
         </div>
         <div class="flex flex-col gap-6">
           <div class="reveal reveal-delay-2">
-            <h3 class="font-sans font-semibold text-warm-white mb-2">One Team, Every Install</h3>
-            <p class="text-body-sm text-stone">Every install in Bulverde is done by Kelly, Billy, or Julian. The team that designed your system installs it and stands behind it.</p>
+            <h3 class="font-sans font-semibold text-warm-white mb-2">Nine Active Builder Relationships</h3>
+            <p class="text-body-sm text-stone">We have nine active builder relationships in the greater San Antonio area, including in the Bulverde and Spring Branch market. We coordinate pre-wire directly with builders and GCs — no schedule conflicts, no rework, clean integration into the construction timeline.</p>
           </div>
           <div class="reveal reveal-delay-3">
+            <h3 class="font-sans font-semibold text-warm-white mb-2">Named Team, No Subcontractors</h3>
+            <p class="text-body-sm text-stone">Kelly, Billy, and Julian do the work. Every Bulverde project is handled by this crew — no subcontractors, no day-labor installers. The people who designed your system install it and service it if anything needs attention later.</p>
+          </div>
+          <div class="reveal reveal-delay-4">
             <h3 class="font-sans font-semibold text-warm-white mb-2">In the Audio Business Since 1997</h3>
-            <p class="text-body-sm text-stone">Kelly has been in audio since 1997 and home AV since 2001. We've worked in a lot of north Bexar County rooms over the years — enough to know how the acoustics differ between a dedicated theater and a great room conversion.</p>
+            <p class="text-body-sm text-stone">Kelly has been in audio since 1997. We have worked in enough north Bexar and Comal County rooms to know where the acoustics get difficult and what it takes to make a large great room or a purpose-built media room perform at its best.</p>
           </div>
           <div class="reveal reveal-delay-4">
             <h3 class="font-sans font-semibold text-warm-white mb-2">Free Consultation in Bulverde</h3>
-            <p class="text-body-sm text-stone">We drive to Bulverde. Walk the room with you. Tell you what's possible and what it costs. No charge, no obligation — just honest answers about your space.</p>
+            <p class="text-body-sm text-stone">We drive to Bulverde. Walk the room with you. Give you a straight answer on what is possible at your budget. No charge, no obligation.</p>
           </div>
         </div>
       </div>
     </div>
   </section>
 
+  <!-- Services section with Bulverde angle -->
+  <section class="section bg-slate-surface">
+    <div class="container-main">
+      <p class="overline mb-3 reveal">What We Install in Bulverde</p>
+      <h2 class="font-display text-h2 text-warm-white mb-4 reveal reveal-delay-1">
+        AV Systems Built for Bulverde Properties
+      </h2>
+      <p class="text-body-lg text-stone mb-12 max-w-3xl reveal reveal-delay-2">
+        Large lots, new construction, and outdoor living spaces define this market. Here is what we install for Bulverde homeowners.
+      </p>
+      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+        <div class="reveal reveal-delay-1">
+          <h3 class="font-sans font-semibold text-warm-white mb-3">New Construction Pre-Wire</h3>
+          <p class="text-body-sm text-stone">
+            Bulverde is a new construction market. The most cost-effective time to plan your AV infrastructure is during framing — before insulation and drywall. Pre-wire covers speaker wire for every room and the patio, HDMI and coax runs to displays, structured low-voltage for networking and security cameras, and conduit for future equipment. We coordinate with your builder and GC as part of the construction schedule. Homeowners who skip pre-wire pay significantly more in retrofit labor later.
+          </p>
+        </div>
+        <div class="reveal reveal-delay-2">
+          <h3 class="font-sans font-semibold text-warm-white mb-3">Dedicated Home Theaters</h3>
+          <p class="text-body-sm text-stone">
+            Custom homes in the Bulverde area frequently include dedicated media rooms — pre-framed during construction or converted from bonus space. We design and install the full theater: 4K projection or large-format display, in-wall or in-ceiling speaker systems with Dolby Atmos height channels, acoustic treatment, custom seating platforms, LED accent lighting, and clean equipment racks. A dedicated room performs at a level a great room conversion cannot match, and Bulverde floor plans regularly have the space to do it properly.
+          </p>
+        </div>
+        <div class="reveal reveal-delay-3">
+          <h3 class="font-sans font-semibold text-warm-white mb-3">Outdoor AV for Acreage Properties</h3>
+          <p class="text-body-sm text-stone">
+            Bulverde properties on acreage — with pools, fire pit areas, large covered patios, and Hill Country views — call for outdoor AV that matches the setting. We install weatherproof speakers rated for Texas summers, commercial-grade displays engineered for ambient light conditions, and landscape speaker systems that cover large outdoor zones. Everything is spec'd for outdoor use — no consumer electronics installed in an outdoor environment, no equipment that fails after one season.
+          </p>
+        </div>
+        <div class="reveal reveal-delay-1">
+          <h3 class="font-sans font-semibold text-warm-white mb-3">Whole-House Audio</h3>
+          <p class="text-body-sm text-stone">
+            Multi-room audio is one of the most common projects we do in new construction markets. Every room — master bedroom, kitchen, living areas, office, patio — plays the music you want from your phone without separate remotes or complicated switching. Sonos and Russound platforms handle both new construction installs and retrofits. If your Bulverde home was pre-wired for speakers but the system was never installed, we can finish the job.
+          </p>
+        </div>
+        <div class="reveal reveal-delay-2">
+          <h3 class="font-sans font-semibold text-warm-white mb-3">Home Networking for Large Properties</h3>
+          <p class="text-body-sm text-stone">
+            Consumer routers fail on large Bulverde properties. Acreage homes, long driveways, detached garages, and guest casitas all need reliable Wi-Fi coverage that a single router cannot provide. We install enterprise-grade access point systems — Ubiquiti and similar platforms — with structured CAT6 runs to every access point. Solid networking is the foundation that home theater, whole-house audio, security cameras, and smart home systems all depend on.
+          </p>
+        </div>
+        <div class="reveal reveal-delay-3">
+          <h3 class="font-sans font-semibold text-warm-white mb-3">Security Camera Systems</h3>
+          <p class="text-body-sm text-stone">
+            Large lots and long driveways common in the Bulverde area benefit from perimeter security camera coverage. We install commercial-grade NVR-based systems with fixed and PTZ cameras, local recording, and remote viewing from your phone. Cameras run on the same structured wiring infrastructure as your AV system — fewer wall penetrations, cleaner install. We have been doing this work in Comal County long enough to know where cameras need to go on these property types.
+          </p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Builder partnerships and pre-wire focus section -->
+  <section class="section bg-charcoal">
+    <div class="container-main max-w-3xl">
+      <p class="overline mb-3 reveal">Builder Partnerships</p>
+      <h2 class="font-display text-h2 text-warm-white mb-6 reveal reveal-delay-1">
+        Why Bulverde Builders Work with KZ Audio & Video
+      </h2>
+      <p class="text-body-lg text-stone mb-6 reveal reveal-delay-2">
+        We have nine active builder relationships in the greater San Antonio market, including in the Bulverde and Spring Branch corridor. Those relationships exist because we do not create problems on job sites. We show up on schedule during the pre-wire phase, run clean wire, label everything, and hand off documentation that the finish crew and the homeowner can actually use. We do not require the GC to babysit us or redo our work.
+      </p>
+      <p class="text-body text-stone mb-6 reveal reveal-delay-2">
+        For homeowners working with a custom builder in Bulverde: introduce us early. The conversation about what AV systems you want belongs at the design phase, not after move-in. The cost difference between pre-wiring a theater, whole-house audio, outdoor speakers, and security cameras during construction versus retrofitting them later is substantial — typically $3,000 to $8,000 in additional labor for a project that was perfectly doable at $1,200 during rough-in.
+      </p>
+      <p class="text-body text-stone reveal reveal-delay-3">
+        The Bulverde market is attracting buyers who have lived in well-appointed homes in Austin or other markets and know what a properly built AV system looks and sounds like. They are not interested in an installer who shows up with surface-run conduit and a bag of zip ties. Neither are we interested in building systems that way. The builder relationships we have are with custom builders whose clients expect quality — and that is who we build for.
+      </p>
+    </div>
+  </section>
+
+  <ProjectsGrid projects={projects} overline="Recent Work" heading="Home Theater Projects Near Bulverde" />
+
+  <TestimonialsSection featured={featured} />
+
+  <FAQAccordion heading="Home Theater Installation Bulverde TX — FAQ" faqs={faqs} />
+
   <CTASection
-    heading="Ready to Get Started in Bulverde?"
-    body="Book a free, no-pressure consultation. We'll come to your home in Bulverde and talk through what's possible."
-    ctaLabel="Book a Free Consultation"
+    heading="Free In-Home Consultation — Bulverde TX"
+    body="We come to you. Walk the space. Tell you exactly what is possible at your budget. No charge, no obligation."
+    ctaLabel="Book Your Free Consultation"
     ctaHref="/contact-kz-audio-video-san-antonio-tx/"
     secondaryLabel="Call (210) 981-4098"
     secondaryHref="tel:2109814098"
   />
-
 </BaseLayout>
