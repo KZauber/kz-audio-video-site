@@ -1,0 +1,49 @@
+---
+// Site analytics & tracking — loaded in <head> on every page via BaseLayout.
+// GA4 Measurement ID: G-T3JQMH16DC
+// Meta Pixel ID:      2779765922390910
+// Also fires conversion events on phone-number clicks and quote/consultation
+// CTA clicks (GA4 events + Meta "Contact"/"Lead" standard events).
+---
+
+<!-- Google Analytics 4 -->
+<script is:inline async src="https://www.googletagmanager.com/gtag/js?id=G-T3JQMH16DC"></script>
+<script is:inline>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){ dataLayer.push(arguments); }
+  gtag('js', new Date());
+  gtag('config', 'G-T3JQMH16DC');
+</script>
+
+<!-- Meta Pixel -->
+<script is:inline>
+  !function(f,b,e,v,n,t,s){if(f.fbq)return;n=f.fbq=function(){n.callMethod?n.callMethod.apply(n,arguments):n.queue.push(arguments)};if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';n.queue=[];t=b.createElement(e);t.async=!0;t.src=v;s=b.getElementsByTagName(e)[0];s.parentNode.insertBefore(t,s)}(window,document,'script','https://connect.facebook.net/en_US/fbevents.js');
+  fbq('init','2779765922390910');
+  fbq('track','PageView');
+</script>
+<noscript><img height="1" width="1" style="display:none" src="https://www.facebook.com/tr?id=2779765922390910&ev=PageView&noscript=1" alt="" /></noscript>
+
+<!-- Conversion tracking: phone clicks + quote/consultation CTA clicks -->
+<script is:inline>
+  (function(){
+    function bind(){
+      document.querySelectorAll('a[href^="tel:"]').forEach(function(a){
+        if(a.getAttribute('data-trk')) return; a.setAttribute('data-trk','1');
+        a.addEventListener('click', function(){
+          if(window.gtag) gtag('event','phone_call_click',{ event_category:'contact', event_label:'phone' });
+          if(window.fbq) fbq('track','Contact');
+        });
+      });
+      document.querySelectorAll('a[href*="contact-kz-audio-video-san-antonio-tx"]').forEach(function(a){
+        if(a.getAttribute('data-trk')) return; a.setAttribute('data-trk','1');
+        a.addEventListener('click', function(){
+          var label = (a.textContent || '').trim().slice(0,60);
+          if(window.gtag) gtag('event','quote_request_click',{ event_category:'lead', event_label:label });
+          if(window.fbq) fbq('track','Lead');
+        });
+      });
+    }
+    if(document.readyState !== 'loading') bind(); else document.addEventListener('DOMContentLoaded', bind);
+    document.addEventListener('astro:page-load', bind);
+  })();
+</script>
