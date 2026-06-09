@@ -1,0 +1,254 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import HeroSection from '../../components/sections/HeroSection.astro';
+import TrustBar from '../../components/sections/TrustBar.astro';
+import TestimonialsSection from '../../components/sections/TestimonialsSection.astro';
+import FAQAccordion from '../../components/sections/FAQAccordion.astro';
+import CTASection from '../../components/sections/CTASection.astro';
+
+const schema = {
+  "@context": "https://schema.org",
+  "@type": "Service",
+  "name": "Smart Home Automation San Antonio TX",
+  "provider": {
+    "@type": "LocalBusiness",
+    "name": "KZ Audio & Video",
+    "url": "https://kzaudioandvideo.com",
+    "telephone": "+12109814098"
+  },
+  "areaServed": "San Antonio, TX",
+  "description": "Smart home automation and AV control system installation in San Antonio TX. Whole-home AV control, lighting integration, scene programming, and new construction pre-wire. In the audio and home technology business since 1997.",
+  "url": "https://kzaudioandvideo.com/smart-home-automation-san-antonio/"
+};
+
+const breadcrumb = {
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": [
+    { "@type": "ListItem", "position": 1, "name": "Home", "item": "https://kzaudioandvideo.com" },
+    { "@type": "ListItem", "position": 2, "name": "Smart Home Automation San Antonio TX" }
+  ]
+};
+
+const faqSchema = {
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    {
+      "@type": "Question",
+      "name": "What is smart home automation?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Smart home automation connects your home's AV systems, lighting, and technology into a single unified control system. Instead of managing a TV remote, a receiver remote, a lighting app, and a streaming app separately, everything operates from one interface — a touchscreen, a tablet, or a voice command. KZ Audio & Video designs and installs systems that actually work reliably, not just systems that demo well."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "What systems can you automate in a San Antonio home?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "We integrate AV systems (home theater, whole-house audio, TV, streaming), lighting (smart switches and dimmers), and control systems that tie it all together. We also handle network infrastructure — the backbone that makes everything work reliably. Our focus is AV-centered smart home systems, not alarm or HVAC automation."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Do you work with Sonos, Control4, or Crestron?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Yes. Sonos is a central part of many of the whole-house audio systems we install and integrates well with most smart home platforms. For AV control systems, we work with platforms appropriate for the project scope — from Sonos-native control for simpler setups to more comprehensive control systems for larger homes. We recommend what's right for your home and budget, not what has the highest margin."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Can you automate an existing home or is this only for new construction?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Both. New construction is ideal because we can pre-wire for everything before the walls close. But we work in finished homes across San Antonio regularly. Wireless control systems and smart switches eliminate most of the need for new wire runs in existing homes. We'll assess your home and tell you what's practical and what isn't."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Do you program the system and train us how to use it?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Yes. Programming and a homeowner walkthrough are part of every smart home install we do. A system you can't figure out is a system you won't use. We program scenes, label everything clearly, and walk you through every function before we leave. If something's not right after you've lived with it, call us."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Is smart home automation worth it?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Yes — if the system is designed correctly. The value is in daily convenience: one button or one voice command controls your TV, audio, lighting, and streaming instead of managing four different remotes and three apps. Systems that fail are ones that were over-engineered for how the homeowner actually lives, or programmed and left without a proper walkthrough. A well-designed, well-programmed smart home system gets used every single day. A poorly designed one collects dust. We design for how you actually live."
+      }
+    },
+  ],
+};
+
+const faqs = [
+  {
+    question: 'What is smart home automation?',
+    answer: "Smart home automation connects your home's AV systems, lighting, and technology into a single unified control system. Instead of managing a TV remote, a receiver remote, a lighting app, and a streaming app separately, everything operates from one interface — a touchscreen, a tablet, or a voice command. KZ Audio & Video designs and installs systems that actually work reliably, not just systems that demo well.",
+  },
+  {
+    question: 'What systems can you automate in a San Antonio home?',
+    answer: "We integrate AV systems (home theater, whole-house audio, TV, streaming), lighting (smart switches and dimmers), and control systems that tie it all together. We also handle network infrastructure — the backbone that makes everything work reliably. Our focus is AV-centered smart home systems, not alarm or HVAC automation.",
+  },
+  {
+    question: 'Do you work with Sonos, Control4, or Crestron?',
+    answer: "Yes. Sonos is a central part of many of the whole-house audio systems we install and integrates well with most smart home platforms. For AV control systems, we work with platforms appropriate for the project scope — from Sonos-native control for simpler setups to more comprehensive control systems for larger homes. We recommend what's right for your home and budget, not what has the highest margin.",
+  },
+  {
+    question: 'Can you automate an existing home or is this only for new construction?',
+    answer: "Both. New construction is ideal because we can pre-wire for everything before the walls close. But we work in finished homes across San Antonio regularly. Wireless control systems and smart switches eliminate most of the need for new wire runs in existing homes. We'll assess your home and tell you what's practical and what isn't.",
+  },
+  {
+    question: 'Do you program the system and train us how to use it?',
+    answer: "Yes. Programming and a homeowner walkthrough are part of every smart home install we do. A system you can't figure out is a system you won't use. We program scenes, label everything clearly, and walk you through every function before we leave. If something's not right after you've lived with it, call us.",
+  },
+  {
+    question: 'What does a smart home AV system cost in San Antonio?',
+    answer: "Entry-level smart home AV systems — a unified control interface for your TV, audio, and streaming — start around $3,000–$8,000 installed. Whole-home systems with multi-room audio, theater integration, and lighting control typically run $15,000–$50,000 depending on scope and equipment tier. We provide detailed, itemized quotes at no charge.",
+  },
+  {
+    question: 'Is smart home automation worth it?',
+    answer: "Yes — if the system is designed correctly. The value is in daily convenience: one button or one voice command controls your TV, audio, lighting, and streaming instead of managing four different remotes and three apps. Systems that fail are ones that were over-engineered for how the homeowner actually lives, or programmed and left without a proper walkthrough. A well-designed, well-programmed smart home system gets used every single day. A poorly designed one collects dust. We design for how you actually live.",
+  },
+];
+
+const featured = {
+  name: 'San Antonio Homeowner',
+  location: 'San Antonio, TX',
+  service: 'Home Theater Client — Nearly 10 Years',
+  quote: "I've been a customer of KZ Audio for going on a decade. Kelly and crew have always been great to work with. They're honest and will recommend what actually works for your situation rather than upselling you on equipment you don't need. I've never had a bad experience with them.",
+};
+---
+
+<BaseLayout
+  title="Smart Home Automation San Antonio TX | KZ Audio & Video"
+  description="Smart home automation and AV control system installation in San Antonio TX. Unified AV control, lighting integration, scene programming, new construction pre-wire. In the audio business since 1997. Call (210) 981-4098."
+  schema={[schema, breadcrumb, faqSchema]}
+>
+
+  <HeroSection
+    overline="Smart Home Automation · San Antonio · Hill Country · Since 2001"
+    heading="Smart Home Automation in San Antonio TX"
+    subhead="One interface for your home theater, whole-house audio, TV, streaming, and lighting. KZ Audio & Video designs and installs smart home systems that work the way you actually live — not the way a showroom demo does."
+    ctaLabel="Book a Free Consultation"
+    ctaHref="/contact-kz-audio-video-san-antonio-tx/"
+    secondaryCta="Or call: (210) 981-4098"
+    secondaryHref="tel:2109814098"
+    imageSrc="/images/projects/asanka-theater/home-theater-led-lights-san-antonio.jpg"
+    imageAlt="Smart home AV system with LED lighting control installed in San Antonio Texas"
+  />
+
+  <TrustBar />
+
+  <!-- Services -->
+  <section class="section bg-slate-surface">
+    <div class="container-main">
+      <p class="overline mb-3">Smart Home AV Systems</p>
+      <h2 class="font-display text-h2 text-warm-white mb-6">
+        Everything Controlled from One Place
+      </h2>
+      <p class="text-body-lg text-stone mb-12 max-w-2xl">
+        The problem with most "smart" home systems is that they're not actually unified — you end up with five apps and three remotes instead of one. We design AV-centered smart home systems where everything talks to everything else, and you control all of it from a single interface.
+      </p>
+
+      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+        {[
+          {
+            title: 'Unified AV Control',
+            desc: 'One remote, one app, or one touchscreen controls your TV, projector, receiver, streaming, and whole-house audio. No more hunting for which remote does what.',
+          },
+          {
+            title: 'Whole-House Audio Integration',
+            desc: 'Sonos and multi-room audio systems integrated into your smart home control. Play the same music everywhere or different audio in each room — controlled from one interface.',
+          },
+          {
+            title: 'Lighting Control',
+            desc: 'Smart switches, dimmers, and scene programming. "Watch a movie" dims the lights, closes the shades, and turns on the projector. One button does all of it.',
+          },
+          {
+            title: 'Scene Programming',
+            desc: 'Programmed scenes for the way you actually use your home — Movie Night, Entertaining, Good Morning, Away. We program them, label them clearly, and walk you through everything.',
+          },
+          {
+            title: 'New Construction Pre-Wire',
+            desc: 'The right time to plan a smart home is before the walls close. We work with custom home builders in San Antonio and the Hill Country on full low-voltage pre-wire for AV and smart home systems.',
+          },
+          {
+            title: 'Existing Home Upgrades',
+            desc: 'Wireless control systems and smart switches make most smart home functionality possible in finished homes without tearing up walls. We assess your home and tell you what\'s practical.',
+          },
+        ].map(({ title, desc }) => (
+          <div class="card p-7 flex flex-col gap-3">
+            <h3 class="font-sans font-semibold text-h4 text-warm-white">{title}</h3>
+            <p class="text-body-sm text-stone leading-relaxed">{desc}</p>
+          </div>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <!-- Why it matters section -->
+  <section class="section bg-charcoal">
+    <div class="container-main">
+      <div class="grid grid-cols-1 md:grid-cols-2 gap-12 items-start">
+        <div>
+          <p class="overline mb-3">The KZ Approach</p>
+          <h2 class="font-display text-h2 text-warm-white mb-6">
+            Systems That Work the Way You Live
+          </h2>
+          <p class="text-body-lg text-stone mb-6">
+            Smart home systems fail in two ways: they're too complicated to use daily, or they're unreliable when you actually need them. Both failures come from a system that wasn't designed correctly in the first place.
+          </p>
+          <p class="text-body text-stone mb-6">
+            We start by asking how you use your home — not by showing you what's technically possible. The right system for a family with kids is different from the right system for someone who wants a serious home theater with lighting control. We design around how you actually live.
+          </p>
+          <p class="text-body text-stone">
+            Everything we install gets programmed, tested, and walked through with you before we leave. If it's not intuitive, it's not done.
+          </p>
+        </div>
+        <div class="flex flex-col gap-8 pt-2">
+          {[
+            {
+              title: 'In the audio business since 1997',
+              desc: 'Smart home technology has changed. The fundamentals of a well-designed system haven\'t. We\'ve been doing this long enough to know what works and what fails.',
+            },
+            {
+              title: 'No outsourced labor',
+              desc: 'Every system we install, we program ourselves. There\'s no subcontractor who set up the control system and left without documentation. We own the whole install.',
+            },
+            {
+              title: 'Free in-home consultation',
+              desc: 'We come to your home, look at the space, talk through what you want, and give you an honest recommendation and a firm quote. No charge, no pressure.',
+            },
+          ].map(({ title, desc }) => (
+            <div class="flex flex-col gap-2">
+              <h3 class="font-sans font-semibold text-h4 text-warm-white">{title}</h3>
+              <p class="text-body text-stone">{desc}</p>
+            </div>
+          ))}
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <TestimonialsSection featured={featured} />
+
+  <FAQAccordion
+    heading="Smart Home Automation — Frequently Asked Questions"
+    faqs={faqs}
+  />
+
+  <CTASection
+    heading="Ready to Talk Smart Home?"
+    body="Book a free, no-pressure consultation. We'll come to your home in San Antonio, look at what you have, talk through what you want, and give you an honest recommendation."
+    ctaLabel="Book a Free Consultation"
+    ctaHref="/contact-kz-audio-video-san-antonio-tx/"
+    secondaryLabel="Call (210) 981-4098"
+    secondaryHref="tel:2109814098"
+  />
+
+</BaseLayout>

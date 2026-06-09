@@ -1,10 +1,11 @@
-﻿---
+---
 import BaseLayout from '../../layouts/BaseLayout.astro';
 import HeroSection from '../../components/sections/HeroSection.astro';
 import TrustBar from '../../components/sections/TrustBar.astro';
 import ServicesGrid from '../../components/sections/ServicesGrid.astro';
 import ProjectsGrid from '../../components/sections/ProjectsGrid.astro';
 import TestimonialsSection from '../../components/sections/TestimonialsSection.astro';
+import FAQAccordion from '../../components/sections/FAQAccordion.astro';
 import CTASection from '../../components/sections/CTASection.astro';
 
 const schema = {
@@ -31,9 +32,91 @@ const breadcrumb = {
   ]
 };
 
+const faqSchema = {
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    {
+      "@type": "Question",
+      "name": "How much does home theater installation cost in New Braunfels?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Home theater installation in New Braunfels typically ranges from $5,000 for a media room setup to $80,000+ for a fully dedicated theater room with acoustic treatment, tiered seating, 4K projection, and Dolby Atmos. Most of our Hill Country clients land somewhere between $15,000 and $40,000 for a serious dedicated theater. We start every project with a free in-home consultation — we look at your room, talk through what you want, and give you a real number before anything is committed."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Do you serve Canyon Lake, Gruene, Fischer, and Wimberley?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Yes. New Braunfels is our home base, and we serve the surrounding Hill Country corridor including Canyon Lake, Gruene, Fischer, Wimberley, San Marcos, Seguin, and the entire Comal and Guadalupe County area. We've completed full home theater and outdoor AV installs at lakefront properties on Canyon Lake and estate homes throughout the Hill Country. Distance is not a factor — we come to you."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Can you install outdoor speakers and a TV by the pool?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Yes, and it's one of the most common requests we get from New Braunfels homeowners. Outdoor entertainment setups typically include weather-rated in-ground or surface-mounted speakers for pool and patio coverage, a weatherproof TV on the covered patio or outdoor kitchen, and optional app control so you can manage everything from your phone. We run all wiring cleanly through the structure — no exposed conduit running across your patio. Texas summers are built for outdoor entertaining, and a properly installed outdoor AV system runs for years without issues."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Can you pre-wire a new home during construction?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Yes. Pre-wire during rough-in is the right time to do it — running cable through open walls costs a fraction of what it costs post-drywall. We work directly with custom home builders and general contractors in New Braunfels and the Hill Country to install structured wiring, speaker wire, HDMI runs, and networking cable before the walls close. If you're building a home in Vintage Oaks, Solms Ranch, or anywhere in Comal County, call us before framing is complete."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "What's the difference between a media room and a dedicated home theater?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "A media room is a multipurpose space — usually a living room or bonus room with a large TV or projector and a good sound system. Light control is partial, the room serves other purposes, and the seating isn't tiered. A dedicated home theater is a purpose-built room: blacked-out walls, acoustic treatment, raked or tiered seating, a projection screen, and a full surround sound system calibrated for that specific room. Both are great — the right choice depends on how you use the space and your budget. We build both."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Do you service or repair AV systems you didn't install?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Yes. We work on systems we didn't install all the time — Control4 systems from installers who are no longer around, Crestron systems that need reprogramming, home theaters where the previous owner left undocumented equipment, and general AV setups that stopped working. If it can be diagnosed and fixed, we'll tell you honestly. If it's beyond repair, we'll tell you that too and give you options. We serve the New Braunfels and Hill Country area for AV repair and system rescue."
+      }
+    },
+  ],
+};
+
+const faqs = [
+  {
+    question: 'How much does home theater installation cost in New Braunfels?',
+    answer: "Home theater installation in New Braunfels typically ranges from $5,000 for a media room setup to $80,000+ for a fully dedicated theater room with acoustic treatment, tiered seating, 4K projection, and Dolby Atmos. Most of our Hill Country clients land somewhere between $15,000 and $40,000 for a serious dedicated theater. We start every project with a free in-home consultation — we look at your room, talk through what you want, and give you a real number before anything is committed.",
+  },
+  {
+    question: 'Do you serve Canyon Lake, Gruene, Fischer, and Wimberley?',
+    answer: "Yes. New Braunfels is our home base, and we serve the surrounding Hill Country corridor including Canyon Lake, Gruene, Fischer, Wimberley, San Marcos, Seguin, and the entire Comal and Guadalupe County area. We've completed full home theater and outdoor AV installs at lakefront properties on Canyon Lake and estate homes throughout the Hill Country. Distance is not a factor — we come to you.",
+  },
+  {
+    question: 'Can you install outdoor speakers and a TV by the pool?',
+    answer: "Yes, and it's one of the most common requests we get from New Braunfels homeowners. Outdoor entertainment setups typically include weather-rated in-ground or surface-mounted speakers for pool and patio coverage, a weatherproof TV on the covered patio or outdoor kitchen, and optional app control so you can manage everything from your phone. We run all wiring cleanly through the structure — no exposed conduit running across your patio. Texas summers are built for outdoor entertaining, and a properly installed outdoor AV system runs for years without issues.",
+  },
+  {
+    question: 'Can you pre-wire a new home during construction?',
+    answer: "Yes. Pre-wire during rough-in is the right time to do it — running cable through open walls costs a fraction of what it costs post-drywall. We work directly with custom home builders and general contractors in New Braunfels and the Hill Country to install structured wiring, speaker wire, HDMI runs, and networking cable before the walls close. If you're building a home in Vintage Oaks, Solms Ranch, or anywhere in Comal County, call us before framing is complete.",
+  },
+  {
+    question: "What's the difference between a media room and a dedicated home theater?",
+    answer: "A media room is a multipurpose space — usually a living room or bonus room with a large TV or projector and a good sound system. Light control is partial, the room serves other purposes, and the seating isn't tiered. A dedicated home theater is a purpose-built room: blacked-out walls, acoustic treatment, raked or tiered seating, a projection screen, and a full surround sound system calibrated for that specific room. Both are great — the right choice depends on how you use the space and your budget. We build both.",
+  },
+  {
+    question: 'Do you service or repair AV systems you didn\'t install?',
+    answer: "Yes. We work on systems we didn't install all the time — Control4 systems from installers who are no longer around, Crestron systems that need reprogramming, home theaters where the previous owner left undocumented equipment, and general AV setups that stopped working. If it can be diagnosed and fixed, we'll tell you honestly. If it's beyond repair, we'll tell you that too and give you options. We serve the New Braunfels and Hill Country area for AV repair and system rescue.",
+  },
+];
+
 const projects = [
   {
-    title: 'Dedicated Home Theater — Canyon Lake TX',
+    title: 'Dedicated Home Theater � Canyon Lake TX',
     location: 'Canyon Lake, TX',
     service: 'Home Theater',
     description: 'Full theater room with custom leather power recliner seating, blue LED accent lighting, projection system, and in-wall surround sound.',
@@ -41,7 +124,7 @@ const projects = [
     imageAlt: 'Custom home theater with leather recliners and blue LED lighting in Canyon Lake Texas',
   },
   {
-    title: 'Dedicated Home Theater — San Antonio TX',
+    title: 'Dedicated Home Theater � San Antonio TX',
     location: 'San Antonio, TX',
     service: 'Home Theater',
     description: 'Epson projector, Screen Innovations fixed-frame screen, Martin Logan on-wall speakers, LED accent lighting.',
@@ -53,21 +136,21 @@ const projects = [
 const featured = {
   name: 'San Antonio Homeowner',
   location: 'San Antonio, TX',
-  service: 'Home Theater Client — Nearly 10 Years',
+  service: 'Home Theater Client � Nearly 10 Years',
   quote: "I've been a customer of KZ Audio for going on a decade. Kelly and crew have always been great to work with. They're honest and will recommend what actually works for your situation rather than upselling you on equipment you don't need.",
 };
 ---
 
 <BaseLayout
   title="Home Theater Installation New Braunfels TX | KZ Audio & Video"
-  description="Custom home theater and AV installation in New Braunfels TX. In the audio business since 1997. Call (210) 981-4098."
-  schema={[schema, breadcrumb]}
+  description="Custom home theater and AV installation in New Braunfels TX. Serving Hill Country and Comal County since 2001. Free consultation. Call (210) 981-4098."
+  schema={[schema, breadcrumb, faqSchema]}
 >
 
   <HeroSection
-    overline="Home Theater Installation · New Braunfels · Hill Country / Comal County · Since 2001"
+    overline="Home Theater Installation � New Braunfels � Hill Country / Comal County � Since 2001"
     heading="Home Theater Installation in New Braunfels, TX"
-    subhead="KZ Audio & Video designs and installs custom home theaters, whole-house audio, and outdoor AV systems in New Braunfels and across the Hill Country / Comal County. New Braunfels, TX — a fast-growing Hill Country community between San Antonio and Austin. In the audio business since 1997."
+    subhead="KZ Audio & Video designs and installs custom home theaters, whole-house audio, and outdoor AV systems in New Braunfels and across the Hill Country / Comal County. New Braunfels, TX � a fast-growing Hill Country community between San Antonio and Austin. In the audio business since 1997."
     ctaLabel="Book a Free Consultation"
     ctaHref="/contact-kz-audio-video-san-antonio-tx/"
     secondaryCta="Or call: (210) 981-4098"
@@ -79,7 +162,7 @@ const featured = {
   <TrustBar />
 
   <ServicesGrid
-    intro="KZ Audio & Video serves New Braunfels and the surrounding Hill Country / Comal County. We design, install, and service custom home AV systems."
+    intro="KZ Audio & Video serves New Braunfels and the surrounding Hill Country / Comal County. We design, install, and service custom home AV systems �  no third-party labor."
   />
 
   <ProjectsGrid
@@ -90,36 +173,38 @@ const featured = {
 
   <TestimonialsSection featured={featured} />
 
-  <!-- New Braunfels Local Context -->
+  <FAQAccordion
+    heading="Home Theater Installation in New Braunfels — Common Questions"
+    faqs={faqs}
+  />
+
+  <!-- Why KZ -->
   <section class="section bg-charcoal">
     <div class="container-main">
-      <p class="overline mb-3 reveal">About New Braunfels</p>
-      <h2 class="font-display text-h2 text-warm-white mb-8 reveal reveal-delay-1">
-        One of Texas's Fastest-Growing Custom Home Markets
+      <p class="overline mb-3">Why KZ Audio & Video</p>
+      <h2 class="font-display text-h2 text-warm-white mb-10">
+        Serving New Braunfels Since 2001
       </h2>
-      <div class="grid grid-cols-1 lg:grid-cols-2 gap-12 mb-12">
-        <div>
-          <p class="text-body-lg text-stone mb-6 reveal reveal-delay-2">
-            New Braunfels has been one of the fastest-growing cities in the entire United States for several consecutive years. That growth has brought serious custom home construction to Comal County — from master-planned communities off IH-35 to larger rural custom lots in the surrounding Hill Country. We serve homeowners throughout New Braunfels and regularly work with builders active in the area.
-          </p>
-          <p class="text-body text-stone reveal reveal-delay-3">
-            New Braunfels sits about halfway between San Antonio and Austin — a location that draws buyers from both metros who want Hill Country space without sacrificing access to the city. Many of these buyers are building or purchasing their first true custom home and want AV done right from the ground up. Pre-wire through final programming — that's where we come in.
-          </p>
-        </div>
-        <div class="flex flex-col gap-6">
-          <div class="reveal reveal-delay-2">
-            <h3 class="font-sans font-semibold text-warm-white mb-2">New Construction & Existing Homes</h3>
-            <p class="text-body-sm text-stone">Whether you're pre-wiring a new build or upgrading an existing home in New Braunfels, the process is the same: we design around your specific space and install it ourselves.</p>
+      <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+        {[
+          {
+            title: 'in-house installation',
+            desc: 'Every install is done by Kelly, Billy, or Julian. Not outsourced labor. The people who designed your system are the people installing it.',
+          },
+          {
+            title: '25+ Years in Audio',
+            desc: "Kelly started in audio in 1997. That's a lot of installs, a lot of rooms, and a lot of systems across San Antonio and the Hill Country.",
+          },
+          {
+            title: 'Free Consultation',
+            desc: 'We come to your home in New Braunfels, look at the room, and give you a real quote. No charge, no obligation.',
+          },
+        ].map(({ title, desc }) => (
+          <div class="flex flex-col gap-3">
+            <h3 class="font-sans font-semibold text-h4 text-warm-white">{title}</h3>
+            <p class="text-body text-stone">{desc}</p>
           </div>
-          <div class="reveal reveal-delay-3">
-            <h3 class="font-sans font-semibold text-warm-white mb-2">One Team, Every Install</h3>
-            <p class="text-body-sm text-stone">Kelly, Billy, and Julian do every install. The same people who spec your system are the ones who show up to build it.</p>
-          </div>
-          <div class="reveal reveal-delay-4">
-            <h3 class="font-sans font-semibold text-warm-white mb-2">Free Consultation in New Braunfels</h3>
-            <p class="text-body-sm text-stone">We make the drive to New Braunfels for every consultation. Look at the space, discuss your goals, give you a real number. No charge, no obligation.</p>
-          </div>
-        </div>
+        ))}
       </div>
     </div>
   </section>

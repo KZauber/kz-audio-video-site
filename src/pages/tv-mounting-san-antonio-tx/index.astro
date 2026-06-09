@@ -1,0 +1,262 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import HeroSection from '../../components/sections/HeroSection.astro';
+import TrustBar from '../../components/sections/TrustBar.astro';
+import TestimonialsSection from '../../components/sections/TestimonialsSection.astro';
+import FAQAccordion from '../../components/sections/FAQAccordion.astro';
+import CTASection from '../../components/sections/CTASection.astro';
+
+const schema = {
+  "@context": "https://schema.org",
+  "@type": "Service",
+  "name": "TV Mounting San Antonio TX",
+  "provider": {
+    "@type": "LocalBusiness",
+    "name": "KZ Audio & Video",
+    "url": "https://kzaudioandvideo.com",
+    "telephone": "+12109814098"
+  },
+  "areaServed": "San Antonio, TX",
+  "description": "Professional TV mounting in San Antonio TX. Wall mounts, fireplace mounts, Samsung Frame TV installation, outdoor TV, cord concealment, and Sonos Arc integration. In-home since 2001.",
+  "url": "https://kzaudioandvideo.com/tv-mounting-san-antonio-tx/"
+};
+
+const breadcrumb = {
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": [
+    { "@type": "ListItem", "position": 1, "name": "Home", "item": "https://kzaudioandvideo.com" },
+    { "@type": "ListItem", "position": 2, "name": "TV Mounting San Antonio TX" }
+  ]
+};
+
+const faqSchema = {
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    {
+      "@type": "Question",
+      "name": "How much does TV mounting cost in San Antonio?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "TV mounting in San Antonio typically runs $150–$400 depending on wall type, mount complexity, cord concealment, and whether audio equipment is being connected. Fireplace and above-mantel installs are on the higher end because of the angle and heat considerations. We give you a firm price before we start — no surprises."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Can you mount a TV above a fireplace?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Yes, but with the right mount — not a flat fixed mount flush to the wall. Fireplace installs require a full-motion or tilting mount so the screen tilts down toward eye level when you're seated. We also assess heat output from your fireplace to confirm it's safe for the TV you have. We do a lot of fireplace mounts in San Antonio."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Do you hide the cords and wires?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Yes. Cord concealment is part of every TV mounting job we do — we don't leave wires dangling down the wall. On drywall we run cables inside the wall using an in-wall cable management kit. On stone, brick, or tile we use low-profile surface raceways that match the wall finish. The result looks clean and professional."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Do you install Samsung Frame TVs?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Yes. The Samsung Frame TV has a specific no-gap wall mount that sits flush against the wall like a picture frame. We install the one-connect box in-wall or in a media closet so there are zero visible cables. It's one of the cleanest-looking installs we do."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Can you mount a TV outside or on a covered patio?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Yes. Outdoor TV mounting is a separate install — it requires a weatherproof TV rated for outdoor use (we can source it or work with what you have), a mount rated for outdoor exposure, and proper weatherproof connection routing. We install outdoor TVs on covered patios, pool areas, and outdoor kitchens across San Antonio."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "How high should a TV be mounted on the wall?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "The center of the screen should sit at seated eye level — approximately 42–48 inches from the floor for a standard sofa height. That puts the middle of the screen at eye level when you're sitting, which is where it belongs. A common mistake is mounting too high (at standing eye level), which causes neck strain over time. Above-fireplace installs almost always need a tilting mount to bring the viewing angle back down to comfortable."
+      }
+    },
+  ],
+};
+
+const faqs = [
+  {
+    question: 'How much does TV mounting cost in San Antonio?',
+    answer: "TV mounting in San Antonio typically runs $150–$400 depending on wall type, mount complexity, cord concealment, and whether audio equipment is being connected. Fireplace and above-mantel installs are on the higher end because of the angle and heat considerations. We give you a firm price before we start — no surprises.",
+  },
+  {
+    question: 'Can you mount a TV above a fireplace?',
+    answer: "Yes, but with the right mount — not a flat fixed mount flush to the wall. Fireplace installs require a full-motion or tilting mount so the screen tilts down toward eye level when you're seated. We also assess heat output from your fireplace to confirm it's safe for the TV you have. We do a lot of fireplace mounts in San Antonio.",
+  },
+  {
+    question: 'Do you hide the cords and wires?',
+    answer: "Yes. Cord concealment is part of every TV mounting job we do — we don't leave wires dangling down the wall. On drywall we run cables inside the wall using an in-wall cable management kit. On stone, brick, or tile we use low-profile surface raceways that match the wall finish. The result looks clean and professional.",
+  },
+  {
+    question: 'Do you install Samsung Frame TVs?',
+    answer: "Yes. The Samsung Frame TV has a specific no-gap wall mount that sits flush against the wall like a picture frame. We install the one-connect box in-wall or in a media closet so there are zero visible cables. It's one of the cleanest-looking installs we do.",
+  },
+  {
+    question: 'Can you mount a TV outside or on a covered patio?',
+    answer: "Yes. Outdoor TV mounting is a separate install — it requires a weatherproof TV rated for outdoor use (we can source it or work with what you have), a mount rated for outdoor exposure, and proper weatherproof connection routing. We install outdoor TVs on covered patios, pool areas, and outdoor kitchens across San Antonio.",
+  },
+  {
+    question: 'Do you connect the TV to a sound bar or surround sound system?',
+    answer: "Yes. Most TV mounting jobs include connecting to a Sonos Arc, sound bar, or existing surround sound system. We handle HDMI ARC/eARC connections, subwoofer placement, and speaker calibration. If you want the full picture — TV, audio, and a single remote that controls everything — we can do that in the same visit.",
+  },
+  {
+    question: 'How high should a TV be mounted on the wall?',
+    answer: "The center of the screen should sit at seated eye level — approximately 42–48 inches from the floor for a standard sofa height. That puts the middle of the screen at eye level when you're sitting, which is where it belongs. A common mistake is mounting too high (at standing eye level), which causes neck strain over time. Above-fireplace installs almost always need a tilting mount to bring the viewing angle back down to comfortable.",
+  },
+];
+
+const featured = {
+  name: 'San Antonio Homeowner',
+  location: 'San Antonio, TX',
+  service: 'Home AV Client — Nearly 10 Years',
+  quote: "I've been a customer of KZ Audio for going on a decade. Kelly and crew have always been great to work with. They're honest and will recommend what actually works for your situation rather than upselling you on equipment you don't need.",
+};
+---
+
+<BaseLayout
+  title="TV Mounting San Antonio TX | KZ Audio & Video"
+  description="Professional TV mounting in San Antonio TX. Wall mounts, fireplace mounts, Samsung Frame TV, outdoor TV, cord concealment. Clean install, no dangling wires. Call (210) 981-4098."
+  schema={[schema, breadcrumb, faqSchema]}
+>
+
+  <HeroSection
+    overline="TV Mounting · San Antonio · Hill Country · Since 2001"
+    heading="TV Mounting in San Antonio TX"
+    subhead="Wall mounts, fireplace mounts, Samsung Frame TV, outdoor installs — cords concealed, everything connected. KZ Audio & Video has been handling TV and AV installation in San Antonio since 2001. We do it clean the first time."
+    ctaLabel="Book a Free Consultation"
+    ctaHref="/contact-kz-audio-video-san-antonio-tx/"
+    secondaryCta="Or call: (210) 981-4098"
+    secondaryHref="tel:2109814098"
+    imageSrc="/images/projects/flat-tvs/fireplace-tv-mount-san-antonio.jpg"
+    imageAlt="TV mounted above fireplace in San Antonio Texas home by KZ Audio and Video"
+  />
+
+  <TrustBar />
+
+  <!-- Services -->
+  <section class="section bg-slate-surface">
+    <div class="container-main">
+      <p class="overline mb-3">TV Mounting & Installation</p>
+      <h2 class="font-display text-h2 text-warm-white mb-6">
+        Clean Install. Cords Concealed. Everything Connected.
+      </h2>
+      <p class="text-body-lg text-stone mb-12 max-w-2xl">
+        A TV on the wall should look like it belongs there — not like it was an afterthought. We handle the mount, the wiring, the audio connection, and the programming. You shouldn't need to call an electrician and an AV company and figure out how they coordinate. We do all of it.
+      </p>
+
+      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+        {[
+          {
+            title: 'Standard Wall Mounting',
+            desc: 'Fixed, tilting, and full-motion mounts on drywall, wood, concrete, and brick. Stud-located, level, and rated for the weight of your TV. In-wall cable management included.',
+          },
+          {
+            title: 'Fireplace & Above-Mantel',
+            desc: 'Full-motion or tilting mounts that bring the screen to eye level when seated. We assess heat, confirm safe clearances, and run cables inside the wall or through the mantel.',
+          },
+          {
+            title: 'Samsung Frame TV',
+            desc: 'No-gap wall mount installation with the one-connect box routed in-wall or to a media closet. Zero visible cables. Looks like a picture hanging on the wall — because that\'s the point.',
+          },
+          {
+            title: 'Cord Concealment',
+            desc: 'In-wall cable routing on drywall. Surface raceways on stone, tile, or brick — matched to wall finish. No wires hanging down the wall, on any surface.',
+          },
+          {
+            title: 'Outdoor TV Installation',
+            desc: 'Weatherproof TV mounting on covered patios, pool decks, and outdoor kitchens. Outdoor-rated mounts, weatherproof connection routing, and audio integration if needed.',
+          },
+          {
+            title: 'Audio Integration',
+            desc: 'Sonos Arc, sound bar, or full surround sound connected and calibrated in the same visit. HDMI ARC/eARC, subwoofer placement, and single-remote control programming.',
+          },
+        ].map(({ title, desc }) => (
+          <div class="card p-7 flex flex-col gap-3">
+            <h3 class="font-sans font-semibold text-h4 text-warm-white">{title}</h3>
+            <p class="text-body-sm text-stone leading-relaxed">{desc}</p>
+          </div>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <!-- Photo callout -->
+  <section class="section bg-charcoal">
+    <div class="container-main">
+      <div class="grid grid-cols-1 md:grid-cols-2 gap-8 items-center">
+        <div>
+          <p class="overline mb-3">Recent Installs</p>
+          <h2 class="font-display text-h2 text-warm-white mb-6">
+            The Samsung Frame TV — Mounted Right
+          </h2>
+          <p class="text-body-lg text-stone mb-6">
+            The Frame TV only looks right when it's flush to the wall with zero visible cables. That means routing the one-connect box in-wall or into a media cabinet. It's a detail most installers skip. We don't.
+          </p>
+          <p class="text-body text-stone mb-8">
+            Whether it's a Frame TV on marble, a 75" above a fireplace, or a weatherproof screen on your patio — we handle the install from mount to remote.
+          </p>
+          <a
+            href="/contact-kz-audio-video-san-antonio-tx/"
+            class="btn-primary"
+          >
+            Book a Free Consultation
+          </a>
+        </div>
+        <div class="grid grid-cols-2 gap-4">
+          <img
+            src="/images/projects/flat-tvs/samsung-frame-tv-marble-wall-san-antonio.jpg"
+            alt="Samsung Frame TV flush mounted on marble wall in San Antonio Texas"
+            class="rounded-lg w-full aspect-[4/3] object-cover"
+            loading="lazy"
+          />
+          <img
+            src="/images/projects/flat-tvs/flat-tv-sonos-arc-install-san-antonio.jpg"
+            alt="TV with Sonos Arc sound bar installed in San Antonio Texas home"
+            class="rounded-lg w-full aspect-[4/3] object-cover"
+            loading="lazy"
+          />
+          <img
+            src="/images/projects/flat-tvs/patio-outdoor-tv-install-san-antonio.jpg"
+            alt="Outdoor TV installation on covered patio in San Antonio Texas"
+            class="rounded-lg w-full aspect-[4/3] object-cover"
+            loading="lazy"
+          />
+          <img
+            src="/images/projects/flat-tvs/flat-tv-surround-sound-san-antonio.jpg"
+            alt="TV mounted with surround sound speakers in San Antonio Texas home"
+            class="rounded-lg w-full aspect-[4/3] object-cover"
+            loading="lazy"
+          />
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <TestimonialsSection featured={featured} />
+
+  <FAQAccordion
+    heading="TV Mounting — Frequently Asked Questions"
+    faqs={faqs}
+  />
+
+  <CTASection
+    heading="Ready to Get Your TV on the Wall?"
+    body="Book a free consultation. We'll confirm the mount, talk through cord concealment and audio, and give you a firm quote."
+    ctaLabel="Book a Free Consultation"
+    ctaHref="/contact-kz-audio-video-san-antonio-tx/"
+    secondaryLabel="Call (210) 981-4098"
+    secondaryHref="tel:2109814098"
+  />
+
+</BaseLayout>

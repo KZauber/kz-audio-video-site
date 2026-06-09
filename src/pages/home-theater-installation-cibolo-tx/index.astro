@@ -1,0 +1,136 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import HeroSection from '../../components/sections/HeroSection.astro';
+import TrustBar from '../../components/sections/TrustBar.astro';
+import ServicesGrid from '../../components/sections/ServicesGrid.astro';
+import ProjectsGrid from '../../components/sections/ProjectsGrid.astro';
+import TestimonialsSection from '../../components/sections/TestimonialsSection.astro';
+import CTASection from '../../components/sections/CTASection.astro';
+
+const schema = {
+  "@context": "https://schema.org",
+  "@type": "Service",
+  "name": "Home Theater Installation Cibolo",
+  "provider": {
+    "@type": "LocalBusiness",
+    "name": "KZ Audio & Video",
+    "url": "https://kzaudioandvideo.com",
+    "telephone": "+12109814098"
+  },
+  "areaServed": "Cibolo, TX",
+  "description": "Custom home theater and AV installation in Cibolo TX. KZ Audio & Video serves Guadalupe County and the northeast San Antonio corridor.",
+  "url": "https://kzaudioandvideo.com/home-theater-installation-cibolo-tx/"
+};
+
+const breadcrumb = {
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": [
+    { "@type": "ListItem", "position": 1, "name": "Home", "item": "https://kzaudioandvideo.com" },
+    { "@type": "ListItem", "position": 2, "name": "Home Theater Installation Cibolo TX" }
+  ]
+};
+
+const projects = [
+  {
+    title: 'Dedicated Home Theater — Canyon Lake TX',
+    location: 'Canyon Lake, TX',
+    service: 'Home Theater',
+    description: 'Full theater room with custom leather power recliner seating, blue LED accent lighting, projection system, and in-wall surround sound.',
+    imageSrc: '/images/projects/monty-theater/Home-Theater-Near-San-Antonio-Texas.jpeg.jpg',
+    imageAlt: 'Custom home theater with leather recliners and blue LED lighting near San Antonio Texas',
+  },
+  {
+    title: 'Dedicated Home Theater — San Antonio TX',
+    location: 'San Antonio, TX',
+    service: 'Home Theater',
+    description: 'Epson projector, Screen Innovations fixed-frame screen, Martin Logan on-wall speakers, LED accent lighting.',
+    imageSrc: '/images/projects/asanka-theater/home-theater-led-lights-san-antonio.jpg',
+    imageAlt: 'Home theater installation in San Antonio Texas with LED accent lighting and projection screen',
+  },
+];
+
+const featured = {
+  name: 'San Antonio Homeowner',
+  location: 'San Antonio, TX',
+  service: 'Home Theater Client — Nearly 10 Years',
+  quote: "I've been a customer of KZ Audio for going on a decade. Kelly and crew have always been great to work with. They're honest and will recommend what actually works for your situation rather than upselling you on equipment you don't need. I've never had a bad experience with them and would absolutely recommend them to anyone looking for AV services.",
+};
+---
+
+<BaseLayout
+  title="Home Theater Installation Cibolo TX | KZ Audio & Video"
+  description="Custom home theater and AV installation in Cibolo TX. KZ Audio & Video serves Guadalupe County and the northeast San Antonio corridor. Call (210) 981-4098."
+  schema={[schema, breadcrumb]}
+>
+
+  <HeroSection
+    overline="Home Theater Installation · Cibolo · Guadalupe County · Since 2001"
+    heading="Home Theater Installation in Cibolo, TX"
+    subhead="KZ Audio & Video installs custom home theaters, whole-house audio, and outdoor AV in Cibolo and Guadalupe County. Cibolo is one of the fastest-growing cities in Texas — and the new construction happening here is exactly the kind of work we do. In the audio business since 1997."
+    ctaLabel="Book a Free Consultation"
+    ctaHref="/contact-kz-audio-video-san-antonio-tx/"
+    secondaryCta="Or call: (210) 981-4098"
+    secondaryHref="tel:2109814098"
+    imageSrc="/images/projects/monty-theater/Home-Theater-Design-Build-Near-San-Antonio-Texas.jpeg.jpg"
+    imageAlt="Custom home theater installation in Cibolo Texas Guadalupe County"
+  />
+
+  <TrustBar />
+
+  <ServicesGrid
+    intro="KZ Audio & Video serves Cibolo and Guadalupe County. We design, install, and service custom home AV systems — no third-party labor."
+  />
+
+  <ProjectsGrid
+    projects={projects}
+    overline="Recent Projects"
+    heading="Home Theater Installs Near Cibolo"
+  />
+
+  <TestimonialsSection featured={featured} />
+
+  <!-- Why KZ -->
+  <section class="section bg-charcoal">
+    <div class="container-main">
+      <p class="overline mb-3">Why KZ Audio & Video</p>
+      <h2 class="font-display text-h2 text-warm-white mb-10">
+        Cibolo Is Growing Fast. Get the AV Right the First Time.
+      </h2>
+      <p class="text-body text-stone mb-10 max-w-3xl">
+        Cibolo has become one of the fastest-growing cities in Texas. New master-planned communities, custom homes, and production builds are going up throughout Guadalupe County. For homeowners building new, the window to get AV pre-wired into the walls is during construction — after the sheetrock is up, everything costs more. We work directly with Cibolo homebuilders and homeowners to make sure the pre-wire is done right before the walls close.
+      </p>
+      <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+        {[
+          {
+            title: 'New Construction is Our Specialty',
+            desc: "Pre-wire during the frame stage, rough-in coordination with your builder, and a clean trim-out after sheetrock. If you're building in Cibolo, we're the call to make before the walls close.",
+          },
+          {
+            title: 'Existing Homes Too',
+            desc: 'Already in your Cibolo home? We work in finished spaces — running wire cleanly, mounting TVs, adding surround sound or whole-house audio with minimal disruption.',
+          },
+          {
+            title: 'Free In-Home Consultation',
+            desc: 'We come to your home in Cibolo, look at the space, and give you an honest quote. No charge, no obligation.',
+          },
+        ].map(({ title, desc }) => (
+          <div class="flex flex-col gap-3">
+            <h3 class="font-sans font-semibold text-h4 text-warm-white">{title}</h3>
+            <p class="text-body text-stone">{desc}</p>
+          </div>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <CTASection
+    heading="Ready to Get Started in Cibolo?"
+    body="Book a free consultation. We'll come to your home or building site in Cibolo and walk through what's possible."
+    ctaLabel="Book a Free Consultation"
+    ctaHref="/contact-kz-audio-video-san-antonio-tx/"
+    secondaryLabel="Call (210) 981-4098"
+    secondaryHref="tel:2109814098"
+  />
+
+</BaseLayout>

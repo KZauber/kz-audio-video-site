@@ -1,0 +1,227 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import HeroSection from '../../components/sections/HeroSection.astro';
+import TrustBar from '../../components/sections/TrustBar.astro';
+import ServicesGrid from '../../components/sections/ServicesGrid.astro';
+import ProjectsGrid from '../../components/sections/ProjectsGrid.astro';
+import TestimonialsSection from '../../components/sections/TestimonialsSection.astro';
+import CTASection from '../../components/sections/CTASection.astro';
+
+const schema = {
+  "@context": "https://schema.org",
+  "@type": "Service",
+  "name": "Home Theater Installation San Marcos TX",
+  "provider": {
+    "@type": "LocalBusiness",
+    "name": "KZ Audio & Video",
+    "url": "https://kzaudioandvideo.com",
+    "telephone": "+12109814098"
+  },
+  "areaServed": "San Marcos, TX",
+  "description": "Custom home theater, surround sound, and AV installation in San Marcos TX. KZ Audio & Video serves Hays County and the I-35 corridor between San Antonio and Austin.",
+  "url": "https://kzaudioandvideo.com/home-theater-installation-san-marcos-tx/"
+};
+
+const breadcrumb = {
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": [
+    { "@type": "ListItem", "position": 1, "name": "Home", "item": "https://kzaudioandvideo.com" },
+    { "@type": "ListItem", "position": 2, "name": "Home Theater Installation San Marcos TX" }
+  ]
+};
+
+const faqSchema = {
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    {
+      "@type": "Question",
+      "name": "Do you install home theaters in San Marcos TX?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Yes. KZ Audio & Video serves San Marcos and Hays County. We do free in-home consultations — we come to your home in San Marcos, look at the space, and give you a real quote. No charge, no obligation. Call (210) 981-4098."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "How much does a home theater installation cost in San Marcos?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Most dedicated home theater projects in San Marcos range from $15,000 to $80,000 depending on room size, equipment tier, seating, and acoustic treatment. A media room conversion typically starts around $8,000–$15,000. We provide detailed, itemized quotes at no charge."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Do you work on new construction homes in San Marcos?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Yes. New construction is a significant part of what we do. San Marcos is one of the fastest-growing areas in Texas and we work directly with custom home builders and homeowners on pre-wire, rough-in, trim-out, and full system installation."
+      }
+    }
+  ]
+};
+
+const projects = [
+  {
+    title: 'Dedicated Home Theater — Canyon Lake TX',
+    location: 'Canyon Lake, TX',
+    service: 'Home Theater',
+    description: 'Full theater room with custom leather power recliner seating on a raised platform, blue LED accent lighting, projection system, and in-wall Dolby surround sound.',
+    imageSrc: '/images/projects/monty-theater/Home-Theater-Near-San-Antonio-Texas.jpeg.jpg',
+    imageAlt: 'Custom home theater with leather recliners and blue LED lighting near San Antonio Texas',
+    href: '/home-theater-projects-san-antonio/',
+  },
+  {
+    title: 'Dedicated Home Theater — San Antonio TX',
+    location: 'San Antonio, TX',
+    service: 'Home Theater',
+    description: 'Epson projector, Screen Innovations fixed-frame screen, Martin Logan on-wall speakers, LED accent lighting. Pre-wire through finished install.',
+    imageSrc: '/images/projects/asanka-theater/home-theater-led-lights-san-antonio.jpg',
+    imageAlt: 'Home theater installation in San Antonio Texas with LED accent lighting and projection screen',
+    href: '/home-theater-projects-san-antonio/',
+  },
+];
+
+const featured = {
+  name: 'San Antonio Homeowner',
+  location: 'San Antonio, TX',
+  service: 'Home Theater Client — Nearly 10 Years',
+  quote: "I've been a customer of KZ Audio for going on a decade. Kelly and crew have always been great to work with. They're honest and will recommend what actually works for your situation rather than upselling you on equipment you don't need. I've never had a bad experience with them and would absolutely recommend them to anyone looking for AV services.",
+};
+---
+
+<BaseLayout
+  title="Home Theater Installation San Marcos TX | KZ Audio & Video"
+  description="Custom home theater, surround sound, and outdoor AV installation in San Marcos TX. KZ Audio & Video serves Hays County and the I-35 corridor. In the audio business since 1997. Call (210) 981-4098."
+  schema={[schema, breadcrumb, faqSchema]}
+>
+
+  <HeroSection
+    overline="Home Theater Installation · San Marcos · Hays County · Since 2001"
+    heading="Home Theater Installation in San Marcos, TX"
+    subhead="KZ Audio & Video designs and installs custom home theaters, whole-house audio, and outdoor AV systems in San Marcos and Hays County. San Marcos is one of the fastest-growing areas in Texas — we're here to serve it. In the audio business since 1997."
+    ctaLabel="Book a Free Consultation"
+    ctaHref="/contact-kz-audio-video-san-antonio-tx/"
+    secondaryCta="Or call: (210) 981-4098"
+    secondaryHref="tel:2109814098"
+    imageSrc="/images/projects/monty-theater/Home-Theater-Design-Build-Near-San-Antonio-Texas.jpeg.jpg"
+    imageAlt="Custom home theater installation serving San Marcos Texas and Hays County"
+  />
+
+  <TrustBar />
+
+  <ServicesGrid
+    intro="KZ Audio & Video serves San Marcos and Hays County. We design, install, and service custom home AV systems — no outsourced labor, no subcontractors."
+  />
+
+  <ProjectsGrid
+    projects={projects}
+    overline="Recent Projects"
+    heading="Home Theater Installs Near San Marcos"
+  />
+
+  <TestimonialsSection featured={featured} />
+
+  <!-- Why KZ / San Marcos specific -->
+  <section class="section bg-charcoal">
+    <div class="container-main">
+      <p class="overline mb-3">Serving San Marcos</p>
+      <h2 class="font-display text-h2 text-warm-white mb-6">
+        San Marcos Is Growing Fast. So Is Demand for Custom AV.
+      </h2>
+      <p class="text-body-lg text-stone mb-10 max-w-2xl">
+        San Marcos sits at the center of one of the fastest-growing corridors in Texas. New custom homes, established neighborhoods off Wonder World Drive and Ranch Road 12, and properties along the Blanco River — we serve all of it. If you're building or upgrading in Hays County, KZ Audio & Video is your team.
+      </p>
+      <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+        {[
+          {
+            title: 'New Construction Pre-Wire',
+            desc: 'We work directly with custom home builders in San Marcos on pre-wire, rough-in, and trim-out. If your builder doesn\'t have an AV partner yet, we\'re that call.',
+          },
+          {
+            title: 'Existing Home Upgrades',
+            desc: 'Living room surround sound, whole-house audio, outdoor speakers for the patio — we work in finished homes across San Marcos with minimal disruption.',
+          },
+          {
+            title: 'Free In-Home Consultation',
+            desc: 'We come to your home in San Marcos, look at the space, and give you an honest quote. No charge, no pressure, no obligation.',
+          },
+        ].map(({ title, desc }) => (
+          <div class="flex flex-col gap-3">
+            <h3 class="font-sans font-semibold text-h4 text-warm-white">{title}</h3>
+            <p class="text-body text-stone">{desc}</p>
+          </div>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <!-- FAQ -->
+  <section class="section bg-slate-surface">
+    <div class="container-content">
+      <h2 class="font-display text-h2 text-warm-white mb-10">Common Questions — San Marcos</h2>
+      <div class="flex flex-col divide-y divide-smoke">
+        {[
+          {
+            q: 'Do you install home theaters in San Marcos TX?',
+            a: 'Yes. KZ Audio & Video serves San Marcos and all of Hays County. We do free in-home consultations — we come to your home, look at the space, and give you a real quote. Call or text (210) 981-4098.',
+          },
+          {
+            q: 'How much does a home theater cost in San Marcos?',
+            a: 'Most dedicated theater projects range from $15,000 to $80,000 depending on room size, equipment tier, seating, and acoustic treatment. A media room in an existing finished space typically starts around $8,000–$15,000. We provide detailed, itemized quotes at no charge.',
+          },
+          {
+            q: 'Do you work with new construction builders in San Marcos?',
+            a: 'Yes. New construction is a big part of what we do. San Marcos is one of the fastest-growing areas in Texas. We work directly with custom home builders on pre-wire scheduling, rough-in, trim-out, programming, and the homeowner walkthrough.',
+          },
+          {
+            q: 'Do you also install whole-house audio and outdoor speakers in San Marcos?',
+            a: 'Yes. We install whole-house audio, outdoor speakers and projectors, TV mounting, security cameras, and surround sound in San Marcos homes. Everything we offer in San Antonio, we bring to San Marcos.',
+          },
+        ].map(({ q, a }, i) => (
+          <div class="py-5">
+            <button
+              type="button"
+              class="w-full text-left flex justify-between items-start gap-4 font-sans font-semibold text-h4 text-warm-white hover:text-gold transition-colors duration-fast"
+              aria-expanded="false"
+              aria-controls={`sm-faq-${i}`}
+              data-faq-btn
+            >
+              <span>{q}</span>
+              <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="flex-shrink-0 mt-0.5 transition-transform duration-fast" aria-hidden="true" data-faq-icon>
+                <path d="M6 9l6 6 6-6" />
+              </svg>
+            </button>
+            <div id={`sm-faq-${i}`} class="overflow-hidden max-h-0 transition-all duration-base" data-faq-panel>
+              <p class="text-stone text-body leading-relaxed pt-4 pb-2">{a}</p>
+            </div>
+          </div>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <CTASection
+    heading="Ready to Get Started in San Marcos?"
+    body="Book a free, no-pressure consultation. We'll come to your home in San Marcos and talk through what's possible for your space and your budget."
+    ctaLabel="Book a Free Consultation"
+    ctaHref="/contact-kz-audio-video-san-antonio-tx/"
+    secondaryLabel="Call (210) 981-4098"
+    secondaryHref="tel:2109814098"
+  />
+
+</BaseLayout>
+
+<script>
+  document.querySelectorAll('[data-faq-btn]').forEach((btn) => {
+    btn.addEventListener('click', () => {
+      const expanded = btn.getAttribute('aria-expanded') === 'true';
+      const panel = btn.nextElementSibling as HTMLElement;
+      const icon  = btn.querySelector('[data-faq-icon]') as HTMLElement;
+      btn.setAttribute('aria-expanded', String(!expanded));
+      panel.style.maxHeight = expanded ? '0' : `${panel.scrollHeight}px`;
+      icon.style.transform  = expanded ? '' : 'rotate(180deg)';
+    });
+  });
+</script>
