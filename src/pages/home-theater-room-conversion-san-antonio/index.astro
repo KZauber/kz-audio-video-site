@@ -1,0 +1,340 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import HeroSection from '../../components/sections/HeroSection.astro';
+import TrustBar from '../../components/sections/TrustBar.astro';
+import TestimonialsSection from '../../components/sections/TestimonialsSection.astro';
+import FAQAccordion from '../../components/sections/FAQAccordion.astro';
+import CTASection from '../../components/sections/CTASection.astro';
+
+const schema = {
+  "@context": "https://schema.org",
+  "@type": "Service",
+  "name": "Home Theater Room Conversion San Antonio",
+  "provider": {
+    "@type": "LocalBusiness",
+    "name": "KZ Audio & Video",
+    "url": "https://kzaudioandvideo.com",
+    "telephone": "+12109814098"
+  },
+  "areaServed": "San Antonio, TX",
+  "description": "Turn any room into a home theater in San Antonio TX. Garages, attics, bonus rooms, and small spaces converted into dedicated entertainment rooms with projectors, surround sound, and gaming setups.",
+  "url": "https://kzaudioandvideo.com/home-theater-room-conversion-san-antonio/"
+};
+
+const breadcrumb = {
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": [
+    { "@type": "ListItem", "position": 1, "name": "Home", "item": "https://kzaudioandvideo.com" },
+    { "@type": "ListItem", "position": 2, "name": "Home Theater Room Conversion San Antonio" }
+  ]
+};
+
+const faqSchema = {
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    {
+      "@type": "Question",
+      "name": "Can a small room have a real home theater experience?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Yes. Short throw and ultra-short throw projectors are designed specifically for rooms where a traditional long-throw projector would require too much distance. A good short throw projector can produce a 100 to 110 inch image from just 4 to 6 feet away — which means a bedroom, bonus room, or converted space as small as 10x12 feet can have a genuinely cinematic picture. Pair it with in-wall or on-wall surround speakers or a premium soundbar and the experience is real. The room doesn't have to be large — it has to be designed correctly."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Can a garage be converted into a home theater or gaming room?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Absolutely. Garages are one of the most underused spaces in Texas homes and one of the best candidates for an entertainment conversion. We've converted two-car garages into dedicated theater rooms and gaming spaces with multiple large displays, surround sound, gaming seating, and proper lighting control. The key considerations are insulation (Texas heat makes an uninsulated garage unusable), lighting control, and acoustics. With the right build-out, a garage becomes a room that kids, adults, and guests will actually use every day. We recently completed a three-TV gaming room in a converted garage for a San Antonio family — their house is now the neighborhood hangout."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Can an attic be converted into a home theater?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Yes, and attic conversions can produce some of the best dedicated theater spaces because the room is isolated from the rest of the house — which means sound doesn't travel to bedrooms, and you can control the environment completely. The requirements are proper HVAC, insulation, and structural flooring. Once those are in place, an attic theater has natural advantages: existing ceiling structure for Atmos speaker mounting, walls you can treat acoustically without affecting the rest of the house, and a sense of dedicated purpose that bonus rooms and converted bedrooms don't always have. We work with general contractors on attic conversion projects in San Antonio and the Hill Country."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "What is a short throw projector and do I need one for a small room?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "A short throw projector is designed to produce a large image from a short distance. Standard short throw projectors achieve a 100-inch image from roughly 5 to 8 feet. Ultra-short throw projectors — like the Epson LS800 or Sony VPL-XW5000 — sit just inches from the wall and produce a 100-inch or larger image. These are ideal for rooms where there's no good place to mount a projector on the ceiling at the proper throw distance, or where you want the projector on a credenza or shelf below the screen. For rooms under 15 feet deep, short throw is usually the right answer. We specify and install both formats and will tell you which makes sense for your room."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "What is the minimum room size for a home theater?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "There is no hard minimum. The practical floor for a dedicated theater experience is roughly 10x12 feet — enough room for a loveseat or two chairs, a 100-inch screen, and proper speaker placement. Smaller than that and the screen-to-seating distance becomes uncomfortable and surround sound placement gets difficult. Most effective dedicated theater rooms are 12x16 feet or larger, which allows tiered seating and a full Dolby Atmos speaker layout. We've designed rooms on both ends of that spectrum and will tell you honestly what's possible in your specific space."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "How much does it cost to convert a room into a home theater in San Antonio?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "A basic room conversion with a short throw projector, 100-inch screen, and a soundbar or 5.1 surround system starts around $5,000 to $8,000 for the AV components and installation. A full dedicated theater conversion with acoustic treatment, tiered seating, Dolby Atmos, and a 4K laser projector runs $20,000 to $60,000 depending on the level of finish. Garage and attic conversions add construction costs on top of the AV — insulation, drywall, flooring, HVAC — which we coordinate with general contractors but don't perform ourselves. We give you a real AV quote after seeing the space."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Can you build a multi-TV gaming room instead of a traditional theater?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Yes, and it's one of our favorite builds. A multi-TV gaming room — two or three large displays, gaming chairs or a sectional, surround sound or individual audio zones for each screen, and proper lighting — is a completely different design than a projection theater but equally satisfying to build. We recently completed a three-display gaming room in a converted garage in San Antonio where each TV runs an independent gaming station with its own audio. The room runs off a single control system so the lighting and sound can be managed from a wall panel. These rooms become the hangout destination for the whole neighborhood."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Do I need acoustic treatment for a converted room?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "It depends on the room. Hard-surface rooms — drywall, wood floors, minimal furniture — reflect sound in ways that make dialogue hard to follow and surround effects sound diffuse. Acoustic panels, bass traps in corners, and soft furnishings (carpet, heavy curtains, upholstered seating) absorb reflections and improve intelligibility significantly. Dedicated theater rooms benefit most from acoustic treatment. Garages converted with drywall and carpet often perform surprisingly well without heavy treatment. We assess the room's acoustics as part of every design consultation and will tell you if treatment is necessary or optional."
+      }
+    },
+  ],
+};
+
+const faqs = [
+  {
+    question: 'Can a small room have a real home theater experience?',
+    answer: "Yes. Short throw and ultra-short throw projectors are designed specifically for rooms where a traditional long-throw projector would require too much distance. A good short throw projector can produce a 100 to 110 inch image from just 4 to 6 feet away — which means a bedroom, bonus room, or converted space as small as 10x12 feet can have a genuinely cinematic picture. Pair it with in-wall or on-wall surround speakers or a premium soundbar and the experience is real. The room doesn't have to be large — it has to be designed correctly.",
+  },
+  {
+    question: 'Can a garage be converted into a home theater or gaming room?',
+    answer: "Absolutely. Garages are one of the most underused spaces in Texas homes and one of the best candidates for an entertainment conversion. We've converted two-car garages into dedicated theater rooms and gaming spaces with multiple large displays, surround sound, gaming seating, and proper lighting control. The key considerations are insulation (Texas heat makes an uninsulated garage unusable), lighting control, and acoustics. With the right build-out, a garage becomes a room that kids, adults, and guests will actually use every day. We recently completed a three-TV gaming room in a converted garage for a San Antonio family — their house is now the neighborhood hangout.",
+  },
+  {
+    question: 'Can an attic be converted into a home theater?',
+    answer: "Yes, and attic conversions can produce some of the best dedicated theater spaces because the room is isolated from the rest of the house — which means sound doesn't travel to bedrooms, and you can control the environment completely. The requirements are proper HVAC, insulation, and structural flooring. Once those are in place, an attic theater has natural advantages: existing ceiling structure for Atmos speaker mounting, walls you can treat acoustically without affecting the rest of the house, and a sense of dedicated purpose that bonus rooms and converted bedrooms don't always have. We work with general contractors on attic conversion projects in San Antonio and the Hill Country.",
+  },
+  {
+    question: 'What is a short throw projector and do I need one for a small room?',
+    answer: "A short throw projector is designed to produce a large image from a short distance. Standard short throw projectors achieve a 100-inch image from roughly 5 to 8 feet. Ultra-short throw projectors — like the Epson LS800 or Sony VPL-XW5000 — sit just inches from the wall and produce a 100-inch or larger image. These are ideal for rooms where there's no good place to mount a projector on the ceiling at the proper throw distance, or where you want the projector on a credenza or shelf below the screen. For rooms under 15 feet deep, short throw is usually the right answer. We specify and install both formats and will tell you which makes sense for your room.",
+  },
+  {
+    question: 'What is the minimum room size for a home theater?',
+    answer: "There is no hard minimum. The practical floor for a dedicated theater experience is roughly 10x12 feet — enough room for a loveseat or two chairs, a 100-inch screen, and proper speaker placement. Smaller than that and the screen-to-seating distance becomes uncomfortable and surround sound placement gets difficult. Most effective dedicated theater rooms are 12x16 feet or larger, which allows tiered seating and a full Dolby Atmos speaker layout. We've designed rooms on both ends of that spectrum and will tell you honestly what's possible in your specific space.",
+  },
+  {
+    question: 'How much does it cost to convert a room into a home theater in San Antonio?',
+    answer: "A basic room conversion with a short throw projector, 100-inch screen, and a soundbar or 5.1 surround system starts around $5,000 to $8,000 for the AV components and installation. A full dedicated theater conversion with acoustic treatment, tiered seating, Dolby Atmos, and a 4K laser projector runs $20,000 to $60,000 depending on the level of finish. Garage and attic conversions add construction costs on top of the AV — insulation, drywall, flooring, HVAC — which we coordinate with general contractors but don't perform ourselves. We give you a real AV quote after seeing the space.",
+  },
+  {
+    question: 'Can you build a multi-TV gaming room instead of a traditional theater?',
+    answer: "Yes, and it's one of our favorite builds. A multi-TV gaming room — two or three large displays, gaming chairs or a sectional, surround sound or individual audio zones for each screen, and proper lighting — is a completely different design than a projection theater but equally satisfying to build. We recently completed a three-display gaming room in a converted garage in San Antonio where each TV runs an independent gaming station with its own audio. The room runs off a single control system so the lighting and sound can be managed from a wall panel. These rooms become the hangout destination for the whole neighborhood.",
+  },
+  {
+    question: 'Do I need acoustic treatment for a converted room?',
+    answer: "It depends on the room. Hard-surface rooms — drywall, wood floors, minimal furniture — reflect sound in ways that make dialogue hard to follow and surround effects sound diffuse. Acoustic panels, bass traps in corners, and soft furnishings (carpet, heavy curtains, upholstered seating) absorb reflections and improve intelligibility significantly. Dedicated theater rooms benefit most from acoustic treatment. Garages converted with drywall and carpet often perform surprisingly well without heavy treatment. We assess the room's acoustics as part of every design consultation and will tell you if treatment is necessary or optional.",
+  },
+];
+
+const featured = {
+  name: 'San Antonio Homeowner',
+  location: 'San Antonio, TX',
+  service: 'Home Theater Client — Nearly 10 Years',
+  quote: "I've been a customer of KZ Audio for going on a decade. Kelly and crew have always been great to work with. They're honest and will recommend what actually works for your situation rather than upselling you on equipment you don't need.",
+};
+---
+
+<BaseLayout
+  title="Turn Any Room Into a Home Theater — San Antonio TX | KZ Audio & Video"
+  description="Convert a garage, attic, bonus room, or small space into a dedicated home theater or gaming room in San Antonio TX. Short throw projectors, surround sound, multi-TV setups. Free consultation."
+  schema={[schema, breadcrumb, faqSchema]}
+>
+
+  <HeroSection
+    overline="Room Conversions · San Antonio · Hill Country · Since 2001"
+    heading="Any Room Can Become a Home Theater"
+    subhead="You don't need a dedicated screening room or a perfect space. Garages, attics, bonus rooms, and small bedrooms can all become serious entertainment spaces — with the right design and the right equipment. KZ Audio & Video builds them across San Antonio and the Hill Country."
+    ctaLabel="Book a Free Consultation"
+    ctaHref="/contact-kz-audio-video-san-antonio-tx/"
+    secondaryCta="Or call: (210) 981-4098"
+    secondaryHref="tel:2109814098"
+    imageSrc="/images/projects/asanka-theater/theater-room-san-antonio-tx.jpg"
+    imageAlt="Home theater room conversion in San Antonio Texas"
+  />
+
+  <TrustBar />
+
+  <!-- Space Types -->
+  <section class="section bg-slate-surface">
+    <div class="container-main">
+      <p class="overline mb-3">What We Convert</p>
+      <h2 class="font-display text-h2 text-warm-white mb-4">
+        Spaces That Become Great Entertainment Rooms
+      </h2>
+      <p class="text-body-lg text-stone mb-12 max-w-2xl">
+        The most common question we get is "do I have enough room?" The answer is almost always yes — the question is what design fits your space. Here are the conversions we do most often in San Antonio.
+      </p>
+
+      <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+        {[
+          {
+            space: 'Garage',
+            tag: 'Most Popular Conversion',
+            desc: "A two-car garage is one of the best raw spaces for an entertainment room — high ceilings, a blank canvas, and isolation from the rest of the house so volume isn't a problem. We've built full theater rooms and gaming setups in converted garages across San Antonio. The keys are insulation (non-negotiable in Texas), lighting control, and acoustics. Once those are handled, the AV build is straightforward.",
+            builds: ['Multi-TV gaming rooms', 'Dedicated projection theaters', 'Sports bar setups', 'Family game rooms'],
+          },
+          {
+            space: 'Attic',
+            tag: 'Best Acoustic Isolation',
+            desc: "Converted attics offer something most rooms can't — complete separation from the rest of the house. Sound doesn't travel down to bedrooms. You can run a movie at reference volume on a Thursday night without anyone noticing. Attic theaters require proper HVAC, insulation, and structural flooring, which we coordinate with GC partners. Once the space is built out, the AV design takes full advantage of the isolation.",
+            builds: ['Dedicated home theaters', 'Dolby Atmos systems', 'Acoustic treatment installs', 'Full projection + seating builds'],
+          },
+          {
+            space: 'Bonus Room or Loft',
+            tag: 'Quickest Path to Done',
+            desc: "Bonus rooms, game rooms, and lofts are the fastest conversion — the space already exists and is already climate controlled. Most bonus rooms in San Antonio homes are 200 to 400 square feet, which is enough for a proper theater setup. We've turned bonus rooms into projection theaters, gaming rooms, and hybrid spaces that work for both kids and adults.",
+            builds: ['Short throw projector + 110\" screen', '5.1 or 7.1 surround', 'Gaming stations', 'Hybrid theater + game room'],
+          },
+          {
+            space: 'Small Room or Bedroom',
+            tag: 'Smaller Than You Think',
+            desc: "A room as small as 10x12 feet can have a 100-inch picture and real surround sound. Ultra-short throw projectors sit on a shelf or credenza and throw a 100-inch image from 6 inches away. A soundbar with wireless surrounds or small in-wall speakers rounds it out. This is the setup for the homeowner who wants the theater experience but doesn't have — or want to dedicate — a large room to it.",
+            builds: ['Ultra-short throw projectors (Epson, Sony)', '100–110\" ALR screens', 'Compact surround systems', 'Sonos Arc + Era surrounds'],
+          },
+        ].map(({ space, tag, desc, builds }) => (
+          <div class="card p-8 flex flex-col gap-4">
+            <div class="flex items-start justify-between gap-4">
+              <h3 class="font-display text-h3 text-warm-white">{space}</h3>
+              <span class="text-body-sm text-gold border border-gold/30 rounded px-3 py-1 shrink-0">{tag}</span>
+            </div>
+            <p class="text-body-sm text-stone leading-relaxed">{desc}</p>
+            <ul class="flex flex-col gap-1 mt-2">
+              {builds.map(b => (
+                <li class="text-body-sm text-stone/80 flex items-center gap-2">
+                  <span class="w-1 h-1 rounded-full bg-gold shrink-0"></span>
+                  {b}
+                </li>
+              ))}
+            </ul>
+          </div>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <!-- The Garage Gaming Room Story -->
+  <section class="section bg-charcoal">
+    <div class="container-main">
+      <div class="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
+        <div>
+          <p class="overline mb-3">Recent Build</p>
+          <h2 class="font-display text-h2 text-warm-white mb-6">
+            The Garage That Became the Neighborhood Hangout
+          </h2>
+          <p class="text-body text-stone mb-5">
+            A San Antonio family wanted their kids to have a place to bring friends — somewhere better than a living room couch, where they could play games, watch the game, and actually want to be at home rather than somewhere else.
+          </p>
+          <p class="text-body text-stone mb-5">
+            We converted their two-car garage into a dedicated gaming and entertainment space with three large displays — one main screen for movies and gaming, two side screens for multiplayer setups. Surround sound runs through all three zones from a single control system. LED lighting sets the mood and can be adjusted from a wall panel or a phone.
+          </p>
+          <p class="text-body text-stone mb-5">
+            The room runs independently from the house — separate audio, separate video sources, separate lighting scene. The parents can be in the living room while the kids have a completely different experience 30 feet away.
+          </p>
+          <p class="text-body-lg text-warm-white font-semibold">
+            Their house is now the place every kid in the neighborhood wants to be.
+          </p>
+        </div>
+        <div class="flex flex-col gap-5">
+          <h3 class="font-sans font-semibold text-warm-white text-h4 mb-2">What Went Into It</h3>
+          {[
+            { label: 'Three large displays', detail: 'Main screen for movies + two side screens for gaming. Each running independent sources.' },
+            { label: 'Surround sound', detail: 'Full audio through all three zones. Switch between theater mode and gaming mode from the wall panel.' },
+            { label: 'Lighting control', detail: 'LED accent lighting with scene presets — movie mode, gaming mode, full bright for cleanup.' },
+            { label: 'Single control system', detail: 'Everything runs from one wall panel or phone app. No switching inputs manually, no remote confusion.' },
+            { label: 'Independent from the house', detail: "Separate from the home's main AV system so it doesn't interfere and doesn't need the main receiver on." },
+          ].map(({ label, detail }) => (
+            <div class="flex gap-4 items-start border-b border-warm-white/10 pb-4 last:border-0 last:pb-0">
+              <span class="w-2 h-2 rounded-full bg-gold mt-2 shrink-0"></span>
+              <div>
+                <p class="font-semibold text-warm-white text-body-sm">{label}</p>
+                <p class="text-body-sm text-stone mt-1">{detail}</p>
+              </div>
+            </div>
+          ))}
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Short Throw Projector Section -->
+  <section class="section bg-slate-surface">
+    <div class="container-main">
+      <div class="grid grid-cols-1 lg:grid-cols-2 gap-16 items-start">
+        <div>
+          <p class="overline mb-3">Small Room Solutions</p>
+          <h2 class="font-display text-h2 text-warm-white mb-6">
+            100 Inches in a Small Room — Short Throw Projectors
+          </h2>
+          <p class="text-body text-stone mb-5">
+            The biggest misconception about home theaters is that you need a large room. You don't. You need the right projector for the room you have.
+          </p>
+          <p class="text-body text-stone mb-5">
+            Short throw projectors produce a 100 to 110 inch image from 4 to 8 feet away. Ultra-short throw projectors — the kind that sit on a shelf or media console — produce the same image from just a few inches off the wall. A spare bedroom, a large walk-in closet conversion, a bonus room, or a smaller garage bay can have a genuinely cinematic picture.
+          </p>
+          <p class="text-body text-stone mb-5">
+            We install and calibrate short throw and ultra-short throw projectors from Epson, Sony, and LG throughout San Antonio. We also spec ALR (ambient light rejecting) screens that work with the projector's short throw angle and maximize contrast in rooms that aren't fully light-controlled.
+          </p>
+          <p class="text-body text-stone">
+            If someone told you your room is too small for a projector, they were probably right about their projector — not about yours.
+          </p>
+        </div>
+        <div class="flex flex-col gap-6">
+          <h3 class="font-sans font-semibold text-warm-white text-h4 mb-2">Short Throw vs. Ultra-Short Throw</h3>
+          {[
+            {
+              type: 'Standard Short Throw',
+              distance: '4–8 feet from wall',
+              imageSize: '100–120 inches',
+              bestFor: 'Rooms 12–18 feet deep where ceiling mounting is difficult',
+              example: 'Epson EpiqVision, BenQ TK700STi',
+            },
+            {
+              type: 'Ultra-Short Throw',
+              distance: '2–12 inches from wall',
+              imageSize: '100–130 inches',
+              bestFor: 'Small rooms, shelves or consoles below the screen, modern living room installs',
+              example: 'Epson LS800, Sony VPL-XW5000, LG CineBeam',
+            },
+          ].map(({ type, distance, imageSize, bestFor, example }) => (
+            <div class="card p-6 flex flex-col gap-3">
+              <h4 class="font-sans font-semibold text-warm-white">{type}</h4>
+              <div class="grid grid-cols-2 gap-3 text-body-sm">
+                <div><span class="text-stone/60">Throw distance</span><p class="text-stone mt-1">{distance}</p></div>
+                <div><span class="text-stone/60">Image size</span><p class="text-stone mt-1">{imageSize}</p></div>
+              </div>
+              <div class="text-body-sm"><span class="text-stone/60">Best for</span><p class="text-stone mt-1">{bestFor}</p></div>
+              <div class="text-body-sm"><span class="text-stone/60">Examples</span><p class="text-stone mt-1">{example}</p></div>
+            </div>
+          ))}
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <TestimonialsSection featured={featured} />
+
+  <FAQAccordion
+    heading="Home Theater Room Conversions — Frequently Asked Questions"
+    faqs={faqs}
+  />
+
+  <CTASection
+    heading="What Room Do You Have in Mind?"
+    body="Tell us the space — garage, attic, bonus room, bedroom — and we'll come out, look at it, and tell you exactly what's possible. Free consultation, no obligation."
+    ctaLabel="Book a Free Consultation"
+    ctaHref="/contact-kz-audio-video-san-antonio-tx/"
+    secondaryLabel="Call (210) 981-4098"
+    secondaryHref="tel:2109814098"
+  />
+
+</BaseLayout>
