@@ -1,0 +1,326 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import HeroSection from '../../components/sections/HeroSection.astro';
+import TrustBar from '../../components/sections/TrustBar.astro';
+import TestimonialsSection from '../../components/sections/TestimonialsSection.astro';
+import FAQAccordion from '../../components/sections/FAQAccordion.astro';
+import CTASection from '../../components/sections/CTASection.astro';
+
+const schema = {
+  "@context": "https://schema.org",
+  "@type": "Service",
+  "name": "Micro LED Wall Installation San Antonio TX",
+  "provider": {
+    "@type": "LocalBusiness",
+    "name": "KZ Audio & Video",
+    "url": "https://kzaudioandvideo.com",
+    "telephone": "+12109814098"
+  },
+  "areaServed": ["San Antonio", "Boerne", "Canyon Lake", "Helotes", "Bulverde", "Stone Oak", "New Braunfels", "Schertz", "Seguin"],
+  "description": "Micro LED wall installation in San Antonio TX and the Texas Hill Country. AWOL Vision AWall and Samsung Micro LED residential installation. No dark room required. Seamless, zero-bezel display from 108 to 200+ inches.",
+  "url": "https://kzaudioandvideo.com/micro-led-wall-san-antonio/"
+};
+
+const breadcrumb = {
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": [
+    { "@type": "ListItem", "position": 1, "name": "Home", "item": "https://kzaudioandvideo.com" },
+    { "@type": "ListItem", "position": 2, "name": "Micro LED Wall Installation San Antonio TX" }
+  ]
+};
+
+const faqSchema = {
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    {
+      "@type": "Question",
+      "name": "What is a micro LED wall?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "A micro LED wall is a seamless, zero-bezel display built from individual self-illuminating LED tiles mounted directly to your wall. Unlike a projector, it requires no dark room and no throw distance. Unlike a standard TV, there is no frame, no size limit, and no backlight — each pixel generates its own light, producing true black, infinite contrast, and brightness that works in any lighting condition. Sizes typically start at 108 inches and scale to 200 inches and beyond."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "How is a micro LED wall different from a projector?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "A projector requires a dark or near-dark room to perform well — ambient light washes out the image. A micro LED wall produces 1,000 to 2,000+ nits of brightness, which means it looks stunning in a lit living room, a bonus room with windows, or any space you cannot fully blackout. There is also no lamp or bulb to replace, no throw distance to plan around, and no screen to tension or level. The micro LED wall is the display. It installs flush to the wall like a piece of art."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "What brands do you install?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "We install AWOL Vision AWall micro LED systems, which come in preconfigured sizes of 108, 135, and 162 inches, and Samsung Micro LED residential systems. We specify the right system for your room size, lighting conditions, and how you use the space — and give you a straight answer on which makes more sense for your specific situation."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "How much does a micro LED wall cost in San Antonio?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "A micro LED wall installation in San Antonio typically costs $14,000 to $50,000 or more, depending on screen size and what else is included. A 108-inch AWOL Vision AWall, professionally installed, runs approximately $14,000 to $19,000. A 135-inch system runs $21,000 to $30,000. A 162-inch system runs $32,000 to $48,000. Custom modular installations above 190 inches run higher. Cost increases with added surround sound, control system integration, room treatment, and whether the space is new construction or a retrofit. Use our free calculator for a quick estimate."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Does a micro LED wall work in a bright room?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Yes — this is one of the main reasons people choose micro LED over a projector. Micro LED panels produce 1,000 to 2,000 nits or more of brightness, which handles ambient light that would completely wash out a projection setup. You can watch in a room with windows, overhead lights on, or full daylight on a covered patio. It performs in any lighting condition."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "How long does a micro LED wall last?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Micro LED panels are rated for approximately 100,000 hours of operation — roughly 25 to 30 years at normal viewing levels. There is no lamp to replace, no bulb to burn out, and no degradation of a projector lens over time. The display maintains its brightness and color accuracy far longer than any lamp-based projector."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Can I install a micro LED wall in an existing room?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Yes. Micro LED wall systems like the AWOL Vision AWall mount directly to your existing wall surface — drywall, concrete, or wood — using a precision mounting frame system. They do not require structural modification in most residential spaces. We assess your wall, run power and signal cabling clean through the wall or behind baseboards, and calibrate the display for your room. Installation typically takes one to two days."
+      }
+    }
+  ]
+};
+
+const faqs = [
+  {
+    question: 'What is a micro LED wall?',
+    answer: 'A micro LED wall is a seamless, zero-bezel display built from individual self-illuminating LED tiles mounted directly to your wall. Unlike a projector, it requires no dark room and no throw distance. Unlike a standard TV, there is no frame, no size limit, and no backlight — each pixel generates its own light, producing true black, infinite contrast, and brightness that works in any lighting condition. Sizes typically start at 108 inches and scale to 200 inches and beyond.',
+  },
+  {
+    question: 'How is a micro LED wall different from a projector?',
+    answer: 'A projector requires a dark or near-dark room to perform well — ambient light washes out the image. A micro LED wall produces 1,000 to 2,000+ nits of brightness, which means it looks stunning in a lit living room, a bonus room with windows, or any space you cannot fully blackout. There is also no lamp or bulb to replace, no throw distance to plan around, and no screen to tension or level. The micro LED wall is the display. It installs flush to the wall like a piece of art.',
+  },
+  {
+    question: 'What brands do you install?',
+    answer: 'We install AWOL Vision AWall micro LED systems, which come in preconfigured sizes of 108, 135, and 162 inches, and Samsung Micro LED residential systems. We specify the right system for your room size, lighting conditions, and how you use the space — and give you a straight answer on which makes more sense for your specific situation.',
+  },
+  {
+    question: 'How much does a micro LED wall cost in San Antonio?',
+    answer: 'A micro LED wall installation in San Antonio typically costs $14,000 to $50,000 or more, depending on screen size and what else is included. A 108-inch AWOL Vision AWall professionally installed runs approximately $14,000 to $19,000. A 135-inch system runs $21,000 to $30,000. A 162-inch system runs $32,000 to $48,000. Use our free cost calculator for a quick estimate based on your specific setup.',
+  },
+  {
+    question: 'Does a micro LED wall work in a bright room?',
+    answer: 'Yes — this is one of the main reasons people choose micro LED over a projector. Micro LED panels produce 1,000 to 2,000 nits or more of brightness, which handles ambient light that would completely wash out a projection setup. You can watch in a room with windows, overhead lights on, or any lighting condition.',
+  },
+  {
+    question: 'How long does a micro LED wall last?',
+    answer: 'Micro LED panels are rated for approximately 100,000 hours of operation — roughly 25 to 30 years at normal viewing levels. There is no lamp to replace, no bulb to burn out, and no degradation over time. It maintains its brightness and color accuracy far longer than any lamp-based projector.',
+  },
+  {
+    question: 'Can I install a micro LED wall in an existing room?',
+    answer: 'Yes. Micro LED wall systems like the AWOL Vision AWall mount directly to your existing wall surface using a precision mounting frame system. They do not require structural modification in most residential spaces. We assess your wall, run power and signal cabling clean through the wall or behind baseboards, and calibrate the display for your room. Installation typically takes one to two days.',
+  },
+];
+
+const featured = {
+  name: 'San Antonio Homeowner',
+  location: 'San Antonio, TX',
+  service: 'Home AV Client — Nearly 10 Years',
+  quote: "I've been a customer of KZ Audio for going on a decade. Kelly and crew have always been great to work with. They're honest and will recommend what actually works for your situation rather than upselling you on equipment you don't need.",
+};
+---
+
+<BaseLayout
+  title="Micro LED Wall Installation San Antonio TX | KZ Audio & Video"
+  description="Micro LED wall installation in San Antonio TX and the Hill Country. AWOL Vision AWall and Samsung Micro LED residential systems. No dark room needed. Seamless display from 108 to 200+ inches. Call (210) 981-4098."
+  schema={[schema, breadcrumb, faqSchema]}
+>
+
+  <HeroSection
+    overline="Micro LED Wall · San Antonio · Hill Country · Since 1997"
+    heading="Micro LED Wall Installation in San Antonio TX"
+    subhead="Seamless, zero-bezel displays from 108 to 200+ inches — installed flush to your wall with no dark room required. AWOL Vision AWall and Samsung Micro LED residential systems."
+    ctaLabel="Book a Free Consultation"
+    ctaHref="/contact-kz-audio-video-san-antonio-tx/"
+    secondaryCta="Or call: (210) 981-4098"
+    secondaryHref="tel:2109814098"
+    imageSrc="/images/projects/home-theater/home-theater-san-antonio-tx.jpg"
+    imageAlt="Micro LED wall installation in San Antonio Texas home by KZ Audio and Video"
+  />
+
+  <TrustBar />
+
+  <!-- What it is -->
+  <section class="section bg-slate-surface">
+    <div class="container-main">
+      <p class="overline mb-3">The Display, Reimagined</p>
+      <h2 class="font-display text-h2 text-warm-white mb-6">
+        No Frame. No Bezel. No Dark Room Required.
+      </h2>
+      <p class="text-body-lg text-stone mb-6 max-w-3xl">
+        A micro LED wall is not a television. It is not a projector. It is a wall-flush, modular display built from self-illuminating LED tiles that produce true black, infinite contrast, and over 1,000 nits of brightness — in any room, under any lighting conditions.
+      </p>
+      <p class="text-body text-stone mb-12 max-w-3xl">
+        The result looks like the content is embedded in your wall. No screen. No frame. No bezel. Just picture — at 108, 135, 162 inches, or larger — starting the instant you turn it on.
+      </p>
+
+      <!-- Comparison grid -->
+      <div class="grid grid-cols-1 md:grid-cols-3 gap-6 mb-12">
+        {[
+          {
+            label: 'Standard TV',
+            points: ['85" max (practically)', 'Frame and bezel always visible', 'Works in ambient light', 'Looks like a consumer product'],
+            highlight: false,
+          },
+          {
+            label: 'Micro LED Wall',
+            points: ['108" to 200"+ seamless', 'Zero bezel, zero frame', 'Works in any lighting', '100,000-hour lifespan, no bulbs'],
+            highlight: true,
+          },
+          {
+            label: 'Projector + Screen',
+            points: ['Any size — but needs dark room', 'Screen and frame visible', 'Ambient light kills image quality', 'Lamp replacement every 3–5 years'],
+            highlight: false,
+          },
+        ].map(({ label, points, highlight }) => (
+          <div class:list={["card p-7 flex flex-col gap-4", highlight ? "border-gold/40 bg-gold/5" : ""]}>
+            <h3 class:list={["font-sans font-semibold text-h4", highlight ? "text-gold" : "text-warm-white"]}>{label}</h3>
+            <ul class="flex flex-col gap-2">
+              {points.map(p => (
+                <li class="flex items-start gap-2 text-body-sm text-stone">
+                  <span class:list={["mt-0.5 flex-shrink-0", highlight ? "text-gold" : "text-ash"]}>→</span>
+                  {p}
+                </li>
+              ))}
+            </ul>
+          </div>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <!-- What we install -->
+  <section class="section bg-charcoal">
+    <div class="container-main">
+      <p class="overline mb-3">Systems We Install</p>
+      <h2 class="font-display text-h2 text-warm-white mb-6">
+        AWOL Vision AWall and Samsung Micro LED
+      </h2>
+      <p class="text-body-lg text-stone mb-12 max-w-2xl">
+        We specify the right micro LED system for your room, your lighting conditions, and how you actually use the space.
+      </p>
+
+      <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+        <div class="card p-8">
+          <h3 class="font-sans font-semibold text-h3 text-warm-white mb-3">AWOL Vision AWall</h3>
+          <p class="text-body text-stone mb-5 leading-relaxed">
+            Preconfigured residential micro LED systems in 108, 135, and 162-inch sizes. Modular tile design with a precision aluminum mounting frame. True black, 2,500+ nit brightness, and HDR support. No screen, no bezels — mounts flat to your wall in one to two days.
+          </p>
+          <ul class="flex flex-col gap-2">
+            {['108", 135", 162" preconfigured sizes', '2,500+ nit peak brightness', 'True black / infinite contrast', '100,000-hour rated lifespan', 'Works in fully lit rooms', 'Installs in existing or new construction'].map(p => (
+              <li class="flex items-start gap-2 text-body-sm text-stone">
+                <span class="text-gold mt-0.5 flex-shrink-0">→</span>
+                {p}
+              </li>
+            ))}
+          </ul>
+        </div>
+
+        <div class="card p-8">
+          <h3 class="font-sans font-semibold text-h3 text-warm-white mb-3">Samsung Micro LED</h3>
+          <p class="text-body text-stone mb-5 leading-relaxed">
+            Samsung's residential Micro LED line delivers modular, customizable sizes for dedicated home theater and high-end living room installations. Custom aspect ratios, deeper blacks than QLED, and seamless scaling for large-format cinema-style rooms.
+          </p>
+          <ul class="flex flex-col gap-2">
+            {['Custom modular sizing', 'Zero backlight bleed', 'Scalable to 200"+ seamlessly', 'Built-in HDR and tone mapping', 'Deeper blacks than OLED', 'Integrates with Control4 and RTI'].map(p => (
+              <li class="flex items-start gap-2 text-body-sm text-stone">
+                <span class="text-gold mt-0.5 flex-shrink-0">→</span>
+                {p}
+              </li>
+            ))}
+          </ul>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Who it's for -->
+  <section class="section bg-slate-surface">
+    <div class="container-main">
+      <p class="overline mb-3">Is Micro LED Right for Your Room?</p>
+      <h2 class="font-display text-h2 text-warm-white mb-6">
+        The Right Call for Certain Rooms
+      </h2>
+      <p class="text-body-lg text-stone mb-10 max-w-2xl">
+        Micro LED is not for every situation — and we will tell you honestly when a laser projector or a large-format TV makes more sense. Here is where micro LED wins.
+      </p>
+
+      <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
+        {[
+          {
+            title: 'Rooms You Cannot Fully Blackout',
+            desc: 'Living rooms, bonus rooms with windows, open-concept spaces — anywhere ambient light kills a projector image. Micro LED performs in full daylight.',
+          },
+          {
+            title: 'The "No Screen" Living Room',
+            desc: 'When the space is too nice for a projection screen on the wall. The display disappears when off — it looks like a clean dark wall, not a cinema setup.',
+          },
+          {
+            title: 'Replacing a Large TV Over 85"',
+            desc: 'When 85 or 98 inches is not enough and you want a seamless display without the frame, the bezel, or the ceiling on TV size.',
+          },
+          {
+            title: 'Custom Sizes and Aspect Ratios',
+            desc: 'Standard TVs come in fixed sizes. Micro LED tiles scale to fit your wall, your room proportions, and your preferred aspect ratio — including CinemaScope 2.35:1.',
+          },
+          {
+            title: 'Long-Term Investment',
+            desc: '100,000-hour lifespan with no bulbs, no lamps, no maintenance costs. The total cost of ownership over 20 years is lower than a projector with lamp replacements.',
+          },
+          {
+            title: 'New Construction Integration',
+            desc: 'When the home is still in framing, we rough-in power, signal, and mounting infrastructure so the display installs cleanly with zero visible infrastructure.',
+          },
+        ].map(({ title, desc }) => (
+          <div class="card p-7 flex flex-col gap-3">
+            <h3 class="font-sans font-semibold text-h4 text-warm-white">{title}</h3>
+            <p class="text-body-sm text-stone leading-relaxed">{desc}</p>
+          </div>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <TestimonialsSection featured={featured} />
+
+  <FAQAccordion
+    heading="Micro LED Wall — Frequently Asked Questions"
+    faqs={faqs}
+  />
+
+  <!-- Cost calculator CTA -->
+  <section class="section bg-charcoal">
+    <div class="container-main text-center max-w-2xl mx-auto">
+      <p class="overline mb-3">Instant Estimate</p>
+      <h2 class="font-display text-h2 text-warm-white mb-4">Wondering What a Micro LED Wall Costs?</h2>
+      <p class="text-body-lg text-stone mb-8">
+        Screen size, sound system, control integration — price out your setup in 30 seconds. No form. No email.
+      </p>
+      <a href="/micro-led-wall-cost-san-antonio/" class="btn-primary gold-shimmer cursor-pointer">
+        Use the Free Cost Calculator →
+      </a>
+    </div>
+  </section>
+
+  <CTASection
+    heading="Ready to See What a Micro LED Wall Looks Like in Your Room?"
+    body="Book a free consultation. We'll assess your space, walk through the right system for your room and lighting conditions, and give you a written quote — no obligation."
+    ctaLabel="Book a Free Consultation"
+    ctaHref="/contact-kz-audio-video-san-antonio-tx/"
+    secondaryLabel="Call (210) 981-4098"
+    secondaryHref="tel:2109814098"
+  />
+
+</BaseLayout>

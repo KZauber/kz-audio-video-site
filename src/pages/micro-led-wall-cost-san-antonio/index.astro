@@ -1,0 +1,350 @@
+---
+import BaseLayout from "../../layouts/BaseLayout.astro";
+import HeroSection from "../../components/sections/HeroSection.astro";
+import TrustBar from "../../components/sections/TrustBar.astro";
+import CTASection from "../../components/sections/CTASection.astro";
+
+const schema = {
+  "@context": "https://schema.org",
+  "@type": "Service",
+  "name": "Micro LED Wall Cost — San Antonio TX",
+  "provider": {
+    "@type": "LocalBusiness",
+    "name": "KZ Audio & Video",
+    "url": "https://kzaudioandvideo.com",
+    "telephone": "+12109814098",
+  },
+  "areaServed": ["San Antonio", "Boerne", "Canyon Lake", "Helotes", "Bulverde", "Stone Oak", "New Braunfels", "Schertz", "Seguin"],
+  "description": "What a micro LED wall costs in San Antonio TX. Real price ranges for AWOL Vision AWall and Samsung Micro LED residential installations, an instant estimate calculator, and answers to the most common cost questions.",
+  "url": "https://kzaudioandvideo.com/micro-led-wall-cost-san-antonio/",
+  "offers": {
+    "@type": "AggregateOffer",
+    "priceCurrency": "USD",
+    "lowPrice": "14000",
+    "highPrice": "150000",
+    "offerCount": "4",
+  },
+};
+
+const breadcrumb = {
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": [
+    { "@type": "ListItem", "position": 1, "name": "Home", "item": "https://kzaudioandvideo.com" },
+    { "@type": "ListItem", "position": 2, "name": "Micro LED Wall Cost San Antonio" },
+  ],
+};
+
+const costFaqs = [
+  {
+    question: "How much does a micro LED wall cost in San Antonio?",
+    answer:
+      "A micro LED wall installation in San Antonio typically costs $14,000 to $150,000 or more depending on screen size and system complexity. A 108-inch AWOL Vision AWall professionally installed runs approximately $14,000 to $19,000. A 135-inch system runs $21,000 to $30,000. A 162-inch system runs $32,000 to $48,000. Custom modular installations above 190 inches run $55,000 to $120,000 and up. Cost increases with surround sound, smart home control integration, acoustic room treatment, and whether the space is new construction or a finished-room retrofit. For a complete written estimate, we provide a free in-home consultation.",
+  },
+  {
+    question: "Is a micro LED wall more expensive than a projector?",
+    answer:
+      "Upfront, yes — a micro LED wall costs more than a comparable projector and screen setup. A 135-inch laser projector system runs approximately $10,000 to $20,000 installed; a 135-inch micro LED wall runs $21,000 to $30,000. However, the long-term cost is different. Micro LED has no lamp to replace (projector lamps run $300 to $600 every 3 to 5 years), no screen to maintain or re-tension, and a rated lifespan of 100,000 hours versus 20,000 for most lamp projectors. The bigger practical difference is the room: a projector requires a dark or blacked-out space to look good. A micro LED wall works in full ambient light. If you cannot fully blackout the room, micro LED often makes more sense regardless of upfront cost.",
+  },
+  {
+    question: "What is included in the installation cost?",
+    answer:
+      "Installation includes the precision mounting frame system, wall preparation, signal and power cabling routed clean through the wall or behind baseboards, tile-by-tile assembly, and post-installation color calibration and brightness uniformization. We also program your control system inputs and test the full display before leaving. If surround sound or smart home integration is part of the scope, those are included in your written quote. We do not quote equipment only — every number we give you is the full installed price.",
+  },
+  {
+    question: "Does the room type affect the cost?",
+    answer:
+      "Room type affects installation labor more than equipment cost. A dedicated theater room or media room with a single flat wall, controlled lighting, and easy cable routing is the simplest install. A living room with adjacent spaces, finished walls, and existing furniture to work around takes more labor. New construction is the most cost-effective — we rough-in power and signal through open framing before drywall goes up. A finished-room retrofit adds $800 to $2,500 in labor depending on wall construction and cable routing complexity.",
+  },
+  {
+    question: "What size micro LED wall fits my room?",
+    answer:
+      "For a dedicated media room or theater, the 135-inch and 162-inch systems fit most standard room widths (14 to 20 feet wide). The 108-inch system works in tighter spaces or as a living room focal point. Viewing distance is less critical with micro LED than with a projector — the recommended minimum viewing distance for a 135-inch system is approximately 8 to 10 feet. For open living rooms, the 135-inch is the most common choice. For dedicated theaters, the 162-inch or custom modular. We measure your room and give you a specific recommendation.",
+  },
+  {
+    question: "Can I add a sound system to my micro LED wall installation?",
+    answer:
+      "Yes, and most clients do. The micro LED wall handles the display — sound is a separate system. We bundle micro LED installation with everything from a Sonos Arc and subwoofer ($1,200 to $2,500 added cost) to a full Dolby Atmos 5.1.4 or 7.2.4 surround system ($4,000 to $20,000 added cost). We design the speaker layout around the room and the display position, run cable clean, and calibrate the full system together. A micro LED wall without great audio is only half the experience.",
+  },
+  {
+    question: "Why do micro LED wall prices vary so much?",
+    answer:
+      "The primary driver is screen size — the tile count roughly doubles from 108 to 162 inches, so material cost scales significantly. Beyond that, surround sound adds $1,200 to $20,000 depending on the system; smart home control (Control4, RTI) adds $3,500 to $10,000; acoustic treatment adds $800 to $7,000; and new construction versus retrofit changes labor by $800 to $2,500. A base 108-inch display with no sound upgrades costs roughly $14,000. The same room with a 162-inch display, full Atmos surround, Control4, and acoustic panels costs $60,000 to $80,000. The right configuration depends on how the room is used and what the budget is — we tell you honestly what makes the most difference in your specific setup.",
+  },
+];
+
+const faqSchema = {
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": costFaqs.map((f) => ({
+    "@type": "Question",
+    "name": f.question,
+    "acceptedAnswer": { "@type": "Answer", "text": f.answer },
+  })),
+};
+
+const calcGroups = [
+  {
+    id: "size",
+    label: "1. What screen size are you considering?",
+    options: [
+      { t: '108" (AWOL Vision AWall starter)', min: 12000, max: 17000, on: true },
+      { t: '135" (AWOL Vision AWall standard)', min: 18000, max: 26000 },
+      { t: '162" (AWOL Vision AWall flagship)', min: 28000, max: 42000 },
+      { t: '190"+ or custom modular', min: 50000, max: 120000 },
+    ],
+  },
+  {
+    id: "room",
+    label: "2. What type of room?",
+    options: [
+      { t: "Dedicated theater / media room", min: 0, max: 0, on: true },
+      { t: "Living room (ambient light)", min: 500, max: 1500 },
+      { t: "Open concept / large space", min: 1000, max: 3500 },
+    ],
+  },
+  {
+    id: "sound",
+    label: "3. Sound system?",
+    options: [
+      { t: "Use my existing system", min: 0, max: 0, on: true },
+      { t: "Add Sonos Arc + subwoofer", min: 1200, max: 2500 },
+      { t: "Full Atmos surround (5.1.4)", min: 4000, max: 9000 },
+      { t: "Reference Atmos (7.2.4)", min: 9000, max: 20000 },
+    ],
+  },
+  {
+    id: "control",
+    label: "4. Smart home control?",
+    options: [
+      { t: "App-based (standard)", min: 0, max: 0, on: true },
+      { t: "Control4 or RTI integration", min: 3500, max: 10000 },
+    ],
+  },
+  {
+    id: "treatment",
+    label: "5. Room treatment?",
+    options: [
+      { t: "None — room is ready", min: 0, max: 0, on: true },
+      { t: "Blackout shades", min: 800, max: 2500 },
+      { t: "Acoustic panels + full blackout", min: 2500, max: 7000 },
+    ],
+  },
+  {
+    id: "build",
+    label: "6. Your space is…",
+    options: [
+      { t: "New construction (pre-wire)", min: 0, max: 0, on: true },
+      { t: "Finished room (retrofit)", min: 800, max: 2500 },
+    ],
+  },
+];
+---
+
+<BaseLayout
+  title="Micro LED Wall Cost San Antonio TX | Prices + Free Estimate Calculator"
+  description="How much does a micro LED wall cost in San Antonio? Real price ranges ($14K–$150K+), an instant estimate calculator, and straight answers. AWOL Vision AWall and Samsung Micro LED installs. KZ Audio & Video. Call (210) 981-4098."
+  schema={[schema, breadcrumb, faqSchema]}
+>
+  <HeroSection
+    heading="How Much Does a Micro LED Wall Cost in San Antonio?"
+    subhead="Real price ranges for AWOL Vision AWall and Samsung Micro LED residential installations — plus an instant estimate calculator. No guesswork."
+    imageSrc="/images/projects/home-theater/home-theater-san-antonio-tx.jpg"
+    imageAlt="Micro LED wall cost estimate San Antonio TX"
+    compact={true}
+  />
+
+  <TrustBar />
+
+  <!-- Intro -->
+  <section class="section bg-slate-surface">
+    <div class="container-main">
+      <p class="overline mb-3">San Antonio Micro LED Pricing</p>
+      <h2 class="font-display text-h2 text-warm-white mb-6">
+        The Honest Range: $14,000 to $150,000+
+      </h2>
+      <p class="text-body-lg text-stone mb-4 max-w-3xl">
+        That range reflects a real difference in scope. A 108-inch AWOL Vision AWall with no sound upgrades is a very different project than a 162-inch display with full Dolby Atmos, Control4, and acoustic treatment. Screen size is the biggest driver — the tile count roughly doubles from 108 to 162 inches.
+      </p>
+      <p class="text-body text-stone max-w-3xl">
+        Use the calculator below for a quick ballpark. When you are ready for a real number, we come to your space, measure the room, and give you a written quote — free, no obligation.
+      </p>
+    </div>
+  </section>
+
+  <!-- Size Reference Table -->
+  <section class="section bg-charcoal">
+    <div class="container-main">
+      <p class="overline mb-3">Quick Reference</p>
+      <h2 class="font-display text-h2 text-warm-white mb-8">
+        Micro LED Wall Price by Screen Size
+      </h2>
+
+      <div class="overflow-x-auto">
+        <table class="w-full text-left border-collapse">
+          <thead>
+            <tr class="border-b border-white/10">
+              <th class="pb-4 pr-8 font-sans font-semibold text-body-sm text-ash uppercase tracking-wider">System</th>
+              <th class="pb-4 pr-8 font-sans font-semibold text-body-sm text-ash uppercase tracking-wider">Screen Size</th>
+              <th class="pb-4 pr-8 font-sans font-semibold text-body-sm text-ash uppercase tracking-wider">Installed Price (display only)</th>
+              <th class="pb-4 font-sans font-semibold text-body-sm text-ash uppercase tracking-wider">Best For</th>
+            </tr>
+          </thead>
+          <tbody>
+            {[
+              { system: "AWOL Vision AWall", size: '108"', price: "$14,000 – $19,000", for: "Media rooms, living rooms, tighter spaces" },
+              { system: "AWOL Vision AWall", size: '135"', price: "$21,000 – $30,000", for: "Bonus rooms, open living areas, mid-size theaters" },
+              { system: "AWOL Vision AWall", size: '162"', price: "$32,000 – $48,000", for: "Dedicated theaters, large media rooms" },
+              { system: "Samsung / Custom Modular", size: '190"+', price: "$55,000 – $120,000+", for: "Large dedicated theaters, custom aspect ratios" },
+            ].map(({ system, size, price, for: forText }) => (
+              <tr class="border-b border-white/5">
+                <td class="py-4 pr-8 text-body text-warm-white">{system}</td>
+                <td class="py-4 pr-8 text-body text-warm-white font-semibold">{size}</td>
+                <td class="py-4 pr-8 text-body text-gold font-semibold">{price}</td>
+                <td class="py-4 text-body-sm text-stone">{forText}</td>
+              </tr>
+            ))}
+          </tbody>
+        </table>
+      </div>
+      <p class="text-body-sm text-ash mt-5">Display-only pricing. Sound system, control integration, room treatment, and retrofit labor are additional — use the calculator below for a full estimate.</p>
+    </div>
+  </section>
+
+  <!-- Estimate Calculator -->
+  <section class="section bg-slate-surface">
+    <div class="container-main">
+      <p class="overline mb-3">Instant Estimate</p>
+      <h2 class="font-display text-h2 text-warm-white mb-4">
+        Build Your Estimate in 30 Seconds
+      </h2>
+      <p class="text-body-lg text-stone mb-10 max-w-2xl">
+        Pick what fits your project. Your estimated investment range updates as you go. This is a ballpark for the San Antonio market — your written quote comes after a free in-home consultation.
+      </p>
+
+      <div class="grid grid-cols-1 lg:grid-cols-[1fr_360px] gap-8 items-start">
+        <!-- Questions -->
+        <div class="flex flex-col gap-7" id="calc-form">
+          {calcGroups.map((group) => (
+            <div class="calc-group" data-group={group.id}>
+              <h3 class="font-sans font-semibold text-body-lg text-warm-white mb-3">{group.label}</h3>
+              <div class="flex flex-wrap gap-2.5">
+                {group.options.map((opt) => (
+                  <button
+                    type="button"
+                    class:list={["calc-opt", opt.on ? "is-active" : ""]}
+                    data-min={opt.min}
+                    data-max={opt.max}
+                  >
+                    {opt.t}
+                  </button>
+                ))}
+              </div>
+            </div>
+          ))}
+        </div>
+
+        <!-- Result panel -->
+        <div class="card p-7 lg:sticky lg:top-28">
+          <p class="overline mb-2">Your Estimated Range</p>
+          <p class="font-display text-h2 text-gold mb-1" id="calc-result">$12,000 – $17,000</p>
+          <p class="text-body-sm text-ash mb-6">Estimate for the San Antonio market. Final price depends on equipment, room conditions, and your specific setup.</p>
+          <a href="/contact-kz-audio-video-san-antonio-tx/" class="btn-primary gold-shimmer w-full text-center mb-3 cursor-pointer">
+            Get My Exact Quote
+          </a>
+          <a href="tel:2109814098" class="btn-ghost w-full text-center cursor-pointer">
+            Call (210) 981-4098
+          </a>
+          <p class="text-body-sm text-stone mt-5 leading-relaxed">
+            We come to your home, assess the space, and give you a written scope and price — at no charge.
+          </p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Cost FAQ -->
+  <section class="section bg-charcoal">
+    <div class="container-main">
+      <p class="overline mb-3">Cost Questions, Answered</p>
+      <h2 class="font-display text-h2 text-warm-white mb-12">
+        Micro LED Wall Cost — FAQ
+      </h2>
+
+      <div class="flex flex-col gap-10 max-w-3xl">
+        {costFaqs.map((f) => (
+          <article class="reveal">
+            <h2 class="font-sans font-semibold text-h3 text-warm-white mb-4">{f.question}</h2>
+            <p class="text-body text-stone leading-relaxed">{f.answer}</p>
+          </article>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <CTASection
+    heading="Get a Real Number for Your Space."
+    body="The calculator gives you a ballpark. A free in-home consultation gives you the truth. We come to you, measure the room, and put a written quote in your hands. No pressure, no obligation."
+    ctaLabel="Book a Free Consultation"
+    ctaHref="/contact-kz-audio-video-san-antonio-tx/"
+    secondaryLabel="Call (210) 981-4098"
+    secondaryHref="tel:2109814098"
+  />
+
+  <style>
+    .calc-opt {
+      border: 1px solid rgba(255, 255, 255, 0.14);
+      background: rgba(255, 255, 255, 0.03);
+      color: #C9CCD1;
+      border-radius: 10px;
+      padding: 0.6rem 0.95rem;
+      font-size: 0.9rem;
+      font-family: inherit;
+      cursor: pointer;
+      transition: all 0.16s ease;
+      line-height: 1.2;
+    }
+    .calc-opt:hover {
+      border-color: rgba(201, 168, 76, 0.5);
+      color: #F5F3EE;
+    }
+    .calc-opt.is-active {
+      border-color: #C9A84C;
+      background: rgba(201, 168, 76, 0.14);
+      color: #F5F3EE;
+      box-shadow: 0 0 0 1px rgba(201, 168, 76, 0.4);
+    }
+  </style>
+
+  <script is:inline>
+    (function () {
+      function format(n) {
+        return "$" + Math.round(n).toLocaleString("en-US");
+      }
+      function recalc() {
+        var total = 0, top = 0;
+        var active = document.querySelectorAll(".calc-opt.is-active");
+        for (var i = 0; i < active.length; i++) {
+          total += parseInt(active[i].getAttribute("data-min"), 10) || 0;
+          top += parseInt(active[i].getAttribute("data-max"), 10) || 0;
+        }
+        var out = document.getElementById("calc-result");
+        if (out) out.textContent = format(total) + " – " + format(top);
+      }
+      var groups = document.querySelectorAll(".calc-group");
+      for (var g = 0; g < groups.length; g++) {
+        var opts = groups[g].querySelectorAll(".calc-opt");
+        for (var o = 0; o < opts.length; o++) {
+          opts[o].addEventListener("click", function () {
+            var parent = this.closest(".calc-group");
+            var siblings = parent.querySelectorAll(".calc-opt");
+            for (var s = 0; s < siblings.length; s++) siblings[s].classList.remove("is-active");
+            this.classList.add("is-active");
+            recalc();
+          });
+        }
+      }
+      recalc();
+    })();
+  </script>
+</BaseLayout>
