@@ -1,12 +1,17 @@
 ---
 const navLinks = [
-  { label: 'Home Theater',      href: '/home-theater-installation-san-antonio-tx/' },
   { label: 'Whole House Audio', href: '/whole-house-audio-san-antonio/' },
   { label: 'Outdoor AV',        href: '/outdoor-audio-video-san-antonio/' },
   { label: 'Pricing',           href: '/home-theater-cost-san-antonio/' },
   { label: 'Projects',          href: '/home-theater-projects-san-antonio/' },
   { label: 'FAQ',               href: '/faq-home-theater-av-installation-san-antonio/' },
   { label: 'About',             href: '/about-kz-audio-video/' },
+];
+
+const homeTheaterLinks = [
+  { label: 'Home Theater Installation', href: '/home-theater-installation-san-antonio-tx/' },
+  { label: 'Micro LED Wall',            href: '/micro-led-wall-san-antonio/' },
+  { label: 'Room Conversion',           href: '/home-theater-room-conversion-san-antonio/' },
 ];
 
 const serviceAreaCities = [
@@ -46,6 +51,39 @@ const currentPath = Astro.url.pathname;
 
     <!-- Desktop nav -->
     <nav class="hidden lg:flex items-center gap-8" aria-label="Main navigation">
+      <!-- Home Theater dropdown -->
+      <div class="relative group">
+        <a
+          href="/home-theater-installation-san-antonio-tx/"
+          class:list={[
+            'font-sans font-medium text-body-sm transition-colors duration-fast flex items-center gap-1',
+            currentPath.startsWith('/home-theater') || currentPath === '/micro-led-wall-san-antonio/'
+              ? 'text-gold'
+              : 'text-stone hover:text-warm-white',
+          ]}
+        >
+          Home Theater
+          <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" class="transition-transform duration-fast group-hover:rotate-180">
+            <path d="M6 9l6 6 6-6"/>
+          </svg>
+        </a>
+        <div class="absolute top-full left-0 pt-2 opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-fast z-50">
+          <div class="bg-slate-surface border border-smoke rounded-card p-2 min-w-[220px] flex flex-col gap-1 shadow-lg">
+            {homeTheaterLinks.map(({ label, href }) => (
+              <a
+                href={href}
+                class:list={[
+                  'text-body-sm px-3 py-2 rounded hover:bg-graphite transition-colors duration-fast block font-sans',
+                  currentPath === href ? 'text-gold' : 'text-stone hover:text-warm-white',
+                ]}
+              >
+                {label}
+              </a>
+            ))}
+          </div>
+        </div>
+      </div>
+
       {navLinks.map(({ label, href }) => (
         <a
           href={href}
@@ -136,6 +174,15 @@ const currentPath = Astro.url.pathname;
   aria-hidden="true"
 >
   <nav class="flex flex-col gap-1 mt-8">
+    {homeTheaterLinks.map(({ label, href }) => (
+      <a
+        href={href}
+        class="font-sans font-semibold text-2xl text-warm-white py-3 border-b border-smoke
+               hover:text-gold transition-colors duration-fast"
+      >
+        {label}
+      </a>
+    ))}
     {navLinks.map(({ label, href }) => (
       <a
         href={href}
