@@ -1,4 +1,4 @@
----
+﻿---
 import BaseLayout from "../../layouts/BaseLayout.astro";
 import HeroSection from "../../components/sections/HeroSection.astro";
 import TrustBar from "../../components/sections/TrustBar.astro";
@@ -39,7 +39,7 @@ const costFaqs = [
   {
     question: "How much does whole-house audio cost in San Antonio?",
     answer:
-      "Whole-house audio in San Antonio typically costs $6,000 to $30,000, driven mostly by the number of zones. A starter system covering two or three zones — a living room, kitchen, and patio with in-ceiling speakers and app control — runs about $6,000 to $12,000. A mid-sized system covering five or six zones throughout the home runs $12,000 to $20,000. A large multi-zone system spanning an entire custom home with eight or more zones, high-end speakers, and full integration runs $20,000 and up. Cost depends on zone count, speaker quality, the control platform (app-based versus Control4 or RTI), and whether it is wired during construction or retrofitted into a finished home. Each zone is controlled independently from a phone, wall keypad, or voice. KZ Audio & Video designs the layout around how you actually live in the home.",
+      "Whole-house audio in San Antonio typically costs $6,000 to $30,000, driven mostly by the number of zones. A starter system covering two or three zones — a living room, kitchen, and patio with in-ceiling speakers and app control — runs about $6,000 to $12,000. A mid-sized system covering five or six zones throughout the home runs $12,000 to $20,000. A large multi-zone system spanning an entire custom home with eight or more zones, high-end speakers, and full integration runs $20,000 and up. Cost depends on zone count, speaker quality, the control platform (app-based versus home control or RTI), and whether it is wired during construction or retrofitted into a finished home. Each zone is controlled independently from a phone, wall keypad, or voice. KZ Audio & Video designs the layout around how you actually live in the home.",
   },
   {
     question: "How much does whole-house audio cost per room or zone?",
@@ -49,12 +49,12 @@ const costFaqs = [
   {
     question: "Is Sonos cheaper than a wired whole-house audio system?",
     answer:
-      "For a few rooms, Sonos and similar wireless systems are usually cheaper and simpler — each powered speaker plugs in and connects over Wi-Fi, with no wiring to run. For two or three rooms, that is often the smart, cost-effective choice. But as you scale to a whole home, a wired, centrally-amplified system frequently makes more sense: it sounds better with in-ceiling architectural speakers, hides completely, has no powered boxes on shelves, and is more reliable across many zones than a Wi-Fi mesh. Wired systems also integrate cleanly with Control4 or RTI for one-touch whole-home control. We install both, and we recommend based on your home size, how many zones you want, and whether you value the clean built-in look. For a true whole-house system, wired is usually the better long-term value.",
+      "For a few rooms, Sonos and similar wireless systems are usually cheaper and simpler — each powered speaker plugs in and connects over Wi-Fi, with no wiring to run. For two or three rooms, that is often the smart, cost-effective choice. But as you scale to a whole home, a wired, centrally-amplified system frequently makes more sense: it sounds better with in-ceiling architectural speakers, hides completely, has no powered boxes on shelves, and is more reliable across many zones than a Wi-Fi mesh. Wired systems also integrate cleanly with home control or RTI for one-touch whole-home control. We install both, and we recommend based on your home size, how many zones you want, and whether you value the clean built-in look. For a true whole-house system, wired is usually the better long-term value.",
   },
   {
-    question: "How much does a Control4 or RTI control system add to whole-house audio?",
+    question: "How much does a home control or RTI control system add to whole-house audio?",
     answer:
-      "Adding a dedicated control system like Control4 or RTI to a whole-house audio setup typically adds $4,000 to $12,000, depending on home size and how much you integrate. That covers the controller hardware, programming, and interfaces — wall keypads, touchscreens, and phone apps. The value is unified control: one tap plays the same music everywhere for a party, or different music in each zone, and the same system can fold in lighting, shades, and your home theater. App-only platforms like Sonos cost nothing extra for control but stay siloed to audio. For a starter two or three-zone system, app-based control usually makes sense. For a larger home where you want audio, video, lighting, and climate on one reliable interface, a dealer-programmed Control4 or RTI system is worth the investment. We program it around your routines.",
+      "Adding a dedicated control system like home control or RTI to a whole-house audio setup typically adds $4,000 to $12,000, depending on home size and how much you integrate. That covers the controller hardware, programming, and interfaces — wall keypads, touchscreens, and phone apps. The value is unified control: one tap plays the same music everywhere for a party, or different music in each zone, and the same system can fold in lighting, shades, and your home theater. App-only platforms like Sonos cost nothing extra for control but stay siloed to audio. For a starter two or three-zone system, app-based control usually makes sense. For a larger home where you want audio, video, lighting, and climate on one reliable interface, a dealer-programmed home control or RTI system is worth the investment. We program it around your routines.",
   },
   {
     question: "Can I add whole-house audio to an existing home, and what does retrofit cost?",
@@ -74,7 +74,7 @@ const costFaqs = [
   {
     question: "Why does whole-house audio cost vary so much?",
     answer:
-      "Whole-house audio quotes range widely because the term covers a two-room wireless setup and a twelve-zone integrated system in a custom home. The biggest driver is zone count — each room adds speakers, wiring, and an amplifier channel. Speaker quality matters too: standard in-ceiling speakers cost a fraction of architectural or high-end models. The control platform is a major swing, from free app-based control to a dealer-programmed Control4 system. Outdoor zones, music servers, and whole-home integration with lighting and video all add cost. Finally, retrofit into a finished home costs more in labor than pre-wiring during construction. A vague online number means little without knowing your home and how many zones you want. That is why we walk the home, count the zones, and give you a written scope and price you can rely on.",
+      "Whole-house audio quotes range widely because the term covers a two-room wireless setup and a twelve-zone integrated system in a custom home. The biggest driver is zone count — each room adds speakers, wiring, and an amplifier channel. Speaker quality matters too: standard in-ceiling speakers cost a fraction of architectural or high-end models. The control platform is a major swing, from free app-based control to a dealer-programmed home control system. Outdoor zones, music servers, and whole-home integration with lighting and video all add cost. Finally, retrofit into a finished home costs more in labor than pre-wiring during construction. A vague online number means little without knowing your home and how many zones you want. That is why we walk the home, count the zones, and give you a written scope and price you can rely on.",
   },
 ];
 
@@ -114,7 +114,7 @@ const calcGroups = [
     options: [
       { t: "App-based (e.g. Sonos)", min: 0, max: 0, on: true },
       { t: "Keypads + app", min: 1000, max: 3000 },
-      { t: "Control4 / RTI integrated", min: 4000, max: 12000 },
+      { t: "home control / RTI integrated", min: 4000, max: 12000 },
     ],
   },
   {

@@ -1,4 +1,4 @@
----
+﻿---
 import BaseLayout from "../../layouts/BaseLayout.astro";
 import HeroSection from "../../components/sections/HeroSection.astro";
 import TrustBar from "../../components/sections/TrustBar.astro";
@@ -15,7 +15,7 @@ const schema = {
     "telephone": "+12109814098",
   },
   "areaServed": ["San Antonio", "Boerne", "Canyon Lake", "Helotes", "Bulverde", "Stone Oak", "New Braunfels", "Schertz", "Seguin"],
-  "description": "What a micro LED wall costs in San Antonio TX. Real price ranges for AWOL Vision AWall and Samsung Micro LED residential installations, an instant estimate calculator, and answers to the most common cost questions.",
+  "description": "What a micro LED wall costs in San Antonio TX. Real price ranges for residential micro LED wall installations, an instant estimate calculator, and answers to the most common cost questions.",
   "url": "https://kzaudioandvideo.com/micro-led-wall-cost-san-antonio/",
   "offers": {
     "@type": "AggregateOffer",
@@ -39,7 +39,7 @@ const costFaqs = [
   {
     question: "How much does a micro LED wall cost in San Antonio?",
     answer:
-      "A micro LED wall installation in San Antonio typically costs $14,000 to $150,000 or more depending on screen size and system complexity. A 108-inch AWOL Vision AWall professionally installed runs approximately $14,000 to $19,000. A 135-inch system runs $21,000 to $30,000. A 162-inch system runs $32,000 to $48,000. Custom modular installations above 190 inches run $55,000 to $120,000 and up. Cost increases with surround sound, smart home control integration, acoustic room treatment, and whether the space is new construction or a finished-room retrofit. For a complete written estimate, we provide a free in-home consultation.",
+      "A micro LED wall installation in San Antonio typically costs $14,000 to $150,000 or more depending on screen size and system complexity. A 108-inch micro LED wall professionally installed runs approximately $14,000 to $19,000. A 135-inch system runs $21,000 to $30,000. A 162-inch system runs $32,000 to $48,000. Custom modular installations above 190 inches run $55,000 to $120,000 and up. Cost increases with surround sound, smart home control integration, acoustic room treatment, and whether the space is new construction or a finished-room retrofit. For a complete written estimate, we provide a free in-home consultation.",
   },
   {
     question: "Is a micro LED wall more expensive than a projector?",
@@ -69,7 +69,7 @@ const costFaqs = [
   {
     question: "Why do micro LED wall prices vary so much?",
     answer:
-      "The primary driver is screen size — the tile count roughly doubles from 108 to 162 inches, so material cost scales significantly. Beyond that, surround sound adds $1,200 to $20,000 depending on the system; smart home control (Control4, RTI) adds $3,500 to $10,000; acoustic treatment adds $800 to $7,000; and new construction versus retrofit changes labor by $800 to $2,500. A base 108-inch display with no sound upgrades costs roughly $14,000. The same room with a 162-inch display, full Atmos surround, Control4, and acoustic panels costs $60,000 to $80,000. The right configuration depends on how the room is used and what the budget is — we tell you honestly what makes the most difference in your specific setup.",
+      "The primary driver is screen size — the tile count roughly doubles from 108 to 162 inches, so material cost scales significantly. Beyond that, surround sound adds $1,200 to $20,000 depending on the system; smart home control (home control, RTI) adds $3,500 to $10,000; acoustic treatment adds $800 to $7,000; and new construction versus retrofit changes labor by $800 to $2,500. A base 108-inch micro LED wall with no sound upgrades costs roughly $14,000. The same room with a 162-inch display, full Atmos surround, home control, and acoustic panels costs $60,000 to $80,000. The right configuration depends on how the room is used and what the budget is — we tell you honestly what makes the most difference in your specific setup.",
   },
 ];
 
@@ -88,9 +88,9 @@ const calcGroups = [
     id: "size",
     label: "1. What screen size are you considering?",
     options: [
-      { t: '108" (AWOL Vision AWall starter)', min: 12000, max: 17000, on: true },
-      { t: '135" (AWOL Vision AWall standard)', min: 18000, max: 26000 },
-      { t: '162" (AWOL Vision AWall flagship)', min: 28000, max: 42000 },
+      { t: '108" micro LED wall', min: 12000, max: 17000, on: true },
+      { t: '135" micro LED wall', min: 18000, max: 26000 },
+      { t: '162" micro LED wall', min: 28000, max: 42000 },
       { t: '190"+ or custom modular', min: 50000, max: 120000 },
     ],
   },
@@ -118,7 +118,7 @@ const calcGroups = [
     label: "4. Smart home control?",
     options: [
       { t: "App-based (standard)", min: 0, max: 0, on: true },
-      { t: "Control4 or RTI integration", min: 3500, max: 10000 },
+      { t: "home control or RTI integration", min: 3500, max: 10000 },
     ],
   },
   {
@@ -143,12 +143,12 @@ const calcGroups = [
 
 <BaseLayout
   title="Micro LED Wall Cost San Antonio TX | Prices + Free Estimate Calculator"
-  description="How much does a micro LED wall cost in San Antonio? Real price ranges ($14K–$150K+), an instant estimate calculator, and straight answers. AWOL Vision AWall and Samsung Micro LED installs. KZ Audio & Video. Call (210) 981-4098."
+  description="How much does a micro LED wall cost in San Antonio? Real price ranges ($14K–$150K+), an instant estimate calculator, and straight answers. Residential micro LED wall installations. KZ Audio & Video. Call (210) 981-4098."
   schema={[schema, breadcrumb, faqSchema]}
 >
   <HeroSection
     heading="How Much Does a Micro LED Wall Cost in San Antonio?"
-    subhead="Real price ranges for AWOL Vision AWall and Samsung Micro LED residential installations — plus an instant estimate calculator. No guesswork."
+    subhead="Real price ranges for residential micro LED wall installations — plus an instant estimate calculator. No guesswork."
     imageSrc="/images/projects/home-theater/home-theater-san-antonio-tx.jpg"
     imageAlt="Micro LED wall cost estimate San Antonio TX"
     compact={true}
@@ -164,7 +164,7 @@ const calcGroups = [
         The Honest Range: $14,000 to $150,000+
       </h2>
       <p class="text-body-lg text-stone mb-4 max-w-3xl">
-        That range reflects a real difference in scope. A 108-inch AWOL Vision AWall with no sound upgrades is a very different project than a 162-inch display with full Dolby Atmos, Control4, and acoustic treatment. Screen size is the biggest driver — the tile count roughly doubles from 108 to 162 inches.
+        That range reflects a real difference in scope. A 108-inch micro LED wall with no sound upgrades is a very different project than a 162-inch display with full Dolby Atmos, home control, and acoustic treatment. Screen size is the biggest driver — the tile count roughly doubles from 108 to 162 inches.
       </p>
       <p class="text-body text-stone max-w-3xl">
         Use the calculator below for a quick ballpark. When you are ready for a real number, we come to your space, measure the room, and give you a written quote — free, no obligation.
@@ -192,10 +192,10 @@ const calcGroups = [
           </thead>
           <tbody>
             {[
-              { system: "AWOL Vision AWall", size: '108"', price: "$14,000 – $19,000", for: "Media rooms, living rooms, tighter spaces" },
-              { system: "AWOL Vision AWall", size: '135"', price: "$21,000 – $30,000", for: "Bonus rooms, open living areas, mid-size theaters" },
-              { system: "AWOL Vision AWall", size: '162"', price: "$32,000 – $48,000", for: "Dedicated theaters, large media rooms" },
-              { system: "Samsung / Custom Modular", size: '190"+', price: "$55,000 – $120,000+", for: "Large dedicated theaters, custom aspect ratios" },
+              { system: "Micro LED Wall", size: '108"', price: "$14,000 – $19,000", for: "Media rooms, living rooms, tighter spaces" },
+              { system: "Micro LED Wall", size: '135"', price: "$21,000 – $30,000", for: "Bonus rooms, open living areas, mid-size theaters" },
+              { system: "Micro LED Wall", size: '162"', price: "$32,000 – $48,000", for: "Dedicated theaters, large media rooms" },
+              { system: "Modular Micro LED", size: '190"+', price: "$55,000 – $120,000+", for: "Large dedicated theaters, custom aspect ratios" },
             ].map(({ system, size, price, for: forText }) => (
               <tr class="border-b border-white/5">
                 <td class="py-4 pr-8 text-body text-warm-white">{system}</td>

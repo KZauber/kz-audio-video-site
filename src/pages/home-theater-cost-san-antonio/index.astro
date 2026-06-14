@@ -1,4 +1,4 @@
----
+﻿---
 import BaseLayout from "../../layouts/BaseLayout.astro";
 import HeroSection from "../../components/sections/HeroSection.astro";
 import TrustBar from "../../components/sections/TrustBar.astro";
@@ -60,7 +60,7 @@ const costFaqs = [
   {
     question: "How much does whole-house audio cost in San Antonio?",
     answer:
-      "Whole-house audio in San Antonio typically costs $6,000 to $30,000, driven mostly by the number of zones. A starter system covering two or three zones — a living room, kitchen, and patio with in-ceiling speakers and app control — runs about $6,000 to $12,000. A mid-sized system covering five or six zones throughout the home runs $12,000 to $20,000. A large multi-zone system spanning an entire custom home with eight or more zones, high-end speakers, and full integration runs $20,000 and up. Cost depends on zone count, speaker quality, the control platform (app-based versus Control4 or RTI), and whether it is wired during construction or retrofitted. Each zone can be controlled independently from a phone, wall keypad, or voice. We design the layout around how you actually live in the home.",
+      "Whole-house audio in San Antonio typically costs $6,000 to $30,000, driven mostly by the number of zones. A starter system covering two or three zones — a living room, kitchen, and patio with in-ceiling speakers and app control — runs about $6,000 to $12,000. A mid-sized system covering five or six zones throughout the home runs $12,000 to $20,000. A large multi-zone system spanning an entire custom home with eight or more zones, high-end speakers, and full integration runs $20,000 and up. Cost depends on zone count, speaker quality, the control platform (app-based versus home control or RTI), and whether it is wired during construction or retrofitted. Each zone can be controlled independently from a phone, wall keypad, or voice. We design the layout around how you actually live in the home.",
   },
   {
     question: "How much does outdoor TV and speaker installation cost?",
@@ -75,7 +75,7 @@ const costFaqs = [
   {
     question: "Why do home theater quotes vary so much?",
     answer:
-      "Home theater quotes vary because the term covers everything from a $5,000 media room to an $80,000 dedicated cinema. The biggest variables are room size, which dictates speaker layout and screen size; display type, where a laser projector can cost five times an entry-level model; speaker count, from a simple 5.1 to a 13-speaker 9.2.4 Atmos array; seating, from using existing furniture to a custom tiered platform with motorized leather recliners; and the control system, from app-based to a dealer-programmed Control4 setup. Retrofit versus new construction also changes labor cost significantly. A vague online quote means little without seeing the room. That is why KZ Audio & Video does a free in-home consultation — we measure the space, understand how you use it, and give you a written scope and price you can rely on.",
+      "Home theater quotes vary because the term covers everything from a $5,000 media room to an $80,000 dedicated cinema. The biggest variables are room size, which dictates speaker layout and screen size; display type, where a laser projector can cost five times an entry-level model; speaker count, from a simple 5.1 to a 13-speaker 9.2.4 Atmos array; seating, from using existing furniture to a custom tiered platform with motorized leather recliners; and the control system, from app-based to a dealer-programmed home control setup. Retrofit versus new construction also changes labor cost significantly. A vague online quote means little without seeing the room. That is why KZ Audio & Video does a free in-home consultation — we measure the space, understand how you use it, and give you a written scope and price you can rely on.",
   },
 ];
 
@@ -148,7 +148,7 @@ const calcGroups = [
     options: [
       { t: "None — use the remotes", min: 0, max: 0, on: true },
       { t: "App-based control", min: 1000, max: 2800 },
-      { t: "Control4 or RTI (dedicated)", min: 4000, max: 12000 },
+      { t: "home control or RTI (dedicated)", min: 4000, max: 12000 },
     ],
   },
   {
