@@ -106,8 +106,10 @@ const costGuides = [
 
     <!-- Bottom bar -->
     <div class="border-t border-smoke mt-12 pt-8 flex flex-col sm:flex-row justify-between items-center gap-4">
-      <p class="text-ash text-body-sm">
-        &copy; {new Date().getFullYear()} KZ Audio & Video. All rights reserved.
+      <p class="text-ash text-body-sm flex items-center gap-3 flex-wrap">
+        <span>&copy; {new Date().getFullYear()} KZ Audio & Video. All rights reserved.</span>
+        <span class="opacity-40">·</span>
+        <a href="/privacy/" class="hover:text-white transition-colors">Privacy Policy</a>
       </p>
       <p class="text-ash text-body-sm flex items-center gap-3 flex-wrap justify-center">
         <span>San Antonio, TX · Serving the Hill Country since 2001</span>
