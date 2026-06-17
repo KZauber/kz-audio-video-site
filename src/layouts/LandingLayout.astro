@@ -1,0 +1,137 @@
+---
+// Focused layout for paid-traffic landing pages.
+// Same tracking + SEO head as BaseLayout, but a stripped header (logo + phone +
+// single CTA, no nav) and a slim footer — fewer exits = higher conversion.
+import '../styles/global.css';
+import MetaTags from '../components/seo/MetaTags.astro';
+import SchemaOrg from '../components/seo/SchemaOrg.astro';
+import Analytics from '../components/seo/Analytics.astro';
+
+interface Props {
+  title: string;
+  description: string;
+  canonical?: string;
+  ogImage?: string;
+  schema?: object | object[];
+  /** Landing pages default to noindex — they're for paid traffic, not organic. */
+  noindex?: boolean;
+}
+
+const {
+  title,
+  description,
+  canonical = Astro.url.href,
+  ogImage = '/images/og-default.jpg',
+  schema,
+  noindex = true,
+} = Astro.props;
+---
+
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <MetaTags
+      title={title}
+      description={description}
+      canonical={canonical}
+      ogImage={ogImage}
+      noindex={noindex}
+    />
+    {schema && <SchemaOrg schema={schema} />}
+    <Analytics />
+  </head>
+  <body>
+    <!-- Minimal header: logo + phone + one CTA. No nav links — fewer exits. -->
+    <header
+      class="fixed top-0 left-0 right-0 z-50 h-[88px] flex items-center
+             bg-charcoal/95 backdrop-blur-sm border-b border-smoke/40"
+    >
+      <div class="container-wide w-full flex items-center justify-between px-4 sm:px-6 lg:px-8">
+        <a href="/" class="flex-shrink-0" aria-label="KZ Audio & Video — Home">
+          <img
+            src="/images/kz-av-logo-transparent.png"
+            alt="KZ Audio & Video"
+            width="160"
+            height="90"
+            class="h-20 w-auto"
+            loading="eager"
+          />
+        </a>
+        <div class="flex items-center gap-4">
+          <a
+            href="tel:2109814098"
+            class="hidden sm:inline text-stone text-body-sm font-sans hover:text-warm-white transition-colors"
+          >
+            (210) 981-4098
+          </a>
+          <a href="#consult" class="btn-primary py-2 px-5 text-sm cursor-pointer">
+            Book a Free Consult
+          </a>
+        </div>
+      </div>
+    </header>
+
+    <main id="main-content">
+      <slot />
+    </main>
+
+    <!-- Slim footer -->
+    <footer class="bg-charcoal border-t border-smoke py-10 px-4">
+      <div class="container-wide flex flex-col sm:flex-row items-center justify-between gap-4 text-center sm:text-left">
+        <div>
+          <p class="font-display text-warm-white text-h4">KZ Audio &amp; Video</p>
+          <p class="text-caption text-stone mt-1">
+            614 C South Business 35, New Braunfels, TX 78130 &nbsp;·&nbsp; Serving San Antonio &amp; the Texas Hill Country
+          </p>
+        </div>
+        <div class="flex flex-col items-center sm:items-end gap-1">
+          <a href="tel:2109814098" class="text-gold hover:text-gold-light font-sans font-semibold">
+            (210) 981-4098
+          </a>
+          <p class="text-caption text-ash">© KZ Audio &amp; Video — audio &amp; video since 1997.</p>
+        </div>
+      </div>
+    </footer>
+
+    <!-- Sticky mobile CTA -->
+    <div
+      class="fixed bottom-0 left-0 right-0 z-40 bg-charcoal border-t border-smoke
+             flex items-center justify-center py-3 px-4 md:hidden"
+      aria-label="Book a free design consultation"
+    >
+      <a href="#consult" class="btn-primary w-full max-w-sm justify-center text-sm py-3 cursor-pointer">
+        Book a Free Design Consultation
+      </a>
+    </div>
+
+    <script>
+      // Prevent browser scroll-restoration drift
+      if ('scrollRestoration' in history) {
+        history.scrollRestoration = 'manual';
+      }
+    </script>
+
+    <script>
+      // Scroll reveal
+      const observer = new IntersectionObserver(
+        (entries) => {
+          entries.forEach((entry) => {
+            if (entry.isIntersecting) {
+              entry.target.classList.add('is-visible');
+              observer.unobserve(entry.target);
+            }
+          });
+        },
+        { threshold: 0.12 }
+      );
+      function initReveal() {
+        document.querySelectorAll('.reveal, .reveal-left').forEach((el) => observer.observe(el));
+      }
+      initReveal();
+      document.addEventListener('astro:page-load', initReveal);
+    </script>
+  </body>
+</html>

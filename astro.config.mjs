@@ -9,7 +9,10 @@ export default defineConfig({
     react(),
     tailwind(),
     sitemap({
-      filter: (page) => !page.includes('/thank-you'),
+      // Exclude noindex/paid-only pages from the sitemap so they don't compete in organic.
+      filter: (page) =>
+        !page.includes('/thank-you') &&
+        !page.includes('/premium-home-theater-san-antonio'),
     }),
   ],
   image: {

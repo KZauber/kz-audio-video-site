@@ -1,0 +1,325 @@
+---
+import LandingLayout from '../../layouts/LandingLayout.astro';
+import TrustBar from '../../components/sections/TrustBar.astro';
+import TestimonialsSection from '../../components/sections/TestimonialsSection.astro';
+
+// Paid landing page for the ChatGPT Ads beta campaign (premium TV install,
+// whole-house audio, home theater). noindex by default via LandingLayout.
+
+const schema = {
+  "@context": "https://schema.org",
+  "@type": "Service",
+  "name": "Premium Home Theater, Whole-House Audio & TV Installation",
+  "provider": {
+    "@type": "LocalBusiness",
+    "name": "KZ Audio & Video",
+    "url": "https://kzaudioandvideo.com",
+    "telephone": "+12109814098",
+    "address": {
+      "@type": "PostalAddress",
+      "streetAddress": "614 C South Business 35",
+      "addressLocality": "New Braunfels",
+      "addressRegion": "TX",
+      "postalCode": "78130",
+      "addressCountry": "US"
+    }
+  },
+  "areaServed": "San Antonio, TX and the Texas Hill Country",
+  "description": "Premium home theater design, whole-house and multi-room audio, and high-end TV installation in San Antonio and the Texas Hill Country. Free in-home design consultation.",
+  "url": "https://kzaudioandvideo.com/premium-home-theater-san-antonio/"
+};
+
+const services = [
+  {
+    title: 'Home Theater Design & Build',
+    image: '/images/projects/monty-theater/home-theater-near-san-antonio-hero.jpg',
+    alt: 'Dedicated home theater with tiered seating near San Antonio Texas',
+    copy: 'Dedicated theaters and media rooms designed around your space — projection or large-format display, true surround sound, acoustic treatment, lighting, and seating.',
+    points: ['Projector & screen or large-format display', 'Immersive surround & Atmos sound', 'Acoustic treatment & cinema lighting'],
+  },
+  {
+    title: 'Whole-House & Multi-Room Audio',
+    image: '/images/whole-house-audio-hero.png',
+    alt: 'Whole house multi-room audio system installed in a San Antonio home',
+    copy: 'Music in every room — kitchen, patio, primary suite, pool — controlled from your phone. Designed around how you actually live, not a spec sheet.',
+    points: ['Sonos & wired multi-zone systems', 'In-ceiling, in-wall & outdoor speakers', 'Phone, keypad & voice control'],
+  },
+  {
+    title: 'Premium TV Installation',
+    image: '/images/projects/flat-tvs/samsung-frame-tv-marble-wall-san-antonio.jpg',
+    alt: 'Samsung Frame TV mounted flush on a marble wall in San Antonio',
+    copy: 'Flawless wall-mounting with fully concealed wiring — over fireplaces, on stone and marble, Samsung Frame TVs, and multi-room displays done right.',
+    points: ['Hidden wiring & clean finishes', 'Fireplace, stone & marble mounts', 'Samsung Frame & large-format TVs'],
+  },
+];
+
+const steps = [
+  { n: '01', title: 'Free Design Consultation', copy: 'We come to your home, look at the space, and talk through what you want. No pressure, no obligation.' },
+  { n: '02', title: 'A Plan & Honest Quote', copy: 'A clear design and price — the right equipment for your space and budget, with nothing you don\'t need.' },
+  { n: '03', title: 'Clean, Expert Install', copy: 'A meticulous installation by a team that\'s been doing this since 1997 — and leaves your home like we found it.' },
+];
+
+const featured = {
+  name: 'San Antonio Homeowner',
+  location: 'San Antonio, TX',
+  service: 'Home AV Client — Nearly 10 Years',
+  quote: "They're honest and will recommend what actually works for your situation rather than upselling you on equipment you don't need. I've never had a bad experience with them and would absolutely recommend them to anyone looking for AV services.",
+};
+---
+
+<LandingLayout
+  title="Premium Home Theater, Whole-House Audio & TV Installation | San Antonio"
+  description="Premium home theater, whole-house audio, and high-end TV installation in San Antonio & the Texas Hill Country. Book a free in-home design consultation. Since 1997."
+  schema={schema}
+>
+
+  <!-- ── Hero ── -->
+  <section class="relative w-full min-h-[88vh] flex items-end overflow-hidden" style="background:#0E1012;">
+    <div class="absolute inset-0" aria-hidden="true">
+      <img
+        src="/images/monty-theater-hero.jpg"
+        alt=""
+        aria-hidden="true"
+        class="w-full h-full object-cover object-center"
+        loading="eager"
+        fetchpriority="high"
+        decoding="async"
+      />
+      <div
+        class="absolute inset-0"
+        style="background:
+          linear-gradient(to right, rgba(14,16,18,0.80) 0%, rgba(14,16,18,0.45) 40%, rgba(14,16,18,0.10) 100%),
+          linear-gradient(to top, rgba(14,16,18,0.75) 0%, rgba(14,16,18,0.15) 35%, transparent 60%)"
+      ></div>
+      <div
+        class="absolute bottom-0 left-0 w-[520px] h-[300px] pointer-events-none"
+        style="background: radial-gradient(ellipse at 0% 100%, rgba(201,168,76,0.10) 0%, transparent 70%)"
+      ></div>
+    </div>
+
+    <div class="relative z-10 w-full container-wide px-6 sm:px-8 lg:px-12 pb-16 md:pb-24 pt-40">
+      <div class="max-w-2xl reveal">
+        <p class="overline mb-5 flex items-center gap-3" style="letter-spacing:0.18em;">
+          <span class="block w-10 h-px opacity-70" style="background:linear-gradient(90deg,#C9A84C,transparent);"></span>
+          San Antonio &amp; the Texas Hill Country
+        </p>
+        <h1 class="font-display text-warm-white text-h2 md:text-hero mb-6" style="letter-spacing:-0.03em;line-height:1.05;">
+          Premium Home Theater, Whole-House Audio &amp; TV Installation
+        </h1>
+        <p class="text-body-lg text-stone mb-9 max-w-xl" style="line-height:1.7;font-weight:300;">
+          Custom-designed and expertly installed by a team that's been doing audio &amp; video the right way since 1997. Start with a free in-home design consultation.
+        </p>
+        <div class="flex flex-col sm:flex-row gap-4">
+          <a href="#consult" class="btn-primary gold-shimmer text-base px-10 py-4 cursor-pointer">
+            Book a Free Design Consultation
+          </a>
+          <a href="tel:2109814098" class="btn-ghost text-base px-8 py-4 cursor-pointer">
+            Call (210) 981-4098
+          </a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <TrustBar />
+
+  <!-- ── The three pillars ── -->
+  <section class="section bg-slate-surface">
+    <div class="container-main">
+      <div class="max-w-2xl mb-12 reveal">
+        <p class="overline mb-3">What We Do</p>
+        <h2 class="font-display text-h2 text-warm-white mb-5">
+          Three Things, Done at a Premium Level
+        </h2>
+        <p class="text-body-lg text-stone">
+          We focus on the work that rewards craftsmanship — and we do it for homeowners who want it done once, done right.
+        </p>
+      </div>
+
+      <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+        {services.map((s) => (
+          <article class="card overflow-hidden flex flex-col reveal">
+            <img
+              src={s.image}
+              alt={s.alt}
+              class="w-full h-52 object-cover"
+              loading="lazy"
+              decoding="async"
+            />
+            <div class="p-7 flex flex-col flex-1">
+              <h3 class="font-sans font-semibold text-h4 text-warm-white mb-3">{s.title}</h3>
+              <p class="text-body text-stone mb-5">{s.copy}</p>
+              <ul class="flex flex-col gap-2.5 mt-auto">
+                {s.points.map((p) => (
+                  <li class="flex items-start gap-3 text-body-sm text-stone">
+                    <span class="text-gold mt-0.5 flex-shrink-0">→</span>
+                    {p}
+                  </li>
+                ))}
+              </ul>
+            </div>
+          </article>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <!-- ── How it works ── -->
+  <section class="section bg-charcoal">
+    <div class="container-main">
+      <div class="max-w-2xl mb-12 reveal">
+        <p class="overline mb-3">How It Works</p>
+        <h2 class="font-display text-h2 text-warm-white">
+          From First Conversation to Final Install
+        </h2>
+      </div>
+      <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+        {steps.map((step) => (
+          <div class="reveal">
+            <p class="font-display text-gold mb-3" style="font-size:2.25rem;letter-spacing:-0.02em;">{step.n}</p>
+            <h3 class="font-sans font-semibold text-h4 text-warm-white mb-3">{step.title}</h3>
+            <p class="text-body text-stone">{step.copy}</p>
+          </div>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <TestimonialsSection featured={featured} />
+
+  <!-- ── Consultation form ── -->
+  <section id="consult" class="section bg-slate-surface scroll-mt-24">
+    <div class="container-main">
+      <div class="grid grid-cols-1 lg:grid-cols-2 gap-16 items-start">
+
+        <div class="reveal">
+          <p class="overline mb-3">Free Design Consultation</p>
+          <h2 class="font-display text-h2 text-warm-white mb-6">
+            Let's Design Something Worth Showing Off
+          </h2>
+          <p class="text-body-lg text-stone mb-8">
+            Tell us about your project — the space, what you're picturing, and your timeline. We'll come to you, walk it through, and show you exactly what's possible. No pressure, no obligation.
+          </p>
+
+          <a href="tel:2109814098" class="flex items-center gap-4 group mb-6">
+            <div class="w-12 h-12 rounded-full bg-gold/10 flex items-center justify-center flex-shrink-0 group-hover:bg-gold/20 transition-colors">
+              <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#C9A84C" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                <path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07A19.5 19.5 0 0 1 4.69 13 19.79 19.79 0 0 1 1.61 4.4 2 2 0 0 1 3.6 2.21h3a2 2 0 0 1 2 1.72c.127.96.361 1.903.7 2.81a2 2 0 0 1-.45 2.11L7.91 9.91a16 16 0 0 0 6.08 6.08l.97-.97a2 2 0 0 1 2.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0 1 22 16.92z"/>
+              </svg>
+            </div>
+            <div>
+              <p class="text-caption text-stone uppercase tracking-widest mb-0.5">Prefer to Call?</p>
+              <p class="font-sans font-semibold text-h4 text-warm-white group-hover:text-gold transition-colors">(210) 981-4098</p>
+            </div>
+          </a>
+
+          <div>
+            <p class="text-caption text-stone uppercase tracking-widest mb-3">Service Areas</p>
+            <p class="text-body text-stone">
+              San Antonio · Stone Oak · Boerne · Bulverde · Canyon Lake · Helotes · New Braunfels · Timberwood Park · Fair Oaks Ranch · Hill Country
+            </p>
+          </div>
+        </div>
+
+        <div class="card p-8 reveal">
+          <h3 class="font-sans font-semibold text-h3 text-warm-white mb-6">Book Your Free Consultation</h3>
+          <form
+            id="consult-form"
+            name="contact"
+            method="POST"
+            data-netlify="true"
+            netlify-honeypot="bot-field"
+            action="/contact-kz-audio-video-san-antonio-tx/thank-you/"
+            class="flex flex-col gap-5"
+          >
+            <p class="hidden">
+              <label>Don't fill this out: <input name="bot-field" /></label>
+            </p>
+            <input type="hidden" name="form-name" value="contact" />
+            <input type="hidden" name="source" value="ChatGPT Ad — Premium AV Landing Page" />
+
+            <div class="grid grid-cols-1 sm:grid-cols-2 gap-5">
+              <div class="flex flex-col gap-2">
+                <label for="name" class="text-caption text-stone uppercase tracking-widest">Name *</label>
+                <input
+                  type="text" id="name" name="name" required
+                  class="bg-graphite border border-smoke rounded-sm px-4 py-3 text-warm-white text-body placeholder-stone/50 focus:outline-none focus:border-gold transition-colors"
+                  placeholder="Your name"
+                />
+              </div>
+              <div class="flex flex-col gap-2">
+                <label for="phone" class="text-caption text-stone uppercase tracking-widest">Phone *</label>
+                <input
+                  type="tel" id="phone" name="phone" required
+                  class="bg-graphite border border-smoke rounded-sm px-4 py-3 text-warm-white text-body placeholder-stone/50 focus:outline-none focus:border-gold transition-colors"
+                  placeholder="(210) 555-0000"
+                />
+              </div>
+            </div>
+
+            <div class="flex flex-col gap-2">
+              <label for="email" class="text-caption text-stone uppercase tracking-widest">Email</label>
+              <input
+                type="email" id="email" name="email"
+                class="bg-graphite border border-smoke rounded-sm px-4 py-3 text-warm-white text-body placeholder-stone/50 focus:outline-none focus:border-gold transition-colors"
+                placeholder="your@email.com"
+              />
+            </div>
+
+            <div class="flex flex-col gap-2">
+              <label for="service" class="text-caption text-stone uppercase tracking-widest">What Are You Interested In?</label>
+              <select
+                id="service" name="service"
+                class="bg-graphite border border-smoke rounded-sm px-4 py-3 text-warm-white text-body focus:outline-none focus:border-gold transition-colors appearance-none"
+              >
+                <option value="" class="text-stone">Select a service...</option>
+                <option value="home-theater">Home Theater</option>
+                <option value="whole-house-audio">Whole-House Audio</option>
+                <option value="premium-tv-install">Premium TV Installation</option>
+                <option value="multiple">Multiple / Full Project</option>
+                <option value="not-sure">Not Sure Yet</option>
+              </select>
+            </div>
+
+            <div class="flex flex-col gap-2">
+              <label for="message" class="text-caption text-stone uppercase tracking-widest">Tell Us About Your Project</label>
+              <textarea
+                id="message" name="message" rows="5"
+                class="bg-graphite border border-smoke rounded-sm px-4 py-3 text-warm-white text-body placeholder-stone/50 focus:outline-none focus:border-gold transition-colors resize-none"
+                placeholder="Room size, what you're envisioning, timeline, budget range — anything that helps us understand the project."
+              ></textarea>
+            </div>
+
+            <button type="submit" class="btn-primary w-full justify-center cursor-pointer">
+              Book My Free Consultation
+            </button>
+
+            <p class="text-caption text-stone text-center">
+              Or call us directly: <a href="tel:2109814098" class="text-gold hover:text-gold-light">(210) 981-4098</a>
+            </p>
+          </form>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- Fire GA4 + Meta Pixel lead conversion on form submit -->
+  <script is:inline>
+    (function () {
+      function bindLead() {
+        var f = document.getElementById('consult-form');
+        if (!f || f.getAttribute('data-lead-bound')) return;
+        f.setAttribute('data-lead-bound', '1');
+        f.addEventListener('submit', function () {
+          if (window.gtag) gtag('event', 'generate_lead', { event_category: 'lead', event_label: 'premium-av-landing' });
+          if (window.fbq) fbq('track', 'Lead');
+        });
+      }
+      if (document.readyState !== 'loading') bindLead();
+      else document.addEventListener('DOMContentLoaded', bindLead);
+      document.addEventListener('astro:page-load', bindLead);
+    })();
+  </script>
+
+</LandingLayout>
