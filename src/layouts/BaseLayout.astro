@@ -13,6 +13,9 @@ interface Props {
   ogImage?: string;
   schema?: object | object[];
   noindex?: boolean;
+  /** GHL chat widget. MUST be false on any page with a phone-collecting form
+   *  (A2P compliance: the widget can't share a page with opt-in forms). */
+  chatWidget?: boolean;
 }
 
 const {
@@ -22,6 +25,7 @@ const {
   ogImage = '/images/og-default.jpg',
   schema,
   noindex = false,
+  chatWidget = true,
 } = Astro.props;
 ---
 
@@ -63,6 +67,17 @@ const {
         Call or Text: (210) 981-4098
       </a>
     </div>
+
+    <!-- GHL chat widget — omitted on pages with phone-collecting forms (A2P) -->
+    {chatWidget && (
+      <script
+        is:inline
+        src="https://widgets.leadconnectorhq.com/loader.js"
+        data-resources-url="https://widgets.leadconnectorhq.com/chat-widget/loader.js"
+        data-widget-id="69e04a7b5d1f0e7db66a02c6"
+        data-source="WEB_USER"
+      ></script>
+    )}
 
     <script>
       // Force scroll to top on every page load — prevents browser scroll restoration drift
