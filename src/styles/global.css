@@ -239,3 +239,38 @@
     margin-bottom: 1rem;
   }
 }
+
+/* Reduced motion — respect the OS setting. Premium sites turn animation off
+   for users who ask, and this doubles as a safety net so reveal content can
+   never get stuck invisible if motion is disabled. Outside @layer so it wins. */
+@media (prefers-reduced-motion: reduce) {
+  :root {
+    scroll-behavior: auto;
+  }
+
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.001ms !important;
+    animation-delay: 0ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.001ms !important;
+    transition-delay: 0ms !important;
+  }
+
+  /* Force every motion primitive to its final, visible resting state */
+  .reveal,
+  .reveal-left,
+  .hero-enter-1,
+  .hero-enter-2,
+  .hero-enter-3,
+  .hero-enter-4 {
+    opacity: 1 !important;
+    transform: none !important;
+  }
+
+  /* Kill ambient/looping decoration that runs without user intent */
+  .gold-shimmer::after {
+    display: none;
+  }
+}
