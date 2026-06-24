@@ -171,6 +171,24 @@ const calcGroups = [
 
   <TrustBar />
 
+  <!-- Featured snippet target — self-contained quick answer for Google position 0 -->
+  <section class="section bg-charcoal border-b border-smoke/40">
+    <div class="container-main">
+      <div class="max-w-3xl">
+        <p class="overline mb-3">Quick Answer</p>
+        <h2 class="font-display text-h2 text-warm-white mb-5">
+          Surround Sound Installation Cost in San Antonio
+        </h2>
+        <div class="glass-card p-6 border-l-2 border-gold">
+          <p class="text-body-lg text-stone leading-relaxed">
+            Surround sound installation in San Antonio costs <strong class="text-warm-white">$800 to $20,000+</strong>, depending on the system. A premium soundbar with wireless subwoofer runs $800–$2,000 installed. A 5.1 surround system (three front speakers, two surrounds, subwoofer, and AV receiver) runs $1,800–$4,000. A 7.1 system adds two more channels at $3,500–$6,500. A Dolby Atmos 7.1.4 system with in-ceiling height speakers runs $5,000–$10,000. The biggest variables are speaker placement (in-wall costs more than bookshelf), whether the room is new construction or a finished retrofit, and receiver capability. KZ Audio & Video has installed surround systems across San Antonio, Stone Oak, Alamo Heights, Boerne, Helotes, and Canyon Lake since 1997. Free in-home consultation with a written quote — no obligation.
+          </p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Price comparison table -->
   <section class="section bg-slate-surface">
     <div class="container-main">
       <p class="overline mb-3">San Antonio Surround Sound Pricing</p>
@@ -180,9 +198,38 @@ const calcGroups = [
       <p class="text-body-lg text-stone mb-4 max-w-3xl">
         "Surround sound" covers everything from a single premium soundbar to a thirteen-speaker Dolby Atmos array. Where you land depends on the room, how seriously you watch, and whether speakers go in the wall or on a shelf.
       </p>
-      <p class="text-body text-stone max-w-3xl">
+      <p class="text-body text-stone max-w-3xl mb-10">
         We have designed and installed surround systems across San Antonio and the Hill Country since 1997. Use the calculator below for an instant ballpark, then scroll down for honest answers to the cost questions. When you want a real number, we come to you, listen to the room, and put a written quote in your hands — free, no obligation.
       </p>
+
+      <!-- Price comparison table -->
+      <div class="overflow-x-auto">
+        <table class="w-full text-left border-collapse" style="min-width:600px;">
+          <thead>
+            <tr style="border-bottom:1px solid rgba(255,255,255,0.1);">
+              <th class="font-sans font-semibold text-warm-white text-sm uppercase tracking-widest py-3 pr-6">System</th>
+              <th class="font-sans font-semibold text-warm-white text-sm uppercase tracking-widest py-3 pr-6">San Antonio Price Range</th>
+              <th class="font-sans font-semibold text-warm-white text-sm uppercase tracking-widest py-3 pr-6">Best For</th>
+            </tr>
+          </thead>
+          <tbody>
+            {[
+              { system: "Soundbar + wireless sub", price: "$800 – $2,000", best: "Bedroom, office, or clean living room look" },
+              { system: "5.1 Surround", price: "$1,800 – $4,000", best: "Media rooms, living rooms, serious TV watching" },
+              { system: "7.1 Surround", price: "$3,500 – $6,500", best: "Large great rooms, entry-level dedicated theaters" },
+              { system: "Dolby Atmos 7.1.4", price: "$5,000 – $10,000", best: "Dedicated theater rooms with in-ceiling height speakers" },
+              { system: "Reference Atmos 9.2.4", price: "$9,000 – $20,000+", best: "Premium dedicated theaters" },
+            ].map((row, i) => (
+              <tr style={`border-bottom:1px solid rgba(255,255,255,${i < 4 ? '0.06' : '0'});`}>
+                <td class="font-sans font-medium text-warm-white py-4 pr-6">{row.system}</td>
+                <td class="font-sans text-gold font-semibold py-4 pr-6">{row.price}</td>
+                <td class="font-sans text-stone py-4 pr-6 text-sm">{row.best}</td>
+              </tr>
+            ))}
+          </tbody>
+        </table>
+      </div>
+      <p class="text-body-sm text-ash mt-4">Prices include equipment and professional installation in the San Antonio metro area. Exact quote depends on room, speaker placement, and wiring.</p>
     </div>
   </section>
 
@@ -245,7 +292,7 @@ const calcGroups = [
       <div class="flex flex-col gap-10 max-w-3xl">
         {costFaqs.map((f) => (
           <article class="reveal">
-            <h2 class="font-sans font-semibold text-h3 text-warm-white mb-4">{f.question}</h2>
+            <h3 class="font-sans font-semibold text-h3 text-warm-white mb-4">{f.question}</h3>
             <p class="text-body text-stone leading-relaxed">{f.answer}</p>
           </article>
         ))}

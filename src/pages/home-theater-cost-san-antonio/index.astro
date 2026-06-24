@@ -177,7 +177,24 @@ const calcGroups = [
 
   <TrustBar />
 
-  <!-- Intro -->
+  <!-- Featured snippet target — self-contained quick answer for Google position 0 -->
+  <section class="section bg-charcoal border-b border-smoke/40">
+    <div class="container-main">
+      <div class="max-w-3xl">
+        <p class="overline mb-3">Quick Answer</p>
+        <h2 class="font-display text-h2 text-warm-white mb-5">
+          Home Theater Cost in San Antonio, TX
+        </h2>
+        <div class="glass-card p-6 border-l-2 border-gold">
+          <p class="text-body-lg text-stone leading-relaxed">
+            A home theater in San Antonio costs <strong class="text-warm-white">$5,000 to $80,000+</strong>, depending on scope. A media room conversion — large 4K TV, surround sound, hidden wiring in an existing room — runs $5,000–$12,000. A mid-tier dedicated theater with 4K projection, 7.1 Dolby Atmos, tiered seating, and acoustic treatment runs $15,000–$40,000. A premium dedicated theater with laser projection, 9.2.4 Atmos, custom acoustics, and motorized seating runs $40,000–$80,000+. The biggest cost drivers are room size, projector versus TV, speaker count, and new construction versus finished-room retrofit. KZ Audio & Video has built home theaters across San Antonio, Stone Oak, Alamo Heights, Boerne, Helotes, Canyon Lake, and New Braunfels since 1997. Free in-home consultation with a written quote.
+          </p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Price comparison table -->
   <section class="section bg-slate-surface">
     <div class="container-main">
       <p class="overline mb-3">San Antonio AV Pricing</p>
@@ -187,9 +204,38 @@ const calcGroups = [
       <p class="text-body-lg text-stone mb-4 max-w-3xl">
         That range is not a dodge — it reflects a real difference in scope. A media room conversion is a different project than a dedicated cinema, and where the money goes is the only way to understand what your project should cost.
       </p>
-      <p class="text-body text-stone max-w-3xl">
+      <p class="text-body text-stone max-w-3xl mb-10">
         We have installed home theater and AV systems across San Antonio and the Hill Country since 1997. Use the calculator below for an instant ballpark, then scroll down for straight answers to the questions people ask most. When you are ready for a real number, we come to you, measure the space, and put a written quote in your hands — free, no obligation.
       </p>
+
+      <!-- Price comparison table -->
+      <div class="overflow-x-auto">
+        <table class="w-full text-left border-collapse" style="min-width:620px;">
+          <thead>
+            <tr style="border-bottom:1px solid rgba(255,255,255,0.1);">
+              <th class="font-sans font-semibold text-warm-white text-sm uppercase tracking-widest py-3 pr-6">Project Type</th>
+              <th class="font-sans font-semibold text-warm-white text-sm uppercase tracking-widest py-3 pr-6">San Antonio Price Range</th>
+              <th class="font-sans font-semibold text-warm-white text-sm uppercase tracking-widest py-3 pr-6">What's Included</th>
+            </tr>
+          </thead>
+          <tbody>
+            {[
+              { type: "Media Room Conversion", price: "$5,000 – $12,000", includes: "Large 4K TV, 5.1 surround, hidden wiring, existing room" },
+              { type: "Mid-Tier Dedicated Theater", price: "$15,000 – $40,000", includes: "4K projection, 7.1 Atmos, tiered seating, acoustic treatment" },
+              { type: "Premium Dedicated Theater", price: "$40,000 – $80,000+", includes: "Laser projection, 9.2.4 Atmos, custom acoustics, motorized seating" },
+              { type: "Surround Sound Only", price: "$1,800 – $10,000", includes: "5.1 to 7.1.4 Atmos, in-wall or bookshelf, receiver" },
+              { type: "Whole-House Audio", price: "$6,000 – $30,000", includes: "2–8+ zones, in-ceiling speakers, app or home control" },
+            ].map((row, i) => (
+              <tr style={`border-bottom:1px solid rgba(255,255,255,${i < 4 ? '0.06' : '0'});`}>
+                <td class="font-sans font-medium text-warm-white py-4 pr-6">{row.type}</td>
+                <td class="font-sans text-gold font-semibold py-4 pr-6">{row.price}</td>
+                <td class="font-sans text-stone py-4 pr-6 text-sm">{row.includes}</td>
+              </tr>
+            ))}
+          </tbody>
+        </table>
+      </div>
+      <p class="text-body-sm text-ash mt-4">Prices reflect the San Antonio metro market including equipment and professional installation. Exact quote after free in-home consultation.</p>
     </div>
   </section>
 
@@ -259,7 +305,7 @@ const calcGroups = [
       <div class="flex flex-col gap-10 max-w-3xl">
         {costFaqs.map((f) => (
           <article class="reveal">
-            <h2 class="font-sans font-semibold text-h3 text-warm-white mb-4">{f.question}</h2>
+            <h3 class="font-sans font-semibold text-h3 text-warm-white mb-4">{f.question}</h3>
             <p class="text-body text-stone leading-relaxed">{f.answer}</p>
           </article>
         ))}
