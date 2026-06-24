@@ -1,0 +1,64 @@
+---
+import AnswerLayout from "../../layouts/AnswerLayout.astro";
+
+const quickAnswer = `QLED (and Mini-LED QLED) is the better choice for bright rooms. OLED is the better choice for dark or controlled-light rooms. The reason is physics: OLED panels produce light at the pixel level, which gives them perfect black levels but limits total brightness to 700–1,000 nits on most models. QLED panels use a separate LED backlight that can sustain 1,000–2,500 nits — enough to compete with ambient light. In a south-facing living room with afternoon sun, a 1,500 nit QLED panel looks sharp and watchable while a 900 nit OLED looks washed out. In a dedicated dark theater, OLED's perfect blacks and faster pixel response win clearly. The newer QD-OLED panels (Sony A95L, Samsung S90D) bridge the gap — OLED contrast with higher brightness than traditional WOLED — but they still do not match Neo QLED peak brightness in very bright rooms. If you have one TV in one room, match the panel technology to how much light is in that room.`;
+
+const fullAnswer = `<h2>How Each Technology Works</h2>
+<p><strong>OLED (Organic Light-Emitting Diode):</strong> Each pixel generates its own light and can turn off completely. This delivers true black, infinite contrast ratio, and no halo or blooming around bright objects. The tradeoff: total brightness is limited by panel longevity (pushing OLEDs too bright degrades them faster).</p>
+<p><strong>QLED (Quantum Light-Emitting Diode):</strong> A traditional LCD panel with a quantum dot filter layer that enhances color, paired with a powerful LED backlight. Mini-LED QLED adds hundreds or thousands of individually controlled backlight zones, dramatically improving local dimming. The tradeoff: can achieve very high brightness but cannot match OLED's absolute black levels.</p>
+
+<h2>The Brightness Reality Check</h2>
+<table>
+  <tr><th>Panel Type</th><th>Typical Peak Nits</th><th>Sustained Nits (full screen)</th><th>Bright Room Score</th></tr>
+  <tr><td>Standard OLED (LG C-series)</td><td>800–1,000</td><td>200–400</td><td>Fair</td></tr>
+  <tr><td>QD-OLED (Sony A95L, Samsung S90D)</td><td>1,300–1,800</td><td>400–600</td><td>Good</td></tr>
+  <tr><td>QLED (Samsung Q-series)</td><td>600–1,000</td><td>400–700</td><td>Good</td></tr>
+  <tr><td>Neo QLED / Mini-LED (Samsung QN90+)</td><td>1,500–2,000+</td><td>900–1,500</td><td>Excellent</td></tr>
+  <tr><td>Hisense ULED / Mini-LED</td><td>1,500–2,000</td><td>700–1,000</td><td>Very Good</td></tr>
+</table>
+
+<h2>Where OLED Still Wins</h2>
+<ul>
+  <li><strong>Dark or light-controlled rooms:</strong> Dedicated theater, bedroom with blackout shades, basement media room — OLED's perfect blacks and infinite contrast produce a cinematic image that Mini-LED cannot match at the same price.</li>
+  <li><strong>Response time and motion clarity:</strong> OLED pixels switch in microseconds vs. milliseconds for LCD. Sports, gaming, and fast action look sharper on OLED in equivalent-brightness conditions.</li>
+  <li><strong>Viewing angle:</strong> OLED panels hold color and brightness past 60° off-axis. Many QLED panels (VA-based) shift noticeably past 40°.</li>
+  <li><strong>Panel thinness:</strong> OLED panels are 1–4mm thick vs. 40–60mm for Mini-LED sets with full-array backlights. Relevant for flush-wall installs.</li>
+</ul>
+
+<h2>Where Mini-LED QLED Wins</h2>
+<ul>
+  <li><strong>Bright rooms and outdoor-facing rooms:</strong> Simply more light output.</li>
+  <li><strong>HDR brightness peaks:</strong> Sony Bravia 9 and Samsung QN900D can hit 2,000+ nits on bright highlights — a more impressive HDR experience for content that contains specular highlights.</li>
+  <li><strong>Large screen sizes:</strong> 85\", 98\", and larger screens are significantly more affordable in QLED than OLED. 83\" is the largest mainstream OLED size; 98\" QLED costs one-third of what an equivalent OLED would cost if it existed.</li>
+  <li><strong>Budget sensitivity:</strong> A 65\" Samsung QN90D at $1,400–$1,800 competes with a 65\" LG C4 OLED at $1,500–$2,200. For the same money, bright-room conditions favor the Neo QLED.</li>
+</ul>
+
+<h2>QD-OLED: The Middle Ground</h2>
+<p>QD-OLED panels combine a quantum dot layer with an OLED emitter, producing better brightness than traditional WOLED and better contrast than Mini-LED. The Sony A95L and Samsung S90D are the flagship models. They are the best all-purpose panels for viewers who want OLED's visual quality but watch in moderate ambient light. They are not the right answer for a room with direct sun.</p>`;
+
+const proTip = `The test we use in client consultations: hold your hand in front of where the TV will go, palm facing the viewer. If you see a clear reflection of yourself or the windows behind you, that room needs a high-nit QLED with an anti-reflective coating. If your reflection is dim or diffuse, OLED will perform beautifully. This takes 10 seconds and tells you more than any spec sheet.`;
+
+const kzAngle = `We spec more Samsung Neo QLED than any other panel for San Antonio living rooms, specifically because the Hill Country and newer Stone Oak developments favor open floor plans with large windows — often west-facing — that create afternoon glare. For clients who want OLED and have a bright room, we discuss motorized shading as part of the AV package. The right shading system paired with an OLED delivers a better result than a QLED in harsh light, but it requires the shading investment.`;
+---
+
+<AnswerLayout
+  title="OLED vs QLED for Bright Rooms — Which Is Better? | KZ Audio & Video"
+  description="QLED (Neo QLED/Mini-LED) wins in bright rooms — 1,500–2,000 nits vs OLED's 700–1,000. OLED wins in dark theaters. Full comparison by brightness, contrast, and room type. KZ Audio & Video San Antonio."
+  h1="OLED vs QLED — Which Is Better for a Bright Room?"
+  quickAnswer={quickAnswer}
+  fullAnswer={fullAnswer}
+  proTip={proTip}
+  kzAngle={kzAngle}
+  imageSrc="/images/projects/asanka-theater/san-antonio-home-theater-project-cover.jpg"
+  imageAlt="OLED vs QLED TV comparison for bright room San Antonio"
+  internalLinks={[
+    { label: "Best TV for Bright Rooms Guide", href: "/best-tv-for-bright-rooms/" },
+    { label: "TV Mounting Service San Antonio", href: "/tv-mounting-san-antonio-tx/" },
+    { label: "Home Theater Cost San Antonio", href: "/home-theater-cost-san-antonio/" },
+  ]}
+  relatedQuestions={[
+    { question: "What is the best TV for a bright room?", href: "/best-tv-for-bright-rooms/" },
+    { question: "What size TV do I need for my room?", href: "/what-size-tv-for-my-room/" },
+    { question: "Projector vs TV — which is better for a home theater?", href: "/projector-vs-tv-home-theater/" },
+  ]}
+/>

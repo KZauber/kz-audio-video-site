@@ -1,0 +1,63 @@
+---
+import AnswerLayout from "../../layouts/AnswerLayout.astro";
+
+const quickAnswer = `For a covered patio, an outdoor-rated TV is strongly recommended — and for an uncovered or semi-exposed space, it is required. Standard indoor TVs are not designed for the humidity, temperature swings, insects, and UV exposure that even a covered Texas patio produces. Outdoor-rated TVs carry an IP (Ingress Protection) rating of IP55 or higher, meaning they are sealed against dust and water spray from any direction. They also have anti-glare screens built for direct or ambient sunlight (800–2,500 nits vs. 200–400 for indoor TVs), wider operating temperature ranges (typically -4°F to 140°F), and UV-resistant enclosures. In San Antonio's climate — summer ambient temperatures of 95–105°F in the shade, high humidity, and intense UV — even a covered patio will degrade a standard indoor TV within one to two seasons. The cost difference between an outdoor-rated TV and replacing a failed indoor set is almost always in the outdoor TV's favor.`;
+
+const fullAnswer = `<h2>Covered Patio vs. Uncovered: The Key Distinction</h2>
+<p>The AV industry uses two categories for outdoor installations:</p>
+<ul>
+  <li><strong>Partial sun / shade-rated:</strong> Designed for covered patios, screened porches, and pergolas where the TV is protected from direct rain but exposed to ambient light, humidity, and heat. IP55 rated minimum. Typical brightness: 800–1,500 nits.</li>
+  <li><strong>Full sun / weatherproof:</strong> Designed for uncovered or semi-exposed installations with direct sun exposure and rain contact. IP65+ rated. Typical brightness: 1,500–2,500+ nits.</li>
+</ul>
+<p>Most covered patio installations in San Antonio fall into the first category — but "covered" does not mean climate-controlled. If your patio reaches 100°F+ in summer (which most Texas patios do), you need a TV rated to operate at those temperatures.</p>
+
+<h2>What the IP Rating Actually Means</h2>
+<p>IP55: Protected against dust ingress and water spray from any direction. Suitable for covered patios with rain splash exposure.<br>
+IP65: Fully dust-tight and protected against low-pressure water jets from any direction. For semi-exposed spaces.<br>
+IP66: Dust-tight and protected against powerful water jets — suitable for poolside and uncovered installations with potential rain contact.</p>
+
+<h2>Can I Use an Indoor TV on My Covered Patio?</h2>
+<p>You can, but here is what happens: humidity causes internal condensation and corrosion on the electronics, typically within 12–24 months in San Antonio's climate. Insects enter through ventilation gaps (TVs have vents; outdoor-rated units are sealed). UV fades the screen and causes plastic enclosure degradation. Temperature cycling — a San Antonio patio can swing from 40°F in January to 105°F in July — causes thermal stress on components not designed for it. Manufacturers void the warranty the moment an indoor TV is used outdoors. The repair or replacement cost almost always exceeds the price premium of the outdoor-rated model.</p>
+
+<h2>Brightness: Why It Matters More Than the IP Rating</h2>
+<p>A covered patio in Texas still receives significant ambient light. An indoor TV at 400 nits becomes washed out and nearly unwatchable in bright afternoon shade. Outdoor-rated TVs start at 800 nits and go to 2,500+ for full-sun models. For a covered patio in San Antonio, 800–1,200 nits is the practical minimum for comfortable viewing from 2pm to sundown.</p>
+
+<h2>Audio for Outdoor Spaces</h2>
+<p>Outdoor TVs have built-in speakers, but open-air spaces kill sound immediately. For a patio you actually watch on, outdoor rated speakers — landscape, rock, or in-ceiling under a soffit — make an enormous difference. A simple two-speaker setup with a compact amplifier runs $800–$2,500 installed and changes the experience completely.</p>
+
+<h2>Price Range for Outdoor TVs</h2>
+<table>
+  <tr><th>Size</th><th>Partial Sun (Covered Patio)</th><th>Full Sun (Uncovered)</th></tr>
+  <tr><td>55\"</td><td>$1,800–$3,500</td><td>$3,500–$6,000</td></tr>
+  <tr><td>65\"</td><td>$2,500–$5,000</td><td>$5,000–$9,000</td></tr>
+  <tr><td>75\"</td><td>$4,000–$7,500</td><td>$7,500–$14,000</td></tr>
+  <tr><td>85\"</td><td>$6,000–$12,000</td><td>$12,000–$20,000+</td></tr>
+</table>
+<p>Professional installation adds $400–$1,200 depending on the mount type, wiring concealment, and whether a weatherproof enclosure or in-wall power is needed.</p>`;
+
+const proTip = `The number-one mistake we see: people buy a "weatherproof" enclosure for their indoor TV thinking it solves the problem. It doesn't — the enclosure traps heat and accelerates failure. Outdoor-rated TVs are built from the inside out to handle the environment. The enclosure approach is a false economy.`;
+
+const kzAngle = `San Antonio summers push covered patio temperatures to 100–110°F regularly, which is above the operating range of most indoor TVs and many budget outdoor models. We spec Séura, SunBrite, and Furrion outdoor TVs for Hill Country and San Antonio installations — all rated to 140°F operating temperature. If your patio faces west or southwest and gets afternoon sun exposure through the cover, brightness spec matters as much as the IP rating.`;
+---
+
+<AnswerLayout
+  title="Do I Need an Outdoor Rated TV for My Covered Patio? | KZ Audio & Video"
+  description="Yes — even a covered patio in San Antonio needs an outdoor-rated TV. Indoor TVs fail from heat, humidity, and UV within 1–2 seasons. IP ratings, nit requirements, and price ranges explained. KZ Audio & Video San Antonio."
+  h1="Do I Need an Outdoor Rated TV for My Covered Patio?"
+  quickAnswer={quickAnswer}
+  fullAnswer={fullAnswer}
+  proTip={proTip}
+  kzAngle={kzAngle}
+  imageSrc="/images/projects/hill-country-outdoor-av-pool/outdoor-av-san-antonio.jpg"
+  imageAlt="Outdoor TV installation on covered patio in San Antonio Texas"
+  internalLinks={[
+    { label: "Outdoor TV & Audio Cost San Antonio", href: "/outdoor-tv-audio-cost-san-antonio/" },
+    { label: "Outdoor AV Installation San Antonio", href: "/outdoor-audio-video-san-antonio/" },
+    { label: "Book a Free Consultation", href: "/contact-kz-audio-video-san-antonio-tx/" },
+  ]}
+  relatedQuestions={[
+    { question: "How do I hide TV wires on the wall?", href: "/how-to-hide-tv-wires/" },
+    { question: "Best TV for a room with a lot of natural light?", href: "/best-tv-for-bright-rooms/" },
+    { question: "How far should I sit from my TV?", href: "/how-far-to-sit-from-tv/" },
+  ]}
+/>

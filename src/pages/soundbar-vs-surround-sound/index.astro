@@ -1,0 +1,60 @@
+---
+import AnswerLayout from "../../layouts/AnswerLayout.astro";
+
+const quickAnswer = `A soundbar is the right choice for bedrooms, offices, and living rooms where clean aesthetics matter more than cinematic immersion — modern soundbars ($300–$1,500) sound dramatically better than built-in TV speakers and hide cleanly under any display. A true surround sound system is the right choice for a dedicated media room, a great room where you watch movies seriously, or any space where you want to feel like you are inside the film rather than watching it through a window. The core difference: a soundbar projects sound from one location, creating a simulated surround effect. Real surround speakers placed around the room create actual directional sound — an effect no soundbar physically replicates. For a standard living room TV setup, a good soundbar is honest value. For a home theater build, a proper 5.1 or 7.1 system is a different category of experience that a soundbar cannot match regardless of price.`;
+
+const fullAnswer = `<h2>When a Soundbar Is the Right Answer</h2>
+<ul>
+  <li><strong>Bedroom or office:</strong> Near-field listening, smaller rooms, and spaces where you do not want speaker wires or multiple components. A $400–$800 soundbar with a wireless sub is genuinely excellent for this use case.</li>
+  <li><strong>Living room with a modern look priority:</strong> If a clean, minimal setup matters and surround speakers on stands or in walls are not acceptable, a premium soundbar (Sony HT-A7000, Sonos Arc) gives you the best sound possible from a single enclosure.</li>
+  <li><strong>Rental or temporary space:</strong> Easy to move, no permanent installation required.</li>
+  <li><strong>Budget under $1,500 total:</strong> At this budget, a quality soundbar outperforms a cheap surround system. Below $1,500 for a full 5.1 setup, you are buying components that underdeliver in every category.</li>
+</ul>
+
+<h2>When Real Surround Sound Is Worth It</h2>
+<ul>
+  <li><strong>Dedicated media room or home theater:</strong> If the room is designed for watching, there is no reason to compromise. A properly set-up 5.1 system at $3,000–$5,000 sounds better than a $3,000 soundbar — the physics favor discrete placement.</li>
+  <li><strong>Large great room:</strong> Soundbars struggle in rooms over 400 square feet. The single-source audio gets lost. Real speakers placed around the room fill the space.</li>
+  <li><strong>Dolby Atmos ceiling channels:</strong> No soundbar — including flagship models with upward-firing drivers — matches actual in-ceiling Atmos speakers. If height channel immersion matters to you, it requires ceiling speakers.</li>
+  <li><strong>Multiple listeners at different positions:</strong> Surround systems create a wider sweet spot. Soundbars optimize for one central seating position.</li>
+</ul>
+
+<h2>The Honest Middle Ground</h2>
+<p>For a living room where you watch a mix of sports, TV shows, and occasional movies, a premium soundbar (Sonos Arc, Sony HT-A7000, Samsung HW-Q990C) is genuinely the practical choice. These units run $800–$1,500, sound excellent for casual watching, and install in 20 minutes. We recommend them without embarrassment for the right use case.</p>
+<p>For anyone who describes their setup as a "home theater" — a room where the primary activity is watching film at a quality level — real surround sound is the only honest recommendation.</p>
+
+<h2>Price Comparison: What Each Category Gets You</h2>
+<table>
+  <tr><th>Budget</th><th>Soundbar Option</th><th>Surround System Option</th></tr>
+  <tr><td>$500–$1,000</td><td>Premium bar + wireless sub (excellent)</td><td>Entry 5.1 system (marginal quality)</td></tr>
+  <tr><td>$1,500–$3,000</td><td>Flagship bar with Atmos (good)</td><td>Solid 5.1 system, real improvement</td></tr>
+  <tr><td>$3,000–$6,000</td><td>Best soundbar on the market</td><td>Quality 5.1 or entry 7.1 Atmos (clearly better)</td></tr>
+  <tr><td>$6,000+</td><td>No soundbar at this budget makes sense</td><td>7.1.4 Atmos or reference system</td></tr>
+</table>`;
+
+const proTip = `We always ask one question before recommending anything: "How do you actually watch?" If the answer is Netflix in the background while cooking or sports on Sunday afternoons, a soundbar is honest value and we say so. If the answer is "I turn the lights off and watch films," we go straight to surround. The equipment should match the behavior, not the aspiration.`;
+
+const kzAngle = `In San Antonio's custom home market, we see two common scenarios: great rooms with 20-foot ceilings where a soundbar simply cannot fill the space (these always need distributed speakers), and dedicated bonus rooms or home theaters where the builder pre-wired for 5.1 or 7.1 but the homeowner never finished the system. If you have wire in the walls, a full surround system is almost always worth completing — the pre-wire cost is already spent.`;
+---
+
+<AnswerLayout
+  title="Soundbar vs Surround Sound — Which Should You Get? | KZ Audio & Video"
+  description="Soundbar wins for bedrooms and clean living rooms. Surround sound wins for dedicated theaters and serious movie watching. Honest comparison by budget, room size, and use case. KZ Audio & Video San Antonio."
+  h1="Soundbar vs Surround Sound — Which Is Better?"
+  quickAnswer={quickAnswer}
+  fullAnswer={fullAnswer}
+  proTip={proTip}
+  kzAngle={kzAngle}
+  imageSrc="/images/projects/asanka-theater/san-antonio-home-theater-project-cover.jpg"
+  imageAlt="Home theater surround sound vs soundbar comparison San Antonio TX"
+  internalLinks={[
+    { label: "Surround Sound Cost San Antonio", href: "/surround-sound-cost-san-antonio/" },
+    { label: "Surround Sound Installation San Antonio", href: "/surround-sound-installation-san-antonio/" },
+    { label: "Home Theater Cost San Antonio", href: "/home-theater-cost-san-antonio/" },
+  ]}
+  relatedQuestions={[
+    { question: "Where do you place surround sound speakers?", href: "/surround-sound-speaker-placement/" },
+    { question: "Is Dolby Atmos worth it?", href: "/is-dolby-atmos-worth-it/" },
+    { question: "How can I make my TV sound better?", href: "/how-to-improve-tv-sound/" },
+  ]}
+/>

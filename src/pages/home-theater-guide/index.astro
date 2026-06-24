@@ -1,0 +1,193 @@
+---
+import BaseLayout from "../../layouts/BaseLayout.astro";
+import TrustBar from "../../components/sections/TrustBar.astro";
+import CTASection from "../../components/sections/CTASection.astro";
+
+const title = "Home Theater Design Guide | KZ Audio & Video San Antonio";
+const description = "Complete home theater design guide from KZ Audio & Video. Screen size, viewing distance, speaker placement, projector vs TV, outdoor AV, bright room TVs — answered by installers who've done 1,000+ systems.";
+
+const guides = [
+  {
+    question: "How far should I sit from my TV?",
+    slug: "/how-far-to-sit-from-tv/",
+    answer: "For a 65\" TV, sit 8–11 feet away. For 75\", 9–13 feet. For 85\", 10–14 feet. Full formula and chart inside.",
+    category: "Screen & Display",
+  },
+  {
+    question: "What size TV do I need for my room?",
+    slug: "/what-size-tv-for-my-room/",
+    answer: "Divide your seating distance (in inches) by 1.5 to 2.5 to get the ideal screen diagonal. For a 10-foot room, that's 48–80 inches.",
+    category: "Screen & Display",
+  },
+  {
+    question: "Best TV for a room with a lot of natural light?",
+    slug: "/best-tv-for-bright-rooms/",
+    answer: "You need 1,000+ nits peak brightness and anti-glare coating. QLED beats OLED in bright rooms. Specific models and placement tips inside.",
+    category: "Screen & Display",
+  },
+  {
+    question: "OLED vs QLED — which is better?",
+    slug: "/oled-vs-qled-bright-room/",
+    answer: "OLED wins in dark rooms (perfect blacks, infinite contrast). QLED wins in bright rooms (higher brightness, no burn-in risk). Full breakdown inside.",
+    category: "Screen & Display",
+  },
+  {
+    question: "Projector vs TV — which is better for a home theater?",
+    slug: "/projector-vs-tv-home-theater/",
+    answer: "Projector wins for dedicated dark rooms with 100\"+ screen at lower cost. TV wins for bright rooms, casual spaces, and simpler setup. Full comparison inside.",
+    category: "Screen & Display",
+  },
+  {
+    question: "Does a projector room need to be completely dark?",
+    slug: "/projector-room-lighting/",
+    answer: "Not completely — but ambient light kills contrast. A laser projector handles moderate light better than a lamp. Specific lumen and room condition guide inside.",
+    category: "Screen & Display",
+  },
+  {
+    question: "Where do you place surround sound speakers?",
+    slug: "/surround-sound-speaker-placement/",
+    answer: "Front L/R: 22–30° off-axis, ear height. Surround: 90–110° to the side. Rear: 135–150°. Atmos height: 45° up from listening position. Full diagrams inside.",
+    category: "Sound",
+  },
+  {
+    question: "Soundbar vs surround sound — which should I get?",
+    slug: "/soundbar-vs-surround-sound/",
+    answer: "Soundbar for clean looks, simplicity, and bedrooms. True surround for dedicated theaters, large great rooms, and serious movie watching. Decision guide inside.",
+    category: "Sound",
+  },
+  {
+    question: "Is Dolby Atmos worth it?",
+    slug: "/is-dolby-atmos-worth-it/",
+    answer: "Yes, if you have in-ceiling speaker access. The overhead sound layer is genuine — not a gimmick. When it's overkill and when it's worth the cost, inside.",
+    category: "Sound",
+  },
+  {
+    question: "How can I make my TV sound better?",
+    slug: "/how-to-improve-tv-sound/",
+    answer: "A $300 soundbar beats any built-in TV speaker. A real 5.1 system is in a different category. Options ranked by budget and impact inside.",
+    category: "Sound",
+  },
+  {
+    question: "Do I need an outdoor rated TV for my covered patio?",
+    slug: "/outdoor-tv-covered-patio/",
+    answer: "For a covered patio: a rated outdoor TV is strongly recommended. For an uncovered space: it's required. The specific ratings, brands, and Texas heat guide inside.",
+    category: "Outdoor AV",
+  },
+  {
+    question: "How do I hide TV wires on the wall?",
+    slug: "/how-to-hide-tv-wires/",
+    answer: "Best option: in-wall wire kit with a power bridge ($80–$200 + labor). No studs? Surface raceway. New construction: roughed-in conduit. Full options inside.",
+    category: "Installation",
+  },
+];
+
+const categories = [...new Set(guides.map(g => g.category))];
+
+const guideSchema = {
+  "@context": "https://schema.org",
+  "@type": "ItemList",
+  "name": "Home Theater Design Guide",
+  "description": "Comprehensive home theater and AV design answers from KZ Audio & Video, San Antonio TX.",
+  "url": "https://kzaudioandvideo.com/home-theater-guide/",
+  "itemListElement": guides.map((g, i) => ({
+    "@type": "ListItem",
+    "position": i + 1,
+    "name": g.question,
+    "url": `https://kzaudioandvideo.com${g.slug}`,
+  })),
+};
+
+const breadcrumb = {
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": [
+    { "@type": "ListItem", "position": 1, "name": "Home", "item": "https://kzaudioandvideo.com" },
+    { "@type": "ListItem", "position": 2, "name": "Home Theater Design Guide" },
+  ],
+};
+---
+
+<BaseLayout title={title} description={description} schema={[guideSchema, breadcrumb]}>
+  <!-- Hero -->
+  <section class="relative w-full flex items-end overflow-hidden min-h-[38vh]" style="background:#0E1012;">
+    <div class="absolute inset-0 z-0">
+      <img
+        src="/images/projects/monty-theater/home-theater-near-san-antonio-hero.jpg"
+        alt="Home theater design guide by KZ Audio & Video San Antonio"
+        class="w-full h-full object-cover opacity-20"
+        loading="eager"
+      />
+      <div class="absolute inset-0" style="background:linear-gradient(to top,#0E1012 40%,rgba(14,16,18,0.4) 100%);"></div>
+    </div>
+    <div class="relative z-10 w-full container-wide px-6 sm:px-8 lg:px-12 py-16 md:py-24">
+      <p class="overline mb-3 flex items-center gap-3" style="letter-spacing:0.18em;">
+        <span class="block w-10 h-px opacity-70" style="background:linear-gradient(90deg,#C9A84C,transparent);"></span>
+        KZ Audio & Video · San Antonio · 28 Years of Installs
+      </p>
+      <h1 class="font-display text-warm-white leading-[1.12] text-xl md:text-hero mb-5" style="letter-spacing:-0.02em;max-width:680px;">
+        Home Theater Design Guide
+      </h1>
+      <p class="text-body-lg text-stone max-w-xl">
+        Straight answers to the questions we get asked most — from screen size and speaker placement to outdoor TVs and projector rooms. Written by installers who've built 1,000+ systems across San Antonio and the Hill Country.
+      </p>
+    </div>
+  </section>
+
+  <TrustBar />
+
+  <!-- Guide index by category -->
+  {categories.map(cat => (
+    <section class="section bg-slate-surface">
+      <div class="container-main">
+        <p class="overline mb-8">{cat}</p>
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-5">
+          {guides.filter(g => g.category === cat).map(guide => (
+            <a
+              href={guide.slug}
+              class="card p-6 flex flex-col gap-3 hover:border-gold/40 transition-all duration-200 group cursor-pointer"
+            >
+              <h2 class="font-sans font-semibold text-h4 text-warm-white group-hover:text-gold transition-colors leading-snug">
+                {guide.question}
+              </h2>
+              <p class="text-body-sm text-stone leading-relaxed flex-1">
+                {guide.answer}
+              </p>
+              <span class="inline-flex items-center gap-1.5 text-gold text-body-sm font-medium mt-1">
+                Read the full answer
+                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+              </span>
+            </a>
+          ))}
+        </div>
+      </div>
+    </section>
+  ))}
+
+  <!-- About the author signal -->
+  <section class="section bg-charcoal border-y border-smoke/40">
+    <div class="container-main">
+      <div class="max-w-3xl flex gap-6 items-start">
+        <div class="flex-shrink-0 w-1 min-h-[80px] rounded-full" style="background:linear-gradient(to bottom,#C9A84C,transparent);"></div>
+        <div>
+          <p class="overline mb-3">About These Answers</p>
+          <p class="text-body-lg text-stone leading-relaxed mb-3">
+            Every answer here comes from 28 years of designing and installing home theater and AV systems in real homes. Kelly Zauber has been in the audio business since 1997 — first in car audio, then home AV since 2001. The numbers, formulas, and recommendations on these pages come from what actually works in the field, not from spec sheets.
+          </p>
+          <p class="text-body text-stone">
+            KZ Audio & Video serves San Antonio, Stone Oak, Boerne, Helotes, Canyon Lake, New Braunfels, and the Texas Hill Country. <a href="/about-kz-audio-video/" class="text-gold hover:text-warm-white transition-colors underline underline-offset-2">About KZ →</a>
+          </p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <CTASection
+    heading="Questions About Your Specific Room?"
+    body="Every room is different. Free in-home consultation — we come to you, measure the space, and give you a straight answer and a written quote. No pressure, no obligation."
+    ctaLabel="Book a Free Consultation"
+    ctaHref="/contact-kz-audio-video-san-antonio-tx/"
+    secondaryLabel="Call (210) 981-4098"
+    secondaryHref="tel:2109814098"
+    bgImage="/images/projects/monty-theater/Home-Theater-Design-Build-Near-San-Antonio-Texas.jpeg.jpg"
+  />
+</BaseLayout>

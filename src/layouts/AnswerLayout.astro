@@ -1,0 +1,298 @@
+---
+/**
+ * AnswerLayout — used for all AI-citable Q&A answer pages
+ * Structured for Google featured snippets + AI citation (ChatGPT, Perplexity, Copilot)
+ * Each page targets one natural-language question with a self-contained 140-165 word answer block
+ */
+import BaseLayout from "./BaseLayout.astro";
+import TrustBar from "../components/sections/TrustBar.astro";
+import CTASection from "../components/sections/CTASection.astro";
+
+interface Props {
+  title: string;
+  description: string;
+  h1: string;
+  quickAnswer: string;        // 140-165 words — this is what AI cites
+  fullAnswer: string;         // 400-600 words — organized with sub-headings
+  proTip: string;             // Sharp expert insight
+  kzAngle: string;            // San Antonio / Texas local connection
+  internalLinks?: { label: string; href: string }[];
+  relatedQuestions?: { question: string; href: string }[];
+  schema?: object | object[];
+  imageSrc?: string;
+  imageAlt?: string;
+}
+
+const {
+  title,
+  description,
+  h1,
+  quickAnswer,
+  fullAnswer,
+  proTip,
+  kzAngle,
+  internalLinks = [],
+  relatedQuestions = [],
+  schema,
+  imageSrc,
+  imageAlt,
+} = Astro.props;
+
+const faqSchema = {
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    {
+      "@type": "Question",
+      "name": h1,
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": quickAnswer,
+      },
+    },
+  ],
+};
+
+const articleSchema = {
+  "@context": "https://schema.org",
+  "@type": "Article",
+  "headline": h1,
+  "description": description,
+  "author": {
+    "@type": "Person",
+    "name": "Kelly Zauber",
+    "url": "https://kzaudioandvideo.com/about-kz-audio-video/",
+  },
+  "publisher": {
+    "@type": "LocalBusiness",
+    "name": "KZ Audio & Video",
+    "url": "https://kzaudioandvideo.com",
+    "telephone": "+12109814098",
+    "areaServed": "San Antonio, TX",
+  },
+};
+
+const allSchema = [
+  faqSchema,
+  articleSchema,
+  ...(Array.isArray(schema) ? schema : schema ? [schema] : []),
+];
+---
+
+<BaseLayout title={title} description={description} schema={allSchema}>
+  <!-- Hero — compact, question-forward -->
+  <section class="relative w-full flex items-end overflow-hidden min-h-[32vh]" style="background:#0E1012;">
+    {imageSrc && (
+      <div class="absolute inset-0 z-0">
+        <img
+          src={imageSrc}
+          alt={imageAlt || ""}
+          class="w-full h-full object-cover opacity-25"
+          loading="eager"
+        />
+        <div class="absolute inset-0" style="background:linear-gradient(to top,#0E1012 30%,rgba(14,16,18,0.5) 100%);"></div>
+      </div>
+    )}
+    <div class="relative z-10 w-full container-wide px-6 sm:px-8 lg:px-12 py-14 md:py-20">
+      <p class="overline mb-3 flex items-center gap-3" style="letter-spacing:0.18em;">
+        <span class="block w-10 h-px opacity-70" style="background:linear-gradient(90deg,#C9A84C,transparent);"></span>
+        KZ Audio & Video · San Antonio · Since 1997
+      </p>
+      <h1 class="font-display text-warm-white leading-[1.15] text-xl md:text-h1" style="letter-spacing:-0.02em;max-width:720px;">
+        {h1}
+      </h1>
+    </div>
+  </section>
+
+  <TrustBar />
+
+  <!-- Quick Answer Block — the AI citation target -->
+  <section class="section bg-charcoal border-b border-smoke/40">
+    <div class="container-main">
+      <div class="max-w-3xl">
+        <p class="overline mb-3">Quick Answer</p>
+        <div class="glass-card p-6 md:p-8 border-l-4 border-gold">
+          <p class="text-body-lg text-stone leading-relaxed" style="font-size:1.0625rem;">
+            {quickAnswer}
+          </p>
+        </div>
+        <p class="text-body-sm text-ash mt-3">
+          Written by Kelly Zauber · KZ Audio & Video · San Antonio, TX · (210) 981-4098
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <!-- Full Answer -->
+  <section class="section bg-slate-surface">
+    <div class="container-main">
+      <div class="max-w-3xl prose-answer">
+        <Fragment set:html={fullAnswer} />
+      </div>
+    </div>
+  </section>
+
+  <!-- Pro Tip callout -->
+  <section class="section bg-charcoal">
+    <div class="container-main">
+      <div class="max-w-3xl">
+        <div class="card p-6 md:p-8 border border-gold/30" style="background:rgba(201,168,76,0.06);">
+          <p class="overline mb-3" style="color:#C9A84C;">Pro Tip — From 28 Years of Installs</p>
+          <p class="text-body-lg text-warm-white leading-relaxed">{proTip}</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- KZ Local Angle -->
+  <section class="section bg-slate-surface border-t border-smoke/40">
+    <div class="container-main">
+      <div class="max-w-3xl flex gap-5 items-start">
+        <div class="flex-shrink-0 w-1 h-full min-h-[60px] rounded-full" style="background:linear-gradient(to bottom,#C9A84C,transparent);"></div>
+        <div>
+          <p class="overline mb-2">San Antonio & Hill Country Context</p>
+          <p class="text-body text-stone leading-relaxed">{kzAngle}</p>
+          <p class="text-body-sm text-ash mt-3">
+            KZ Audio & Video installs throughout San Antonio, Stone Oak, Boerne, Helotes, Canyon Lake, New Braunfels, and the Texas Hill Country.
+            <a href="/contact-kz-audio-video-san-antonio-tx/" class="text-gold hover:text-warm-white transition-colors underline underline-offset-2 ml-1">Book a free consultation →</a>
+          </p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Related Questions -->
+  {relatedQuestions.length > 0 && (
+    <section class="section bg-charcoal">
+      <div class="container-main">
+        <div class="max-w-3xl">
+          <p class="overline mb-5">Related Questions</p>
+          <div class="flex flex-col gap-3">
+            {relatedQuestions.map((rq) => (
+              <a
+                href={rq.href}
+                class="flex items-center justify-between card p-4 hover:border-gold/40 transition-colors group cursor-pointer"
+              >
+                <span class="text-body text-stone group-hover:text-warm-white transition-colors">{rq.question}</span>
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" class="text-gold flex-shrink-0 ml-4" aria-hidden="true"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+              </a>
+            ))}
+          </div>
+        </div>
+      </div>
+    </section>
+  )}
+
+  <!-- Internal Links -->
+  {internalLinks.length > 0 && (
+    <section class="section bg-slate-surface border-t border-smoke/40">
+      <div class="container-main">
+        <div class="max-w-3xl">
+          <p class="overline mb-5">Explore KZ Services & Pricing</p>
+          <div class="flex flex-wrap gap-3">
+            {internalLinks.map((link) => (
+              <a
+                href={link.href}
+                class="inline-flex items-center gap-2 text-gold font-sans font-medium text-body-sm cursor-pointer hover:text-warm-white transition-colors"
+              >
+                {link.label}
+                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+              </a>
+            ))}
+          </div>
+        </div>
+      </div>
+    </section>
+  )}
+
+  <CTASection
+    heading="Need a Real Answer for Your Room?"
+    body="Every room is different. Kelly has been solving AV problems in San Antonio homes since 1997. Free in-home consultation — we come to you, assess the space, and give you a written quote."
+    ctaLabel="Book a Free Consultation"
+    ctaHref="/contact-kz-audio-video-san-antonio-tx/"
+    secondaryLabel="Call (210) 981-4098"
+    secondaryHref="tel:2109814098"
+    bgImage="/images/projects/monty-theater/Home-Theater-Design-Build-Near-San-Antonio-Texas.jpeg.jpg"
+  />
+</BaseLayout>
+
+<style is:global>
+  .prose-answer h2 {
+    font-family: var(--font-display);
+    font-size: clamp(1.2rem, 2vw, 1.5rem);
+    color: #F5F3EE;
+    margin-top: 2.5rem;
+    margin-bottom: 0.75rem;
+    font-weight: 600;
+    letter-spacing: -0.01em;
+  }
+  .prose-answer h3 {
+    font-family: var(--font-sans);
+    font-size: 1.0625rem;
+    color: #C9A84C;
+    margin-top: 1.75rem;
+    margin-bottom: 0.5rem;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.06em;
+    font-size: 0.8125rem;
+  }
+  .prose-answer p {
+    color: #9CA3AF;
+    line-height: 1.8;
+    margin-bottom: 1.25rem;
+    font-size: 1rem;
+  }
+  .prose-answer strong {
+    color: #F5F3EE;
+    font-weight: 600;
+  }
+  .prose-answer ul {
+    list-style: none;
+    padding: 0;
+    margin-bottom: 1.5rem;
+  }
+  .prose-answer ul li {
+    color: #9CA3AF;
+    padding: 0.35rem 0 0.35rem 1.5rem;
+    position: relative;
+    line-height: 1.7;
+  }
+  .prose-answer ul li::before {
+    content: '';
+    position: absolute;
+    left: 0;
+    top: 0.85rem;
+    width: 6px;
+    height: 6px;
+    border-radius: 50%;
+    background: #C9A84C;
+    opacity: 0.7;
+  }
+  .prose-answer table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-bottom: 2rem;
+  }
+  .prose-answer th {
+    font-family: var(--font-sans);
+    font-size: 0.75rem;
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    color: #F5F3EE;
+    padding: 0.75rem 1rem 0.75rem 0;
+    border-bottom: 1px solid rgba(255,255,255,0.1);
+    font-weight: 600;
+  }
+  .prose-answer td {
+    color: #9CA3AF;
+    padding: 0.75rem 1rem 0.75rem 0;
+    border-bottom: 1px solid rgba(255,255,255,0.05);
+    font-size: 0.9375rem;
+    vertical-align: top;
+  }
+  .prose-answer td:first-child {
+    color: #F5F3EE;
+    font-weight: 500;
+  }
+</style>

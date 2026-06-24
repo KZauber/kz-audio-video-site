@@ -1,0 +1,64 @@
+---
+import AnswerLayout from "../../layouts/AnswerLayout.astro";
+
+const quickAnswer = `TV size is determined by your viewing distance, not your room size. The formula: multiply your seating distance in inches by 0.84 to get the ideal screen diagonal for a 4K TV. At 8 feet (96 inches) from the TV, the ideal size is 80\". At 10 feet (120 inches), the ideal is 100\". At 12 feet (144 inches), the ideal is 121\". The most common mistake is buying too small — people consistently underestimate how large a TV needs to be to fill their field of view at typical seating distances. A 65\" TV in a 12-foot room looks like a picture frame, not a cinema experience. At the correct distance with a 4K panel, your eye cannot resolve individual pixels regardless of screen size — you simply see the image. The bigger fear should be buying too small, not too large. For most American living rooms with 10–12 foot seating distances, the right TV is 85–98\".`;
+
+const fullAnswer = `<h2>The Formula</h2>
+<p><strong>Ideal screen diagonal (inches) = viewing distance (inches) × 0.84</strong></p>
+<p>This is based on Dolby's recommended 40° horizontal field of view for an immersive experience. THX's standard is 36°. For a more conservative recommendation (picture frame feel, not immersive): multiply by 0.625.</p>
+
+<h2>Quick Reference by Room Size</h2>
+<table>
+  <tr><th>Seating Distance</th><th>Conservative Size</th><th>Ideal / Immersive Size</th></tr>
+  <tr><td>6 feet (72\")</td><td>55\"</td><td>65\"</td></tr>
+  <tr><td>8 feet (96\")</td><td>65\"</td><td>75–80\"</td></tr>
+  <tr><td>10 feet (120\")</td><td>75\"</td><td>85–98\"</td></tr>
+  <tr><td>12 feet (144\")</td><td>85\"</td><td>98–110\"</td></tr>
+  <tr><td>14 feet (168\")</td><td>98\"</td><td>110\"+ or projector</td></tr>
+  <tr><td>16 feet (192\")</td><td>110\"</td><td>Projector or micro LED</td></tr>
+</table>
+
+<h2>Why People Buy Too Small</h2>
+<p>The TV looks massive in the store. Showroom lighting is bright, the TV is at eye level on a narrow stand, and you are standing 4 feet from it. At home, it goes on a wall 10 feet from your sofa, in a room with other furniture and decor to provide scale. The TV that looked imposing in Best Buy looks average at home. This is universal — almost no one buys too large a TV for their space.</p>
+<p>The other factor is historical anchoring. People who grew up with 32\", 40\", or 50\" TVs have a mental image of "big TV" that is disconnected from what 4K panels at today's prices can deliver. An 85\" 4K panel in 2025 costs $1,000–$2,000 — the same screen in 2015 cost $4,000+.</p>
+
+<h2>Room Proportion Considerations</h2>
+<p>Beyond viewing distance, screen size should be proportional to the wall on which it is mounted. Guidelines:</p>
+<ul>
+  <li>TV width should not exceed 2/3 of the furniture it sits on (if on a stand)</li>
+  <li>For wall mounting, the TV width can span up to 70–75% of the wall width before it feels overwhelming</li>
+  <li>High ceilings (10–14 feet) handle larger TVs better — the proportions work with the room instead of against it</li>
+</ul>
+
+<h2>When a Projector Is the Right Answer</h2>
+<p>Once your ideal size calculation passes 110\", a projector becomes the cost-effective and practical option. Projectors handle 100–200\" screens at a fraction of the cost of a large-format TV, and dedicated dark rooms make the image quality difference invisible in practice. See the Projector vs TV guide for the full comparison.</p>
+
+<h2>Does 4K Make a Difference at My Size?</h2>
+<p>At typical seating distances with a quality 4K panel, yes — but you need to be close enough for the resolution to matter. The threshold where your eye can resolve 4K vs 1080p at a given distance is approximately 1.5 times the screen diagonal. At 10 feet from an 85\" screen, you are 120 inches away and the threshold is 127 inches — right at the boundary. Most viewers at these distances benefit from 4K for fine detail and HDR content.</p>`;
+
+const proTip = `Before buying any TV, tape cardboard or painter's tape to the wall in the exact dimensions of the TV you are considering. Live with it for two days. Almost every client who does this ends up going one size larger than they originally planned. The tape outline looks large when you first put it up and feels right after 48 hours. This is the fastest way to remove uncertainty about TV size selection.`;
+
+const kzAngle = `San Antonio's Hill Country homes frequently have great rooms with vaulted ceilings and walls that span 16–20 feet wide — at these proportions, a 65\" TV looks like a framed photo, not an entertainment centerpiece. We routinely specify 85\", 98\", and 110\" panels for these spaces, and for clients building custom homes in Boerne or Stone Oak, the conversation about correct screen size happens at the design phase before drywall. Getting the size right at framing costs nothing extra.`;
+---
+
+<AnswerLayout
+  title="What Size TV Do I Need? TV Size Calculator by Room Size | KZ Audio & Video"
+  description="TV size formula: seating distance (inches) × 0.84 = ideal screen diagonal. 10-foot room = 85-inch TV. 12-foot room = 98–110-inch. Full chart by distance and room type. KZ Audio &amp; Video San Antonio."
+  h1="What Size TV Do I Need for My Room?"
+  quickAnswer={quickAnswer}
+  fullAnswer={fullAnswer}
+  proTip={proTip}
+  kzAngle={kzAngle}
+  imageSrc="/images/projects/asanka-theater/san-antonio-home-theater-project-cover.jpg"
+  imageAlt="TV size selection guide San Antonio TX"
+  internalLinks={[
+    { label: "TV Mounting Service San Antonio", href: "/tv-mounting-san-antonio-tx/" },
+    { label: "Home Theater Installation San Antonio", href: "/home-theater-installation-san-antonio-tx/" },
+    { label: "Projector vs TV Guide", href: "/projector-vs-tv-home-theater/" },
+  ]}
+  relatedQuestions={[
+    { question: "How far should I sit from my TV?", href: "/how-far-to-sit-from-tv/" },
+    { question: "Best TV for a room with a lot of natural light?", href: "/best-tv-for-bright-rooms/" },
+    { question: "Projector vs TV — which is better for a home theater?", href: "/projector-vs-tv-home-theater/" },
+  ]}
+/>

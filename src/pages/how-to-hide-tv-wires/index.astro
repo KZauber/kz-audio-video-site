@@ -1,0 +1,62 @@
+---
+import AnswerLayout from "../../layouts/AnswerLayout.astro";
+
+const quickAnswer = `The cleanest way to hide TV wires is an in-wall power bridge kit ($60–$200) paired with in-wall wire routing. The power bridge adds a second outlet directly behind the TV and runs the power cable through the wall to a new outlet at floor level — fully code-compliant, no extension cords, no exposed wire. HDMI, speaker wire, and other low-voltage cables route through the same opening. This is the method professional installers use. For walls where you cannot run wire (concrete, brick, metal studs, or renter situations), a surface-mounted cable raceway ($20–$60) covers wires cleanly along the wall in a painted channel. For new construction, the correct solution is roughed-in conduit during framing — a $150 investment that lets you route any wire forever. The DIY kit approach works on standard wood-stud drywall walls. For fireplace installations, stone walls, or runs across multiple rooms, professional installation is strongly recommended to avoid code violations and fire hazards.`;
+
+const fullAnswer = `<h2>Option 1: In-Wall Power Bridge Kit (Best for Drywall Walls)</h2>
+<p>A power bridge kit is two wall plates connected by a non-metallic sheath (NM) cable run inside the wall — one plate goes directly behind the TV, the other at floor level. The kit includes everything needed and is code-compliant in most jurisdictions because it uses UL-listed components designed for in-wall use (unlike extension cords, which are not rated for permanent in-wall installation).</p>
+<ul>
+  <li><strong>Cost DIY:</strong> $60–$200 for the kit, plus $0–$100 for an electrician to verify the outlet placement</li>
+  <li><strong>Cost installed professionally:</strong> $250–$500 depending on wall type and run length</li>
+  <li><strong>Tools needed:</strong> Drywall saw, fish tape or wire rod, drill, stud finder</li>
+  <li><strong>Time DIY:</strong> 2–4 hours for an experienced DIYer on a standard interior wall</li>
+</ul>
+<p>After the power bridge is in place, low-voltage wires (HDMI, optical audio, ethernet, speaker wire) route through a separate low-voltage brush plate opening — these do not require an electrician and have no code restrictions.</p>
+
+<h2>Option 2: Surface Cable Raceway (Best for Renters or Brick/Stone Walls)</h2>
+<p>A cable raceway is a plastic channel that mounts on the wall surface and encloses the wires. Painted to match the wall color, it is barely visible. Not as clean as in-wall routing but entirely reversible and requires no tools beyond a drill or double-sided tape.</p>
+<ul>
+  <li><strong>Cost:</strong> $20–$80 depending on length and brand</li>
+  <li><strong>Time:</strong> 30–60 minutes</li>
+  <li><strong>Best brands:</strong> Wiremold, DataComm, Legrand</li>
+</ul>
+
+<h2>Option 3: New Construction Conduit (Best Long-Term Solution)</h2>
+<p>During construction, before drywall, run 1\" to 1.5\" flexible conduit from the TV wall location to the equipment location. Cap both ends. This costs $100–$300 during construction and lets you pull any wire — HDMI 2.1, 8K cables that do not exist yet, fiber — at any point in the future by simply pushing a fish tape through. This is the professional recommendation for any new build.</p>
+
+<h2>What Not to Do</h2>
+<ul>
+  <li><strong>Do not run extension cords in walls:</strong> Standard extension cords and power strips are not UL rated for permanent in-wall installation. This is a fire hazard and a code violation in most jurisdictions.</li>
+  <li><strong>Do not cut into walls near fireplaces without a professional:</strong> Fireplace surrounds often have fire-blocking that must be preserved. Routing wires through these areas incorrectly creates a fire code violation.</li>
+  <li><strong>Do not run power and low-voltage in the same conduit:</strong> Line voltage (120V) and low-voltage (HDMI, speaker wire) must be separated by at least 2 inches in the wall to avoid signal interference and code violations.</li>
+</ul>
+
+<h2>Fireplace TV Mounting — Special Considerations</h2>
+<p>Mounting a TV above a fireplace is common but creates two challenges: heat from the firebox and wire routing through stone, brick, or drywall over a firebox. Heat: most electric fireplaces are fine; gas and wood-burning fireplaces can produce enough heat to damage a TV over years of use — a tilting mount that angles the TV away from the heat is recommended. Wiring: routing through stone or brick requires a masonry bit, a longer time investment, and usually professional installation.</p>`;
+
+const proTip = `The most common mistake on in-wall TV wire runs: cutting the TV outlet hole too close to a stud and not leaving enough room to work inside the wall. Always check stud location with a stud finder before cutting, and use a low-voltage mounting bracket (the plastic ring type, not a metal box) for the brush plate so you have flexibility in positioning. The low-voltage bracket requires no stud — it mounts to drywall directly with fold-out wings.`;
+
+const kzAngle = `In San Antonio's Hill Country and Stone Oak custom homes, we frequently encounter TV installations above gas fireplaces with floor-to-ceiling stone surrounds. These require professional installation — routing wire through stone requires specialized bits and careful planning to avoid the firebox flue area. We do this work regularly and include the wire concealment as part of any TV mounting or home theater project.`;
+---
+
+<AnswerLayout
+  title="How to Hide TV Wires on the Wall | In-Wall, Raceway & Pro Options"
+  description="Best way to hide TV wires: in-wall power bridge kit ($60–$200 DIY, $250–$500 installed). Surface raceway for brick or rentals. Full options by method, cost, and difficulty. KZ Audio & Video San Antonio."
+  h1="How Do I Hide TV Wires on the Wall?"
+  quickAnswer={quickAnswer}
+  fullAnswer={fullAnswer}
+  proTip={proTip}
+  kzAngle={kzAngle}
+  imageSrc="/images/projects/samsung-frame-tv-marble-fireplace-san-antonio/samsung-frame-tv-san-antonio.jpg"
+  imageAlt="TV wire concealment on wall San Antonio TX professional installation"
+  internalLinks={[
+    { label: "TV Mounting Cost San Antonio", href: "/tv-mounting-cost-san-antonio/" },
+    { label: "TV Mounting Service San Antonio", href: "/tv-mounting-san-antonio-tx/" },
+    { label: "Home Theater Installation San Antonio", href: "/home-theater-installation-san-antonio-tx/" },
+  ]}
+  relatedQuestions={[
+    { question: "How far should I sit from my TV?", href: "/how-far-to-sit-from-tv/" },
+    { question: "Best TV for a room with a lot of natural light?", href: "/best-tv-for-bright-rooms/" },
+    { question: "How can I make my TV sound better?", href: "/how-to-improve-tv-sound/" },
+  ]}
+/>
