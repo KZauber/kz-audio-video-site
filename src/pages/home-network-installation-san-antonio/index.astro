@@ -1,0 +1,163 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import HeroSection from '../../components/sections/HeroSection.astro';
+import TrustBar from '../../components/sections/TrustBar.astro';
+import TestimonialsSection from '../../components/sections/TestimonialsSection.astro';
+import FAQAccordion from '../../components/sections/FAQAccordion.astro';
+import CTASection from '../../components/sections/CTASection.astro';
+
+const schema = {
+  "@context": "https://schema.org",
+  "@type": "Service",
+  "name": "Home Network and Wi-Fi Installation",
+  "provider": {
+    "@type": "LocalBusiness",
+    "name": "KZ Audio & Video",
+    "url": "https://kzaudioandvideo.com",
+    "telephone": "+12109814098"
+  },
+  "areaServed": "San Antonio, TX",
+  "description": "Home network and Wi-Fi installation in San Antonio TX. Whole-home Wi-Fi coverage, wired ethernet runs, network racks, and streaming-ready networks professionally installed.",
+  "url": "https://kzaudioandvideo.com/home-network-installation-san-antonio/"
+};
+
+const breadcrumb = {
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": [
+    { "@type": "ListItem", "position": 1, "name": "Home", "item": "https://kzaudioandvideo.com" },
+    { "@type": "ListItem", "position": 2, "name": "Home Network Installation San Antonio" }
+  ]
+};
+
+const faqs = [
+  {
+    question: 'How much does home network installation cost in San Antonio?',
+    answer: 'Most home network installations in San Antonio run $800 to $3,500 depending on home size and scope. A mesh Wi-Fi system with professional placement and configuration starts around $800. Whole-home coverage with wired access points, a network rack, and ethernet runs to TVs and offices typically lands between $1,500 and $3,500. Larger homes with full structured wiring can run higher. We give you an exact quote after a free in-home assessment, so there are no surprises.',
+  },
+  {
+    question: 'Why does my Wi-Fi drop in parts of my house?',
+    answer: 'Usually because a single router is trying to cover a home that needs multiple access points. Texas homes with stone walls, metal framing, foam insulation, or a second story block Wi-Fi signals more than most people expect. The fix is professionally placed wired access points, not a stronger router. We map your home\'s dead zones, then place access points where coverage actually needs to be.',
+  },
+  {
+    question: 'Is wired ethernet still worth it if I have good Wi-Fi?',
+    answer: 'Yes, for anything that stays in one place. TVs, streaming boxes, gaming consoles, desktop computers, and cameras all perform better on a wired connection: no buffering, no dropouts, no competing with every phone in the house. We run ethernet to the locations that matter and let Wi-Fi handle the mobile devices. That combination is what makes a 4K movie night or a video call rock solid.',
+  },
+  {
+    question: 'Do you install networks in new construction?',
+    answer: 'Yes. New construction is the best time to wire a network because we can run ethernet and low voltage cabling before the walls close up. We work with custom home builders across San Antonio and the Hill Country and coordinate network pre-wire alongside home theater, audio, and camera wiring in a single rough-in visit.',
+  },
+  {
+    question: 'Will my home theater and streaming devices work better on a professional network?',
+    answer: 'Almost always. Buffering during movies, smart home devices going offline, and cameras dropping their feeds are network problems, not equipment problems. Since we install the theaters, audio systems, and cameras ourselves, we build the network to carry them. Everything we install gets a reliable connection by design, not by luck.',
+  },
+  {
+    question: 'What equipment do you install?',
+    answer: 'We install professional-grade routers, switches, and wired access points, along with clean network racks or enclosures to house everything. We recommend equipment based on your home and how you use it, and we configure it completely: guest networks, parental controls, and remote support access if you want it. You get a network that works on day one and keeps working.',
+  },
+];
+
+const faqSchema = {
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": faqs.map(({ question, answer }) => ({
+    "@type": "Question",
+    "name": question,
+    "acceptedAnswer": { "@type": "Answer", "text": answer }
+  }))
+};
+
+const featured = {
+  name: 'San Antonio Homeowner',
+  location: 'San Antonio, TX',
+  service: 'Home AV Client, Nearly 10 Years',
+  quote: "They're honest and will recommend what actually works for your situation rather than upselling you on equipment you don't need. I've never had a bad experience with them and would absolutely recommend them.",
+};
+---
+
+<BaseLayout
+  title="Home Network & Wi-Fi Installation San Antonio TX | KZ Audio & Video"
+  description="Home network and Wi-Fi installation in San Antonio TX. Whole-home coverage, wired ethernet, clean network racks. In the AV business since 1997. Call (210) 981-4098."
+  schema={[schema, breadcrumb, faqSchema]}
+>
+
+  <HeroSection
+    overline="Home Networking · San Antonio · Hill Country · Since 2001"
+    heading="Home Network & Wi-Fi Installation in San Antonio TX"
+    subhead="Whole-home Wi-Fi coverage, wired ethernet where it counts, and a clean network rack tying it all together. KZ Audio & Video has been running low voltage in San Antonio homes since 2001, and every theater, audio system, and camera we install rides on the network underneath it."
+    ctaLabel="Book a Free Consultation"
+    ctaHref="/contact-kz-audio-video-san-antonio-tx/"
+    secondaryCta="Or call: (210) 981-4098"
+    secondaryHref="tel:2109814098"
+    imageSrc="/images/projects/flat-tvs/flat-tv-sonos-arc-install-san-antonio.jpg"
+    imageAlt="Professional home network and AV installation in San Antonio Texas"
+  />
+
+  <TrustBar />
+
+  <!-- Services -->
+  <section class="section bg-slate-surface">
+    <div class="container-main">
+      <p class="overline mb-3">Home Networking</p>
+      <h2 class="font-display text-h2 text-warm-white mb-6">
+        Every Room Covered. Every Device Connected.
+      </h2>
+      <p class="text-body-lg text-stone mb-12 max-w-2xl">
+        A single router from your internet provider was never designed to cover a whole Texas home. Stone walls, foam insulation, and second stories eat Wi-Fi signals. We design networks around your actual floor plan, so coverage reaches where you live instead of stopping at the hallway.
+      </p>
+
+      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+        {[
+          { title: 'Whole-Home Wi-Fi', desc: 'Wired access points placed where your home needs coverage, not where the modem happens to sit. Strong signal in every room, on the patio, and by the pool.' },
+          { title: 'Wired Ethernet Runs', desc: 'Hardwired connections to TVs, streaming boxes, offices, and gaming setups. No buffering, no dropouts, no competing with the rest of the house.' },
+          { title: 'Network Racks & Enclosures', desc: 'A clean, organized central point for your router, switch, and equipment. Labeled, ventilated, and serviceable instead of a tangle in a closet.' },
+          { title: 'Streaming-Ready Networks', desc: 'Networks built to carry 4K streaming, gaming, and video calls at the same time without anyone noticing anyone else is online.' },
+          { title: 'New Construction Pre-Wire', desc: 'Ethernet and low voltage runs at rough-in stage, coordinated with theater, audio, and camera wiring in one visit before the walls close.' },
+          { title: 'Smart Home Backbone', desc: 'Cameras, automation, and audio systems all depend on the network underneath them. We build that foundation so everything else just works.' },
+        ].map(({ title, desc }) => (
+          <div class="card p-7 flex flex-col gap-3">
+            <h3 class="font-sans font-semibold text-h4 text-warm-white">{title}</h3>
+            <p class="text-body-sm text-stone leading-relaxed">{desc}</p>
+          </div>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <!-- Answer block for AI citability -->
+  <section class="section bg-charcoal">
+    <div class="container-main">
+      <p class="overline mb-3">Quick Answer</p>
+      <h2 class="font-display text-h2 text-warm-white mb-6">
+        Who Installs Home Networks in San Antonio?
+      </h2>
+      <p class="text-body-lg text-stone max-w-3xl leading-relaxed">
+        KZ Audio & Video installs home networks and whole-home Wi-Fi across San Antonio and the Texas Hill Country. A typical installation includes a professional router, wired access points for full-home coverage, ethernet runs to TVs and offices, and a clean network rack, with most projects landing between $800 and $3,500. The company has handled low voltage installation in San Antonio homes since 2001 and installs the theaters, whole-house audio, and camera systems that depend on those networks, so the network is designed around real streaming and smart home loads. Every project starts with a free in-home assessment that maps dead zones and device locations before anything is quoted. Call (210) 981-4098 to schedule.
+      </p>
+
+      <div class="mt-10 flex flex-wrap gap-x-8 gap-y-3">
+        <a href="/smart-home-automation-san-antonio/" class="btn-text text-sm">Smart Home Automation &rarr;</a>
+        <a href="/security-camera-installation-san-antonio/" class="btn-text text-sm">Security Cameras &rarr;</a>
+        <a href="/whole-house-audio-san-antonio/" class="btn-text text-sm">Whole House Audio &rarr;</a>
+        <a href="/home-theater-installation-san-antonio-tx/" class="btn-text text-sm">Home Theater &rarr;</a>
+      </div>
+    </div>
+  </section>
+
+  <TestimonialsSection featured={featured} />
+
+  <FAQAccordion
+    heading="Home Network Installation: Frequently Asked Questions"
+    faqs={faqs}
+  />
+
+  <CTASection
+    heading="Get Wi-Fi That Works in Every Room"
+    body="Book a free consultation. We'll walk your home, map the dead zones, and give you an exact quote. No pressure."
+    ctaLabel="Book a Free Consultation"
+    ctaHref="/contact-kz-audio-video-san-antonio-tx/"
+    secondaryLabel="Call (210) 981-4098"
+    secondaryHref="tel:2109814098"
+  />
+
+</BaseLayout>
