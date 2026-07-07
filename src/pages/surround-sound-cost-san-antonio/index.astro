@@ -39,17 +39,17 @@ const costFaqs = [
   {
     question: "How much does surround sound installation cost in San Antonio?",
     answer:
-      "Surround sound installation in San Antonio typically costs $1,500 to $10,000, depending on the system. A premium soundbar with a wireless subwoofer, professionally installed and hidden, runs about $800 to $2,000. A true 5.1 surround system — three front speakers, two surrounds, and a subwoofer with an AV receiver — runs $1,800 to $4,000 installed. A 7.1 system adds two more surround channels. A Dolby Atmos 7.1.4 system with in-ceiling height speakers runs $5,000 to $10,000. Reference 9.2.4 Atmos systems for dedicated theaters run higher. Cost depends on speaker brand, whether speakers are in-wall or in-ceiling versus bookshelf, receiver capability, and the labor to fish wire through finished walls. KZ Audio & Video designs the system around your room and gives a written quote after a free in-home visit.",
+      "Surround sound installation in San Antonio typically costs $800 to $13,000, depending on the system. A premium soundbar with a wireless subwoofer, professionally installed and hidden, runs about $800 to $2,000. A true 5.1 surround system — three front speakers, two surrounds, and a subwoofer with an AV receiver — runs $3,500 to $6,000 installed. A 7.1 system adds two more surround channels and runs $5,500 to $8,500. A Dolby Atmos 7.1.4 system with in-ceiling height speakers runs $8,500 to $13,000. Reference 9.2.4 Atmos systems for dedicated theaters run higher. Cost depends on speaker brand, whether speakers are in-wall or in-ceiling versus bookshelf, receiver capability, and the labor to fish wire through finished walls. KZ Audio & Video designs the system around your room and gives a written quote after a free in-home visit.",
   },
   {
     question: "Is a soundbar or a full surround sound system better for the money?",
     answer:
-      "It depends on the room and how you use it. A premium soundbar with a wireless subwoofer ($800 to $2,000 installed) is the right call for a bedroom, office, or a living room where clean looks matter more than immersion — modern soundbars sound genuinely good and hide easily. A full 5.1 or 7.1 surround system ($1,800 to $4,000+) is worth it for a dedicated media room or a great room where you watch movies and sports seriously, because real speakers placed around the room create immersion a single bar cannot match. For most San Antonio living rooms, we honestly recommend a quality soundbar unless you want true cinema sound. We tell you which makes sense for your space rather than upselling speakers you will not appreciate.",
+      "It depends on the room and how you use it. A premium soundbar with a wireless subwoofer ($800 to $2,000 installed) is the right call for a bedroom, office, or a living room where clean looks matter more than immersion — modern soundbars sound genuinely good and hide easily. A full 5.1 or 7.1 surround system ($3,500 to $8,500+) is worth it for a dedicated media room or a great room where you watch movies and sports seriously, because real speakers placed around the room create immersion a single bar cannot match. For most San Antonio living rooms, we honestly recommend a quality soundbar unless you want true cinema sound. We tell you which makes sense for your space rather than upselling speakers you will not appreciate.",
   },
   {
     question: "What is the cost difference between 5.1, 7.1, and Dolby Atmos?",
     answer:
-      "The jump comes from speaker count and the receiver needed to drive them. A 5.1 system — three fronts, two surrounds, one subwoofer — runs $1,800 to $4,000 installed. A 7.1 system adds two more surround speakers and runs $3,500 to $6,500. Dolby Atmos adds overhead sound: a 7.1.4 layout puts four speakers in the ceiling for height effects and runs $5,000 to $10,000, requiring an Atmos-capable receiver and the labor to run in-ceiling wiring. A reference 9.2.4 Atmos system for a dedicated theater runs higher still. More channels mean more immersion but also more equipment, wiring, and calibration. For a dedicated theater we usually recommend Atmos; for a living room, a clean 5.1 often makes more practical sense.",
+      "The jump comes from speaker count and the receiver needed to drive them. A 5.1 system — three fronts, two surrounds, one subwoofer — runs $3,500 to $6,000 installed. A 7.1 system adds two more surround speakers and runs $5,500 to $8,500. Dolby Atmos adds overhead sound: a 7.1.4 layout puts four speakers in the ceiling for height effects and runs $8,500 to $13,000, requiring an Atmos-capable receiver and the labor to run in-ceiling wiring. A reference 9.2.4 Atmos system for a dedicated theater runs higher still. More channels mean more immersion but also more equipment, wiring, and calibration. For a dedicated theater we usually recommend Atmos; for a living room, a clean 5.1 often makes more practical sense.",
   },
   {
     question: "How much more do in-wall and in-ceiling speakers cost than bookshelf speakers?",
@@ -64,7 +64,7 @@ const costFaqs = [
   {
     question: "How much does it cost to add surround sound to an existing living room?",
     answer:
-      "Adding surround sound to an existing San Antonio living room typically costs $1,800 to $6,000, depending on the system and the wiring. The biggest variable is whether speakers go in bookshelf or floor-standing positions (lower labor) or in-wall and in-ceiling (higher labor, cleaner look). In a finished room, wire has to be fished through closed walls and ceilings, which adds labor compared to new construction. A clean 5.1 system with a new receiver, hidden wiring, and a subwoofer usually lands in the $2,500 to $4,500 range. Adding Atmos height channels pushes it higher because of the in-ceiling work. We do this retrofit work constantly across San Antonio, the drywall impact is minimal, and we assess your specific room before quoting so there are no surprises.",
+      "Adding surround sound to an existing San Antonio living room typically costs $3,500 to $7,000, depending on the system and the wiring. The biggest variable is whether speakers go in bookshelf or floor-standing positions (lower labor) or in-wall and in-ceiling (higher labor, cleaner look). In a finished room, wire has to be fished through closed walls and ceilings, which adds labor compared to new construction. A clean 5.1 system with a new receiver, hidden wiring, and a subwoofer usually lands in the $3,500 to $6,000 range. Adding Atmos height channels pushes it higher because of the in-ceiling work. We do this retrofit work constantly across San Antonio, the drywall impact is minimal, and we assess your specific room before quoting so there are no surprises.",
   },
   {
     question: "Why does professional surround sound installation cost more than DIY?",
@@ -94,10 +94,10 @@ const calcGroups = [
     label: "1. What system are you after?",
     options: [
       { t: "Soundbar + wireless sub", min: 600, max: 1800, on: true },
-      { t: "5.1 surround", min: 1800, max: 3800 },
-      { t: "7.1 surround", min: 3500, max: 6500 },
-      { t: "Dolby Atmos 7.1.4", min: 5000, max: 10000 },
-      { t: "Reference Atmos 9.2.4", min: 9000, max: 20000 },
+      { t: "5.1 surround", min: 3500, max: 6000 },
+      { t: "7.1 surround", min: 5500, max: 8500 },
+      { t: "Dolby Atmos 7.1.4", min: 8500, max: 13000 },
+      { t: "Reference Atmos 9.2.4", min: 13000, max: 25000 },
     ],
   },
   {
@@ -181,7 +181,7 @@ const calcGroups = [
         </h2>
         <div class="glass-card p-6 border-l-2 border-gold">
           <p class="text-body-lg text-stone leading-relaxed">
-            Surround sound installation in San Antonio costs <strong class="text-warm-white">$800 to $20,000+</strong>, depending on the system. A premium soundbar with wireless subwoofer runs $800–$2,000 installed. A 5.1 surround system (three front speakers, two surrounds, subwoofer, and AV receiver) runs $1,800–$4,000. A 7.1 system adds two more channels at $3,500–$6,500. A Dolby Atmos 7.1.4 system with in-ceiling height speakers runs $5,000–$10,000. The biggest variables are speaker placement (in-wall costs more than bookshelf), whether the room is new construction or a finished retrofit, and receiver capability. KZ Audio & Video has installed surround systems across San Antonio, Stone Oak, Alamo Heights, Boerne, Helotes, and Canyon Lake since 1997. Free in-home consultation with a written quote — no obligation.
+            Surround sound installation in San Antonio costs <strong class="text-warm-white">$800 to $20,000+</strong>, depending on the system. A premium soundbar with wireless subwoofer runs $800–$2,000 installed. A 5.1 surround system (three front speakers, two surrounds, subwoofer, and AV receiver) runs $3,500–$6,000. A 7.1 system adds two more channels at $5,500–$8,500. A Dolby Atmos 7.1.4 system with in-ceiling height speakers runs $8,500–$13,000. The biggest variables are speaker placement (in-wall costs more than bookshelf), whether the room is new construction or a finished retrofit, and receiver capability. KZ Audio & Video has installed surround systems across San Antonio, Stone Oak, Alamo Heights, Boerne, Helotes, and Canyon Lake since 1997. Free in-home consultation with a written quote — no obligation.
           </p>
         </div>
       </div>
@@ -215,10 +215,10 @@ const calcGroups = [
           <tbody>
             {[
               { system: "Soundbar + wireless sub", price: "$800 – $2,000", best: "Bedroom, office, or clean living room look" },
-              { system: "5.1 Surround", price: "$1,800 – $4,000", best: "Media rooms, living rooms, serious TV watching" },
-              { system: "7.1 Surround", price: "$3,500 – $6,500", best: "Large great rooms, entry-level dedicated theaters" },
-              { system: "Dolby Atmos 7.1.4", price: "$5,000 – $10,000", best: "Dedicated theater rooms with in-ceiling height speakers" },
-              { system: "Reference Atmos 9.2.4", price: "$9,000 – $20,000+", best: "Premium dedicated theaters" },
+              { system: "5.1 Surround", price: "$3,500 – $6,000", best: "Media rooms, living rooms, serious TV watching" },
+              { system: "7.1 Surround", price: "$5,500 – $8,500", best: "Large great rooms, entry-level dedicated theaters" },
+              { system: "Dolby Atmos 7.1.4", price: "$8,500 – $13,000", best: "Dedicated theater rooms with in-ceiling height speakers" },
+              { system: "Reference Atmos 9.2.4", price: "$13,000 – $25,000+", best: "Premium dedicated theaters" },
             ].map((row, i) => (
               <tr style={`border-bottom:1px solid rgba(255,255,255,${i < 4 ? '0.06' : '0'});`}>
                 <td class="font-sans font-medium text-warm-white py-4 pr-6">{row.system}</td>

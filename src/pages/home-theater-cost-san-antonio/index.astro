@@ -45,7 +45,7 @@ const costFaqs = [
   {
     question: "How much does surround sound installation cost in San Antonio?",
     answer:
-      "Surround sound installation in San Antonio typically costs $1,500 to $10,000, depending on the system. A premium soundbar with a wireless subwoofer, professionally installed and hidden, runs about $800 to $2,000. A true 5.1 surround system — three front speakers, two surrounds, and a subwoofer with an AV receiver — runs $1,800 to $4,000 installed. A 7.1 Dolby Atmos system that adds in-ceiling height channels runs $4,000 to $9,000. Reference 9.2.4 Atmos systems for dedicated theaters run higher. Cost depends on speaker brand, whether speakers are in-wall or in-ceiling versus bookshelf, receiver capability, and the labor to fish wire through finished walls. We design the system around your room and tell you honestly when a simpler setup makes more sense than the most expensive option.",
+      "Surround sound installation in San Antonio typically costs $800 to $13,000, depending on the system. A premium soundbar with a wireless subwoofer, professionally installed and hidden, runs about $800 to $2,000. A true 5.1 surround system — three front speakers, two surrounds, and a subwoofer with an AV receiver — runs $3,500 to $6,000 installed. A 7.1 Dolby Atmos system that adds in-ceiling height channels runs $6,000 to $13,000. Reference 9.2.4 Atmos systems for dedicated theaters run higher. Cost depends on speaker brand, whether speakers are in-wall or in-ceiling versus bookshelf, receiver capability, and the labor to fish wire through finished walls. We design the system around your room and tell you honestly when a simpler setup makes more sense than the most expensive option.",
   },
   {
     question: "How much does a 4K projector and screen cost installed?",
@@ -127,8 +127,8 @@ const calcGroups = [
     label: "4. Sound system?",
     options: [
       { t: "Premium soundbar + sub", min: 600, max: 1800 },
-      { t: "5.1 surround", min: 1800, max: 3800, on: true },
-      { t: "7.1 Dolby Atmos", min: 4000, max: 9000 },
+      { t: "5.1 surround", min: 3500, max: 6000, on: true },
+      { t: "7.1 Dolby Atmos", min: 5500, max: 9000 },
       { t: "9.2.4 Atmos (reference)", min: 9000, max: 20000 },
     ],
   },
@@ -223,7 +223,7 @@ const calcGroups = [
               { type: "Media Room Conversion", price: "$10,000 – $15,000", includes: "Large 4K TV, 5.1 surround, hidden wiring, existing room" },
               { type: "Mid-Tier Dedicated Theater", price: "$15,000 – $40,000", includes: "4K projection, 7.1 Atmos, tiered seating, acoustic treatment" },
               { type: "Premium Dedicated Theater", price: "$40,000 – $80,000+", includes: "Laser projection, 9.2.4 Atmos, custom acoustics, motorized seating" },
-              { type: "Surround Sound Only", price: "$1,800 – $10,000", includes: "5.1 to 7.1.4 Atmos, in-wall or bookshelf, receiver" },
+              { type: "Surround Sound Only", price: "$3,500 – $13,000", includes: "5.1 to 7.1.4 Atmos, in-wall or bookshelf, receiver" },
               { type: "Whole-House Audio", price: "$6,000 – $30,000", includes: "2–8+ zones, in-ceiling speakers, app or home control" },
             ].map((row, i) => (
               <tr style={`border-bottom:1px solid rgba(255,255,255,${i < 4 ? '0.06' : '0'});`}>
@@ -278,7 +278,7 @@ const calcGroups = [
         <!-- Result panel (sticky on desktop) -->
         <div class="card p-7 lg:sticky lg:top-28">
           <p class="overline mb-2">Your Estimated Range</p>
-          <p class="font-display text-h2 text-gold mb-1" id="calc-result">$10,000 – $20,800</p>
+          <p class="font-display text-h2 text-gold mb-1" id="calc-result">$11,700 – $23,000</p>
           <p class="text-body-sm text-ash mb-6">Estimate for the San Antonio market. Final price depends on equipment, materials, and your specific room.</p>
           <a href="/contact-kz-audio-video-san-antonio-tx/" class="btn-primary gold-shimmer w-full text-center mb-3 cursor-pointer">
             Get My Exact Quote
