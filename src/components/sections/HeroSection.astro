@@ -130,14 +130,14 @@ const {
 
       {ctaLabel && (
         <div class:list={[
-          'flex flex-col sm:flex-row gap-4 hero-enter-4',
+          'flex flex-col sm:flex-row sm:flex-wrap gap-4 hero-enter-4',
           align === 'center' ? 'justify-center' : '',
         ]}>
-          <a href={ctaHref} class="btn-primary gold-shimmer">
+          <a href={ctaHref} class="btn-primary gold-shimmer shrink-0">
             {ctaLabel}
           </a>
           {secondaryCta && (
-            <a href={secondaryHref} class="btn-ghost">
+            <a href={secondaryHref} class="btn-ghost shrink-0">
               {secondaryCta}
             </a>
           )}
