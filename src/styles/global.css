@@ -81,6 +81,18 @@
     @apply block w-12 h-px bg-gold mb-4;
   }
 
+  /* Skip-to-content link — off-screen until keyboard focus */
+  .skip-link {
+    @apply absolute left-4 z-[100] px-5 py-3 rounded-btn bg-gold text-charcoal
+           font-sans font-semibold no-underline
+           focus:outline-2 focus:outline-offset-2 focus:outline-gold;
+    top: -100px;
+    transition: top 150ms ease;
+  }
+  .skip-link:focus {
+    top: 1rem;
+  }
+
   /* Buttons */
   .btn-primary {
     @apply inline-flex items-center gap-2 bg-gold text-charcoal font-sans font-semibold
