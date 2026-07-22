@@ -65,7 +65,7 @@ const stars = Array(5).fill(null);
 
     <!-- Secondary cards -->
     {secondary.length > 0 && (
-      <div class="grid grid-cols-1 md:grid-cols-2 gap-5">
+      <div class="grid grid-cols-1 md:grid-cols-2 gap-5 mb-10">
         {secondary.map((t, i) => (
           <blockquote
             class:list={['glass-card p-6 reveal', i === 0 ? 'reveal-delay-2' : 'reveal-delay-3']}
@@ -91,6 +91,10 @@ const stars = Array(5).fill(null);
         ))}
       </div>
     )}
+
+    <div class="reveal reveal-delay-3">
+      <a href="/reviews-kz-audio-video-san-antonio/" class="btn-text text-sm">Read all reviews &rarr;</a>
+    </div>
 
   </div>
 </section>

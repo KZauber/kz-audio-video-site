@@ -1,0 +1,175 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import HeroSection from '../../components/sections/HeroSection.astro';
+import CTASection from '../../components/sections/CTASection.astro';
+import testimonials from '../../content/testimonials/testimonials.json';
+
+const verified = testimonials.filter((t) => t.verified);
+const residential = verified.filter((t) => t.audiences?.includes('residential'));
+const builder = verified.filter((t) => t.audiences?.includes('builder'));
+
+const RATING = '5.0';
+const REVIEW_COUNT = '26';
+
+const businessSchema = {
+  "@context": "https://schema.org",
+  "@type": "HomeAndConstructionBusiness",
+  "@id": "https://kzaudioandvideo.com/#business",
+  "name": "KZ Audio & Video",
+  "url": "https://kzaudioandvideo.com",
+  "telephone": "+12109814098",
+  "areaServed": "San Antonio, TX",
+  "aggregateRating": {
+    "@type": "AggregateRating",
+    "ratingValue": RATING,
+    "reviewCount": REVIEW_COUNT,
+    "bestRating": "5",
+    "worstRating": "1"
+  },
+  "review": verified.map((t) => ({
+    "@type": "Review",
+    "author": { "@type": "Person", "name": t.name },
+    "datePublished": t.date,
+    "reviewRating": {
+      "@type": "Rating",
+      "ratingValue": String(t.rating),
+      "bestRating": "5",
+      "worstRating": "1"
+    },
+    "reviewBody": t.quote
+  }))
+};
+
+const breadcrumb = {
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": [
+    { "@type": "ListItem", "position": 1, "name": "Home", "item": "https://kzaudioandvideo.com" },
+    { "@type": "ListItem", "position": 2, "name": "Reviews" }
+  ]
+};
+
+const stars = Array(5).fill(null);
+---
+
+<BaseLayout
+  title="Reviews | KZ Audio & Video — Home Theater San Antonio TX"
+  description="Read real reviews for KZ Audio & Video. 5.0 stars across 26 Google reviews for home theater, AV, and low voltage installation in San Antonio TX. Call (210) 981-4098."
+  schema={[businessSchema, breadcrumb]}
+>
+
+  <HeroSection
+    overline="Client Reviews · San Antonio · Since 2001"
+    heading="What San Antonio Homeowners Say About KZ Audio & Video"
+    subhead="Real reviews from real installs. 5.0 stars across 26 Google reviews for home theater, whole-home audio, and AV work across San Antonio and the Texas Hill Country."
+    ctaLabel="Book a Free Consultation"
+    ctaHref="/contact-kz-audio-video-san-antonio-tx/"
+    secondaryCta="Or call: (210) 981-4098"
+    secondaryHref="tel:2109814098"
+    imageSrc="/images/projects/monty-theater/home-theater-near-san-antonio-hero.jpg"
+    imageAlt="Home theater built by KZ Audio & Video near San Antonio Texas"
+    compact={true}
+    minHeight="min-h-[60vh]"
+  />
+
+  <!-- Rating summary bar -->
+  <section class="section bg-slate-surface">
+    <div class="container-main">
+      <div class="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-6">
+        <div>
+          <div class="flex items-center gap-3 mb-2">
+            <div class="flex gap-0.5">
+              {stars.map(() => (
+                <svg width="22" height="22" viewBox="0 0 24 24" fill="#C9A84C" aria-hidden="true">
+                  <path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/>
+                </svg>
+              ))}
+            </div>
+            <span class="font-display text-h3 text-warm-white">{RATING}</span>
+          </div>
+          <p class="text-body-sm text-stone">Average across {REVIEW_COUNT} Google reviews</p>
+        </div>
+        <p class="text-body-lg text-stone max-w-md">
+          Since 2001, every install has been done by the KZ crew. No subcontractors, ever. Here is what that looks like in our clients' own words.
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <!-- Homeowner reviews -->
+  <section class="section bg-charcoal">
+    <div class="container-main">
+      <p class="overline mb-3">Homeowners</p>
+      <h2 class="font-display text-h2 text-warm-white mb-10">Home Theater & AV Clients</h2>
+
+      <div class="grid grid-cols-1 md:grid-cols-2 gap-5">
+        {residential.map((t) => (
+          <blockquote class="glass-card p-7 flex flex-col">
+            <div class="flex gap-0.5 mb-4">
+              {stars.map(() => (
+                <svg width="15" height="15" viewBox="0 0 24 24" fill="#C9A84C" aria-hidden="true">
+                  <path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/>
+                </svg>
+              ))}
+            </div>
+            <p class="text-warm-white font-sans leading-relaxed mb-5 flex-1" style="font-size:0.9375rem;">
+              &ldquo;{t.quote}&rdquo;
+            </p>
+            <footer class="flex items-center gap-2">
+              <span class="block w-4 h-px bg-gold opacity-50"></span>
+              <span class="text-stone text-[0.7rem] font-sans uppercase tracking-widest">
+                {t.name} &middot; {t.location} &middot; {t.service}
+              </span>
+            </footer>
+          </blockquote>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <!-- Builder reviews -->
+  {builder.length > 0 && (
+    <section class="section bg-slate-surface">
+      <div class="container-main">
+        <p class="overline mb-3">Builder Partners</p>
+        <h2 class="font-display text-h2 text-warm-white mb-4">Trusted by San Antonio Custom Home Builders</h2>
+        <p class="text-body-lg text-stone mb-10 max-w-2xl">
+          KZ has handled AV and low voltage for custom home builders across San Antonio for more than a decade. The longest partnership started in 2009.
+        </p>
+
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-5">
+          {builder.map((t) => (
+            <blockquote class="glass-card p-7 flex flex-col">
+              <div class="flex gap-0.5 mb-4">
+                {stars.map(() => (
+                  <svg width="15" height="15" viewBox="0 0 24 24" fill="#C9A84C" aria-hidden="true">
+                    <path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/>
+                  </svg>
+                ))}
+              </div>
+              <p class="text-warm-white font-sans leading-relaxed mb-5 flex-1" style="font-size:0.9375rem;">
+                &ldquo;{t.quote}&rdquo;
+              </p>
+              <footer class="flex items-center gap-2">
+                <span class="block w-4 h-px bg-gold opacity-50"></span>
+                <span class="text-stone text-[0.7rem] font-sans uppercase tracking-widest">
+                  {t.name} &middot; {t.location} &middot; {t.service}
+                </span>
+              </footer>
+            </blockquote>
+          ))}
+        </div>
+      </div>
+    </section>
+  )}
+
+  <CTASection
+    heading="Ready to Build a Theater You'll Review Like This?"
+    body="Book a free in-home consultation. We'll walk your space, talk through what's possible at your budget, and give you honest answers. No pressure."
+    ctaLabel="Book a Free Consultation"
+    ctaHref="/contact-kz-audio-video-san-antonio-tx/"
+    secondaryLabel="Call (210) 981-4098"
+    secondaryHref="tel:2109814098"
+  />
+
+</BaseLayout>
