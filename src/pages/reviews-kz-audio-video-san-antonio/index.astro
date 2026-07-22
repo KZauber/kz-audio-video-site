@@ -9,7 +9,7 @@ const residential = verified.filter((t) => t.audiences?.includes('residential'))
 const builder = verified.filter((t) => t.audiences?.includes('builder'));
 
 const RATING = '5.0';
-const REVIEW_COUNT = '26';
+const REVIEW_COUNT = '29';
 
 const businessSchema = {
   "@context": "https://schema.org",
@@ -54,14 +54,14 @@ const stars = Array(5).fill(null);
 
 <BaseLayout
   title="Reviews | KZ Audio & Video — Home Theater San Antonio TX"
-  description="Read real reviews for KZ Audio & Video. 5.0 stars across 26 Google reviews for home theater, AV, and low voltage installation in San Antonio TX. Call (210) 981-4098."
+  description="Read real reviews for KZ Audio & Video. 5.0 stars across 29 Google reviews for home theater, AV, and low voltage installation in San Antonio TX. Call (210) 981-4098."
   schema={[businessSchema, breadcrumb]}
 >
 
   <HeroSection
     overline="Client Reviews · San Antonio · Since 2001"
     heading="What San Antonio Homeowners Say About KZ Audio & Video"
-    subhead="Real reviews from real installs. 5.0 stars across 26 Google reviews for home theater, whole-home audio, and AV work across San Antonio and the Texas Hill Country."
+    subhead="Real reviews from real installs. 5.0 stars across 29 Google reviews for home theater, whole-home audio, and AV work across San Antonio and the Texas Hill Country."
     ctaLabel="Book a Free Consultation"
     ctaHref="/contact-kz-audio-video-san-antonio-tx/"
     secondaryCta="Or call: (210) 981-4098"
@@ -89,9 +89,19 @@ const stars = Array(5).fill(null);
           </div>
           <p class="text-body-sm text-stone">Average across {REVIEW_COUNT} Google reviews</p>
         </div>
-        <p class="text-body-lg text-stone max-w-md">
-          Since 2001, every install has been done by the KZ crew. No subcontractors, ever. Here is what that looks like in our clients' own words.
-        </p>
+        <div class="max-w-md">
+          <p class="text-body-lg text-stone mb-5">
+            Since 2001, every install has been done by the KZ crew. No subcontractors, ever. Here is what that looks like in our clients' own words.
+          </p>
+          <a
+            href="https://search.google.com/local/writereview?placeid=ChIJeyItl2-9XIYRWX6BQteFGlY"
+            target="_blank"
+            rel="noopener"
+            class="btn-ghost text-sm"
+          >
+            Leave a Google Review
+          </a>
+        </div>
       </div>
     </div>
   </section>
