@@ -9,7 +9,7 @@ import { join, extname, basename, dirname } from 'path';
 import { fileURLToPath } from 'url';
 
 const ROOT = join(dirname(fileURLToPath(import.meta.url)), '..', 'public', 'images');
-const JPG_MAX_W = 1600;      // full-bleed hero cap
+const JPG_MAX_W = 1400;      // full-bleed hero cap (sharp on retina, keeps files lean)
 const LOGO_MAX_W = 500;      // logos display small; 2x retina is plenty
 const JPG_QUALITY = 80;
 const JPG_BUDGET = 300 * 1024;  // already-fine JPG threshold
