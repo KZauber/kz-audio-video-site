@@ -12,7 +12,7 @@ const localBusiness = {
   "@type": "HomeAndConstructionBusiness",
   "@id": "https://kzaudioandvideo.com/#business",
   "name": "KZ Audio & Video",
-  "description": "Custom home theater, whole-house audio, outdoor AV, and security camera installation in San Antonio TX and the Texas Hill Country. In the audio business since 1997.",
+  "description": "Custom home theater, whole-house audio, outdoor AV, and security camera installation in San Antonio TX and the Texas Hill Country. In the audio business since 1999.",
   "url": "https://kzaudioandvideo.com",
   "telephone": "+12109814098",
   "address": {
@@ -21,14 +21,14 @@ const localBusiness = {
     "addressRegion": "TX",
     "addressCountry": "US"
   },
-  "geo": {
-    "@type": "GeoCoordinates",
-    "latitude": 29.4241,
-    "longitude": -98.4936
-  },
+  // No "geo" block. KZ is a service-area business with a hidden address on both GBP
+  // and Yelp, so it has no published point location. The previous coordinate here
+  // (29.4241, -98.4936) was the downtown San Antonio city centroid, which asserted a
+  // location the business does not occupy. areaServed carries the geographic signal.
   "areaServed": [
-    "San Antonio", "Boerne", "Bulverde", "Canyon Lake",
-    "Helotes", "Stone Oak", "Timberwood Park", "New Braunfels"
+    "San Antonio", "New Braunfels", "Boerne", "Bulverde", "Canyon Lake",
+    "Schertz", "Cibolo", "Helotes", "Stone Oak", "Timberwood Park",
+    "Fair Oaks Ranch", "Shavano Park", "Alamo Heights", "San Marcos"
   ],
   "openingHoursSpecification": {
     "@type": "OpeningHoursSpecification",
@@ -47,8 +47,8 @@ const localBusiness = {
     "https://www.facebook.com/profile.php?id=61561030372204",
     "https://www.instagram.com/kzaudioandvideo"
   ],
-  "foundingDate": "2001",
-  "slogan": "In the audio business since 1997. Home AV since 2001."
+  "foundingDate": "1999",
+  "slogan": "In the audio business since 1999."
 };
 
 const websiteSchema = {
@@ -60,7 +60,7 @@ const websiteSchema = {
 
 const featuredProjects = [
   {
-    title: 'Dedicated Home Theater — Canyon Lake TX',
+    title: 'Dedicated Home Theater: Canyon Lake TX',
     location: 'Canyon Lake, TX',
     service: 'Home Theater',
     href: '/projects/canyon-lake-dedicated-home-theater/',
@@ -69,7 +69,7 @@ const featuredProjects = [
     imageAlt: 'Dedicated home theater near San Antonio TX Canyon Lake with projection screen and surround sound',
   },
   {
-    title: 'Home Theater — Stone Oak San Antonio',
+    title: 'Home Theater: Stone Oak San Antonio',
     location: 'Stone Oak, San Antonio, TX',
     service: 'Home Theater',
     href: '/projects/stone-oak-home-theater-epson-martin-logan/',
@@ -78,11 +78,11 @@ const featuredProjects = [
     imageAlt: 'Custom home theater installation Stone Oak San Antonio TX with projection screen and surround sound',
   },
   {
-    title: 'Star Wars Home Theater — San Antonio TX',
+    title: 'Star Wars Home Theater: San Antonio TX',
     location: 'San Antonio, TX',
     service: 'Home Theater',
     href: '/projects/star-wars-home-theater-san-antonio/',
-    description: 'Custom built-in entertainment wall with fixed-frame projection screen, JVC projector, and complete Dolby Atmos surround system. Designed around the client\'s collection — not a template build.',
+    description: 'Custom built-in entertainment wall with fixed-frame projection screen, JVC projector, and complete Dolby Atmos surround system. Designed around the client\'s collection, not a template build.',
     imageSrc: '/images/projects/davids-theater/san-antonio-home-theater-star-wars-theme-hero.jpg',
     imageAlt: 'Custom Star Wars themed home theater San Antonio Texas',
   },
@@ -96,7 +96,7 @@ const featuredProjects = [
     imageAlt: 'Samsung Frame TV installed on marble fireplace wall in San Antonio Texas custom home',
   },
   {
-    title: 'Outdoor Entertainment System — San Antonio TX',
+    title: 'Outdoor Entertainment System: San Antonio TX',
     location: 'San Antonio, TX',
     service: 'Outdoor AV',
     href: '/projects/hill-country-outdoor-av-pool/',
@@ -105,7 +105,7 @@ const featuredProjects = [
     imageAlt: 'Outdoor audio installation with rock speaker near water feature San Antonio TX',
   },
   {
-    title: 'Home Theater — Stone Oak, San Antonio TX',
+    title: 'Home Theater: Stone Oak, San Antonio TX',
     location: 'Stone Oak, San Antonio, TX',
     service: 'Home Theater',
     href: '/projects/stone-oak-new-construction-home-theater/',
@@ -118,7 +118,7 @@ const featuredProjects = [
 const ericTurner = {
   name: 'San Antonio Homeowner',
   location: 'San Antonio, TX',
-  service: 'Home Theater Client — Nearly 10 Years',
+  service: 'Home Theater Client: Nearly 10 Years',
   quote: "I've been a customer of KZ Audio for going on a decade. Kelly and crew have always been great to work with. They're honest and will recommend what actually works for your situation rather than upselling you on equipment you don't need. I've never had a bad experience with them and would absolutely recommend them to anyone looking for AV services.",
 };
 
@@ -140,13 +140,13 @@ const secondaryReviews = [
 
 <BaseLayout
   title="Home Theater & AV Installation San Antonio TX | KZ Audio"
-  description="Custom home theaters, whole-house audio, outdoor AV & security cameras in San Antonio & the Hill Country. In the audio business since 1997. Call (210) 981-4098."
+  description="Custom home theaters, whole-house audio, outdoor AV & security cameras in San Antonio & the Hill Country. In the audio business since 1999. Call (210) 981-4098."
   schema={[localBusiness, websiteSchema]}
 >
 
   <HeroSection
     heading="Home Theater Installation San Antonio TX"
-    subhead="San Antonio's home theater and AV specialists since 1997."
+    subhead="San Antonio's home theater and AV specialists since 1999."
     imageSrc="/images/monty-theater-hero.jpg"
     imageAlt="Custom home theater with projection screen and blue LED lighting installed by KZ Audio and Video in Canyon Lake Texas"
     videoSrc="/videos/kz-hero.mp4"
@@ -177,7 +177,7 @@ const secondaryReviews = [
           <div>
             <h3 class="font-sans font-semibold text-h4 text-warm-white mb-3">Free In-Home Consultation</h3>
             <p class="text-body-sm text-stone leading-relaxed">
-              We come to you. Walk the space. Tell you exactly what's possible in your room, at your budget. No pressure, no sales pitch — just honest answers.
+              We come to you. Walk the space. Tell you exactly what's possible in your room, at your budget. No pressure, no sales pitch, just honest answers.
             </p>
           </div>
         </div>
@@ -190,7 +190,7 @@ const secondaryReviews = [
           <div>
             <h3 class="font-sans font-semibold text-h4 text-warm-white mb-3">Custom Design & Equipment</h3>
             <p class="text-body-sm text-stone leading-relaxed">
-              We spec the system around your room — not a product package. Right projector, right speakers, right seating layout. Everything chosen for your specific space.
+              We spec the system around your room, not a product package. Right projector, right speakers, right seating layout. Everything chosen for your specific space.
             </p>
           </div>
         </div>
@@ -217,6 +217,7 @@ const secondaryReviews = [
   </section>
 
   <ServicesGrid
+    detailed
     intro="From a dedicated home theater to speakers on the back patio, KZ handles the design, the installation, and everything after."
   />
 
@@ -235,9 +236,9 @@ const secondaryReviews = [
   <section class="section bg-slate-surface">
     <div class="container-main">
       <p class="overline mb-3">About KZ Audio & Video</p>
-      <h2 class="font-display text-h2 text-warm-white mb-6">In the Audio Business Since 1997</h2>
+      <h2 class="font-display text-h2 text-warm-white mb-6">In the Audio Business Since 1999</h2>
       <p class="text-body-lg text-stone mb-4 max-w-2xl">
-        Kelly Zauber started Audio Outlet in 1997 with his best friend. Moved into automotive audio in 1999. Started doing home AV in 2001 and never looked back.
+        Kelly Zauber got his start in car audio with his best friend, then founded KZ Audio & Video in 1999, moved into home AV, and never looked back.
       </p>
       <p class="text-body text-stone mb-8 max-w-2xl">
         Today KZ Audio & Video is Kelly, Billy, and Julian. Every install is done by someone on this team. Every system is designed around the specific room, the specific client, and how they actually live.
