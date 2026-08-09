@@ -4,7 +4,7 @@ import BaseLayout from '../../../layouts/BaseLayout.astro';
 const projectSchema = {
   "@context": "https://schema.org",
   "@type": "CreativeWork",
-  "name": "Custom Star Wars Home Theater — San Antonio TX",
+  "name": "Custom Star Wars Home Theater: San Antonio TX",
   "description": "Custom Star Wars themed dedicated home theater in San Antonio TX. JVC projector, built-in display wall, fixed-frame screen, Dolby Atmos surround. Designed around the client's collection.",
   "url": "https://kzaudioandvideo.com/projects/star-wars-home-theater-san-antonio/",
   "creator": {
@@ -25,7 +25,7 @@ const breadcrumb = {
   "itemListElement": [
     { "@type": "ListItem", "position": 1, "name": "Home", "item": "https://kzaudioandvideo.com" },
     { "@type": "ListItem", "position": 2, "name": "Projects", "item": "https://kzaudioandvideo.com/home-theater-projects-san-antonio/" },
-    { "@type": "ListItem", "position": 3, "name": "Star Wars Home Theater — San Antonio" }
+    { "@type": "ListItem", "position": 3, "name": "Star Wars Home Theater: San Antonio" }
   ]
 };
 
@@ -60,7 +60,7 @@ const gallery = [
     <div class="absolute inset-0 flex flex-col justify-end pb-14 px-6 sm:px-10 lg:px-16">
       <div class="container-main">
 <h1 class="font-display text-warm-white mb-0" style="font-size:clamp(1.75rem,4vw,3rem);line-height:1.1;letter-spacing:-0.02em;">
-          Custom Star Wars Home Theater — San Antonio, TX
+          Custom Star Wars Home Theater: San Antonio, TX
         </h1>
       </div>
     </div>
@@ -98,8 +98,8 @@ const gallery = [
           <p class="overline mb-3">About This Project</p>
           <h2 class="font-display text-h2 text-warm-white mb-6">Not a Template Build</h2>
           <div class="flex flex-col gap-4 text-body text-stone leading-relaxed">
-            <p>This San Antonio home theater is a fully custom build designed around the client's collection. Every element — from the built-in entertainment and display wall to the seating arrangement and lighting — was specified around the homeowner's vision, not a pre-packaged system.</p>
-            <p>The JVC projector delivers reference-level image quality on a fixed-frame projection screen. In-wall and in-ceiling speakers handle a complete Dolby Atmos surround configuration — front stage, surrounds, and overhead channels — with no visible speaker boxes in the finished room.</p>
+            <p>This San Antonio home theater is a fully custom build designed around the client's collection. Every element, from the built-in entertainment and display wall to the seating arrangement and lighting, was specified around the homeowner's vision, not a pre-packaged system.</p>
+            <p>The JVC projector delivers reference-level image quality on a fixed-frame projection screen. In-wall and in-ceiling speakers handle a complete Dolby Atmos surround configuration: front stage, surrounds, and overhead channels, with no visible speaker boxes in the finished room.</p>
             <p>KZ Audio & Video handled full system design, custom built-in cabinetry coordination, installation, and calibration. This is what it looks like when a theater is built from a client's brief, not from a product catalog.</p>
           </div>
         </div>
@@ -110,7 +110,7 @@ const gallery = [
               {[
                 { label: 'Equipment', value: 'JVC projector, fixed-frame projection screen, complete Dolby Atmos in-wall and in-ceiling surround system' },
                 { label: 'Scope', value: 'Custom built-in entertainment and display wall, full system design and installation, calibration' },
-                { label: 'Note', value: "Every design decision was built around the client's collection — this is not a template build" },
+                { label: 'Note', value: "Every design decision was built around the client's collection. This is not a template build" },
                 { label: 'Location', value: 'San Antonio, TX' },
               ].map(({ label, value }) => (
                 <li class="flex flex-col gap-0.5">

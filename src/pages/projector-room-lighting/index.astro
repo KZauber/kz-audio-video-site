@@ -1,21 +1,21 @@
 ---
 import AnswerLayout from "../../layouts/AnswerLayout.astro";
 
-const quickAnswer = `A projector room does not need to be completely dark, but it does need controlled light. The rule: ambient light should not exceed 1/10th of the projector's brightness. A 2,000 ANSI lumen projector tolerates up to 200 lux of ambient light — a dimly lit room with no direct light on the screen. A 3,500–5,000 lumen laser projector can handle moderate room lighting. Full daylight from unshaded windows (10,000–100,000 lux outdoors) overpowers any projector on a standard screen. With a high-gain Ambient Light Rejection (ALR) screen and a 3,500+ lumen laser projector, you can watch in a room with normal daytime indoor lighting (200–500 lux) with acceptable image quality. For the best image quality: seal the room from direct sunlight, use dimmable bias lighting behind the screen (6,500K), and keep ambient light below 50 lux. A good ALR screen combined with a bright laser projector handles the rest.`;
+const quickAnswer = `A projector room does not need to be completely dark, but it does need controlled light. The rule: ambient light should not exceed 1/10th of the projector's brightness. A 2,000 ANSI lumen projector tolerates up to 200 lux of ambient light, a dimly lit room with no direct light on the screen. A 3,500–5,000 lumen laser projector can handle moderate room lighting. Full daylight from unshaded windows (10,000–100,000 lux outdoors) overpowers any projector on a standard screen. With a high-gain Ambient Light Rejection (ALR) screen and a 3,500+ lumen laser projector, you can watch in a room with normal daytime indoor lighting (200–500 lux) with acceptable image quality. For the best image quality: seal the room from direct sunlight, use dimmable bias lighting behind the screen (6,500K), and keep ambient light below 50 lux. A good ALR screen combined with a bright laser projector handles the rest.`;
 
 const fullAnswer = `<h2>The Light Math</h2>
-<p>Projector image quality is determined by the contrast ratio between the projected image and the competing ambient light. A 2,000 lumen projector creates approximately 12–15 foot-lamberts (ft-L) of brightness on a 120\" screen with a 1.0 gain screen. Standard indoor ambient lighting adds 20–50 lux of reflected light to the screen. At 50 lux, a 15 ft-L image has a contrast ratio of approximately 60:1 — watchable for casual viewing, but not cinematic. In darkness, the same projector produces 1,000:1+ contrast from its own native contrast ratio.</p>
+<p>Projector image quality is determined by the contrast ratio between the projected image and the competing ambient light. A 2,000 lumen projector creates approximately 12–15 foot-lamberts (ft-L) of brightness on a 120\" screen with a 1.0 gain screen. Standard indoor ambient lighting adds 20–50 lux of reflected light to the screen. At 50 lux, a 15 ft-L image has a contrast ratio of approximately 60:1, watchable for casual viewing, but not cinematic. In darkness, the same projector produces 1,000:1+ contrast from its own native contrast ratio.</p>
 
 <h2>How Much Light Each Scenario Produces</h2>
 <table>
   <tr><th>Situation</th><th>Approximate Lux</th><th>Projector Tolerance</th></tr>
-  <tr><td>Complete darkness</td><td>0–1 lux</td><td>All projectors — maximum quality</td></tr>
-  <tr><td>Candlelight / very dim</td><td>10–30 lux</td><td>All projectors — very good quality</td></tr>
-  <tr><td>Dim ambient (low lamps)</td><td>50–100 lux</td><td>1,500+ lumen — good quality</td></tr>
-  <tr><td>Normal interior lighting</td><td>200–500 lux</td><td>3,500+ lumen + ALR screen — acceptable</td></tr>
+  <tr><td>Complete darkness</td><td>0–1 lux</td><td>All projectors, maximum quality</td></tr>
+  <tr><td>Candlelight / very dim</td><td>10–30 lux</td><td>All projectors, very good quality</td></tr>
+  <tr><td>Dim ambient (low lamps)</td><td>50–100 lux</td><td>1,500+ lumen, good quality</td></tr>
+  <tr><td>Normal interior lighting</td><td>200–500 lux</td><td>3,500+ lumen + ALR screen, acceptable</td></tr>
   <tr><td>Brightly lit room</td><td>500–2,000 lux</td><td>5,000+ lumen + high-gain ALR screen</td></tr>
   <tr><td>Window with diffuse daylight</td><td>1,000–5,000 lux</td><td>Not recommended for any projector</td></tr>
-  <tr><td>Direct sunlight on screen</td><td>50,000+ lux</td><td>No projector — use a TV</td></tr>
+  <tr><td>Direct sunlight on screen</td><td>50,000+ lux</td><td>No projector, use a TV</td></tr>
 </table>
 
 <h2>ALR Screens: How They Change the Equation</h2>
@@ -24,18 +24,18 @@ const fullAnswer = `<h2>The Light Math</h2>
 <p><strong>Top ALR screen brands:</strong> Elite Screens, Stewart Filmscreen, Grandview, Screen Innovations. Prices range from $400 for a basic fixed ALR to $4,000+ for large-format motorized ALR.</p>
 
 <h2>Bias Lighting: The Right Way to Manage Dark Room Light</h2>
-<p>Bias lighting — strips of LED lights placed behind the screen — are not ambient light. They reduce eye strain in a dark room and improve perceived contrast by giving the eye a reference point. The correct spec is 6,500K (neutral white, matching D65 cinema standard) at low intensity (approximately 10% of screen brightness). Do not use RGB or warm-colored bias lighting — it shifts your color perception and makes calibrated image colors look wrong.</p>
+<p>Bias lighting, strips of LED lights placed behind the screen, are not ambient light. They reduce eye strain in a dark room and improve perceived contrast by giving the eye a reference point. The correct spec is 6,500K (neutral white, matching D65 cinema standard) at low intensity (approximately 10% of screen brightness). Do not use RGB or warm-colored bias lighting, it shifts your color perception and makes calibrated image colors look wrong.</p>
 
 <h2>The Ideal Dedicated Theater Lighting Setup</h2>
 <ol>
-  <li><strong>Zero windows</strong> — or blackout shades rated at 100% light block (not just "room darkening")</li>
-  <li><strong>Dimmable overhead lighting</strong> — independent circuit, dimmed to 0% during viewing</li>
-  <li><strong>Step lighting on the floor</strong> for safety when moving in darkness — motion activated or tied to the dimmer</li>
+  <li><strong>Zero windows</strong>, or blackout shades rated at 100% light block (not just "room darkening")</li>
+  <li><strong>Dimmable overhead lighting</strong>, independent circuit, dimmed to 0% during viewing</li>
+  <li><strong>Step lighting on the floor</strong> for safety when moving in darkness, motion activated or tied to the dimmer</li>
   <li><strong>Bias lighting</strong> at 6,500K, low intensity, behind the screen</li>
-  <li><strong>Matte black ceiling and dark walls</strong> — reduces stray light reflection from the projected image onto the ceiling and back onto the screen (secondary reflections)</li>
+  <li><strong>Matte black ceiling and dark walls</strong>, reduces stray light reflection from the projected image onto the ceiling and back onto the screen (secondary reflections)</li>
 </ol>`;
 
-const proTip = `Paint the wall behind and surrounding the screen flat black or dark charcoal before installing any projector screen. Light from the projected image bounces off the walls surrounding the screen and reflects back, washing out the image in the area near the screen edges. Black walls around the screen create a visual frame that makes the image appear to have higher contrast and cleaner edges — a genuine perceptual improvement for zero additional hardware cost.`;
+const proTip = `Paint the wall behind and surrounding the screen flat black or dark charcoal before installing any projector screen. Light from the projected image bounces off the walls surrounding the screen and reflects back, washing out the image in the area near the screen edges. Black walls around the screen create a visual frame that makes the image appear to have higher contrast and cleaner edges, a genuine perceptual improvement for zero additional hardware cost.`;
 
 const kzAngle = `Dedicated theaters in Hill Country custom homes almost always have dark ceilings and wall treatments as part of the build spec. For finished homes being retrofitted with a theater, the most common oversight is white or off-white walls adjacent to the screen. We treat the surrounding wall as part of the optical system and include paint or acoustic panel specification in every dedicated theater project. The room is part of the display, not just the housing for it.`;
 ---
@@ -56,7 +56,7 @@ const kzAngle = `Dedicated theaters in Hill Country custom homes almost always h
     { label: "Projector vs TV Guide", href: "/projector-vs-tv-home-theater/" },
   ]}
   relatedQuestions={[
-    { question: "Projector vs TV — which is better for a home theater?", href: "/projector-vs-tv-home-theater/" },
+    { question: "Projector vs TV, which is better for a home theater?", href: "/projector-vs-tv-home-theater/" },
     { question: "How much does a home theater cost in San Antonio?", href: "/home-theater-cost-san-antonio/" },
     { question: "How far should I sit from my TV?", href: "/how-far-to-sit-from-tv/" },
   ]}

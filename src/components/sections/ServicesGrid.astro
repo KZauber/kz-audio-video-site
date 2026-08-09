@@ -1,14 +1,36 @@
 ---
+/**
+ * ServicesGrid
+ *
+ * Mirrors the Google Business Profile category structure. Core 30 rule: every GBP
+ * category needs a corresponding page the homepage links to, or Google sees a claim
+ * with nothing behind it. Current GBP categories and the card covering each:
+ *
+ *   Home cinema installation (primary) .... Home Theater
+ *   Home automation company ............... Smart Home Automation
+ *   Home audio store ...................... Whole House Audio
+ *   Security system installation service .. Security Cameras
+ *   Audio visual equipment supplier ....... Micro LED Walls
+ *   Audio visual consultant ............... AV System Upgrades
+ *
+ * The remaining three cards are money services worth promoting on their own.
+ *
+ * `detailed` renders the long copy and is for the GBP landing page only. City pages
+ * keep the short copy, otherwise the same 600+ words duplicate across 16 pages.
+ */
 interface Props {
   heading?: string;
   overline?: string;
   intro?: string;
+  /** GBP landing page only. Renders 50-100 word blocks per the Core 30 spec. */
+  detailed?: boolean;
 }
 
 const {
   heading  = 'Every AV Service Your Home Needs, One Team',
   overline = 'What We Install',
   intro,
+  detailed = false,
 } = Astro.props;
 
 const delayClasses = ['reveal-delay-1','reveal-delay-2','reveal-delay-3','reveal-delay-4','reveal-delay-5','reveal-delay-6'];
@@ -17,36 +39,63 @@ const services = [
   {
     title: 'Home Theater',
     desc:  'Dedicated theater rooms and media spaces built around your room, your projector, and how your family actually watches.',
+    long:  'Dedicated theater rooms and media spaces built around your room, your projector, and how your family actually watches. We handle the full build: screen and seating layout, projector or micro LED selection, in-wall speaker placement, acoustic treatment, and final calibration. New construction pre-wire through finished install, or a retrofit in a room you already have. Most builds in San Antonio and the Hill Country run $15,000 to $50,000 depending on room size and system.',
     href:  '/home-theater-installation-san-antonio-tx/',
     icon:  'M21 3H3c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h18c1.1 0 2-.9 2-2V5c0-1.1-.9-2-2-2zm0 16H3V5h18v14zm-10-7H8v-2h3V7h2v3h3v2h-3v3h-2v-3z',
   },
   {
+    title: 'Smart Home Automation',
+    desc:  'One app for audio, video, lighting, and shades. Installed and programmed so it works the way you expect.',
+    long:  'One app for audio, video, lighting, and shades instead of five. We install and program control systems that hold up, then label everything so your family can use it without a manual. Lighting scenes tied to the theater, motorized shades on the west-facing windows that wash out your screen, and voice control where it genuinely helps. It works alongside the AV system rather than fighting it.',
+    href:  '/smart-home-automation-san-antonio/',
+    icon:  'M12 2L2 9v11a1 1 0 0 0 1 1h6v-7h6v7h6a1 1 0 0 0 1-1V9L12 2z',
+  },
+  {
     title: 'Whole House Audio',
-    desc:  'Music in every room, controlled from your phone. Designed around how you use your home — not a one-size spec sheet.',
+    desc:  'Music in every room, controlled from your phone. Designed around how you use your home, not a one-size spec sheet.',
+    long:  'Music in every room, controlled from your phone, designed around how you actually use your home rather than a one-size spec sheet. In-ceiling and in-wall speakers that disappear into the architecture, Sonos or a wired multi-zone system depending on the house, and outdoor zones running on the same control. If you already have Sonos inside, we extend it instead of replacing it. Zones typically start around $1,500 each.',
     href:  '/whole-house-audio-san-antonio/',
     icon:  'M12 3v9.28a4.39 4.39 0 0 0-1.5-.28C8.01 12 6 14.01 6 16.5S8.01 21 10.5 21c2.31 0 4.2-1.75 4.45-4H15V6h4V3h-7z',
   },
   {
-    title: 'Outdoor Audio & Video',
-    desc:  'Covered patios, pool decks, and outdoor kitchens. Weather-resistant speakers and displays installed clean.',
-    href:  '/outdoor-audio-video-san-antonio/',
-    icon:  'M12 2L2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5',
-  },
-  {
     title: 'Surround Sound',
-    desc:  '5.1, 7.1, Dolby Atmos — properly placed, properly calibrated. Not just plugged in and set to default.',
+    desc:  '5.1, 7.1, Dolby Atmos, properly placed and properly calibrated. Not just plugged in and set to default.',
+    long:  '5.1, 7.1, and Dolby Atmos, properly placed and properly calibrated. Speaker position matters more than speaker price, and most systems we get called to fix were simply put in the wrong spots. We map the layout to your actual seating, run wire in-wall so nothing is visible, set crossovers and levels with measurement gear rather than guesswork, and leave you running everything from one remote. Installed systems start around $3,500.',
     href:  '/surround-sound-installation-san-antonio/',
     icon:  'M20 6c0-2.21-3.58-4-8-4S4 3.79 4 6v12c0 2.21 3.58 4 8 4s8-1.79 8-4V6zm-8 14c-3.31 0-6-1.12-6-2.5V9.37C7.45 10.4 9.61 11 12 11s4.55-.6 6-1.63V17.5c0 1.38-2.69 2.5-6 2.5z',
   },
   {
     title: 'Security Cameras',
     desc:  'Indoor and outdoor camera systems integrated into your home technology setup. Professional installation, remote access.',
+    long:  'Indoor and outdoor camera systems integrated with the rest of your home technology. Clean cable runs with no exposed wire down the side of the house, and remote viewing configured on your phone before we leave. Wired NVR systems where reliability matters, video doorbells, and multi-camera coverage for offices and job sites. We also repair and expand systems other companies installed. Residential systems typically start around $2,000.',
     href:  '/security-camera-installation-san-antonio/',
     icon:  'M12 1C5.925 1 1 5.925 1 12s4.925 11 11 11 11-4.925 11-11S18.075 1 12 1zm0 4a4 4 0 1 1 0 8 4 4 0 0 1 0-8zm0 14.5a7.5 7.5 0 0 1-5.4-2.297A6.98 6.98 0 0 1 12 16a6.98 6.98 0 0 1 5.4 1.203A7.5 7.5 0 0 1 12 19.5z',
   },
   {
+    title: 'Outdoor Audio & Video',
+    desc:  'Covered patios, pool decks, and outdoor kitchens. Weather-resistant speakers and displays installed clean.',
+    long:  'Covered patios, pool decks, and outdoor kitchens. Weather-rated speakers and displays chosen to survive San Antonio summers and Hill Country storms. Rock speakers through the landscape, a TV under the patio cover that stays watchable in daylight, and everything tied to the same app that runs the house. Uncovered spaces need genuinely outdoor-rated displays, and we will tell you honestly which category your space falls into.',
+    href:  '/outdoor-audio-video-san-antonio/',
+    icon:  'M12 2L2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5',
+  },
+  {
+    title: 'Micro LED Walls',
+    desc:  'Zero-bezel displays from 108 to 200 inches that work in full daylight. No blackout shades, no lamp to replace.',
+    long:  'When a projector cannot win the room, a micro LED wall can. Zero-bezel displays from 108 to 200 inches that work in full daylight with no blackout shades required and no lamp to replace. Built tile by tile, calibrated for color and brightness uniformity, mounted on a precision frame. This is the answer for bright open living areas where a projector would disappoint you. Installed pricing starts around $14,000.',
+    href:  '/micro-led-wall-san-antonio/',
+    icon:  'M3 5h18v11H3V5zm0 13h18M9 20h6',
+  },
+  {
+    title: 'AV System Upgrades',
+    desc:  'We assess what you own, tell you what is worth keeping, and give you a clear upgrade path.',
+    long:  'Systems age out long before they break. We assess what you already own, tell you what is worth keeping, and give you an upgrade path instead of a full replacement quote. Usually that means a current receiver for Atmos and 4K passthrough, a brighter projector, or adding streaming and control to gear that still sounds excellent. We work on systems we did not install, and we will say so plainly when an upgrade is not worth your money.',
+    href:  '/av-system-upgrade-san-antonio/',
+    icon:  'M12 2v6m0 8v6M4.93 4.93l4.24 4.24m5.66 5.66l4.24 4.24M2 12h6m8 0h6M4.93 19.07l4.24-4.24m5.66-5.66l4.24-4.24',
+  },
+  {
     title: 'AV Repair',
     desc:  "System acting up? We work on systems we didn't install. If it can be fixed, we'll tell you.",
+    long:  'System acting up? We work on equipment we did not install. Full diagnostics across receiver, projector, display, speakers, and sources, so you find out what is actually wrong before spending anything. The usual culprits are HDMI handshake failures, a projector that needs service rather than replacement, and speakers wired out of phase since the day they went in. If it can be fixed we will tell you, and if it cannot we will tell you that too.',
     href:  '/av-repair-san-antonio-tx/',
     icon:  'M22.7 19l-9.1-9.1c.9-2.3.4-5-1.5-6.9-2-2-5-2.4-7.4-1.3L9 6 6 9 1.6 4.7C.4 7.1.9 10.1 2.9 12.1c1.9 1.9 4.6 2.4 6.9 1.5l9.1 9.1c.4.4 1 .4 1.4 0l2.3-2.3c.5-.4.5-1.1.1-1.4z',
   },
@@ -56,11 +105,13 @@ const services = [
 <section class="section bg-charcoal">
   <div class="container-main">
     <p class="overline mb-3 reveal">{overline}</p>
-    <h2 class="font-display text-h2 text-warm-white mb-4 reveal reveal-delay-1">{heading}</h2>
+    {/* Section label is a styled paragraph, not a heading, so each service can be an
+        h2. Core 30 spec: GBP categories are the h2s on the landing page. */}
+    <p class="font-display text-h2 text-warm-white mb-4 reveal reveal-delay-1">{heading}</p>
     {intro && <p class="text-body-lg text-stone mb-12 max-w-2xl reveal reveal-delay-2">{intro}</p>}
 
     <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 mt-10">
-      {services.map(({ title, desc, href, icon }, i) => (
+      {services.map(({ title, desc, long, href, icon }, i) => (
         <a
           href={href}
           class:list={["card card-hover p-7 flex flex-col gap-4 group no-underline reveal", delayClasses[Math.min(i, 5)]]}
@@ -78,8 +129,8 @@ const services = [
           >
             <path d={icon} />
           </svg>
-          <h3 class="font-sans font-semibold text-h4 text-warm-white">{title}</h3>
-          <p class="text-body-sm text-stone leading-relaxed flex-1">{desc}</p>
+          <h2 class="font-sans font-semibold text-h4 text-warm-white">{title}</h2>
+          <p class="text-body-sm text-stone leading-relaxed flex-1">{detailed ? long : desc}</p>
           <span class="btn-text text-sm">See details &rarr;</span>
         </a>
       ))}

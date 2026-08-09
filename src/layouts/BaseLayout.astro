@@ -81,7 +81,7 @@ const {
     )}
 
     <script>
-      // Force scroll to top on every page load — prevents browser scroll restoration drift
+      // Force scroll to top on every page load, prevents browser scroll restoration drift
       if ('scrollRestoration' in history) {
         history.scrollRestoration = 'manual';
       }
@@ -89,7 +89,7 @@ const {
     </script>
 
     <script>
-      // Scroll reveal — watches all .reveal and .reveal-left elements
+      // Scroll reveal, watches all .reveal and .reveal-left elements
       const observer = new IntersectionObserver(
         (entries) => {
           entries.forEach((entry) => {

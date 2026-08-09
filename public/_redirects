@@ -1,0 +1,17 @@
+# Netlify redirects. Netlify serves this from the site root.
+#
+# Core 30 cleanup, 2026-07-31. Seven cities each had two competing URLs targeting the
+# same query, five of them with byte-identical <title> tags. The shorter variant was
+# an orphan (zero inbound internal links) with roughly half the content. Its unique
+# local paragraph was merged into the surviving page before this redirect was added.
+#
+# Surviving canonical: /home-theater-installation-{city}/
+# 301, not 302: this is permanent and should pass any accumulated signal.
+
+/home-theater-boerne-tx/            /home-theater-installation-boerne-tx/            301
+/home-theater-bulverde-tx/          /home-theater-installation-bulverde-tx/          301
+/home-theater-canyon-lake-tx/       /home-theater-installation-canyon-lake-tx/       301
+/home-theater-helotes-tx/           /home-theater-installation-helotes-tx/           301
+/home-theater-new-braunfels-tx/     /home-theater-installation-new-braunfels-tx/     301
+/home-theater-stone-oak-san-antonio/    /home-theater-installation-stone-oak-san-antonio/    301
+/home-theater-timberwood-park-tx/   /home-theater-installation-timberwood-park-tx/   301
