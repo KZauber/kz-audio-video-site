@@ -45,7 +45,7 @@ const costFaqs = [
   {
     question: "How much does surround sound installation cost in San Antonio?",
     answer:
-      "Surround sound installation in San Antonio typically costs $800 to $13,000, depending on the system. A premium soundbar with a wireless subwoofer, professionally installed and hidden, runs about $800 to $2,000. A true 5.1 surround system: three front speakers, two surrounds, and a subwoofer with an AV receiver: runs $3,500 to $6,000 installed. A 7.1 Dolby Atmos system that adds in-ceiling height channels runs $6,000 to $13,000. Reference 9.2.4 Atmos systems for dedicated theaters run higher. Cost depends on speaker brand, whether speakers are in-wall or in-ceiling versus bookshelf, receiver capability, and the labor to fish wire through finished walls. We design the system around your room and tell you honestly when a simpler setup makes more sense than the most expensive option.",
+      "Surround sound in San Antonio typically costs $3,000 to $5,000 for the speakers, subwoofer, and AV receiver, added to a TV or projector you already have. That price is the audio only and does not include the display. A true 5.1 system, three front speakers, two surrounds, a subwoofer, and a receiver, runs around $3,000 installed. Stepping up to 7.1 or a Dolby Atmos layout with in-ceiling height channels runs up toward $5,000. If you want a simpler, lower-cost option, a premium soundbar with a wireless subwoofer, professionally installed and hidden, runs about $800 to $2,000. Cost depends on speaker brand, whether speakers are in-wall or in-ceiling versus bookshelf, receiver capability, and the labor to fish wire through finished walls. We design the system around your room and tell you honestly when a simpler setup makes more sense.",
   },
   {
     question: "How much does a 4K projector and screen cost installed?",
@@ -60,7 +60,7 @@ const costFaqs = [
   {
     question: "How much does whole-house audio cost in San Antonio?",
     answer:
-      "Whole-house audio in San Antonio typically costs $6,000 to $30,000, driven mostly by the number of zones. A starter system covering two or three zones: a living room, kitchen, and patio with in-ceiling speakers and app control: runs about $6,000 to $12,000. A mid-sized system covering five or six zones throughout the home runs $12,000 to $20,000. A large multi-zone system spanning an entire custom home with eight or more zones, high-end speakers, and full integration runs $20,000 and up. Cost depends on zone count, speaker quality, the control platform (app-based versus home control or RTI), and whether it is wired during construction or retrofitted. Each zone can be controlled independently from a phone, wall keypad, or voice. We design the layout around how you actually live in the home.",
+      "Whole-house audio in San Antonio runs about $1,900 per zone at retail, so the total depends mostly on how many rooms you want covered. Each zone includes a Sonos amplifier, a pair of in-ceiling speakers, the speaker and wiring install, and the amp setup and programming. As a rough guide, three zones (say a living room, kitchen, and patio) run around $5,700, five zones around $9,500, and eight zones around $15,200. Each zone is controlled independently from your phone. Higher-end control platforms and premium architectural speakers cost more. We design the layout around how you actually live in the home.",
   },
   {
     question: "How much does outdoor TV and speaker installation cost?",
@@ -126,10 +126,9 @@ const calcGroups = [
     id: "sound",
     label: "4. Sound system?",
     options: [
-      { t: "Premium soundbar + sub", min: 600, max: 1800 },
-      { t: "5.1 surround", min: 3500, max: 6000, on: true },
-      { t: "7.1 Dolby Atmos", min: 5500, max: 9000 },
-      { t: "9.2.4 Atmos (reference)", min: 9000, max: 20000 },
+      { t: "Premium soundbar + sub", min: 800, max: 2000 },
+      { t: "5.1 surround", min: 3000, max: 4000, on: true },
+      { t: "7.1 Dolby Atmos", min: 4000, max: 5000 },
     ],
   },
   {
@@ -223,8 +222,8 @@ const calcGroups = [
               { type: "Media Room Conversion", price: "$10,000 – $15,000", includes: "Large 4K TV, 5.1 surround, hidden wiring, existing room" },
               { type: "Mid-Tier Dedicated Theater", price: "$15,000 – $40,000", includes: "4K projection, 7.1 Atmos, tiered seating, acoustic treatment" },
               { type: "Premium Dedicated Theater", price: "$40,000 – $80,000+", includes: "Laser projection, 9.2.4 Atmos, custom acoustics, motorized seating" },
-              { type: "Surround Sound Only", price: "$3,500 – $13,000", includes: "5.1 to 7.1.4 Atmos, in-wall or bookshelf, receiver" },
-              { type: "Whole-House Audio", price: "$6,000 – $30,000", includes: "2–8+ zones, in-ceiling speakers, app or home control" },
+              { type: "Surround Sound (add to your TV/projector)", price: "$3,000 to $5,000", includes: "5.1 to Atmos, speakers, sub, and receiver, no display" },
+              { type: "Whole-House Audio", price: "~$1,900 / zone", includes: "Sonos amp, in-ceiling speakers, per room" },
             ].map((row, i) => (
               <tr style={`border-bottom:1px solid rgba(255,255,255,${i < 4 ? '0.06' : '0'});`}>
                 <td class="font-sans font-medium text-warm-white py-4 pr-6">{row.type}</td>

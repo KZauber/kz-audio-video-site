@@ -39,12 +39,12 @@ const costFaqs = [
   {
     question: "How much does whole-house audio cost in San Antonio?",
     answer:
-      "Whole-house audio in San Antonio typically costs $6,000 to $30,000, driven mostly by the number of zones. A starter system covering two or three zones: a living room, kitchen, and patio with in-ceiling speakers and app control: runs about $6,000 to $12,000. A mid-sized system covering five or six zones throughout the home runs $12,000 to $20,000. A large multi-zone system spanning an entire custom home with eight or more zones, high-end speakers, and full integration runs $20,000 and up. Cost depends on zone count, speaker quality, the control platform (app-based versus home control or RTI), and whether it is wired during construction or retrofitted into a finished home. Each zone is controlled independently from a phone, wall keypad, or voice. KZ Audio & Video designs the layout around how you actually live in the home.",
+      "Whole-house audio in San Antonio runs about $1,900 per zone at retail, so the total comes down to how many rooms you want covered. Each zone includes a Sonos amplifier, a pair of quality in-ceiling speakers, the wiring, and the install and programming. As a rough guide, three zones (say a living room, kitchen, and patio) run around $5,700, five zones around $9,500, and eight zones around $15,200. Premium architectural speakers, outdoor zones, and a dedicated control system like RTI add cost on top. Each zone is controlled independently from your phone. KZ Audio & Video designs the layout around how you actually live in the home.",
   },
   {
     question: "How much does whole-house audio cost per room or zone?",
     answer:
-      "As a rough planning number, a wired whole-house audio zone in San Antonio costs about $1,500 to $3,500 per room, fully installed. That covers a pair of quality in-ceiling speakers, the wiring back to a central amplifier, the amplifier channel, and the labor to install and calibrate. The per-zone cost drops as you add zones because the central equipment and control system are shared across all of them. Outdoor zones and zones with premium architectural speakers run higher. App-based wireless zones using powered speakers can be cheaper per room upfront but add up and offer less seamless whole-home control. We size the amplifier and control system for the total number of zones so the system performs evenly and has room to grow.",
+      "As a planning number, a whole-house audio zone in San Antonio costs about $1,900 per room at retail, fully installed. That covers a Sonos amplifier, a pair of quality in-ceiling speakers, the wiring, and the labor to install, set up, and calibrate. Because each zone runs on its own amp, the cost scales per room rather than dropping off: five rooms is about five times one room. Outdoor zones and zones with premium architectural speakers run higher. We size the system for the total number of rooms so it performs evenly and has room to grow.",
   },
   {
     question: "Is Sonos cheaper than a wired whole-house audio system?",
@@ -69,7 +69,7 @@ const costFaqs = [
   {
     question: "What is the cheapest way to get multi-room audio?",
     answer:
-      "The most affordable entry into multi-room audio is a wireless app-based system using powered speakers: Sonos is the common example. You can start with one or two rooms for a few hundred dollars per room and add more over time, with no wiring and simple phone control. Professionally installed, a clean two or three-zone wireless system runs about $2,000 to $6,000 including setup. It is the budget-friendly path when you want music in a few rooms and do not need the built-in look or whole-home integration. The tradeoff is visible powered speakers, reliance on Wi-Fi, and less seamless control as you scale. If you only want a few rooms and value simplicity over a built-in install, this is the cost-effective choice, and we are happy to set it up properly.",
+      "The most affordable entry into multi-room audio is a wireless app-based system using powered speakers: Sonos is the common example. You can start with one or two rooms and add more over time, with simple phone control. Professionally installed, a clean two or three-room setup runs about $3,800 to $5,700. It is the budget-friendly path when you want music in a few rooms. The tradeoff is visible powered speakers on shelves instead of the clean in-ceiling look, and reliance on Wi-Fi. If you only want a few rooms and value simplicity over a built-in install, this is a solid choice, and we are happy to set it up properly.",
   },
   {
     question: "Why does whole-house audio cost vary so much?",
@@ -93,10 +93,10 @@ const calcGroups = [
     id: "zones",
     label: "1. How many zones (rooms / areas)?",
     options: [
-      { t: "2–3 zones (starter)", min: 6000, max: 12000, on: true },
-      { t: "4–5 zones", min: 10000, max: 16000 },
-      { t: "6–7 zones", min: 14000, max: 22000 },
-      { t: "8+ zones (whole home)", min: 20000, max: 35000 },
+      { t: "2-3 zones (starter)", min: 3800, max: 5700, on: true },
+      { t: "4-5 zones", min: 7600, max: 9500 },
+      { t: "6-7 zones", min: 11400, max: 13300 },
+      { t: "8+ zones (whole home)", min: 15200, max: 19000 },
     ],
   },
   {
@@ -104,8 +104,8 @@ const calcGroups = [
     label: "2. Speaker quality?",
     options: [
       { t: "Standard in-ceiling", min: 0, max: 0, on: true },
-      { t: "Premium in-ceiling / in-wall", min: 1500, max: 5000 },
-      { t: "Architectural / high-end", min: 4000, max: 12000 },
+      { t: "Premium in-ceiling / in-wall", min: 1000, max: 3000 },
+      { t: "Architectural / high-end", min: 3000, max: 6000 },
     ],
   },
   {
@@ -156,7 +156,7 @@ const calcGroups = [
 
 <BaseLayout
   title="Whole-House Audio Cost San Antonio TX | KZ Audio & Video"
-  description="What does whole-house audio cost in San Antonio? Real price ranges by zone count ($6K-$30K+), Sonos vs wired, and an instant estimate. Call (210) 981-4098."
+  description="What does whole-house audio cost in San Antonio? About $1,900 per zone, real price ranges by room count, and an instant estimate. Call (210) 981-4098."
   schema={[schema, breadcrumb, faqSchema]}
 >
   <HeroSection
@@ -217,7 +217,7 @@ const calcGroups = [
 
         <div class="card p-7 lg:sticky lg:top-28">
           <p class="overline mb-2">Your Estimated Range</p>
-          <p class="font-display text-h2 text-gold mb-1" id="calc-result">$6,000 – $12,000</p>
+          <p class="font-display text-h2 text-gold mb-1" id="calc-result">$3,800 to $5,700</p>
           <p class="text-body-sm text-ash mb-6">Estimate for the San Antonio market. Final price depends on zone count, speakers, and your home.</p>
           <a href="/contact-kz-audio-video-san-antonio-tx/" class="btn-primary gold-shimmer w-full text-center mb-3 cursor-pointer">
             Get My Exact Quote
