@@ -49,22 +49,51 @@ const {
   <div class="absolute inset-0 hero-enter-img" style={`transform: translateY(${imagePushDown}px);`} aria-hidden="true">
 
     {videoSrc ? (
-      /* ── VIDEO BACKGROUND ───────────────────────────────────────────────
-         poster= shows the image instantly while the video buffers.
+      /* ── VIDEO BACKGROUND (desktop only) ────────────────────────────────
+         Phones get the still poster below instead of the multi-MB video,
+         which keeps the mobile page light and the hero fast on cellular.
          autoplay muted loop playsinline are required for browser autoplay. */
-      <video
-        class="w-full h-full object-cover object-center"
-        autoplay
-        muted
-        loop
-        playsinline
-        aria-hidden="true"
-        preload="auto"
-      >
-        <source src={videoSrc} type="video/mp4" />
-        {/* Fallback: show poster image if video fails */}
-        <img src={imageSrc} alt="" aria-hidden="true" class="w-full h-full object-cover" />
-      </video>
+      <>
+        <img
+          src={imageSrc}
+          alt=""
+          aria-hidden="true"
+          class={`w-full h-full object-cover md:hidden ${imagePosition}`}
+          loading="eager"
+          fetchpriority="high"
+          decoding="async"
+        />
+        <video
+          class="w-full h-full object-cover object-center hidden md:block"
+          muted
+          loop
+          playsinline
+          aria-hidden="true"
+          preload="none"
+          data-hero-video
+          data-src={videoSrc}
+        >
+          {/* Fallback: show poster image if video fails */}
+          <img src={imageSrc} alt="" aria-hidden="true" class="w-full h-full object-cover" />
+        </video>
+        <script is:inline>
+          /* Load the hero video only on desktop widths. On phones the source is
+             never set, so the multi-MB file is never downloaded. The still
+             poster carries the mobile hero. */
+          (function () {
+            var v = document.querySelector('[data-hero-video]');
+            if (v && window.matchMedia('(min-width: 768px)').matches) {
+              var s = document.createElement('source');
+              s.src = v.getAttribute('data-src');
+              s.type = 'video/mp4';
+              v.appendChild(s);
+              v.load();
+              var p = v.play();
+              if (p && p.catch) p.catch(function () {});
+            }
+          })();
+        </script>
+      </>
     ) : (
       /* ── IMAGE BACKGROUND (location pages + any page without video) ─── */
       <img
