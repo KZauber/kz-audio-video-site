@@ -4,6 +4,7 @@ import TrustBar from '../../components/sections/TrustBar.astro';
 import TestimonialsSection from '../../components/sections/TestimonialsSection.astro';
 import FAQAccordion from '../../components/sections/FAQAccordion.astro';
 import CTASection from '../../components/sections/CTASection.astro';
+import { RATING, REVIEW_COUNT } from '../../data/business';
 
 const schema = {
   "@context": "https://schema.org",
@@ -23,8 +24,8 @@ const schema = {
     },
     "aggregateRating": {
       "@type": "AggregateRating",
-      "ratingValue": "5.0",
-      "reviewCount": "29"
+      "ratingValue": RATING,
+      "reviewCount": REVIEW_COUNT
     }
   },
   "areaServed": [

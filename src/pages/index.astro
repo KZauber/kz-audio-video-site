@@ -6,6 +6,7 @@ import ServicesGrid from '../components/sections/ServicesGrid.astro';
 import TestimonialsSection from '../components/sections/TestimonialsSection.astro';
 import ProjectsGrid from '../components/sections/ProjectsGrid.astro';
 import CTASection from '../components/sections/CTASection.astro';
+import { RATING, REVIEW_COUNT } from '../data/business';
 
 const localBusiness = {
   "@context": "https://schema.org",
@@ -38,8 +39,8 @@ const localBusiness = {
   },
   "aggregateRating": {
     "@type": "AggregateRating",
-    "ratingValue": "5.0",
-    "reviewCount": "29",
+    "ratingValue": RATING,
+    "reviewCount": REVIEW_COUNT,
     "bestRating": "5",
     "worstRating": "1"
   },

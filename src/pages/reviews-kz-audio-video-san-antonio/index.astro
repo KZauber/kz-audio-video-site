@@ -3,13 +3,11 @@ import BaseLayout from '../../layouts/BaseLayout.astro';
 import HeroSection from '../../components/sections/HeroSection.astro';
 import CTASection from '../../components/sections/CTASection.astro';
 import testimonials from '../../content/testimonials/testimonials.json';
+import { RATING, REVIEW_COUNT, REVIEWS_SENTENCE } from '../../data/business';
 
 const verified = testimonials.filter((t) => t.verified);
 const residential = verified.filter((t) => t.audiences?.includes('residential'));
 const builder = verified.filter((t) => t.audiences?.includes('builder'));
-
-const RATING = '5.0';
-const REVIEW_COUNT = '29';
 
 const businessSchema = {
   "@context": "https://schema.org",
@@ -54,14 +52,14 @@ const stars = Array(5).fill(null);
 
 <BaseLayout
   title="Reviews | KZ Audio & Video, Home Theater San Antonio TX"
-  description="Read reviews for KZ Audio & Video. 5.0 stars across 29 Google reviews for home theater, AV, and low voltage installation in San Antonio TX. Call (210) 981-4098."
+  description={`Read reviews for KZ Audio & Video. ${REVIEWS_SENTENCE} for home theater, AV, and low voltage installation in San Antonio TX. Call (210) 981-4098.`}
   schema={[businessSchema, breadcrumb]}
 >
 
   <HeroSection
     overline="Client Reviews · San Antonio · Since 1999"
     heading="What San Antonio Homeowners Say About KZ Audio & Video"
-    subhead="Real reviews from real installs. 5.0 stars across 29 Google reviews for home theater, whole-home audio, and AV work across San Antonio and the Texas Hill Country."
+    subhead={`Real reviews from real installs. ${REVIEWS_SENTENCE} for home theater, whole-home audio, and AV work across San Antonio and the Texas Hill Country.`}
     ctaLabel="Book a Free Consultation"
     ctaHref="/contact-kz-audio-video-san-antonio-tx/"
     secondaryCta="Or call: (210) 981-4098"

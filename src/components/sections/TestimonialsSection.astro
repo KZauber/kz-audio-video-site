@@ -1,4 +1,6 @@
 ---
+import { RATING, REVIEWS_LABEL } from '../../data/business';
+
 interface Testimonial {
   name: string;
   location: string;
@@ -40,8 +42,8 @@ const stars = Array(5).fill(null);
           ))}
         </div>
         <div>
-          <p class="text-warm-white font-sans font-semibold text-sm leading-tight">5.0</p>
-          <p class="text-stone text-[0.65rem] uppercase tracking-wider leading-tight">29 Google Reviews</p>
+          <p class="text-warm-white font-sans font-semibold text-sm leading-tight">{RATING}</p>
+          <p class="text-stone text-[0.65rem] uppercase tracking-wider leading-tight">{REVIEWS_LABEL}</p>
         </div>
       </div>
     </div>
