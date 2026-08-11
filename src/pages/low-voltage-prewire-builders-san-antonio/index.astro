@@ -1,0 +1,253 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import HeroSection from '../../components/sections/HeroSection.astro';
+import TrustBar from '../../components/sections/TrustBar.astro';
+import FAQAccordion from '../../components/sections/FAQAccordion.astro';
+import CTASection from '../../components/sections/CTASection.astro';
+
+const schema = {
+  "@context": "https://schema.org",
+  "@type": "Service",
+  "name": "Low Voltage and AV Pre-Wire for Custom Home Builders",
+  "serviceType": "Low voltage and audio video pre-wire",
+  "provider": {
+    "@type": "LocalBusiness",
+    "name": "KZ Audio & Video",
+    "url": "https://kzaudioandvideo.com",
+    "telephone": "+12109814098"
+  },
+  "areaServed": [
+    { "@type": "City", "name": "San Antonio" },
+    { "@type": "City", "name": "New Braunfels" },
+    { "@type": "City", "name": "Boerne" },
+    { "@type": "City", "name": "Bulverde" },
+    { "@type": "City", "name": "Canyon Lake" },
+    { "@type": "City", "name": "Helotes" },
+    { "@type": "City", "name": "Fair Oaks Ranch" },
+    { "@type": "City", "name": "Schertz" },
+    { "@type": "City", "name": "Cibolo" }
+  ],
+  "audience": {
+    "@type": "BusinessAudience",
+    "name": "Custom home builders"
+  },
+  "description": "Low voltage and AV pre-wire for custom home builders in San Antonio and the Texas Hill Country. Structured cabling, speaker runs, display rough-in, cameras, and shade pockets at framing stage, plus a free written pre-wire specification.",
+  "url": "https://kzaudioandvideo.com/low-voltage-prewire-builders-san-antonio/"
+};
+
+const breadcrumb = {
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": [
+    { "@type": "ListItem", "position": 1, "name": "Home", "item": "https://kzaudioandvideo.com" },
+    { "@type": "ListItem", "position": 2, "name": "AV Pre-Wire for Builders San Antonio" }
+  ]
+};
+
+const faqs = [
+  {
+    question: 'When do you need to be on site during a build?',
+    answer: 'Low voltage rough-in happens after framing and mechanical rough-in, before insulation and drywall. That is the only window where this work is cheap. Once the walls close, every run costs multiples of what it costs at framing and some of it stops being possible without opening drywall. We ask for five business days notice at rough-in ready, and we would rather see the plans at permit stage so locations are marked before anyone is standing in the house.',
+  },
+  {
+    question: 'Do you work from our plans?',
+    answer: 'Yes, and it produces a better result than walking the framed house cold. Give us the plan set and we mark up the head-end location, the display locations that need blocking, ceiling speaker positions checked against the lighting plan, camera locations, and conduit runs. Marking a plan takes an hour and settles the conflicts on paper. Finding them at rough-in means a framer, an electrician, and us all standing in the same room solving it live.',
+  },
+  {
+    question: 'What if the buyer has not picked their AV yet?',
+    answer: 'That is the normal case, and it is the reason a written standard matters. We rough in the infrastructure that keeps options open: conduit behind every display location, blocking where a TV is likely, a head-end that can hold equipment, and a network backbone. If the buyer asks for a theater or whole-home audio at trim, the house is ready and it is an easy yes. If they never ask, you spent very little and the home shows better for having the option.',
+  },
+  {
+    question: 'Do we have to replace our current low voltage contractor?',
+    answer: 'No. Most builders worth working with already have someone. The written pre-wire spec is yours to keep and your current contractor can build to it, which makes your homes more consistent regardless of who does the work. If your contractor ever cannot hit a rough-in date, call us. We would rather be the backup in your phone than not be in it.',
+  },
+  {
+    question: 'What does AV pre-wire cost on a custom home?',
+    answer: 'It depends on the size of the home and how much gets roughed in. Structured cabling and a network backbone price very differently from a house with a dedicated theater, whole-home audio zones, camera coverage, and motorized shade pockets. Send a plan set and we price it against the actual house instead of a square-foot guess. The written spec is free either way and carries no obligation to use us for the work.',
+  },
+  {
+    question: 'What areas do you cover for builder work?',
+    answer: 'San Antonio and the surrounding Hill Country: New Braunfels, Boerne, Bulverde, Canyon Lake, Spring Branch, Helotes, Stone Oak, Fair Oaks Ranch, Timberwood Park, Schertz, and Cibolo. If you build outside that footprint, call and ask. We would rather tell you honestly that a job site is too far than take it and be late to your rough-in.',
+  },
+];
+
+const faqSchema = {
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": faqs.map(({ question, answer }) => ({
+    "@type": "Question",
+    "name": question,
+    "acceptedAnswer": { "@type": "Answer", "text": answer }
+  }))
+};
+
+const scope = [
+  { title: 'Structured Cabling & Network', desc: 'Data and coax home runs to a central head-end, wired access point locations placed against the floor plan, and a network backbone sized for the house rather than the router the buyer already owns.' },
+  { title: 'Display Locations', desc: 'Recessed media boxes, power coordinated with your electrician, conduit down to outlet height for future pulls, and blocking called out for your framer before the wall closes.' },
+  { title: 'Whole-Home & Outdoor Audio', desc: 'Ceiling and in-wall speaker runs by zone, checked against the lighting plan so speakers and cans are not fighting for the same ceiling. Patio, pool, and landscape runs stubbed and capped.' },
+  { title: 'Dedicated Theater Rough-In', desc: 'Speaker positions set from the seating layout, riser conduit, projector power and signal path, screen wall backing, and isolation decisions made before insulation.' },
+  { title: 'Cameras, Doorbell & Access', desc: 'Camera runs at eave height, doorbell and transformer path, contacts at exterior openings, and keypad locations. Platform-agnostic, so the buyer picks the system later.' },
+  { title: 'Shade Pockets & Conduit', desc: 'Framed pockets with power on tall and west-facing glass, plus conduit sleeves under every hardscape crossing. Both are nearly free before the pour and expensive to impossible after.' },
+];
+---
+
+<BaseLayout
+  title="AV Pre-Wire for Builders San Antonio TX | KZ Audio"
+  description="Low voltage and AV pre-wire for custom home builders in San Antonio and the Hill Country. Free written pre-wire spec for your plans. Call (210) 981-4098."
+  schema={[schema, breadcrumb, faqSchema]}
+>
+
+  <HeroSection
+    overline="For Builders · San Antonio · New Braunfels · Hill Country"
+    heading="Low Voltage & AV Pre-Wire for Custom Home Builders in San Antonio TX"
+    subhead="KZ Audio & Video has been running low voltage in San Antonio custom homes since 1999. We work at rough-in, from your plans, alongside your framer and electrician. Every builder we work with gets a written AV pre-wire spec at no cost, and it is theirs to keep."
+    ctaLabel="See the Free Pre-Wire Spec"
+    ctaHref="#free-prewire-spec"
+    secondaryCta="Or call: (210) 981-4098"
+    secondaryHref="tel:2109814098"
+    imageSrc="/images/projects/young-theater/stone-oak-theater-framing.jpg"
+    imageAlt="AV pre-wire at framing stage in a Stone Oak custom home near San Antonio Texas"
+    compact={true}
+  />
+
+  <TrustBar />
+
+  <!-- Scope at rough-in -->
+  <section class="section bg-slate-surface">
+    <div class="container-main">
+      <p class="overline mb-3">Scope at Rough-In</p>
+      <h2 class="font-display text-h2 text-warm-white mb-6">
+        What We Handle Before the Walls Close
+      </h2>
+      <p class="text-body-lg text-stone mb-12 max-w-2xl">
+        One trade, one rough-in visit, one point of contact. Everything below gets pulled after framing and mechanical, before insulation, and every run is labeled at both ends and photographed for your project file.
+      </p>
+
+      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+        {scope.map(({ title, desc }) => (
+          <div class="card p-7 flex flex-col gap-3">
+            <h3 class="font-sans font-semibold text-h4 text-warm-white">{title}</h3>
+            <p class="text-body-sm text-stone leading-relaxed">{desc}</p>
+          </div>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <!-- The free spec offer -->
+  <section class="section bg-charcoal" id="free-prewire-spec">
+    <div class="container-main">
+      <div class="grid grid-cols-1 lg:grid-cols-2 gap-12 items-start">
+        <div>
+          <p class="overline mb-3">No Cost, No Obligation</p>
+          <h2 class="font-display text-h2 text-warm-white mb-6">
+            A Written Pre-Wire Spec for Your Plans
+          </h2>
+          <p class="text-body-lg text-stone mb-6 leading-relaxed">
+            Most builders do not have a written low-voltage standard. Each house gets whatever the sub on site that week decided to run, which is why two homes off the same plan can come out completely different behind the drywall.
+          </p>
+          <p class="text-body-lg text-stone mb-8 leading-relaxed">
+            We will write yours. Rack and head-end requirements, conduit runs and sizes, ceiling speaker layout by room type, network drop schedule, display locations with blocking and power, camera and access rough-in, and shade pockets. Built against your plan set, with your name on it.
+          </p>
+          <p class="text-body text-stone mb-8 leading-relaxed">
+            It is yours to keep and to issue to any low-voltage contractor you choose. We ask for a shot at the rough-in on your next build, and nothing more than that.
+          </p>
+          <div class="flex flex-col sm:flex-row gap-4">
+            <a href="/contact-kz-audio-video-san-antonio-tx/" class="btn-primary shrink-0">
+              Request Your Pre-Wire Spec
+            </a>
+            <a href="tel:2109814098" class="btn-ghost shrink-0">
+              Call (210) 981-4098
+            </a>
+          </div>
+        </div>
+
+        <figure class="flex flex-col gap-3">
+          <img
+            src="/images/projects/young-theater/stone-oak-ceiling-speaker-wire.jpg"
+            alt="Labeled ceiling speaker pre-wire run in a Stone Oak custom home during framing"
+            class="w-full rounded-card"
+            loading="lazy"
+            decoding="async"
+            width="1200"
+            height="800"
+          />
+          <figcaption class="text-body-sm text-stone">
+            Speaker rough-in on a Stone Oak new-construction theater, pulled and labeled at framing.
+            <a href="/projects/stone-oak-new-construction-home-theater/" class="btn-text text-sm ml-1">See the finished room &rarr;</a>
+          </figcaption>
+        </figure>
+      </div>
+    </div>
+  </section>
+
+  <!-- Answer block for AI citability -->
+  <section class="section bg-slate-surface">
+    <div class="container-main">
+      <p class="overline mb-3">Quick Answer</p>
+      <h2 class="font-display text-h2 text-warm-white mb-6">
+        Who Does AV Pre-Wire for Custom Home Builders in San Antonio?
+      </h2>
+      <p class="text-body-lg text-stone max-w-3xl leading-relaxed">
+        KZ Audio &amp; Video handles low voltage and AV pre-wire for custom home builders across San Antonio, New Braunfels, Boerne, and the Texas Hill Country. Work happens at rough-in, after framing and mechanical, before insulation and drywall. A standard scope covers structured cabling and network backbone, ceiling and in-wall speaker runs, display locations with blocking and conduit, camera and doorbell rough-in, shade pockets, and the head-end rack location. Every builder gets a written AV pre-wire specification at no cost, built against their own plan set, which they keep and can issue to any low-voltage contractor they choose. The company has run low voltage in San Antonio homes since 1999 and installs the theaters, whole-home audio, networks, and camera systems those rough-ins feed, so the wire in the wall matches what actually gets installed at trim. Call (210) 981-4098 to schedule a plan review.
+      </p>
+
+      <div class="mt-10 flex flex-wrap gap-x-8 gap-y-3">
+        <a href="/home-network-installation-san-antonio/" class="btn-text text-sm">Home Networks &rarr;</a>
+        <a href="/whole-house-audio-san-antonio/" class="btn-text text-sm">Whole House Audio &rarr;</a>
+        <a href="/home-theater-installation-san-antonio-tx/" class="btn-text text-sm">Home Theater &rarr;</a>
+        <a href="/security-camera-installation-san-antonio/" class="btn-text text-sm">Security Cameras &rarr;</a>
+        <a href="/smart-home-automation-san-antonio/" class="btn-text text-sm">Smart Home &rarr;</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- Why one standard -->
+  <section class="section bg-charcoal">
+    <div class="container-main">
+      <p class="overline mb-3">Why It Matters</p>
+      <h2 class="font-display text-h2 text-warm-white mb-6">
+        One Standard, Every House the Same
+      </h2>
+      <p class="text-body-lg text-stone mb-12 max-w-3xl leading-relaxed">
+        A written spec turns low voltage from a per-house improvisation into a line item your supers can hand to anyone. Three things change the moment you have one.
+      </p>
+
+      <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+        <div class="card p-7 flex flex-col gap-3">
+          <h3 class="font-sans font-semibold text-h4 text-warm-white">Late Requests Become Easy Yeses</h3>
+          <p class="text-body-sm text-stone leading-relaxed">
+            A buyer asking about a theater or patio audio at trim is a change order when the infrastructure is not there, and a simple add when it is.
+          </p>
+        </div>
+        <div class="card p-7 flex flex-col gap-3">
+          <h3 class="font-sans font-semibold text-h4 text-warm-white">Conflicts Get Solved on Paper</h3>
+          <p class="text-body-sm text-stone leading-relaxed">
+            Ceiling speakers versus can lights, blocking behind a display, rack location in conditioned space. All free to fix at plan review, all expensive at rough-in.
+          </p>
+        </div>
+        <div class="card p-7 flex flex-col gap-3">
+          <h3 class="font-sans font-semibold text-h4 text-warm-white">The Walls Are Documented</h3>
+          <p class="text-body-sm text-stone leading-relaxed">
+            Every run labeled at both ends and every wall photographed before insulation, with a copy to you. That is what settles a question two years later about what is behind the drywall.
+          </p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <FAQAccordion
+    heading="AV Pre-Wire for Builders: Frequently Asked Questions"
+    faqs={faqs}
+  />
+
+  <CTASection
+    heading="Send Us a Plan Set"
+    body="We will mark it up and write your pre-wire spec at no cost. Yours to keep, and yours to issue to whoever does the work."
+    ctaLabel="Request Your Pre-Wire Spec"
+    ctaHref="/contact-kz-audio-video-san-antonio-tx/"
+    secondaryLabel="Call (210) 981-4098"
+    secondaryHref="tel:2109814098"
+  />
+
+</BaseLayout>
