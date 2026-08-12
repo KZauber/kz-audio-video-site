@@ -222,7 +222,13 @@ const breadcrumb = {
       };
 
       set('landing-page', firstTouch.landing || window.location.pathname);
-      set('referrer', firstTouch.referrer || document.referrer || 'direct');
+
+      // Traffic source must come from first touch only. Never fall back to
+      // document.referrer here: on the contact page that is an internal URL,
+      // so the field would report our own site as the source, which reads as
+      // real data and is worse than reporting nothing.
+      set('referrer', firstTouch.referrer || 'unknown');
+
       set('came-from', document.referrer || 'direct');
     }
 
