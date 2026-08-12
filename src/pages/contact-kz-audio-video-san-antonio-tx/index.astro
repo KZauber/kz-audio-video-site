@@ -96,6 +96,13 @@ const breadcrumb = {
             </p>
             <input type="hidden" name="form-name" value="contact" />
 
+            <!-- Lead attribution. Populated by the script below from first-touch data
+                 recorded in BaseLayout. Must exist in the static HTML so Netlify
+                 registers the fields at deploy time. -->
+            <input type="hidden" name="landing-page" value="" />
+            <input type="hidden" name="referrer" value="" />
+            <input type="hidden" name="came-from" value="" />
+
             <div class="grid grid-cols-1 sm:grid-cols-2 gap-5">
               <div class="flex flex-col gap-2">
                 <label for="name" class="text-caption text-stone uppercase tracking-widest">Name *</label>
@@ -193,5 +200,34 @@ const breadcrumb = {
   </section>
 
   <TrustBar />
+
+  <script>
+    // Fill the hidden attribution fields before the visitor submits.
+    // landing-page and referrer come from first touch (BaseLayout, sessionStorage).
+    // came-from is the page they clicked through from to reach this one.
+    function fillAttribution() {
+      const form = document.querySelector('form[name="contact"]');
+      if (!form) return;
+
+      let firstTouch = {};
+      try {
+        firstTouch = JSON.parse(sessionStorage.getItem('kz_first_touch') || '{}');
+      } catch (e) {
+        // Attribution is best effort. Never block a submission over it.
+      }
+
+      const set = (fieldName, value) => {
+        const el = form.querySelector(`[name="${fieldName}"]`);
+        if (el) el.value = value || '';
+      };
+
+      set('landing-page', firstTouch.landing || window.location.pathname);
+      set('referrer', firstTouch.referrer || document.referrer || 'direct');
+      set('came-from', document.referrer || 'direct');
+    }
+
+    fillAttribution();
+    document.addEventListener('astro:page-load', fillAttribution);
+  </script>
 
 </BaseLayout>

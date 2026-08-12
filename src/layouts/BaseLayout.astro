@@ -111,5 +111,28 @@ const {
       initReveal();
       document.addEventListener('astro:page-load', initReveal);
     </script>
+
+    <script>
+      // First-touch attribution. Records the entry page and referrer once per
+      // session so the contact form can report where a lead actually came from.
+      // Without this, every submission looks identical and lead source is unknowable.
+      function recordFirstTouch() {
+        try {
+          if (sessionStorage.getItem('kz_first_touch')) return;
+          sessionStorage.setItem(
+            'kz_first_touch',
+            JSON.stringify({
+              landing: window.location.pathname + window.location.search,
+              referrer: document.referrer || 'direct',
+            })
+          );
+        } catch (e) {
+          // sessionStorage can throw in private modes. Attribution is optional, never block the page.
+        }
+      }
+
+      recordFirstTouch();
+      document.addEventListener('astro:page-load', recordFirstTouch);
+    </script>
   </body>
 </html>
