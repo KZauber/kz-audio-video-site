@@ -7,7 +7,11 @@ interface Props {
   secondaryLabel?: string;
   secondaryHref?: string;
   bgImage?: string;
+  /** Tailwind object-position class for the background image */
+  bgPosition?: string;
 }
+
+const DEFAULT_BG = '/images/projects/asanka-theater/theater-room-san-antonio-tx-wide.jpg';
 
 const {
   heading        = 'Every project starts with a free in-home consultation.',
@@ -16,7 +20,10 @@ const {
   ctaHref        = '/contact-kz-audio-video-san-antonio-tx/',
   secondaryLabel = 'Or call (210) 981-4098',
   secondaryHref  = 'tel:2109814098',
-  bgImage        = '/images/projects/asanka-theater/theater-room-san-antonio-tx.jpg',
+  bgImage        = DEFAULT_BG,
+  // The default is a wide crop, centered. Callers passing their own image keep object-top,
+  // which suits the portrait photos they use.
+  bgPosition     = bgImage === DEFAULT_BG ? 'object-center' : 'object-top',
 } = Astro.props;
 ---
 
@@ -27,7 +34,7 @@ const {
     src={bgImage}
     alt=""
     aria-hidden="true"
-    class="absolute inset-0 w-full h-full object-cover object-top"
+    class={`absolute inset-0 w-full h-full object-cover ${bgPosition}`}
     loading="lazy"
     decoding="async"
   />
@@ -65,7 +72,7 @@ const {
     </div>
 
     <!-- Trust micro-copy -->
-    <p class="text-ash text-[0.75rem] font-sans uppercase tracking-widest mt-8">
+    <p class="text-stone/70 text-[0.75rem] font-sans uppercase tracking-widest mt-8">
       Serving San Antonio &nbsp;·&nbsp; Boerne &nbsp;·&nbsp; Canyon Lake &nbsp;·&nbsp; New Braunfels &nbsp;·&nbsp; Hill Country
     </p>
   </div>

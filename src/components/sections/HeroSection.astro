@@ -21,7 +21,7 @@ interface Props {
   imagePushDown?: number;
   /** Override the minimum height, e.g. 'min-h-[70vh]'. Defaults to 'min-h-screen' */
   minHeight?: string;
-  /** Even dark scrim on tablet and desktop (0 to 1), for bright photos the left vignette cannot carry */
+  /** Even dark scrim (0 to 1), for bright photos the left vignette cannot carry. Stacks on the phone scrim */
   scrim?: number;
 }
 
@@ -128,8 +128,10 @@ const {
     <!-- Phones: the text spans the full width, so the left-heavy vignette above leaves
          the right half of every line on bare photo. An even scrim keeps it readable. -->
     <div class="absolute inset-0 md:hidden" style="background:rgba(14,16,18,0.55);" aria-hidden="true"></div>
+    <!-- On phones this stacks on the scrim above: a wide photo fills the hero by height
+         there, which puts its brightest middle behind the overline and headline. -->
     {scrim > 0 && (
-      <div class="absolute inset-0 hidden md:block" style={`background:rgba(14,16,18,${scrim});`} aria-hidden="true"></div>
+      <div class="absolute inset-0" style={`background:rgba(14,16,18,${scrim});`} aria-hidden="true"></div>
     )}
     <!-- Subtle gold atmosphere at bottom-left -->
     <div
