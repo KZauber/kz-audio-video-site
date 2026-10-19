@@ -21,6 +21,8 @@ interface Props {
   imagePushDown?: number;
   /** Override the minimum height, e.g. 'min-h-[70vh]'. Defaults to 'min-h-screen' */
   minHeight?: string;
+  /** Even dark scrim on tablet and desktop (0 to 1), for bright photos the left vignette cannot carry */
+  scrim?: number;
 }
 
 const {
@@ -40,6 +42,7 @@ const {
   imagePosition = 'object-top',
   imagePushDown = 0,
   minHeight = 'min-h-[72vh] md:min-h-screen',
+  scrim = 0,
 } = Astro.props;
 ---
 
@@ -65,6 +68,7 @@ const {
         />
         <video
           class="w-full h-full object-cover object-center hidden md:block"
+          poster={imageSrc}
           muted
           loop
           playsinline
@@ -121,6 +125,12 @@ const {
             linear-gradient(to bottom, rgba(14,16,18,0.14) 0%, transparent 12%)`}
       aria-hidden="true"
     ></div>
+    <!-- Phones: the text spans the full width, so the left-heavy vignette above leaves
+         the right half of every line on bare photo. An even scrim keeps it readable. -->
+    <div class="absolute inset-0 md:hidden" style="background:rgba(14,16,18,0.55);" aria-hidden="true"></div>
+    {scrim > 0 && (
+      <div class="absolute inset-0 hidden md:block" style={`background:rgba(14,16,18,${scrim});`} aria-hidden="true"></div>
+    )}
     <!-- Subtle gold atmosphere at bottom-left -->
     <div
       class="absolute bottom-0 left-0 w-[500px] h-[280px] pointer-events-none"
@@ -130,7 +140,8 @@ const {
   </div>
 
   <!-- Content — anchored to bottom for cinematic feel -->
-  <div class="relative z-10 w-full container-wide px-6 sm:px-8 lg:px-12 pt-20 pb-16 md:pt-40 md:pb-28">
+  <!-- pt-32 on phones clears the 110px fixed header; pt-20 let the overline slide under it -->
+  <div class="relative z-10 w-full container-wide px-6 sm:px-8 lg:px-12 pt-32 pb-16 md:pt-40 md:pb-28">
     <div class:list={[
       'max-w-[330px] sm:max-w-sm lg:max-w-md',
       align === 'center' ? 'mx-auto text-center' : '',
@@ -175,5 +186,36 @@ const {
 
     </div>
   </div>
+
+  {videoSrc && (
+    /* Motion that starts on its own and runs past five seconds needs a way to stop it
+       (WCAG 2.2.2). Desktop only, since phones never load the video. */
+    <button
+      type="button"
+      class="hidden md:flex absolute bottom-6 right-6 z-20 w-11 h-11 items-center justify-center rounded-full border border-warm-white/40 bg-charcoal/50 text-warm-white hover:border-gold hover:text-gold transition-colors duration-fast cursor-pointer"
+      aria-label="Pause background video"
+      data-hero-video-toggle
+    >
+      <svg data-icon-pause xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><rect x="6" y="5" width="4" height="14" rx="1"/><rect x="14" y="5" width="4" height="14" rx="1"/></svg>
+      <svg data-icon-play class="hidden" xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M8 5.5v13a1 1 0 0 0 1.5.86l11-6.5a1 1 0 0 0 0-1.72l-11-6.5A1 1 0 0 0 8 5.5z"/></svg>
+    </button>
+  )}
+
+  {videoSrc && (
+    <script is:inline>
+      (function () {
+        var btn = document.querySelector('[data-hero-video-toggle]');
+        var v = document.querySelector('[data-hero-video]');
+        if (!btn || !v) return;
+        btn.addEventListener('click', function () {
+          var paused = v.paused;
+          if (paused) { var p = v.play(); if (p && p.catch) p.catch(function () {}); } else { v.pause(); }
+          btn.setAttribute('aria-label', paused ? 'Pause background video' : 'Play background video');
+          btn.querySelector('[data-icon-pause]').classList.toggle('hidden', !paused);
+          btn.querySelector('[data-icon-play]').classList.toggle('hidden', paused);
+        });
+      })();
+    </script>
+  )}
 
 </section>

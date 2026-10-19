@@ -26,6 +26,7 @@ const IMG_WARN = 500 * 1024;      // realistic cap for photographic content
 const PAGE_WARN = 2.2 * 1048576;  // total est. page weight (HTML+imgs)
 const DESC_MIN = 140, DESC_MAX = 165;
 const TITLE_MAX = 60;
+const VIDEO_WARN_MB = 4, VIDEO_FAIL_MB = 8;  // hero loop budgets, see SKILL.md "Cinematic Hero"
 
 const problems = [];
 const add = (sev, where, msg) => problems.push({ sev, where, msg });
@@ -72,6 +73,7 @@ const titles   = new Map();  // title -> [urls]
 const pageUrls = [];         // every page url
 const inbound  = new Set();  // urls that at least one internal link points at
 const pageText = new Map();  // url -> visible text
+const videoRefs = new Set(); // local video paths any page references
 
 // 2) Per-page HTML checks
 const htmls = walk(DIST, f => f.endsWith('.html'));
@@ -89,7 +91,9 @@ if (htmls.length === 0) {
 }
 for (const f of htmls) {
   const html = readFileSync(f, 'utf8');
-  const url = '/' + relative(DIST, f).replace(/\\/g, '/').replace(/index\.html$/, '');
+  // Handles both Astro output formats: about/index.html and about.html are both
+  // the page /about/ here, so the orphan check matches links either way.
+  const url = '/' + relative(DIST, f).replace(/\\/g, '/').replace(/index\.html$/, '').replace(/\.html$/, '/');
 
   const title = decode((html.match(/<title>([^<]*)<\/title>/i) || [])[1] || '');
   const descRaw = (html.match(/<meta\s+name="description"\s+content="([^"]*)"/i) || [])[1];
@@ -106,6 +110,22 @@ for (const f of htmls) {
   if (h1s === 0) add('FAIL', url, 'no <h1>');
   else if (h1s > 1) add('WARN', url, `${h1s} <h1> tags (should be 1)`);
   if (!hasCanonical) add('WARN', url, 'no canonical tag');
+
+  // CANONICAL MUST NAME THE PAGE ITSELF. Added 2026-10-15: switching Astro to
+  // build.format 'file' made every canonical on zaubergroup.com end in .html, a second
+  // address for each page that Netlify also serves. The presence check above passed it,
+  // and it was live for about two hours before a manual look caught it.
+  const canon = (html.match(/<link\s+rel="canonical"\s+href="([^"]*)"/i) || [])[1];
+  if (canon) {
+    let cpath;
+    try { cpath = new URL(canon, 'https://x.invalid').pathname; } catch { cpath = canon; }
+    if (/\.html?$/i.test(cpath) || /\/index$/i.test(cpath)) {
+      add('FAIL', url, `canonical points at a file name (${cpath}); use the clean URL the page is served at`);
+    } else {
+      const norm = cpath.endsWith('/') ? cpath : cpath + '/';
+      if (norm !== url) add('WARN', url, `canonical points at ${cpath}, not at this page`);
+    }
+  }
   if (noAlt > 0) add('WARN', url, `${noAlt} image(s) missing alt text`);
 
   // Copy rules from CLAUDE.md. These were stated but unenforced, so 1000+ em dashes
@@ -192,6 +212,38 @@ for (const f of htmls) {
   }
   for (const r of eager) weight += imgSize.get(r) || 0;
   if (weight > PAGE_WARN) add('WARN', url, `initial load ~${(weight/1048576).toFixed(1)}MB (target < ${(PAGE_WARN/1048576).toFixed(1)}MB)`);
+
+  // BACKGROUND VIDEO. Added 2026-10-15 with the cinematic hero rule in SKILL.md.
+  // The agency sample that prompted the rule shipped a 122 MB, 152-second listing
+  // video set to autoplay on phones. A looping video (the `loop` attribute marks a
+  // background loop; a real player with controls is left alone) needs all three:
+  //   muted       - browsers refuse to autoplay sound, so the hero sits blank
+  //   playsinline - iOS refuses to autoplay a video inline without it
+  //   poster      - the still shown before the first frame and under reduced motion
+  let loopVideo = false;
+  for (const tag of noComments.match(/<video\b[^>]*>/gi) || []) {
+    if (!/\sloop(?=[\s>=\/])/i.test(tag)) continue;
+    loopVideo = true;
+    const missing = [];
+    if (!/\smuted(?=[\s>=\/])/i.test(tag)) missing.push('muted');
+    if (!/\splaysinline(?=[\s>=\/])/i.test(tag)) missing.push('playsinline');
+    if (!/\sposter\s*=/i.test(tag)) missing.push('poster');
+    if (missing.length) add('FAIL', url, `background video missing ${missing.join(', ')}`);
+  }
+  if (loopVideo && !/aria-label="[^"]*pause[^"]*"/i.test(noComments)) {
+    add('WARN', url, 'background video has no pause button (motion longer than 5 seconds needs a way to stop it, WCAG 2.2.2)');
+  }
+  for (const m of noComments.matchAll(/["'](\/[^"'?#\s]+\.(?:mp4|webm|mov))["'?#]/gi)) videoRefs.add(m[1]);
+}
+
+// Video files a page references, sized from dist/ (Astro copies public/ there).
+// SKILL.md budgets the 1080p file at 4 MB. The 720p file's 1.5 MB is a hand check.
+for (const v of videoRefs) {
+  let size;
+  try { size = statSync(join(DIST, v)).size; } catch { add('WARN', v, 'video file referenced but not found in dist'); continue; }
+  const mb = size / 1048576;
+  if (mb > VIDEO_FAIL_MB) add('FAIL', v, `video is ${mb.toFixed(1)}MB (budget 4MB; a hero loop is 10 to 15 seconds)`);
+  else if (mb > VIDEO_WARN_MB) add('WARN', v, `video is ${mb.toFixed(1)}MB (budget 4MB)`);
 }
 
 // Oversized images: only ones a page actually loads (unused files don't slow anything).
@@ -242,6 +294,97 @@ for (const [url, text] of pageText) {
     if (/^(in|edition|guide|update|updated|version)$/i.test(prev)) hits.add(`${prev} ${yr}`);
   }
   if (hits.size) add('WARN', url, `stale hardcoded year in copy: ${[...hits].join(', ')} (use "today"/"now")`);
+}
+
+// ---------------------------------------------------------------------------
+// DESIGN CHECKS. Added 2026-09-29, after a build passed every check above and
+// still looked wrong.
+//
+// Everything before this point gates text, SEO and weight. Nothing gated how a
+// site LOOKS, so "no emoji icons", "everything uses clamp()", "two fonts" and
+// the rest of the design floor sat stated-but-unenforced. That is the same
+// failure that let 1,093 em dashes pile up: a stated rule with no check is not
+// a rule.
+//
+// These cannot see beauty. They can see DISCIPLINE, and its absence is what a
+// bad-looking build usually is: forty scattered hex values instead of a token
+// palette, twenty-five arbitrary font sizes instead of a scale, four typefaces,
+// fixed pixel type that breaks between breakpoints. Thresholds are calibrated
+// so the Canyon reference build (references/canyon-custom-homes.html) passes
+// clean. If a change makes Canyon fail, the threshold is wrong, not Canyon.
+// ---------------------------------------------------------------------------
+const MAX_HEX = 30;       // distinct colors before it stops being a palette
+const MAX_SIZES = 32;     // distinct font-size values before it stops being a scale
+                          // (Canyon, hand-built and beautiful, runs 24. Real pages
+                          // carry one-offs for nav, buttons and footnotes, so the
+                          // line sits above the reference, not at it.)
+const MAX_FAMILIES = 3;   // Canyon's whole look is two: one serif, one sans
+
+const cssText = [
+  ...walk(DIST, f => f.endsWith('.css')).map(f => readFileSync(f, 'utf8')),
+  ...htmls.flatMap(f => readFileSync(f, 'utf8').match(/<style[^>]*>[\s\S]*?<\/style>/gi) || [])
+].join('\n');
+
+if (!cssText.trim()) {
+  add('WARN', '(site-wide)', 'no CSS found in dist: design checks did not run');
+} else {
+  // Normalise #abc and #aabbccdd to a comparable 6-digit RGB so shorthand and
+  // alpha variants of one color do not inflate the count.
+  const hex = new Set();
+  for (const h of cssText.match(/#[0-9a-fA-F]{3,8}\b/g) || []) {
+    let v = h.slice(1).toLowerCase();
+    if (v.length === 3 || v.length === 4) v = v.split('').map(c => c + c).join('');
+    hex.add(v.slice(0, 6));
+  }
+  if (!/:root[^{]*\{[^}]*--[\w-]+\s*:/.test(cssText)) {
+    add('WARN', '(site-wide CSS)',
+      'no :root custom-property palette: colors and spacing are hardcoded per rule. ' +
+      'Copy the token block from references/canyon-patterns.md.');
+  }
+  if (hex.size > MAX_HEX) {
+    add('WARN', '(site-wide CSS)',
+      `${hex.size} distinct colors (target < ${MAX_HEX}). That is not a palette. ` +
+      `Canyon ships its entire look on ~11 tokens.`);
+  }
+
+  const sizes = new Set((cssText.match(/font-size\s*:\s*[^;}]+/gi) || [])
+    .map(s => s.split(':').slice(1).join(':').replace(/\s+/g, ' ').trim().toLowerCase()));
+  if (sizes.size > MAX_SIZES) {
+    add('WARN', '(site-wide CSS)',
+      `${sizes.size} distinct font-size values (target < ${MAX_SIZES}): no type scale. ` +
+      `Use the .heading-xl through .label utility classes instead of one-off sizes.`);
+  }
+
+  const fams = new Set();
+  for (const m of cssText.match(/font-family\s*:\s*[^;}]+/gi) || []) {
+    const first = m.split(':').slice(1).join(':').split(',')[0].replace(/['"]/g, '').trim().toLowerCase();
+    if (first && !/^(inherit|initial|unset|revert|var\()/.test(first)) fams.add(first);
+  }
+  if (fams.size > MAX_FAMILIES) {
+    add('WARN', '(site-wide CSS)',
+      `${fams.size} typefaces (${[...fams].slice(0, 6).join(', ')}): target ${MAX_FAMILIES} or fewer. ` +
+      `Restraint is the first thing that makes the reference builds look expensive.`);
+  }
+
+  if (!/\bclamp\s*\(/i.test(cssText)) {
+    add('WARN', '(site-wide CSS)',
+      'no clamp() anywhere: type and spacing are fixed and will break between breakpoints. ' +
+      'The reference build puts clamp() on every font size and section padding.');
+  }
+}
+
+// Emoji used as icons. A stated hard rule ("SVG only, Lucide or Heroicons")
+// that nothing checked. Reports the actual characters so a false positive is
+// obvious at a glance rather than something to argue with.
+// U+2605/2606 (star, hollow star) are deliberately excluded: star ratings are a
+// legitimate typographic use and the Canyon reference build itself uses them.
+// Flagging those trains people to ignore the check, which costs more than it saves.
+const EMOJI = /[\u{1F300}-\u{1FAFF}\u{2600}-\u{2604}\u{2607}-\u{27BF}\u{2B00}-\u{2BFF}]\u{FE0F}?/gu;
+for (const [url, text] of pageText) {
+  const found = [...new Set(text.match(EMOJI) || [])];
+  if (found.length) {
+    add('FAIL', url, `emoji used in page content: ${found.join(' ')} (SVG icons only: Lucide, Heroicons)`);
+  }
 }
 
 // report

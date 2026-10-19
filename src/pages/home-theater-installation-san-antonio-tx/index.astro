@@ -117,13 +117,37 @@ const faqs = [
     question: "How long does a home theater installation take?",
     answer: "A full dedicated theater room typically takes two to four days after rough-in. A media room conversion is usually one to two days. We give you a timeline before we start and stick to it.",
   },
+  // The next three are real Google "People also ask" questions, captured word for word
+  // on 2026-10-16 (logged in the SocialMedia repo, kz/website/faq-source-log.md).
+  {
+    question: "Are home theater systems worth it?",
+    answer: "For most families who watch movies or sports together every week, yes. The difference between TV speakers and a real surround system is something you hear on the first night, and a well-planned system gets used for years. It does not have to mean a $40,000 dedicated room. A media room built around your existing living space, with a large 4K display, a 5.1 or 7.1 surround system and hidden wiring, typically runs $10,000 to $15,000 in San Antonio. Surround sound added to a TV you already own runs about $3,000 to $5,000. Where people end up disappointed is buying equipment without designing for the room: speakers in the wrong places, a screen that is too small for the seats, or a room that echoes. If you are building a home, plan the theater at framing, when the wiring costs far less to run. We give you an honest recommendation, including when a simpler setup makes more sense.",
+  },
+  {
+    question: "What is the ideal size room for a home theater?",
+    answer: "For a dedicated theater, about 12 by 16 feet or larger works best. That size fits a tiered seating platform, a large projection screen and a full Dolby Atmos speaker layout, with every speaker where it belongs. The practical floor is roughly 10 by 12 feet: enough for a loveseat or two chairs, a 100-inch screen and proper speaker placement. Go smaller than that and the distance from the seats to the screen gets uncomfortable, and the surround speakers get hard to place. A small room is not a dead end, though. A short throw projector can put a 100 to 110 inch picture on the screen from just 4 to 6 feet away, which opens up bedrooms, bonus rooms and converted garages or attics. We have designed rooms at both ends of that range. On the free in-home consultation, we measure your room and tell you plainly what it can hold.",
+  },
+  {
+    question: "What is the best setup for home theater?",
+    answer: "The best setup is the one designed around your room, so it depends on the space. For a dedicated theater room, our usual recommendation is a 4K or laser projector on a fixed-frame screen, a Dolby Atmos speaker layout such as 7.2.4 with height speakers in the ceiling, in-wall or in-ceiling speakers so nothing clutters the room, a tiered seating platform and acoustic treatment, all on one remote. For a living room or media room that has to work in daylight, a large 4K display of 85 inches or more usually beats a projector, paired with a 5.1 or 7.1 surround system or a premium soundbar and the wiring hidden in the wall. What separates a great setup from an expensive disappointment is calibration and placement, not the price of the box. Every system we install is calibrated by the person who designed it, and we will tell you when a simpler setup is the better choice.",
+  },
 ];
+
+const faqSchema = {
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": faqs.map(({ question, answer }) => ({
+    "@type": "Question",
+    "name": question,
+    "acceptedAnswer": { "@type": "Answer", "text": answer },
+  })),
+};
 ---
 
 <BaseLayout
   title="Home Theater Installation San Antonio TX | KZ Audio & Video"
   description="Custom home theater installation in San Antonio TX. Dedicated theater rooms, 4K projection, Dolby Atmos, and media room conversions. Call (210) 981-4098."
-  schema={[schema, breadcrumb]}
+  schema={[schema, breadcrumb, faqSchema]}
 >
 
   <HeroSection

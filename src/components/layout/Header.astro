@@ -36,7 +36,11 @@ const currentPath = Astro.url.pathname;
          transition-shadow duration-base"
   id="site-header"
 >
-  <div class="container-wide w-full flex items-center justify-between px-4 sm:px-6 lg:px-8">
+  <!-- Desktop sizing: logo + nav + CTA need 1265px at full logo size, more than the
+       1280px container holds once padded, which pushed "Book a Consult" past the screen
+       edge at 1440 wide. From xl to 2xl the logo drops to h-16 so the row fits; from 2xl
+       the header gets a 1440px container and the full-size logo back. -->
+  <div class="container-wide 2xl:max-w-[1440px] w-full flex items-center justify-between px-4 sm:px-6 lg:px-8 xl:px-6">
 
     <!-- Logo -->
     <a href="/" class="flex-shrink-0" aria-label="KZ Audio & Video: Home">
@@ -45,13 +49,13 @@ const currentPath = Astro.url.pathname;
         alt="KZ Audio & Video"
         width="160"
         height="90"
-        class="h-24 w-auto"
+        class="h-24 xl:h-16 2xl:h-24 w-auto"
         loading="eager"
       />
     </a>
 
     <!-- Desktop nav -->
-    <nav class="hidden xl:flex items-center gap-6" aria-label="Main navigation">
+    <nav class="hidden xl:flex items-center gap-4" aria-label="Main navigation">
       <!-- Home Theater dropdown -->
       <div class="relative group">
         <a
@@ -142,11 +146,11 @@ const currentPath = Astro.url.pathname;
     </nav>
 
     <!-- Desktop CTA -->
-    <div class="hidden xl:flex items-center gap-4 flex-shrink-0">
+    <div class="hidden xl:flex items-center gap-3 flex-shrink-0">
       <a href="tel:2109814098" class="text-stone text-body-sm font-sans whitespace-nowrap hover:text-warm-white transition-colors duration-fast">
         (210) 981-4098
       </a>
-      <a href="/contact-kz-audio-video-san-antonio-tx/" class="btn-primary py-2 px-5 text-sm">
+      <a href="/contact-kz-audio-video-san-antonio-tx/" class="btn-primary py-2 px-4 text-sm">
         Book a Consult
       </a>
     </div>
@@ -169,8 +173,8 @@ const currentPath = Astro.url.pathname;
 <!-- Mobile menu overlay -->
 <div
   id="mobile-menu"
-  class="fixed inset-0 z-40 bg-charcoal flex flex-col pt-[110px] px-6 pb-8
-         translate-x-full transition-transform duration-[250ms] ease-in-out xl:hidden"
+  class="fixed inset-0 z-40 bg-charcoal flex flex-col pt-[110px] px-6 pb-8 overflow-y-auto
+         translate-x-full invisible transition-[transform,visibility] duration-[250ms] ease-in-out xl:hidden"
   aria-label="Mobile navigation"
   aria-hidden="true"
 >
@@ -237,6 +241,8 @@ const currentPath = Astro.url.pathname;
     menu.setAttribute('aria-hidden', String(!open));
     menu.classList.toggle('translate-x-full', !open);
     menu.classList.toggle('translate-x-0', open);
+    // Closed menu links stay out of the keyboard tab order
+    menu.classList.toggle('invisible', !open);
     // Animate hamburger to X
     h1.style.transform = open ? 'translateY(7px) rotate(45deg)' : '';
     h2.style.opacity = open ? '0' : '1';
@@ -247,7 +253,7 @@ const currentPath = Astro.url.pathname;
   // Close on route change
   document.addEventListener('astro:page-load', () => {
     open = false;
-    menu.classList.add('translate-x-full');
+    menu.classList.add('translate-x-full', 'invisible');
     menu.classList.remove('translate-x-0');
     document.body.style.overflow = '';
   });
