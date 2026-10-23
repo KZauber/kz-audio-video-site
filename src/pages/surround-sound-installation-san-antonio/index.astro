@@ -5,6 +5,7 @@ import TrustBar from '../../components/sections/TrustBar.astro';
 import TestimonialsSection from '../../components/sections/TestimonialsSection.astro';
 import FAQAccordion from '../../components/sections/FAQAccordion.astro';
 import CTASection from '../../components/sections/CTASection.astro';
+import LowVoltageFirst from '../../components/sections/LowVoltageFirst.astro';
 
 const schema = {
   "@context": "https://schema.org",
@@ -355,6 +356,13 @@ const featured = {
   <FAQAccordion
     heading="Surround Sound Installation: Frequently Asked Questions"
     faqs={faqs}
+  />
+
+  <LowVoltageFirst
+    heading="Low Voltage First, Then the Speakers"
+    rough="In-wall and in-ceiling speaker wire for every channel, including the overhead Atmos channels, run back to where the receiver will live."
+    installs="We cut in and install the speakers, connect the receiver, and set levels and distances for the main seat."
+    existing="In a finished room we fish the same wire through walls and ceilings with minimal disruption, then install."
   />
 
   <section class="section bg-charcoal">

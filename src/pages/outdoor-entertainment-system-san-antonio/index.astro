@@ -4,6 +4,7 @@ import HeroSection from '../../components/sections/HeroSection.astro';
 import TrustBar from '../../components/sections/TrustBar.astro';
 import FAQAccordion from '../../components/sections/FAQAccordion.astro';
 import CTASection from '../../components/sections/CTASection.astro';
+import LowVoltageFirst from '../../components/sections/LowVoltageFirst.astro';
 
 const schema = {
   "@context": "https://schema.org",
@@ -280,6 +281,13 @@ const faqs = [
   <FAQAccordion
     heading="Outdoor Entertainment Systems: Frequently Asked Questions"
     faqs={faqs}
+  />
+
+  <LowVoltageFirst
+    heading="Low Voltage First, Then the Patio"
+    rough="Speaker wire to the yard and patio, HDMI and network to the outdoor TV or projector location, and conduit under the hardscape before it is poured."
+    installs="We install the outdoor speakers, mount the TV or projector, and tie it all to one remote or app."
+    existing="Adding outdoor AV to a finished home? We route the low voltage first, then install."
   />
 
   <CTASection

@@ -5,6 +5,7 @@ import TrustBar from '../../components/sections/TrustBar.astro';
 import TestimonialsSection from '../../components/sections/TestimonialsSection.astro';
 import FAQAccordion from '../../components/sections/FAQAccordion.astro';
 import CTASection from '../../components/sections/CTASection.astro';
+import LowVoltageFirst from '../../components/sections/LowVoltageFirst.astro';
 
 const schema = {
   "@context": "https://schema.org",
@@ -139,6 +140,13 @@ const featured = {
   <FAQAccordion
     heading="Whole House Audio: Frequently Asked Questions"
     faqs={faqs}
+  />
+
+  <LowVoltageFirst
+    heading="Low Voltage First, Then the Music"
+    rough="Speaker wire for every zone, inside and out, plus network runs for the streaming amplifiers, all brought back to one equipment location."
+    installs="We install the ceiling and patio speakers, the amplifiers and the control app, then balance each zone so the whole house sounds even."
+    existing="Adding zones to a finished home? We run the low voltage through the existing walls and ceilings first, then install."
   />
 
   <section class="section bg-charcoal">

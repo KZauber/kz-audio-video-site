@@ -5,6 +5,7 @@ import TrustBar from '../../components/sections/TrustBar.astro';
 import TestimonialsSection from '../../components/sections/TestimonialsSection.astro';
 import FAQAccordion from '../../components/sections/FAQAccordion.astro';
 import CTASection from '../../components/sections/CTASection.astro';
+import LowVoltageFirst from '../../components/sections/LowVoltageFirst.astro';
 
 const schema = {
   "@context": "https://schema.org",
@@ -149,6 +150,13 @@ const featured = {
   <FAQAccordion
     heading="Home Network Installation: Frequently Asked Questions"
     faqs={faqs}
+  />
+
+  <LowVoltageFirst
+    heading="Low Voltage First, Then the Wi-Fi"
+    rough="Data cable to every TV, office, and access point location, home-run to one network rack, pulled alongside the theater, audio, and camera wire."
+    installs="We install the rack, switch, router, and wired access points, then test the coverage room by room."
+    existing="In a finished home we add data lines where the house needs them, then install the network."
   />
 
   <CTASection

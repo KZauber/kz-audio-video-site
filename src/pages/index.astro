@@ -13,7 +13,7 @@ const localBusiness = {
   "@type": "HomeAndConstructionBusiness",
   "@id": "https://kzaudioandvideo.com/#business",
   "name": "KZ Audio & Video",
-  "description": "Custom home theater, whole-house audio, outdoor AV, and security camera installation in San Antonio TX and the Texas Hill Country. In the audio business since 1999.",
+  "description": "Custom home theater, whole-house audio, outdoor AV, and security camera installation in San Antonio TX and the Texas Hill Country, and the residential low voltage contractor for custom home builders. In the audio business since 1999.",
   "url": "https://kzaudioandvideo.com",
   "telephone": "+12109814098",
   "address": {
@@ -221,6 +221,57 @@ const secondaryReviews = [
     detailed
     intro="From a dedicated home theater to speakers on the back patio, KZ handles the design, the installation, and everything after."
   />
+
+  <!-- ── FOR BUILDERS: low voltage first ─────────────────────────────
+       Kelly, 2026-10-22: builders search "low voltage contractor", not a builder
+       section, so the home page says it plainly and links to the builder page. -->
+  <section class="section bg-slate-surface">
+    <div class="container-main">
+      <div class="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
+        <div>
+          <p class="overline mb-3">For Custom Home Builders</p>
+          <h2 class="font-display text-h2 text-warm-white mb-6">
+            Residential Low Voltage Contractor for San Antonio Custom Home Builders
+          </h2>
+          <p class="text-body-lg text-stone mb-6 leading-relaxed">
+            KZ Audio &amp; Video runs the low voltage in custom homes across San Antonio, New Braunfels, and the Hill Country: data, speaker, camera, and theater wire, pulled at framing before insulation and drywall. After the low voltage is done, the same crew comes back at trim to install the speakers, projectors, cameras, and network.
+          </p>
+          <p class="text-body text-stone mb-8 leading-relaxed">
+            One trade from rough-in to the homeowner walkthrough. Every builder gets a written pre-wire spec for their plans at no cost, and it is theirs to keep.
+          </p>
+          <a href="/low-voltage-prewire-builders-san-antonio/" class="btn-ghost">Low Voltage for Builders</a>
+        </div>
+        <!-- Same Stone Oak new build, before and after. The framing frame is a phone video
+             capture with black bars top and bottom; the 4:5 center crop stays inside the picture. -->
+        <figure class="flex flex-col gap-3">
+          <div class="grid grid-cols-2 gap-3">
+            <img
+              src="/images/projects/young-theater/stone-oak-theater-left-speaker-wire.jpg"
+              alt="Speaker wire run to an in-wall box at framing in a Stone Oak custom home theater"
+              class="w-full aspect-[4/5] object-cover rounded-card"
+              loading="lazy"
+              decoding="async"
+              width="1170"
+              height="2532"
+            />
+            <img
+              src="/images/projects/young-theater/stone-oak-theater-side-view.jpg"
+              alt="The finished Stone Oak home theater with recliners and projection screen"
+              class="w-full aspect-[4/5] object-cover rounded-card"
+              loading="lazy"
+              decoding="async"
+              width="1440"
+              height="1920"
+            />
+          </div>
+          <figcaption class="text-body-sm text-stone">
+            One Stone Oak new build: the low voltage at framing, then the finished theater.
+            <a href="/projects/stone-oak-new-construction-home-theater/" class="btn-text text-sm ml-1">See the project &rarr;</a>
+          </figcaption>
+        </figure>
+      </div>
+    </div>
+  </section>
 
   <TestimonialsSection
     featured={ericTurner}

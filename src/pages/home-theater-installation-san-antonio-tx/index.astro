@@ -6,6 +6,7 @@ import ProjectsGrid from "../../components/sections/ProjectsGrid.astro";
 import TestimonialsSection from "../../components/sections/TestimonialsSection.astro";
 import FAQAccordion from "../../components/sections/FAQAccordion.astro";
 import CTASection from "../../components/sections/CTASection.astro";
+import LowVoltageFirst from "../../components/sections/LowVoltageFirst.astro";
 
 const schema = {
   "@context": "https://schema.org",
@@ -291,6 +292,13 @@ const faqSchema = {
   <FAQAccordion
     heading="Home Theater Installation: Frequently Asked Questions"
     faqs={faqs}
+  />
+
+  <LowVoltageFirst
+    heading="Low Voltage First, Then the Theater"
+    rough="Speaker wire for every channel, HDMI and network runs to the screen wall and the equipment rack, and projector power and signal, pulled and labeled while the walls are open."
+    installs="We come back at trim and install the speakers, projector and screen, set up the rack, and calibrate every speaker to the seats."
+    existing="Turning a room in a finished home into a theater? We run the same low voltage through the finished walls and ceiling first, then install."
   />
 
   <section class="section bg-charcoal">

@@ -5,6 +5,7 @@ import TrustBar from '../../components/sections/TrustBar.astro';
 import TestimonialsSection from '../../components/sections/TestimonialsSection.astro';
 import FAQAccordion from '../../components/sections/FAQAccordion.astro';
 import CTASection from '../../components/sections/CTASection.astro';
+import LowVoltageFirst from '../../components/sections/LowVoltageFirst.astro';
 
 const schema = {
   "@context": "https://schema.org",
@@ -115,6 +116,13 @@ const featured = {
   <FAQAccordion
     heading="Security Camera Installation: Frequently Asked Questions"
     faqs={faqs}
+  />
+
+  <LowVoltageFirst
+    heading="Low Voltage First, Then the Cameras"
+    rough="A network cable to every camera location, home-run to the recorder, plus the doorbell wire, all in place before the walls and soffits close."
+    installs="We mount and aim the cameras, set up the recorder, and get the app working on your phone."
+    existing="On a finished home we run the same camera cable through the attic and walls first, then mount the cameras."
   />
 
   <CTASection

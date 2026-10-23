@@ -5,6 +5,7 @@ import TrustBar from '../../components/sections/TrustBar.astro';
 import TestimonialsSection from '../../components/sections/TestimonialsSection.astro';
 import FAQAccordion from '../../components/sections/FAQAccordion.astro';
 import CTASection from '../../components/sections/CTASection.astro';
+import LowVoltageFirst from '../../components/sections/LowVoltageFirst.astro';
 
 const schema = {
   "@context": "https://schema.org",
@@ -240,6 +241,13 @@ const featured = {
   <FAQAccordion
     heading="Smart Home Automation: Frequently Asked Questions"
     faqs={faqs}
+  />
+
+  <LowVoltageFirst
+    heading="Low Voltage First, Then the Control"
+    rough="Control wiring for keypads, shades, and the equipment rack, plus the network the whole system runs on, so every device has a wire waiting."
+    installs="We install the keypads, shades, and control system, then program the scenes around how you actually use the house."
+    existing="In a finished home we run low voltage where the house allows it and plan the rest around the walls already closed."
   />
 
   <CTASection

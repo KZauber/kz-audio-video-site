@@ -1,0 +1,56 @@
+---
+/**
+ * LowVoltageFirst: the low voltage step that comes before every install.
+ *
+ * Kelly, 2026-10-22: builders search "low voltage contractor" before they would ever
+ * look for a builder section, and every system KZ installs starts with the low voltage.
+ * "After the low voltage is done we install the speakers and projector in the theater."
+ *
+ * Each service page passes its own wiring, install list and finished-home line, so the
+ * block reads specific to that page instead of repeating one paragraph sitewide. It sits
+ * right after the FAQ (bg-charcoal), so it uses bg-slate-surface to keep the alternation.
+ */
+interface Props {
+  heading: string;   // "Low Voltage First, Then the Theater"
+  rough: string;     // what gets wired while the walls are open
+  installs: string;  // what gets installed after the low voltage is done
+  existing: string;  // one sentence on doing the same in a finished home
+}
+
+const { heading, rough, installs, existing } = Astro.props;
+---
+
+<section class="section bg-slate-surface">
+  <div class="container-main">
+    <div class="grid grid-cols-1 lg:grid-cols-2 gap-12 items-start">
+      <div>
+        <p class="overline mb-3">Low Voltage First</p>
+        <h2 class="font-display text-h2 text-warm-white mb-6">{heading}</h2>
+        <p class="text-body-lg text-stone mb-6 leading-relaxed">
+          KZ Audio &amp; Video is a residential low voltage contractor as well as the installer. In a new build the low voltage goes in at framing, before insulation and drywall, while every wall is still open. The install comes after.
+        </p>
+        <p class="text-body text-stone mb-8 leading-relaxed">{existing}</p>
+        <a href="/low-voltage-prewire-builders-san-antonio/" class="btn-text">
+          Building a custom home? Low voltage for builders &rarr;
+        </a>
+      </div>
+
+      <ol class="flex flex-col gap-6" aria-label="Low voltage, then the install">
+        <li class="card p-7 flex gap-5">
+          <span class="font-display font-bold text-gold flex-shrink-0" style="font-size:1.75rem;line-height:1;" aria-hidden="true">01</span>
+          <div>
+            <h3 class="font-sans font-semibold text-h4 text-warm-white mb-2">The low voltage</h3>
+            <p class="text-body-sm text-stone leading-relaxed">{rough}</p>
+          </div>
+        </li>
+        <li class="card p-7 flex gap-5">
+          <span class="font-display font-bold text-gold flex-shrink-0" style="font-size:1.75rem;line-height:1;" aria-hidden="true">02</span>
+          <div>
+            <h3 class="font-sans font-semibold text-h4 text-warm-white mb-2">After the low voltage is done</h3>
+            <p class="text-body-sm text-stone leading-relaxed">{installs}</p>
+          </div>
+        </li>
+      </ol>
+    </div>
+  </div>
+</section>
