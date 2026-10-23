@@ -1,0 +1,297 @@
+---
+/**
+ * The New Construction AV Pre-Wire Guide, as a real page.
+ *
+ * Kelly, 2026-10-22: "I only care if it gets crawled, has schema and google and chat see it."
+ * The guide existed only as a PDF handed out by hand. A PDF carries no schema and ChatGPT reads
+ * pages far more reliably, so the guide's content lives here as HTML with Article schema, and the
+ * PDF stays available as the download. Source of truth for the wording:
+ * SocialMedia/kz/lead-magnets/KZ-New-Construction-Prewire-Guide.md (rebuild the PDF from it with
+ * build-guide-pdf.py and copy it to public/guides/ when it changes).
+ */
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import HeroSection from '../../components/sections/HeroSection.astro';
+import TrustBar from '../../components/sections/TrustBar.astro';
+import CTASection from '../../components/sections/CTASection.astro';
+
+const PAGE_URL = 'https://kzaudioandvideo.com/new-construction-prewire-guide/';
+const PDF_PATH = '/guides/kz-new-construction-prewire-guide.pdf';
+const HERO = '/images/projects/young-theater/stone-oak-theater-left-speaker-wire.jpg';
+
+const articleSchema = {
+  "@context": "https://schema.org",
+  "@type": "Article",
+  "headline": "The New Construction AV Pre-Wire Guide",
+  "description": "A room-by-room checklist of the audio, video, network, camera, security and outdoor wiring to run in a custom home before the drywall goes up.",
+  "url": PAGE_URL,
+  "mainEntityOfPage": PAGE_URL,
+  "image": `https://kzaudioandvideo.com${HERO}`,
+  "datePublished": "2026-08-12",
+  "dateModified": "2026-10-22",
+  "inLanguage": "en-US",
+  "about": ["Low voltage prewire", "New construction", "Home theater prewire", "Structured wiring"],
+  "author": { "@type": "Organization", "@id": "https://kzaudioandvideo.com/#business", "name": "KZ Audio & Video" },
+  "publisher": { "@type": "Organization", "@id": "https://kzaudioandvideo.com/#business", "name": "KZ Audio & Video" },
+  "associatedMedia": {
+    "@type": "MediaObject",
+    "name": "The New Construction AV Pre-Wire Guide (PDF)",
+    "contentUrl": `https://kzaudioandvideo.com${PDF_PATH}`,
+    "encodingFormat": "application/pdf"
+  }
+};
+
+const breadcrumb = {
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": [
+    { "@type": "ListItem", "position": 1, "name": "Home", "item": "https://kzaudioandvideo.com" },
+    { "@type": "ListItem", "position": 2, "name": "Low Voltage for Builders", "item": "https://kzaudioandvideo.com/low-voltage-prewire-builders-san-antonio/" },
+    { "@type": "ListItem", "position": 3, "name": "New Construction Prewire Guide" }
+  ]
+};
+
+const rooms = [
+  {
+    title: 'Living Room / Great Room',
+    items: [
+      'Power and cable behind the primary TV location (in-wall rated)',
+      'Recessed media box behind the TV, sized to house a Sonos amp and the cabling for a Frame TV\'s one-connect box',
+      'Conduit from the TV wall down to the equipment location, so future cables can be pulled without opening walls',
+      'In-ceiling or in-wall speaker wire for surround sound',
+      'Subwoofer wire to the corner or planned sub location',
+      'At least one hardwired network drop near the TV',
+    ],
+  },
+  {
+    title: 'Media Room or Dedicated Home Theater',
+    items: [
+      'Projector power and signal run to the ceiling mount point',
+      'Screen power (for a motorized screen) at the front wall',
+      'Full surround speaker wiring: front left, center and right, side and rear surrounds, and overhead Atmos locations',
+      'Subwoofer runs (a dedicated theater benefits from two)',
+      'Equipment rack location with power, network, and ventilation',
+    ],
+  },
+  {
+    title: 'Golf Simulator',
+    items: [
+      'Power and signal to the ceiling location for the projector or an overhead launch monitor',
+      'Power at the hitting area for the launch monitor, computer, and screen',
+      'Two hardwired network drops in the room (wired beats Wi-Fi for anything that stays put)',
+      'Speaker wiring if you want sound in the room',
+      'Conduit from the equipment location to the screen wall, so the gear can be upgraded later without opening a wall',
+    ],
+    note: 'Simulator rooms are priced per room rather than off a list, because ceiling height, room depth, screen size, and the launch monitor you choose all change the build.',
+  },
+  {
+    title: 'Primary Bedroom',
+    items: [
+      'TV wall power and cable',
+      'Recessed media box behind the TV for a Sonos amp or Frame TV cabling',
+      'Optional in-ceiling speakers for whole-home audio',
+      'Network drop',
+    ],
+  },
+  {
+    title: 'Outdoor Living, Patio, Pool',
+    items: [
+      'In-ceiling speaker wire for covered patios. Use direct-burial rated wire only for in-ground or landscape speaker runs',
+      'Power, signal, and a recessed media box for an outdoor-rated TV on covered patios',
+      'Network drop for a wireless access point (outdoor Wi-Fi dies fast without one)',
+      'Power and wire routed along the eaves for permanent exterior lighting, plus a planned spot for the controller',
+      'An electrical outlet where the landscape lighting power supply will plug in, placed off the front of the house',
+      'Landscape lighting wire laid out to the light locations before the landscaping is finished, so nobody has to dig up a finished yard later',
+    ],
+  },
+  {
+    title: 'Home Office',
+    items: [
+      'Two hardwired network drops',
+      'In-ceiling speaker wire for background audio',
+      'TV or display wall if the room is used for video calls',
+    ],
+  },
+  {
+    title: 'Whole-Home and Infrastructure',
+    items: [
+      'In-ceiling speaker wiring in the kitchen, dining room, and main hallways for whole-home audio',
+      'A central network location (structured wiring panel) where internet, TV, and phone come together',
+      'Hardwired network drops in every main room (Wi-Fi is for phones, everything that sits still should be wired)',
+      'Camera wiring at every exterior door, the driveway, and the main entry',
+      'Security prewire before insulation: contacts at every door and window, motion detectors, glass break sensors, and two keypad locations',
+      'Conduit from the attic to the electrical panel for future solar',
+    ],
+  },
+];
+
+const decisions = [
+  { q: 'Where will your equipment live?', a: 'Every system needs a home for the receiver, the network gear, and the cable boxes. Pick that spot early and wire everything back to it.' },
+  { q: 'How many TVs, and where?', a: 'Mark every wall that might ever hold a screen. Wire them all.' },
+  { q: 'Do you want music in more than one room?', a: 'If yes, whole-home audio has to be wired before drywall. It is very hard to add later.' },
+  { q: 'How strong does the Wi-Fi need to be?', a: 'Stone walls, foam insulation, and two stories block signal. Plan wired access point locations now.' },
+  { q: 'Cameras and security?', a: 'Wired cameras are more reliable than wireless, and a security system has to be wired at every door and window before insulation. Neither one requires monitoring now, it just has to be in the walls.' },
+  { q: 'Lighting outside the house?', a: 'Permanent eave lighting needs power and a wire path chosen before the soffit closes. Landscape lighting needs an outlet planned where its power supply will plug in, and its wire laid before the landscaping is finished.' },
+];
+
+const mistakes = [
+  { t: 'No conduit.', d: 'Without it, every future upgrade means opening a wall.' },
+  { t: 'Skipping the second subwoofer run in a dedicated theater.', d: 'A second sub is one of the biggest upgrades to how a theater sounds, so wire for two. A living room is usually fine with one.' },
+  { t: 'Forgetting overhead speakers in a theater.', d: 'Dolby Atmos needs ceiling speakers, and they cannot be added cleanly after drywall.' },
+  { t: 'Relying on Wi-Fi for everything.', d: 'Hardwire anything that stays in one place.' },
+  { t: 'Waiting too long to involve AV.', d: 'The best time is right before your electrical walkthrough, so power can be added at TV locations before the walls are closed.' },
+];
+
+const sequence = [
+  { t: 'During design', d: 'We review the plans with you and your builder.' },
+  { t: 'Right before your electrical walkthrough', d: 'We walk the home with you, so any outlets needed at TV locations can be added while the electrician is still planning.' },
+  { t: 'At low voltage rough-in', d: 'Speaker, TV, network, camera, and security wiring goes in before drywall.' },
+  { t: 'At trim-out', d: 'Devices, speakers, and plates go in.' },
+  { t: 'Before move-in', d: 'The system is installed, calibrated, and you are walked through it.' },
+];
+---
+
+<BaseLayout
+  title="New Construction Prewire Guide San Antonio | KZ Audio"
+  description="Free new construction prewire guide from KZ Audio & Video: a room-by-room checklist of what to wire in a San Antonio custom home before the drywall goes up."
+  schema={[articleSchema, breadcrumb]}
+>
+
+  <HeroSection
+    overline="Free Guide · New Construction · San Antonio"
+    heading="New Construction Prewire Guide for San Antonio Custom Homes"
+    subhead="What every custom home owner should wire for before the drywall goes up. From KZ Audio & Video, running low voltage in San Antonio and the Texas Hill Country since 1999."
+    ctaLabel="Download the PDF"
+    ctaHref={PDF_PATH}
+    secondaryCta="Or call: (210) 981-4098"
+    secondaryHref="tel:2109814098"
+    imageSrc={HERO}
+    imageAlt="Speaker wire run to an in-wall box at framing in a Stone Oak custom home theater"
+    imagePosition="object-center"
+    compact={true}
+  />
+
+  <TrustBar />
+
+  <!-- Self-contained answer, written to be quoted -->
+  <section class="section bg-slate-surface">
+    <div class="container-main">
+      <p class="overline mb-3">The Short Answer</p>
+      <h2 class="font-display text-h2 text-warm-white mb-6">
+        What Should You Prewire in a New Custom Home?
+      </h2>
+      <p class="text-body-lg text-stone max-w-3xl leading-relaxed mb-6">
+        Run the wire for everything you might want, not just what you are sure of today. A cable run costs a few dollars at rough-in, and the same run after the drywall is up can cost hundreds of dollars plus a wall repair. At minimum that means power, cable and a recessed media box behind every planned TV; in-ceiling or in-wall speaker wire for surround sound and whole-home audio; full surround and overhead Atmos runs plus two subwoofer runs in a dedicated theater; hardwired network drops in every main room and wired access point locations; camera wiring at every exterior door and the driveway; security contacts at every door and window before insulation; and conduit from the TV wall to the equipment location. Outside, plan an outlet where the landscape lighting power supply plugs in, and lay its wire before the landscaping is finished. You do not have to buy the equipment now. You just have to run the wire.
+      </p>
+      <p class="text-body text-stone max-w-3xl leading-relaxed">
+        <strong class="text-warm-white">The one rule that saves the most money:</strong> wire for where you might want it, not just where you are certain today. Pre-wire is cheap. Retrofit is expensive. When in doubt, run the wire and cap it.
+      </p>
+    </div>
+  </section>
+
+  <!-- Room-by-room checklist -->
+  <section class="section bg-charcoal">
+    <div class="container-main">
+      <p class="overline mb-3">Room by Room</p>
+      <h2 class="font-display text-h2 text-warm-white mb-12">The Prewire Checklist</h2>
+      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+        {rooms.map(({ title, items, note }) => (
+          <article class="card p-7 flex flex-col gap-4">
+            <h3 class="font-sans font-semibold text-h4 text-warm-white">{title}</h3>
+            <ul class="flex flex-col gap-3">
+              {items.map((item) => (
+                <li class="flex gap-3 text-body-sm text-stone leading-relaxed">
+                  <svg class="flex-shrink-0 mt-1 text-gold" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="20 6 9 17 4 12"></polyline></svg>
+                  <span>{item}</span>
+                </li>
+              ))}
+            </ul>
+            {note && <p class="text-body-sm text-stone leading-relaxed italic">{note}</p>}
+          </article>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <!-- Decisions -->
+  <section class="section bg-slate-surface">
+    <div class="container-main">
+      <p class="overline mb-3">Before Rough-In</p>
+      <h2 class="font-display text-h2 text-warm-white mb-12">The Decisions to Make Before Rough-In</h2>
+      <ol class="grid grid-cols-1 md:grid-cols-2 gap-6">
+        {decisions.map(({ q, a }, i) => (
+          <li class="card p-7 flex gap-5">
+            <span class="font-display font-bold text-gold flex-shrink-0" style="font-size:1.75rem;line-height:1;" aria-hidden="true">{String(i + 1).padStart(2, '0')}</span>
+            <div>
+              <h3 class="font-sans font-semibold text-h4 text-warm-white mb-2">{q}</h3>
+              <p class="text-body-sm text-stone leading-relaxed">{a}</p>
+            </div>
+          </li>
+        ))}
+      </ol>
+    </div>
+  </section>
+
+  <!-- Sort out + mistakes -->
+  <section class="section bg-charcoal">
+    <div class="container-main">
+      <div class="grid grid-cols-1 lg:grid-cols-2 gap-12 items-start">
+        <div>
+          <p class="overline mb-3">Ask Before You Start</p>
+          <h2 class="font-display text-h2 text-warm-white mb-6">What to Sort Out With Your Builder</h2>
+          <ul class="flex flex-col gap-3 mb-6">
+            <li class="text-body text-stone leading-relaxed">Who is running the low voltage wiring, and are they an AV specialist or a general electrician?</li>
+            <li class="text-body text-stone leading-relaxed">Will the AV design be coordinated with the framing and electrical schedule, or added at the end?</li>
+            <li class="text-body text-stone leading-relaxed">Is there conduit planned so cables can be upgraded later without opening walls?</li>
+            <li class="text-body text-stone leading-relaxed">Which rooms get wired now, and which get conduit so the option stays open later?</li>
+          </ul>
+          <p class="text-body text-stone leading-relaxed">
+            An electrician is excellent at electrical. Audio and video is a different craft. The best results come from an AV specialist who works alongside your builder from the start.
+          </p>
+        </div>
+        <div>
+          <p class="overline mb-3">Avoid These</p>
+          <h2 class="font-display text-h2 text-warm-white mb-6">The Five Most Expensive Prewire Mistakes</h2>
+          <ol class="flex flex-col gap-4 list-decimal pl-5">
+            {mistakes.map(({ t, d }) => (
+              <li class="text-body text-stone leading-relaxed"><strong class="text-warm-white">{t}</strong> {d}</li>
+            ))}
+          </ol>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- When to bring in AV -->
+  <section class="section bg-slate-surface">
+    <div class="container-main">
+      <p class="overline mb-3">Timing</p>
+      <h2 class="font-display text-h2 text-warm-white mb-6">When to Bring In Your AV Company</h2>
+      <p class="text-body-lg text-stone mb-10 max-w-3xl leading-relaxed">
+        Getting us in before your electrical walkthrough costs you nothing extra and saves you the most money. Waiting until the end costs the most.
+      </p>
+      <ol class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-5 gap-6">
+        {sequence.map(({ t, d }, i) => (
+          <li class="card p-6 flex flex-col gap-3">
+            <span class="font-display font-bold text-gold" style="font-size:1.5rem;line-height:1;" aria-hidden="true">{String(i + 1).padStart(2, '0')}</span>
+            <h3 class="font-sans font-semibold text-warm-white">{t}</h3>
+            <p class="text-body-sm text-stone leading-relaxed">{d}</p>
+          </li>
+        ))}
+      </ol>
+      <div class="mt-12 flex flex-col sm:flex-row gap-4">
+        <a href={PDF_PATH} class="btn-primary cursor-pointer">Download the Guide (PDF)</a>
+        <a href="/low-voltage-prewire-builders-san-antonio/" class="btn-ghost cursor-pointer">Low Voltage for Builders</a>
+      </div>
+    </div>
+  </section>
+
+  <CTASection
+    heading="Get Your New Home Wired Right"
+    body="KZ Audio & Video has run low voltage on custom homes across San Antonio and the Texas Hill Country for over 20 years, with our own crew from prewire to the final walkthrough. We review your plans at no charge and show you exactly what to wire for."
+    ctaLabel="Book a Free Plan Review"
+    ctaHref="/contact-kz-audio-video-san-antonio-tx/"
+    secondaryLabel="Call (210) 981-4098"
+    secondaryHref="tel:2109814098"
+  />
+
+</BaseLayout>
