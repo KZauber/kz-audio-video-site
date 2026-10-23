@@ -91,14 +91,26 @@ const stars = Array(5).fill(null);
           <p class="text-body-lg text-stone mb-5">
             Since 1999, every install has been done by the KZ crew. No subcontractors, ever. Here is what that looks like in our clients' own words.
           </p>
-          <a
-            href="https://search.google.com/local/writereview?placeid=ChIJeyItl2-9XIYRWX6BQteFGlY"
-            target="_blank"
-            rel="noopener"
-            class="btn-ghost text-sm"
-          >
-            Leave a Google Review
-          </a>
+          <!-- The read link carries no number on purpose: Google shows the live count and newest
+               reviews, so it never goes stale (Kelly, 2026-10-23). -->
+          <div class="flex flex-wrap gap-4">
+            <a
+              href="https://search.google.com/local/reviews?placeid=ChIJeyItl2-9XIYRWX6BQteFGlY"
+              target="_blank"
+              rel="noopener"
+              class="btn-primary text-sm cursor-pointer"
+            >
+              Read Every Review on Google
+            </a>
+            <a
+              href="https://search.google.com/local/writereview?placeid=ChIJeyItl2-9XIYRWX6BQteFGlY"
+              target="_blank"
+              rel="noopener"
+              class="btn-ghost text-sm cursor-pointer"
+            >
+              Leave a Google Review
+            </a>
+          </div>
         </div>
       </div>
     </div>
