@@ -9,7 +9,7 @@
     "audit": "node scripts/audit.mjs",
     "preview": "astro preview",
     "astro": "astro",
-    "postbuild": "node scripts/audit.mjs"
+    "postbuild": "node scripts/og-from-hero.mjs && node scripts/audit.mjs"
   },
   "dependencies": {
     "@astrojs/react": "^3.6.0",
