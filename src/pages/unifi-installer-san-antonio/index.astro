@@ -59,6 +59,25 @@ const services = [
   { title: 'The Backbone for Everything Else', desc: 'The theaters, whole-house music and cameras we install all ride on this network, so we build it to carry them.' },
 ];
 
+const RACKS = '/images/projects/unifi-racks';
+const racks = [
+  {
+    src: `${RACKS}/unifi-network-rack-wall-cabinet-san-antonio.jpg`,
+    alt: 'Wall-mounted network cabinet in a finished home with a patch panel, a UniFi switch and gateway, labeled shelves and power at the bottom',
+    caption: 'A wall-mounted rack in a finished home: patch panel, UniFi switch and gateway, labeled shelves, and power at the bottom.',
+  },
+  {
+    src: `${RACKS}/unifi-network-audio-rack-new-build-san-antonio.jpg`,
+    alt: 'Network and audio rack set before drywall in a new home, with a UniFi gateway, six multi-room audio units and a Furman power unit',
+    caption: 'Set before drywall in a new build: a UniFi gateway, a row of six multi-room audio units, and Furman power.',
+  },
+  {
+    src: `${RACKS}/unifi-network-rack-closet-heos-denon-san-antonio.jpg`,
+    alt: 'Closet equipment rack with a UniFi switch and gateway above three HEOS amplifiers, a Denon receiver and a Marantz amplifier',
+    caption: 'A closet rack: UniFi switch and gateway above three HEOS amplifiers, a Denon receiver and a Marantz amplifier.',
+  },
+];
+
 const schema = {
   "@context": "https://schema.org",
   "@type": "Service",
@@ -150,8 +169,29 @@ const breadcrumb = {
     </div>
   </section>
 
-  <!-- Field story, short version; the full one lives on the prewire guide -->
+  <!-- Kelly's own rack photos, 2026-10-25 (sent at 480x640; ask for originals before using one as a hero) -->
   <section class="section bg-slate-surface">
+    <div class="container-main">
+      <p class="overline mb-3">Our Work</p>
+      <h2 class="font-display text-h2 text-warm-white mb-6">UniFi Racks We Have Built</h2>
+      <p class="text-body-lg text-stone max-w-3xl leading-relaxed mb-12">
+        Every network we install ends in a rack like these: labeled, powered and easy to service. Real KZ installs, not stock photos.
+      </p>
+      <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+        {racks.map(({ src, alt, caption }) => (
+          <figure>
+            <div class="aspect-[3/4] overflow-hidden rounded-lg">
+              <img src={src} alt={alt} class="w-full h-full object-cover object-center" loading="lazy" width="480" height="640" />
+            </div>
+            <figcaption class="text-body-sm text-stone leading-relaxed mt-3">{caption}</figcaption>
+          </figure>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <!-- Field story, short version; the full one lives on the prewire guide -->
+  <section class="section bg-charcoal">
     <div class="container-main">
       <div class="max-w-3xl">
         <p class="overline mb-3">From the Field</p>
@@ -164,16 +204,16 @@ const breadcrumb = {
     </div>
   </section>
 
-  <FAQAccordion
-    heading="UniFi Installation: Questions We Hear"
-    faqs={faqs}
-  />
-
   <LowVoltageFirst
     heading="Cable First, Then the UniFi Gear"
     rough="A network cable to every access point, camera and TV location, home-run to the rack, all in place before the drywall."
     installs="We mount the access points and cameras, set up the gateway and switches, and get the UniFi app working on your phone."
     existing="In a finished home we run the same cable through the attic and walls first, then mount and set up the gear."
+  />
+
+  <FAQAccordion
+    heading="UniFi Installation: Questions We Hear"
+    faqs={faqs}
   />
 
   <CTASection
