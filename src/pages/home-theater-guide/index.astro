@@ -1,22 +1,192 @@
 ---
+/**
+ * The Home Theater Planning Guide, as a real page, plus the index of every theater answer page.
+ *
+ * Kelly, 2026-10-25: a free San Antonio theater guide covering seating, wiring, projector and
+ * speaker type (in-wall, on-wall, bookshelf), as a page with schema and a PDF, so ChatGPT and
+ * Google can find and cite it. Before this, /home-theater-guide/ was a list of links only.
+ * Source of truth for the wording: SocialMedia/kz/lead-magnets/KZ-Home-Theater-Planning-Guide.md
+ * (rebuild the PDF from it with build-guide-pdf.py and copy it to public/guides/kz-home-theater-guide.pdf).
+ * The older 3-page budget PDF at /guides/kz-home-theater-planning-guide.pdf is a different file that
+ * GHL delivers; leave it alone.
+ * Numbers here must agree with the answer pages: screen distance with /how-far-to-sit-from-tv/,
+ * speaker placement with /surround-sound-speaker-placement/ and /is-dolby-atmos-worth-it/.
+ */
 import BaseLayout from "../../layouts/BaseLayout.astro";
+import HeroSection from "../../components/sections/HeroSection.astro";
 import TrustBar from "../../components/sections/TrustBar.astro";
 import CTASection from "../../components/sections/CTASection.astro";
 
-const title = "Home Theater Design Guide | KZ Audio & Video San Antonio";
-const description = "Home theater design guide from KZ Audio & Video, San Antonio TX. Screen size, viewing distance, speaker placement, projector vs TV, and bright rooms explained.";
+const PAGE_URL = "https://kzaudioandvideo.com/home-theater-guide/";
+const PDF_PATH = "/guides/kz-home-theater-guide.pdf";
+const HERO = "/images/projects/monty-theater/home-theater-near-san-antonio-hero.jpg";
+const SPEAKER_PHOTO = "/images/projects/monty-theater/Canyon-Lake-Tesac-Home-Theater-Custom-Speaker-Install.jpg";
+
+const title = "Home Theater Planning Guide San Antonio | KZ Audio";
+const description = "Free home theater planning guide from KZ Audio & Video, San Antonio: room, seating, screen size, speaker types from in-wall to tower, and wiring before drywall.";
+
+const firstSteps = [
+  {
+    t: "Start with the room",
+    lead: "The room decides more than any single piece of equipment. Before anything else, get honest about the space.",
+    points: [
+      ["Dedicated room or shared media room?", "A dedicated room you can fully darken gives you the truest cinema experience. A media room that shares space with the house is more flexible and more social, and it can still be excellent. Decide which one you are building, because everything downstream depends on it."],
+      ["Light control.", "Windows are not a dealbreaker, but they change what you should buy."],
+      ["Shape and dimensions.", "Long rectangles are ideal. Note the door, closet, soffits and beams, because they shape where the speakers and screen can go."],
+      ["Where the equipment will live.", "A closet, a cabinet or a rack in an adjacent space. Deciding early keeps the wiring clean and the room quiet."],
+    ],
+  },
+  {
+    t: "Plan your seating first",
+    lead: "Your seating layout drives the screen size, the speaker placement and the whole design.",
+    points: [
+      ["How many seats, in how many rows?", "One row keeps it simple. Two rows usually means a riser so the back row can see over the front."],
+      ["How far back do people sit?", "The distance from the seats to the screen wall sets the right screen size. Measure it or estimate it now."],
+      ["Risers.", "A riser affects wiring, lighting and sometimes ceiling height, so plan it early."],
+      ["Comfort.", "Recliners, love seats or a big sectional all work. It is a personal choice and a real part of the budget."],
+    ],
+  },
+  {
+    t: "Size the screen to your seats",
+    lead: "For a 4K picture, the sweet spot is a seat about 1 to 1.5 times the screen's diagonal away. A seat 10 feet (120 inches) back works with a screen of about 80 to 120 inches.",
+    points: [
+      ["Closer or farther.", "Closer in that range feels more immersive. Farther feels more relaxed."],
+      ["Older 1080p pictures need more room.", "Sit 1.5 to 2.5 times the diagonal away, or you will see the pixels."],
+      ["Bigger is not automatically better.", "A screen too large for the room makes you turn your head to follow the action."],
+    ],
+  },
+  {
+    t: "Choose a projector or a TV",
+    lead: "Neither is better. It depends on your room, and the right answer starts with your lighting.",
+    points: [
+      ["Projector and screen", "when you can darken the room and want a 100-inch-plus picture that fills your vision."],
+      ["Large TV", "when the room has daylight you cannot fully block, or you want maximum brightness and simplicity."],
+      ["Simple test.", "If you can control the light, lean projector. If you cannot, lean TV."],
+    ],
+  },
+  {
+    t: "Design the sound",
+    lead: "Sound is where the experience actually lives. Good sound makes even a modest screen feel cinematic.",
+    points: [
+      ["5.1", "is the real entry point to surround: left, center and right up front, two surrounds beside and slightly behind your seats, and a subwoofer."],
+      ["7.1", "adds two speakers at the back. Worth it in a dedicated room with seating away from the back wall."],
+      ["Dolby Atmos", "adds speakers overhead, and it cannot be added cleanly after drywall. A 7.2.4 layout means seven speakers around you, two subwoofers and four in the ceiling."],
+      ["Put real money into the center channel", "(it carries most of the dialogue) and size the subwoofer to the room, or plan for two in a larger room."],
+    ],
+  },
+];
+
+const speakerTypes = [
+  {
+    name: "In-wall",
+    what: "Built into the wall and flush, with a grille you can paint to match.",
+    where: "Front left and right at the edges of the screen wall. Side surrounds in a living room at 6 to 7 feet high.",
+    best: "Most dedicated theaters, because nothing sits on the floor or a shelf.",
+  },
+  {
+    name: "In-ceiling",
+    what: "Built into the ceiling.",
+    where: "Dolby Atmos height speakers about 45 degrees in front of and 45 degrees behind your main seat, not straight overhead.",
+    best: "Atmos, plus music in kitchens, covered patios and bedrooms. Upward-firing Atmos speakers are a compromise when the ceiling cannot be opened.",
+  },
+  {
+    name: "On-wall",
+    what: "A slim speaker that hangs on the wall surface, so there is no cutout.",
+    where: "The same spots as in-wall. The wire still runs inside the wall to each speaker, so it needs the same prewire.",
+    best: "A clean look without cutting the wall. One of our Stone Oak theaters runs Martin Logan on-wall speakers.",
+  },
+  {
+    name: "Bookshelf",
+    what: "A compact box speaker on a stand, shelf or cabinet.",
+    where: "Front left and right about 3 to 6 feet from the center of the screen.",
+    best: "Rooms with no wall work, and systems you may move or upgrade later. It takes shelf or floor space.",
+  },
+  {
+    name: "Floor-standing (tower)",
+    what: "A tall speaker that stands on the floor.",
+    where: "Placed like a bookshelf speaker, 3 to 6 feet from center.",
+    best: "Rooms with floor space on both sides of the screen. The bigger cabinet usually plays deeper and louder than a bookshelf speaker from the same line.",
+  },
+];
+
+const laterSteps = [
+  {
+    t: "Acoustics and lighting",
+    lead: "This is the difference between a room with a big screen and an actual theater.",
+    points: [
+      ["Acoustic treatment.", "Bare walls and hard floors create echo that muddies dialogue. Panels, carpet and soft furnishings tighten it up."],
+      ["Lighting.", "Dimmable sconces and LED cove lighting set the mood and let you see without washing out the picture."],
+      ["Wall color.", "Darker walls and ceiling reduce light bouncing back at the screen and noticeably improve contrast."],
+    ],
+  },
+  {
+    t: "Run the low voltage before the walls close",
+    lead: "In a new build or a remodel, the low voltage comes first: speaker wire, network and the wire path to the screen go in at rough-in, before drywall. The speakers, projector and screen go in after the walls are finished.",
+    points: [
+      ["Speaker wire to every location,", "including in-ceiling Atmos spots even if you add those speakers later."],
+      ["Two subwoofer runs", "in a dedicated theater."],
+      ["A conduit or wire path", "from the seating or equipment area to the screen wall."],
+      ["Projector power and signal", "to the ceiling mount point."],
+      ["A hardwired network drop and power", "where the equipment will live."],
+    ],
+    link: { href: "/new-construction-prewire-guide/", label: "The whole house, room by room: New Construction Prewire Guide" },
+  },
+  {
+    t: "Control and automation",
+    lead: "A theater you cannot easily operate is a theater nobody uses. The goal is one button that dims the lights, drops the screen, starts the projector and plays the movie.",
+    points: [
+      ["Simpler setups:", "a good universal remote ties the pieces together."],
+      ["Part of a smart home:", "a programmed control system (RTI, Control4 and similar) puts lights, shades, audio and video on one screen your family can actually use."],
+    ],
+  },
+  {
+    t: "Calibration, the step that finishes the job",
+    lead: "Out of the box, no projector, TV or speaker system is tuned to your room. Calibration adjusts the picture (color, brightness, contrast) and the sound (levels, distances, room correction) so the system performs the way it was designed to.",
+    points: [
+      ["Ask before you hire anyone", "whether they calibrate the picture and the sound, and how."],
+    ],
+  },
+];
+
+const mistakes = [
+  ["Buying gear before planning the room.", "Room, seats, screen, sound, then gear."],
+  ["Mounting the screen too high.", "The center of the screen belongs near seated eye level."],
+  ["Skipping the low voltage stage.", "Adding wire after drywall costs far more than running it early."],
+  ["Picking speakers before the room.", "In-wall and in-ceiling speakers need their wire before drywall, so the speaker type is a framing decision."],
+  ["Undersizing the subwoofer.", "Bass is felt, not just heard."],
+  ["Never calibrating.", "Expensive gear, untuned, underperforms a modest system that is dialed in."],
+  ["Waiting too long to involve AV.", "The earlier we are in the conversation, the less you pay to fix later."],
+];
+
+const howWePlan = [
+  ["Free in-home consultation.", "We look at the actual room and talk through how you want to use it."],
+  ["Custom design.", "Room, seats, screen and sound planned as one system around your space and budget."],
+  ["Low voltage first.", "In a new build, we run the wire at rough-in, before the drywall."],
+  ["Clean installation.", "Wires hidden, everything level, everything labeled."],
+  ["Calibration.", "We tune the picture and the sound to your room."],
+  ["The walkthrough.", "We do not leave until everything works and you know how to use it."],
+];
+
+const checklist = [
+  { group: "The room", items: ["Dedicated room or shared media room decided", "Light control assessed", "Equipment location chosen"] },
+  { group: "The seating", items: ["Number of seats and rows decided", "Seating distance to the screen wall measured", "Riser planned for a second row"] },
+  { group: "Screen and picture", items: ["Screen size matched to seating distance (4K: about 1 to 1.5 times the diagonal)", "Projector or TV chosen for the room's lighting"] },
+  { group: "Sound", items: ["Surround format chosen (5.1, 7.1 or Atmos)", "Speaker types chosen", "Center channel and subwoofer prioritized", "Ceiling wire planned if Atmos is a maybe"] },
+  { group: "Room finish", items: ["Acoustic treatment considered", "Dimmable lighting planned", "Wall and ceiling color considered"] },
+  { group: "Before the walls close", items: ["Speaker wire run to every location", "Two subwoofer runs in a dedicated theater", "Wire path to the screen wall", "Network drop and power at the equipment location"] },
+];
 
 const guides = [
   {
     question: "How far should I sit from my TV?",
     slug: "/how-far-to-sit-from-tv/",
-    answer: "For a 65\" TV, sit 8–11 feet away. For 75\", 9–13 feet. For 85\", 10–14 feet. Full formula and chart inside.",
+    answer: "For a 4K TV, sit 1 to 1.5 times the screen diagonal away: a 65-inch at 5.5 to 8 feet, a 75-inch at 6.5 to 9.5 feet, an 85-inch at 7 to 11 feet. Full chart inside.",
     category: "Screen & Display",
   },
   {
     question: "What size TV do I need for my room?",
     slug: "/what-size-tv-for-my-room/",
-    answer: "Divide your seating distance (in inches) by 1.5 to 2.5 to get the ideal screen diagonal. For a 10-foot room, that's 48–80 inches.",
+    answer: "Multiply your seating distance in inches by 0.84 for the ideal 4K screen diagonal. At 10 feet from the screen, that is about 100 inches. Chart by distance inside.",
     category: "Screen & Display",
   },
   {
@@ -83,12 +253,34 @@ const guides = [
 
 const categories = [...new Set(guides.map(g => g.category))];
 
+const articleSchema = {
+  "@context": "https://schema.org",
+  "@type": "Article",
+  "headline": "The Home Theater Planning Guide",
+  "description": "How to plan a home theater in order: the room, seating, screen size, projector or TV, surround format, speaker types (in-wall, in-ceiling, on-wall, bookshelf, tower), acoustics, low voltage wiring before drywall, control and calibration.",
+  "url": PAGE_URL,
+  "mainEntityOfPage": PAGE_URL,
+  "image": `https://kzaudioandvideo.com${HERO}`,
+  "datePublished": "2026-10-25",
+  "dateModified": "2026-10-25",
+  "inLanguage": "en-US",
+  "about": ["Home theater planning", "Home theater speaker types", "Screen size and seating distance", "Home theater prewire"],
+  "author": { "@type": "Organization", "@id": "https://kzaudioandvideo.com/#business", "name": "KZ Audio & Video" },
+  "publisher": { "@type": "Organization", "@id": "https://kzaudioandvideo.com/#business", "name": "KZ Audio & Video" },
+  "associatedMedia": {
+    "@type": "MediaObject",
+    "name": "The Home Theater Planning Guide (PDF)",
+    "contentUrl": `https://kzaudioandvideo.com${PDF_PATH}`,
+    "encodingFormat": "application/pdf"
+  }
+};
+
 const guideSchema = {
   "@context": "https://schema.org",
   "@type": "ItemList",
-  "name": "Home Theater Design Guide",
-  "description": "Comprehensive home theater and AV design answers from KZ Audio & Video, San Antonio TX.",
-  "url": "https://kzaudioandvideo.com/home-theater-guide/",
+  "name": "More Home Theater Answers",
+  "description": "Home theater and AV design answers from KZ Audio & Video, San Antonio TX.",
+  "url": PAGE_URL,
   "itemListElement": guides.map((g, i) => ({
     "@type": "ListItem",
     "position": i + 1,
@@ -102,66 +294,226 @@ const breadcrumb = {
   "@type": "BreadcrumbList",
   "itemListElement": [
     { "@type": "ListItem", "position": 1, "name": "Home", "item": "https://kzaudioandvideo.com" },
-    { "@type": "ListItem", "position": 2, "name": "Home Theater Design Guide" },
+    { "@type": "ListItem", "position": 2, "name": "Home Theater Installation", "item": "https://kzaudioandvideo.com/home-theater-installation-san-antonio-tx/" },
+    { "@type": "ListItem", "position": 3, "name": "Home Theater Planning Guide" },
   ],
 };
+
+const check = `<svg class="flex-shrink-0 mt-1 text-gold" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="20 6 9 17 4 12"></polyline></svg>`;
 ---
 
-<BaseLayout title={title} description={description} schema={[guideSchema, breadcrumb]}>
-  <!-- Hero -->
-  <section class="relative w-full flex items-end overflow-hidden min-h-[38vh]" style="background:#0E1012;">
-    <div class="absolute inset-0 z-0">
-      <img
-        src="/images/projects/monty-theater/home-theater-near-san-antonio-hero.jpg"
-        alt="Home theater design guide by KZ Audio & Video San Antonio"
-        class="w-full h-full object-cover opacity-20"
-        loading="eager"
-      />
-      <div class="absolute inset-0" style="background:linear-gradient(to top,#0E1012 40%,rgba(14,16,18,0.4) 100%);"></div>
-    </div>
-    <div class="relative z-10 w-full container-wide px-6 sm:px-8 lg:px-12 py-16 md:py-24">
-      <p class="overline mb-3 flex items-center gap-3" style="letter-spacing:0.18em;">
-        <span class="block w-10 h-px opacity-70" style="background:linear-gradient(90deg,#C9A84C,transparent);"></span>
-        KZ Audio & Video · San Antonio · 25+ Years of Installs
+<BaseLayout title={title} description={description} schema={[articleSchema, guideSchema, breadcrumb]}>
+
+  <HeroSection
+    overline="Free Guide · Home Theater · San Antonio"
+    heading="Home Theater Planning Guide for San Antonio Homes"
+    subhead="The room, the seats, the screen, the speakers and the wiring, in the order we plan them. From KZ Audio & Video, building home theaters in San Antonio and the Texas Hill Country since 1999."
+    ctaLabel="Download the PDF"
+    ctaHref={PDF_PATH}
+    secondaryCta="Or call: (210) 981-4098"
+    secondaryHref="tel:2109814098"
+    imageSrc={HERO}
+    imageAlt="Dedicated home theater with leather recliners, a projection screen and on-wall speakers, built by KZ Audio & Video in Canyon Lake"
+    imagePosition="object-center"
+    compact={true}
+  />
+
+  <TrustBar />
+
+  <!-- Self-contained answer, written to be quoted -->
+  <section class="section bg-slate-surface">
+    <div class="container-main">
+      <p class="overline mb-3">The Short Answer</p>
+      <h2 class="font-display text-h2 text-warm-white mb-6">How Do You Plan a Home Theater?</h2>
+      <p class="text-body-lg text-stone max-w-3xl leading-relaxed mb-6">
+        Plan a home theater in this order: the room, the seats, the screen, the sound, the wiring, and the gear last. Decide first whether it is a dedicated room you can darken or a media room that shares space with the house. Then set the seating, because the distance from the seats to the screen wall sets the screen size: for a 4K picture, sit about 1 to 1.5 times the screen's diagonal away. Pick a projector if you can control the light and a large TV if you cannot. Choose the surround format (5.1, 7.1 or Dolby Atmos) and the speaker types: in-wall and in-ceiling for a clean dedicated room, on-wall, bookshelf or tower where the walls stay closed. In a new build, the low voltage wiring goes in before drywall, and the speakers, projector and screen go in after. Finish with dimmable lighting, simple control, and calibration of the picture and the sound.
       </p>
-      <h1 class="font-display text-warm-white leading-[1.12] text-xl md:text-hero mb-5" style="letter-spacing:-0.02em;max-width:680px;">
-        Home Theater Design Guide
-      </h1>
-      <p class="text-body-lg text-stone max-w-xl">
-        Straight answers to the questions we get asked most, from screen size and speaker placement to outdoor TVs and projector rooms. Written by installers who've built 1,000+ systems across San Antonio and the Hill Country.
+      <p class="text-body text-stone max-w-3xl leading-relaxed">
+        <strong class="text-warm-white">The order matters more than the budget.</strong> Get it right and a modest system feels like a real theater. Get it wrong and the best gear still feels like a TV in a spare room.
       </p>
     </div>
   </section>
 
-  <TrustBar />
+  <!-- Steps 1 to 5 -->
+  <section class="section bg-charcoal">
+    <div class="container-main">
+      <p class="overline mb-3">The Plan</p>
+      <h2 class="font-display text-h2 text-warm-white mb-12">Steps 1 to 5: Room, Seats, Screen and Sound</h2>
+      <ol class="grid grid-cols-1 md:grid-cols-2 gap-6">
+        {firstSteps.map(({ t, lead, points }, i) => (
+          <li class="card p-7 flex flex-col gap-4">
+            <span class="font-display font-bold text-gold" style="font-size:1.75rem;line-height:1;" aria-hidden="true">{String(i + 1).padStart(2, '0')}</span>
+            <h3 class="font-sans font-semibold text-h4 text-warm-white">Step {i + 1}: {t}</h3>
+            <p class="text-body text-stone leading-relaxed">{lead}</p>
+            <ul class="flex flex-col gap-3">
+              {points.map(([b, d]) => (
+                <li class="flex gap-3 text-body-sm text-stone leading-relaxed">
+                  <Fragment set:html={check} />
+                  <span><strong class="text-warm-white">{b}</strong> {d}</span>
+                </li>
+              ))}
+            </ul>
+          </li>
+        ))}
+      </ol>
+    </div>
+  </section>
 
-  <!-- Guide index by category -->
-  {categories.map(cat => (
-    <section class="section bg-slate-surface">
-      <div class="container-main">
-        <p class="overline mb-8">{cat}</p>
-        <div class="grid grid-cols-1 md:grid-cols-2 gap-5">
-          {guides.filter(g => g.category === cat).map(guide => (
-            <a
-              href={guide.slug}
-              class="card p-6 flex flex-col gap-3 hover:border-gold/40 transition-all duration-200 group cursor-pointer"
-            >
-              <h2 class="font-sans font-semibold text-h4 text-warm-white group-hover:text-gold transition-colors leading-snug">
-                {guide.question}
-              </h2>
-              <p class="text-body-sm text-stone leading-relaxed flex-1">
-                {guide.answer}
-              </p>
-              <span class="inline-flex items-center gap-1.5 text-gold text-body-sm font-medium mt-1">
-                Read the full answer
-                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
-              </span>
-            </a>
+  <!-- Step 6: speaker types -->
+  <section class="section bg-slate-surface">
+    <div class="container-main">
+      <p class="overline mb-3">Step 6: Speaker Types</p>
+      <h2 class="font-display text-h2 text-warm-white mb-6" style="max-width:24ch;">In-Wall, On-Wall, Bookshelf, Tower or In-Ceiling: Which Speakers Should You Use?</h2>
+      <p class="text-body-lg text-stone max-w-3xl leading-relaxed mb-12">
+        The sound format tells you how many speakers. The speaker type tells you how they live in the room. There are five, and most theaters mix two or three.
+      </p>
+      <div class="grid grid-cols-1 lg:grid-cols-12 gap-10 items-start">
+        <figure class="lg:col-span-5">
+          <div class="aspect-[4/5] overflow-hidden rounded-lg">
+            <img
+              src={SPEAKER_PHOTO}
+              alt="In-wall speaker mounted flush in a Canyon Lake home theater wall below a sconce, before the grille goes on"
+              class="w-full h-full object-cover object-center"
+              loading="lazy"
+              width="1170"
+              height="2532"
+            />
+          </div>
+          <figcaption class="text-body-sm text-stone mt-3">An in-wall speaker in a Canyon Lake theater, before the painted grille goes on.</figcaption>
+        </figure>
+        <div class="lg:col-span-7 flex flex-col gap-5">
+          {speakerTypes.map(({ name, what, where, best }) => (
+            <article class="card p-6 flex flex-col gap-2">
+              <h3 class="font-sans font-semibold text-h4 text-warm-white">{name}</h3>
+              <p class="text-body-sm text-stone leading-relaxed">{what}</p>
+              <p class="text-body-sm text-stone leading-relaxed"><strong class="text-warm-white">Where it goes:</strong> {where}</p>
+              <p class="text-body-sm text-stone leading-relaxed"><strong class="text-warm-white">Best for:</strong> {best}</p>
+            </article>
           ))}
         </div>
       </div>
-    </section>
-  ))}
+      <div class="card p-7 mt-10 max-w-4xl">
+        <h3 class="font-sans font-semibold text-h4 text-warm-white mb-3">How to choose</h3>
+        <p class="text-body text-stone leading-relaxed">
+          A dedicated theater: in-wall and in-ceiling, so nothing clutters the room. A media room or living room: in-wall or on-wall up front, in-ceiling for Atmos. A room you cannot open up, or a system you plan to take with you: bookshelf or tower. Whatever you pick, keep the center channel from the same family as the left and right speakers, so a voice sounds the same as it moves across the screen. More on placement: <a href="/surround-sound-speaker-placement/" class="text-gold hover:text-warm-white transition-colors underline underline-offset-2 cursor-pointer">where surround speakers go</a>.
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <!-- Steps 7 to 10 -->
+  <section class="section bg-charcoal">
+    <div class="container-main">
+      <p class="overline mb-3">Finish the Room</p>
+      <h2 class="font-display text-h2 text-warm-white mb-12">Steps 7 to 10: Acoustics, Low Voltage, Control and Calibration</h2>
+      <ol class="grid grid-cols-1 md:grid-cols-2 gap-6">
+        {laterSteps.map(({ t, lead, points, link }, i) => (
+          <li class="card p-7 flex flex-col gap-4">
+            <span class="font-display font-bold text-gold" style="font-size:1.75rem;line-height:1;" aria-hidden="true">{String(i + 7).padStart(2, '0')}</span>
+            <h3 class="font-sans font-semibold text-h4 text-warm-white">Step {i + 7}: {t}</h3>
+            <p class="text-body text-stone leading-relaxed">{lead}</p>
+            <ul class="flex flex-col gap-3">
+              {points.map(([b, d]) => (
+                <li class="flex gap-3 text-body-sm text-stone leading-relaxed">
+                  <Fragment set:html={check} />
+                  <span><strong class="text-warm-white">{b}</strong> {d}</span>
+                </li>
+              ))}
+            </ul>
+            {link && <a href={link.href} class="text-gold text-body-sm font-medium hover:text-warm-white transition-colors cursor-pointer mt-1">{link.label} &rarr;</a>}
+          </li>
+        ))}
+      </ol>
+    </div>
+  </section>
+
+  <!-- Mistakes + how KZ plans -->
+  <section class="section bg-slate-surface">
+    <div class="container-main">
+      <div class="grid grid-cols-1 lg:grid-cols-2 gap-12 items-start">
+        <div>
+          <p class="overline mb-3">Avoid These</p>
+          <h2 class="font-display text-h2 text-warm-white mb-6">The Home Theater Mistakes We See Most Often</h2>
+          <ol class="flex flex-col gap-4 list-decimal pl-5">
+            {mistakes.map(([t, d]) => (
+              <li class="text-body text-stone leading-relaxed"><strong class="text-warm-white">{t}</strong> {d}</li>
+            ))}
+          </ol>
+        </div>
+        <div>
+          <p class="overline mb-3">Since 1999</p>
+          <h2 class="font-display text-h2 text-warm-white mb-6">How KZ Audio & Video Plans Your Theater</h2>
+          <p class="text-body text-stone leading-relaxed mb-5">
+            Every install is done by our own team, never subcontractors, across San Antonio and the Texas Hill Country.
+          </p>
+          <ol class="flex flex-col gap-4 list-decimal pl-5">
+            {howWePlan.map(([t, d]) => (
+              <li class="text-body text-stone leading-relaxed"><strong class="text-warm-white">{t}</strong> {d}</li>
+            ))}
+          </ol>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Checklist -->
+  <section class="section bg-charcoal">
+    <div class="container-main">
+      <p class="overline mb-3">Keep This Handy</p>
+      <h2 class="font-display text-h2 text-warm-white mb-12">Your Home Theater Planning Checklist</h2>
+      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+        {checklist.map(({ group, items }) => (
+          <article class="card p-7 flex flex-col gap-4">
+            <h3 class="font-sans font-semibold text-h4 text-warm-white">{group}</h3>
+            <ul class="flex flex-col gap-3">
+              {items.map((item) => (
+                <li class="flex gap-3 text-body-sm text-stone leading-relaxed">
+                  <Fragment set:html={check} />
+                  <span>{item}</span>
+                </li>
+              ))}
+            </ul>
+          </article>
+        ))}
+      </div>
+      <div class="mt-12 flex flex-col sm:flex-row flex-wrap gap-4">
+        <a href={PDF_PATH} class="btn-primary cursor-pointer">Download the Guide (PDF)</a>
+        <a href="/new-construction-prewire-guide/" class="btn-ghost cursor-pointer">New Construction Prewire Guide</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- More answers -->
+  <section class="section bg-slate-surface">
+    <div class="container-main">
+      <p class="overline mb-3">Go Deeper</p>
+      <h2 class="font-display text-h2 text-warm-white mb-12">More Home Theater Answers</h2>
+      {categories.map(cat => (
+        <div class="mb-12 last:mb-0">
+          <p class="overline mb-6">{cat}</p>
+          <div class="grid grid-cols-1 md:grid-cols-2 gap-5">
+            {guides.filter(g => g.category === cat).map(guide => (
+              <a
+                href={guide.slug}
+                class="card p-6 flex flex-col gap-3 hover:border-gold/40 transition-all duration-200 group cursor-pointer"
+              >
+                <h3 class="font-sans font-semibold text-h4 text-warm-white group-hover:text-gold transition-colors leading-snug">
+                  {guide.question}
+                </h3>
+                <p class="text-body-sm text-stone leading-relaxed flex-1">
+                  {guide.answer}
+                </p>
+                <span class="inline-flex items-center gap-1.5 text-gold text-body-sm font-medium mt-1">
+                  Read the full answer
+                  <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+                </span>
+              </a>
+            ))}
+          </div>
+        </div>
+      ))}
+    </div>
+  </section>
 
   <!-- About the author signal -->
   <section class="section bg-charcoal border-y border-smoke/40">
@@ -174,7 +526,7 @@ const breadcrumb = {
             Every answer here comes from 20+ years of designing and installing home theater and AV systems in real homes. Kelly Zauber has been in the audio business since 1999. The numbers, formulas, and recommendations on these pages come from what actually works in the field, not from spec sheets.
           </p>
           <p class="text-body text-stone">
-            KZ Audio & Video serves San Antonio, Stone Oak, Boerne, Helotes, Canyon Lake, New Braunfels, and the Texas Hill Country. <a href="/about-kz-audio-video/" class="text-gold hover:text-warm-white transition-colors underline underline-offset-2">About KZ →</a>
+            KZ Audio & Video serves San Antonio, Stone Oak, Boerne, Helotes, Canyon Lake, New Braunfels, and the Texas Hill Country. <a href="/about-kz-audio-video/" class="text-gold hover:text-warm-white transition-colors underline underline-offset-2 cursor-pointer">About KZ →</a>
           </p>
         </div>
       </div>
