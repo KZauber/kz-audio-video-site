@@ -1,4 +1,16 @@
 ﻿---
+/**
+ * Security camera installation, San Antonio.
+ *
+ * Kelly, 2026-10-25: "We do cameras and it pays well. If we can get some of this business, I'd like
+ * that." Search Console that day: about 30th on average for "security camera installation san
+ * antonio" (Google Ads: about 90 a month, 390 in September 2026), 0 clicks in 28 days. Page one was
+ * Google Maps listings, an AI answer built from them, and thin pages (a tag page, Facebook answers,
+ * directories). This rebuild adds the licensing answer, the cost answer, wired vs Wi-Fi, FAQ schema
+ * and links to the cost page.
+ * Prices come from /security-camera-installation-cost-san-antonio/; change them there first.
+ * Still needed from Kelly: real camera job photos for the hero, and the DPS license number.
+ */
 import BaseLayout from '../../layouts/BaseLayout.astro';
 import HeroSection from '../../components/sections/HeroSection.astro';
 import TrustBar from '../../components/sections/TrustBar.astro';
@@ -7,34 +19,23 @@ import FAQAccordion from '../../components/sections/FAQAccordion.astro';
 import CTASection from '../../components/sections/CTASection.astro';
 import LowVoltageFirst from '../../components/sections/LowVoltageFirst.astro';
 
-const schema = {
-  "@context": "https://schema.org",
-  "@type": "Service",
-  "name": "Security Camera Installation",
-  "provider": {
-    "@type": "LocalBusiness",
-    "name": "KZ Audio & Video",
-    "url": "https://kzaudioandvideo.com",
-    "telephone": "+12109814098"
-  },
-  "areaServed": "San Antonio, TX",
-  "description": "Security camera installation in San Antonio TX. Indoor and outdoor cameras integrated into your home technology setup. Professional installation, remote access via phone.",
-  "url": "https://kzaudioandvideo.com/security-camera-installation-san-antonio/"
-};
-
-const breadcrumb = {
-  "@context": "https://schema.org",
-  "@type": "BreadcrumbList",
-  "itemListElement": [
-    { "@type": "ListItem", "position": 1, "name": "Home", "item": "https://kzaudioandvideo.com" },
-    { "@type": "ListItem", "position": 2, "name": "Security Camera Installation San Antonio" }
-  ]
-};
+const PAGE_URL = 'https://kzaudioandvideo.com/security-camera-installation-san-antonio/';
+const COST_URL = '/security-camera-installation-cost-san-antonio/';
 
 const faqs = [
   {
     question: 'What types of security cameras do you install?',
     answer: 'We install wired and wireless indoor and outdoor security cameras: Hikvision, Axis, and similar professional-grade systems. We also install doorbell cameras and integrate camera systems with existing home technology setups. We recommend wired systems for permanent installations: they\'re more reliable, less susceptible to interference, and don\'t rely on Wi-Fi coverage.',
+  },
+  {
+    // Google "People also ask" on "security camera installation san antonio", 2026-10-25.
+    question: 'Do you need WiFi for a surveillance camera?',
+    answer: 'Not if the cameras are wired. A wired PoE (Power over Ethernet) camera gets its power and its data over one network cable run back to the recorder, so it keeps recording even when your Wi-Fi drops. You only need internet to watch from your phone when you are away from home. Wireless cameras do depend on Wi-Fi signal, plus batteries or a nearby outlet, which is why we recommend wired PoE for any system you want to trust.',
+  },
+  {
+    // Google "People also ask" on "low voltage contractor san antonio", 2026-10-25.
+    question: 'Do you need a license to do low voltage work in Texas?',
+    answer: 'It depends on the work. Texas\'s electrician licensing law exempts most low voltage wiring, such as speaker, TV and network cable (Texas Occupations Code 1305.003). Security is different: a camera system that records counts as an alarm system under Texas Occupations Code 1702.002, so installing one for someone else takes a license from the Texas Private Security Board, part of the Department of Public Safety. KZ Audio & Video holds that license.',
   },
   {
     question: 'Can I monitor my cameras remotely from my phone?',
@@ -54,6 +55,49 @@ const faqs = [
   },
 ];
 
+const schema = {
+  "@context": "https://schema.org",
+  "@type": "Service",
+  "name": "Security Camera Installation",
+  "serviceType": "Security camera installation",
+  "url": PAGE_URL,
+  "description": "Licensed security camera installation in San Antonio TX: wired 4K PoE cameras, local NVR recording, doorbell cameras and phone access, designed around a home's real entry points.",
+  "provider": { "@type": "HomeAndConstructionBusiness", "@id": "https://kzaudioandvideo.com/#business", "name": "KZ Audio & Video" },
+  "areaServed": ["San Antonio", "Stone Oak", "Alamo Heights", "Helotes", "Boerne", "Bulverde", "Fair Oaks Ranch", "Timberwood Park", "New Braunfels", "Canyon Lake"].map((name) => ({ "@type": "City", "name": `${name}, TX` })),
+  "offers": {
+    "@type": "AggregateOffer",
+    "priceCurrency": "USD",
+    "lowPrice": "1000",
+    "highPrice": "8000",
+    "url": `https://kzaudioandvideo.com${COST_URL}`
+  }
+};
+
+const faqSchema = {
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": faqs.map(({ question, answer }) => ({
+    "@type": "Question",
+    "name": question,
+    "acceptedAnswer": { "@type": "Answer", "text": answer }
+  }))
+};
+
+const breadcrumb = {
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": [
+    { "@type": "ListItem", "position": 1, "name": "Home", "item": "https://kzaudioandvideo.com" },
+    { "@type": "ListItem", "position": 2, "name": "Security Camera Installation San Antonio" }
+  ]
+};
+
+const priceTiers = [
+  { t: 'Two to four cameras', d: 'App plus cloud or local recording', p: '$1,000 to $2,500' },
+  { t: 'Five to eight 4K PoE cameras', d: 'Wired, with a local NVR recorder', p: '$2,500 to $5,000' },
+  { t: 'Nine or more cameras', d: 'Large property, high-capacity recording', p: '$5,000 to $8,000 and up' },
+];
+
 const featured = {
   name: 'San Antonio Homeowner',
   location: 'San Antonio, TX',
@@ -63,27 +107,49 @@ const featured = {
 ---
 
 <BaseLayout
-  title="Security Camera Installation San Antonio | KZ Audio & Video"
-  description="Security camera installation in San Antonio TX. Indoor and outdoor cameras, remote phone access, and clean wiring tied into your home tech. Call (210) 981-4098."
-  schema={[schema, breadcrumb]}
+  title="Licensed Security Camera Installation San Antonio | KZ"
+  description="Licensed security camera installation in San Antonio. Wired 4K PoE cameras, local NVR recording, doorbells and phone access. From $1,000. Call (210) 981-4098."
+  schema={[schema, faqSchema, breadcrumb]}
 >
 
   <HeroSection
-    overline="Security Cameras · San Antonio · Hill Country · Since 1999"
+    overline="Security Cameras · Licensed in Texas · Since 1999"
     heading="Security Camera Installation in San Antonio TX"
-    subhead="Indoor and outdoor camera systems professionally installed and integrated into your home technology setup. Remote access from your phone. KZ Audio & Video has been handling low voltage installation in San Antonio since 1999."
-    ctaLabel="Book a Free Consultation"
-    ctaHref="/contact-kz-audio-video-san-antonio-tx/"
+    subhead="Wired camera systems designed around your home's real entry points, recorded on-site, and on your phone. KZ Audio & Video is licensed by the Texas Private Security Board and has run low voltage in San Antonio since 1999."
+    ctaLabel="See Camera Prices"
+    ctaHref={COST_URL}
     secondaryCta="Or call: (210) 981-4098"
     secondaryHref="tel:2109814098"
-    imageSrc="/images/projects/monty-theater/Home-Theater-Design-Build-Near-San-Antonio-Texas.jpeg.jpg"
-    imageAlt="Professional security camera installation in San Antonio Texas custom home"
+    imageSrc="/images/projects/young-theater/stone-oak-theater-left-speaker-wire.jpg"
+    imageAlt="Low voltage cable run to a wall box at framing, before drywall, in a custom home"
+    imagePosition="object-center"
   />
 
   <TrustBar />
 
-  <!-- Services -->
+  <!-- Self-contained answer, written to be quoted. Numbers match the cost page. -->
   <section class="section bg-slate-surface">
+    <div class="container-main">
+      <p class="overline mb-3">The Short Answer</p>
+      <h2 class="font-display text-h2 text-warm-white mb-6">What Does Security Camera Installation Cost in San Antonio?</h2>
+      <p class="text-body-lg text-stone max-w-3xl leading-relaxed mb-10">
+        Professional security camera installation in San Antonio typically costs $1,000 to $8,000, depending on how many cameras you need and how they are wired. Two to four cameras with an app and cloud or local recording run about $1,000 to $2,500 installed. A whole-home system of five to eight wired 4K PoE cameras with a local recorder (an NVR, so there is no monthly fee) runs $2,500 to $5,000. Nine or more cameras on a large property run $5,000 to $8,000 and up. As a planning number, that is about $250 to $600 per camera, including the camera, wiring, mounting and setup. The main cost drivers are camera count, wired versus wireless, resolution, recording storage, and the labor to run cable on a finished home. We walk the property, find the real entry points, and give you a written quote.
+      </p>
+      <div class="grid grid-cols-1 md:grid-cols-3 gap-6 mb-8">
+        {priceTiers.map(({ t, d, p }) => (
+          <article class="card p-7 flex flex-col gap-2">
+            <h3 class="font-sans font-semibold text-h4 text-warm-white">{t}</h3>
+            <p class="text-body-sm text-stone leading-relaxed">{d}</p>
+            <p class="font-display font-bold text-gold mt-2" style="font-size:1.6rem;line-height:1.1;">{p}</p>
+          </article>
+        ))}
+      </div>
+      <a href={COST_URL} class="text-gold text-body font-medium hover:text-warm-white transition-colors cursor-pointer">Full price breakdown and estimate calculator &rarr;</a>
+    </div>
+  </section>
+
+  <!-- Services -->
+  <section class="section bg-charcoal">
     <div class="container-main">
       <p class="overline mb-3">Camera Systems</p>
       <h2 class="font-display text-h2 text-warm-white mb-6">
@@ -111,18 +177,46 @@ const featured = {
     </div>
   </section>
 
-  <TestimonialsSection featured={featured} />
+  <!-- Licensing and wired vs wireless -->
+  <section class="section bg-slate-surface">
+    <div class="container-main">
+      <div class="grid grid-cols-1 lg:grid-cols-2 gap-12 items-start">
+        <div>
+          <p class="overline mb-3">Licensed in Texas</p>
+          <h2 class="font-display text-h2 text-warm-white mb-6">Does a Camera Installer in Texas Need a License?</h2>
+          <p class="text-body-lg text-stone leading-relaxed mb-5">
+            Yes, for a system that records. Texas law counts a camera system that records images of a home or business as an alarm system (Texas Occupations Code 1702.002), so installing one for someone else takes a license from the Texas Private Security Board, part of the Department of Public Safety.
+          </p>
+          <p class="text-body text-stone leading-relaxed">
+            KZ Audio & Video holds that license, and the same crew runs the cable, mounts the cameras and sets up the recorder. Ask any installer you are considering for theirs.
+          </p>
+        </div>
+        <div>
+          <p class="overline mb-3">Wired or Wireless</p>
+          <h2 class="font-display text-h2 text-warm-white mb-6">Why We Recommend Wired PoE Cameras</h2>
+          <p class="text-body-lg text-stone leading-relaxed mb-5">
+            A PoE camera gets power and data over one network cable back to the recorder. It records continuously, it does not drop when the Wi-Fi does, and there are no batteries to change.
+          </p>
+          <p class="text-body text-stone leading-relaxed">
+            Wireless cameras cost less to install and suit renters or a couple of quick coverage points. For a system you want to trust, wired PoE is the right long-term choice. Building a home? Our <a href="/new-construction-prewire-guide/" class="text-gold hover:text-warm-white transition-colors underline underline-offset-2 cursor-pointer">New Construction Prewire Guide</a> shows where the camera cable goes before drywall.
+          </p>
+        </div>
+      </div>
+    </div>
+  </section>
 
-  <FAQAccordion
-    heading="Security Camera Installation: Frequently Asked Questions"
-    faqs={faqs}
-  />
+  <TestimonialsSection featured={featured} />
 
   <LowVoltageFirst
     heading="Low Voltage First, Then the Cameras"
     rough="A network cable to every camera location, home-run to the recorder, plus the doorbell wire, all in place before the walls and soffits close."
     installs="We mount and aim the cameras, set up the recorder, and get the app working on your phone."
     existing="On a finished home we run the same camera cable through the attic and walls first, then mount the cameras."
+  />
+
+  <FAQAccordion
+    heading="Security Camera Installation: Frequently Asked Questions"
+    faqs={faqs}
   />
 
   <CTASection
