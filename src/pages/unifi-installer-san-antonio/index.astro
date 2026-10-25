@@ -1,0 +1,188 @@
+---
+/**
+ * UniFi installer, San Antonio homes.
+ *
+ * Kelly, 2026-10-25: "Ubiquiti is so popular, we need some dedicated pages for it I think", then
+ * "build one UniFi installer page for San Antonio homes covering Wi-Fi, networks and UniFi Protect
+ * cameras." Search numbers (Google Ads, 2026-10-25): "unifi" about 590 a month in San Antonio, installer
+ * searches about 10 each locally; nationally "ubiquiti installer" 480 and "unifi installer" 170. Live
+ * Google that day: no San Antonio page built for residential UniFi installs.
+ * FAQs are real questions (logged in SocialMedia/kz/website/faq-source-log.md). Prices come from the
+ * home network page and the camera cost page; change them there first.
+ * Facts about Ubiquiti come from Ubiquiti's own help pages (no Protect licensing fees, local recording,
+ * PoE access points). Not claimed until Kelly confirms: Ubiquiti partner status, specific models.
+ */
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import HeroSection from '../../components/sections/HeroSection.astro';
+import TrustBar from '../../components/sections/TrustBar.astro';
+import FAQAccordion from '../../components/sections/FAQAccordion.astro';
+import CTASection from '../../components/sections/CTASection.astro';
+import LowVoltageFirst from '../../components/sections/LowVoltageFirst.astro';
+
+const PAGE_URL = 'https://kzaudioandvideo.com/unifi-installer-san-antonio/';
+const HERO = '/images/projects/flat-tvs/patio-outdoor-tv-install-san-antonio.jpg';
+
+const faqs = [
+  {
+    // Facebook post title (Low Voltage Nation group) shown on Google for "unifi installer san antonio", 2026-10-25.
+    question: 'Who installs Ubiquiti for residential use?',
+    answer: 'Low voltage contractors and AV integrators do. In San Antonio and the Hill Country, KZ Audio & Video installs Ubiquiti UniFi in homes: the gateway, switches, Wi-Fi access points and UniFi Protect cameras. Look for an installer who runs a cable to every access point instead of relying on wireless links between them, and, for cameras, one licensed by the Texas Private Security Board. KZ holds that license, and our own crew does the work, from the cable to setting up the app on your phone.',
+  },
+  {
+    // Google "People also ask" on "ubiquiti installer near me", San Antonio, 2026-10-25.
+    question: 'Who installs UniFi cameras?',
+    answer: 'In Texas, installing a camera system that records takes a license from the Texas Private Security Board, so look for a licensed installer. KZ Audio & Video installs UniFi Protect cameras in San Antonio homes: wired PoE cameras recording to a UniFi recorder in the house, viewed in the UniFi app. Ubiquiti says UniFi Protect has no licensing fees, and the video stays on the recorder in your home rather than in a cloud subscription.',
+  },
+  {
+    // Google "People also ask" on "ubiquiti installer near me", San Antonio, 2026-10-25.
+    question: 'How much is UniFi installation?',
+    answer: 'Most of the home networks we install in San Antonio run $800 to $3,500. A wired UniFi system with access points, a switch, a rack and network runs to the TVs and office typically lands between $1,500 and $3,500, and larger homes can run higher. UniFi Protect cameras are priced as a camera system, about $1,000 to $8,000 depending on how many cameras and how they are wired. We give you a written quote after a free walkthrough of the home.',
+  },
+  {
+    // Google "People also ask" on "unifi wifi installation", 2026-10-25.
+    question: 'Is UniFi good for home WiFi?',
+    answer: 'Yes, when it is installed the way it is designed: several access points, each wired back to a PoE switch, placed by the floor plan instead of one router in a closet. That is how a home with stone walls, foam insulation or a second story gets Wi-Fi in every room. Everything that stays in one place, like TVs and office computers, should still be wired. Wi-Fi is for phones and laptops.',
+  },
+  {
+    // Google "People also ask" on "unifi wifi installation", 2026-10-25.
+    question: 'Is UniFi a router or modem?',
+    answer: 'A UniFi gateway is a router, not a modem. You still need the modem or fiber box from your internet provider. The UniFi gateway plugs into it and runs the network, the Wi-Fi access points and the cameras from there, all managed in one UniFi app.',
+  },
+];
+
+const services = [
+  { title: 'UniFi Wi-Fi', desc: 'Ceiling access points wired back to a PoE switch and placed by your floor plan, plus an outdoor access point for the patio, where Wi-Fi dies fast without one.' },
+  { title: 'Gateway, Switches and Rack', desc: 'The UniFi gateway and switches in a clean, labeled rack or enclosure, so the whole network lives in one place and shows up in one app.' },
+  { title: 'UniFi Protect Cameras', desc: 'Wired PoE cameras recording to a recorder in your home, viewed in the same UniFi app. Installed under our Texas Private Security Board license.' },
+  { title: 'Fixing a Network That Is Not Working', desc: 'Dead zones, cameras dropping off, a closet full of tangled cable. We trace the bad runs, add wired access points where the signal dies, and clean up the network closet.' },
+  { title: 'New Construction', desc: 'Network cable to every access point, camera and TV location at rough-in, before drywall, coordinated with the rest of the low voltage.' },
+  { title: 'The Backbone for Everything Else', desc: 'The theaters, whole-house music and cameras we install all ride on this network, so we build it to carry them.' },
+];
+
+const schema = {
+  "@context": "https://schema.org",
+  "@type": "Service",
+  "name": "UniFi Installation for Homes",
+  "serviceType": "Ubiquiti UniFi network, Wi-Fi and camera installation",
+  "url": PAGE_URL,
+  "description": "Ubiquiti UniFi installation for San Antonio homes: wired Wi-Fi access points, gateways and switches, network cabling and UniFi Protect cameras, for new builds and finished homes.",
+  "provider": { "@type": "HomeAndConstructionBusiness", "@id": "https://kzaudioandvideo.com/#business", "name": "KZ Audio & Video" },
+  "areaServed": ["San Antonio", "Stone Oak", "Alamo Heights", "Helotes", "Boerne", "Bulverde", "Fair Oaks Ranch", "Timberwood Park", "New Braunfels", "Canyon Lake"].map((name) => ({ "@type": "City", "name": `${name}, TX` })),
+  "offers": { "@type": "AggregateOffer", "priceCurrency": "USD", "lowPrice": "800", "highPrice": "3500" }
+};
+
+const faqSchema = {
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": faqs.map(({ question, answer }) => ({
+    "@type": "Question",
+    "name": question,
+    "acceptedAnswer": { "@type": "Answer", "text": answer }
+  }))
+};
+
+const breadcrumb = {
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": [
+    { "@type": "ListItem", "position": 1, "name": "Home", "item": "https://kzaudioandvideo.com" },
+    { "@type": "ListItem", "position": 2, "name": "Home Network Installation", "item": "https://kzaudioandvideo.com/home-network-installation-san-antonio/" },
+    { "@type": "ListItem", "position": 3, "name": "UniFi Installer San Antonio" }
+  ]
+};
+---
+
+<BaseLayout
+  title="UniFi Installer San Antonio | Ubiquiti Wi-Fi & Cameras | KZ"
+  description="UniFi installer for San Antonio homes: Ubiquiti Wi-Fi access points, wired networks and UniFi Protect cameras, by a licensed local crew. (210) 981-4098."
+  schema={[schema, faqSchema, breadcrumb]}
+>
+
+  <HeroSection
+    overline="Ubiquiti UniFi · Wi-Fi · Networks · Cameras"
+    heading="UniFi Installer for San Antonio Homes"
+    subhead="Wi-Fi that reaches every room, a wired network behind it, and UniFi Protect cameras in the same app. KZ Audio & Video installs Ubiquiti UniFi in San Antonio and Hill Country homes, new builds and finished homes alike."
+    ctaLabel="Call or Text (210) 981-4098"
+    ctaHref="tel:2109814098"
+    secondaryCta="See camera prices"
+    secondaryHref="/security-camera-installation-cost-san-antonio/"
+    imageSrc={HERO}
+    imageAlt="Outdoor TV streaming on a covered patio in a San Antonio home, installed by KZ Audio & Video"
+    imagePosition="object-center"
+    scrim={0.55}
+  />
+
+  <TrustBar />
+
+  <!-- Self-contained answer, written to be quoted -->
+  <section class="section bg-slate-surface">
+    <div class="container-main">
+      <p class="overline mb-3">The Short Answer</p>
+      <h2 class="font-display text-h2 text-warm-white mb-6">Who Installs UniFi in San Antonio Homes?</h2>
+      <p class="text-body-lg text-stone max-w-3xl leading-relaxed mb-6">
+        KZ Audio & Video installs Ubiquiti UniFi systems in San Antonio and Hill Country homes: the gateway, switches and Wi-Fi access points that run the network, and UniFi Protect cameras that record to a recorder in the home. A UniFi system is built around wired access points. Each one gets its power and data over a network cable from a PoE switch, so the Wi-Fi comes from several spots in the house instead of one router in a closet. That matters here, because stone walls, foam insulation and second stories block Wi-Fi signal. We run the cable, mount the access points and cameras, set up the network and the app, and walk you through it. In a new build the cable goes in at rough-in, before drywall. In a finished home we run it through the attic and walls. Ubiquiti says UniFi Protect has no licensing fees, and recordings stay on the recorder in your home.
+      </p>
+      <p class="text-body text-stone max-w-3xl leading-relaxed">
+        <strong class="text-warm-white">The one rule:</strong> every access point and camera gets its own cable. Wi-Fi is for phones and laptops; everything that stays put should be wired.
+      </p>
+    </div>
+  </section>
+
+  <!-- What we install -->
+  <section class="section bg-charcoal">
+    <div class="container-main">
+      <p class="overline mb-3">What We Install</p>
+      <h2 class="font-display text-h2 text-warm-white mb-12">UniFi Wi-Fi, Networks and Protect Cameras</h2>
+      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+        {services.map(({ title, desc }) => (
+          <article class="card p-7 flex flex-col gap-3">
+            <h3 class="font-sans font-semibold text-h4 text-warm-white">{title}</h3>
+            <p class="text-body-sm text-stone leading-relaxed">{desc}</p>
+          </article>
+        ))}
+      </div>
+      <div class="mt-10 flex flex-wrap gap-x-8 gap-y-3">
+        <a href="/security-camera-installation-san-antonio/" class="btn-text text-sm cursor-pointer">Security Camera Installation &rarr;</a>
+        <a href="/home-network-installation-san-antonio/" class="btn-text text-sm cursor-pointer">Home Network and Wi-Fi &rarr;</a>
+        <a href="/new-construction-prewire-guide/" class="btn-text text-sm cursor-pointer">New Construction Prewire Guide &rarr;</a>
+      </div>
+      <p class="text-body-sm text-stone mt-10">Ubiquiti, UniFi and UniFi Protect are trademarks of Ubiquiti Inc.</p>
+    </div>
+  </section>
+
+  <!-- Field story, short version; the full one lives on the prewire guide -->
+  <section class="section bg-slate-surface">
+    <div class="container-main">
+      <div class="max-w-3xl">
+        <p class="overline mb-3">From the Field</p>
+        <h2 class="font-display text-h2 text-warm-white mb-6">Why Every Access Point and TV Gets a Cable</h2>
+        <p class="text-body-lg text-stone leading-relaxed mb-5">
+          In a new build of about 2,500 square feet, the internet dropped off completely about 12 feet past the primary bedroom TV wall, even with three access points in the house. The fix only worked because we had run a network cable behind the TV at prewire: a small switch back there kept the TV wired, and a fourth access point hid behind it. From the bed, about three bars.
+        </p>
+        <a href="/new-construction-prewire-guide/" class="text-gold text-body font-medium hover:text-warm-white transition-colors cursor-pointer">The full story, and what to wire before drywall &rarr;</a>
+      </div>
+    </div>
+  </section>
+
+  <FAQAccordion
+    heading="UniFi Installation: Questions We Hear"
+    faqs={faqs}
+  />
+
+  <LowVoltageFirst
+    heading="Cable First, Then the UniFi Gear"
+    rough="A network cable to every access point, camera and TV location, home-run to the rack, all in place before the drywall."
+    installs="We mount the access points and cameras, set up the gateway and switches, and get the UniFi app working on your phone."
+    existing="In a finished home we run the same cable through the attic and walls first, then mount and set up the gear."
+  />
+
+  <CTASection
+    heading="Get a UniFi Network That Works in Every Room"
+    body="Free walkthrough of your home: we find the dead zones and the camera spots, then give you a written quote. New builds and finished homes."
+    ctaLabel="Book a Free Walkthrough"
+    ctaHref="/contact-kz-audio-video-san-antonio-tx/"
+    secondaryLabel="Call (210) 981-4098"
+    secondaryHref="tel:2109814098"
+  />
+
+</BaseLayout>
