@@ -15,3 +15,8 @@
 /home-theater-new-braunfels-tx/     /home-theater-installation-new-braunfels-tx/     301
 /home-theater-stone-oak-san-antonio/    /home-theater-installation-stone-oak-san-antonio/    301
 /home-theater-timberwood-park-tx/   /home-theater-installation-timberwood-park-tx/   301
+
+# 2026-10-25: Search Console still held a /sitemap.xml entry from May that "Couldn't fetch"
+# (the real sitemap is the Astro index). Point the conventional address at it so any crawler
+# or tool that guesses /sitemap.xml finds the page list.
+/sitemap.xml    /sitemap-index.xml    301
