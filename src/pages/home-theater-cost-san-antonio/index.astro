@@ -89,6 +89,38 @@ const faqSchema = {
   })),
 };
 
+// A real theater KZ quoted (Boerne, October 2026), priced at manufacturer retail so nothing is
+// advertised below a brand's minimum advertised price (Kelly, 2026-10-25). Retail checked
+// 2026-10-25 at Best Buy, or the maker's US store where Best Buy does not carry it. Items with no
+// public retail price show KZ's price, and wiring and labor are KZ's quoted prices. Re-check the
+// retail column before reusing these numbers; prices move.
+const caseStudy = [
+  { item: 'Denon AVR-X6800H 11.4-channel receiver', qty: 1, each: 3799.00, source: 'Best Buy retail' },
+  { item: 'Epson Pro Cinema LS12000 4K laser projector', qty: 1, each: 5999.99, source: 'Best Buy retail' },
+  { item: 'KEF Ci4100QL-THX in-wall speakers (THX Certified)', qty: 7, each: 699.99, source: 'Best Buy retail' },
+  { item: 'KEF Ci160QR in-ceiling Atmos height speakers', qty: 4, each: 499.99, source: 'KEF US store retail' },
+  { item: 'KEF Kube 10 MIE subwoofers', qty: 2, each: 899.99, source: 'Best Buy retail' },
+  { item: 'Severtson 150-inch fixed-frame projection screen', qty: 1, each: 2620.00, source: 'KZ price' },
+  { item: 'Apple TV 4K', qty: 1, each: 299.00, source: 'Apple retail' },
+  { item: 'Fiber optic HDMI cable, 50 to 65 ft', qty: 1, each: 245.00, source: 'KZ price' },
+  { item: 'AC Infinity AIRCOM T8 Pro receiver cooling', qty: 1, each: 145.00, source: 'KZ price' },
+  { item: 'Speaker and subwoofer wiring fished into the finished room, home-run to the closet', qty: 13, each: 150.00, source: 'KZ price' },
+  { item: 'Installation: speakers, screen, projector, receiver, subwoofers, setup and testing', qty: 1, each: 3000.00, source: 'KZ price' },
+];
+const money = (n: number) => '$' + n.toLocaleString('en-US', { minimumFractionDigits: 2, maximumFractionDigits: 2 });
+const caseTotal = caseStudy.reduce((s, r) => s + r.qty * r.each, 0);
+// Kelly, 2026-10-25: list the products without individual prices, then show subtotals and the
+// total. Per-item prices invite line-item shopping and widen the advertised-price exposure.
+const caseWiring = caseStudy.filter((r) => r.item.startsWith('Speaker and subwoofer wiring'));
+const caseLabor = caseStudy.filter((r) => r.item.startsWith('Installation'));
+const caseGear = caseStudy.filter((r) => !caseWiring.includes(r) && !caseLabor.includes(r));
+const sum = (rows: typeof caseStudy) => rows.reduce((s, r) => s + r.qty * r.each, 0);
+const caseSubtotals = [
+  { label: 'Equipment, priced at retail (KZ\'s price on the screen, HDMI cable and cooling fan)', amount: sum(caseGear) },
+  { label: 'Wiring: 13 speaker and subwoofer runs fished into the finished room', amount: sum(caseWiring) },
+  { label: 'Installation: speakers, screen, projector, receiver, subwoofers, setup and testing', amount: sum(caseLabor) },
+];
+
 // Calculator option groups, each option carries a min/max dollar contribution
 const calcGroups = [
   {
@@ -236,6 +268,54 @@ const calcGroups = [
         </table>
       </div>
       <p class="text-body-sm text-ash mt-4">Prices reflect the San Antonio metro market including equipment and professional installation. Exact quote after free in-home consultation.</p>
+    </div>
+  </section>
+
+  <!-- A real quote, line by line (Kelly, 2026-10-25) -->
+  <section class="section bg-charcoal border-b border-smoke/40">
+    <div class="container-main">
+      <p class="overline mb-3">A Real Quote, Line by Line</p>
+      <h2 class="font-display text-h2 text-warm-white mb-6">
+        What Did a Real 7.2.4 Home Theater Quote Near San Antonio Come To?
+      </h2>
+      <p class="text-body-lg text-stone mb-4 max-w-3xl leading-relaxed">
+        A dedicated home theater KZ Audio &amp; Video quoted for a home in Boerne in October 2026 comes to <strong class="text-warm-white">{money(caseTotal)}</strong> with every piece of equipment priced at manufacturer retail. It is a 7.2.4 Dolby Atmos system: seven THX Certified KEF in-wall speakers, four KEF in-ceiling height speakers, two KEF subwoofers, a Denon 11.4-channel receiver, an Epson LS12000 4K laser projector on a 150-inch Severtson fixed screen, and an Apple TV 4K. The speaker wire was fished into the finished room and run back to the receiver in a closet. Wiring is $1,950 and installation is $3,000; the rest is equipment. Seating, acoustic treatment, and lighting were not part of this quote.
+      </p>
+      <p class="text-body text-stone mb-10 max-w-3xl leading-relaxed">
+        The sound gear alone comes to about $12,500 at retail, roughly double the typical Dolby Atmos add-on figure on this page, because THX Certified in-wall speakers, a second subwoofer, and an 11-channel receiver cost more than a standard surround package. The projector and screen together come to about $8,600, inside the laser projector range above.
+      </p>
+
+      <div class="grid grid-cols-1 lg:grid-cols-2 gap-10 items-start">
+        <div>
+          <h3 class="font-sans font-semibold text-h4 text-warm-white mb-4">What Was in the Quote</h3>
+          <ul class="flex flex-col gap-2.5">
+            {caseGear.map((r) => (
+              <li class="flex gap-3 text-body-sm text-stone leading-relaxed">
+                <span class="text-gold font-semibold flex-shrink-0" style="min-width:1.75rem;">{r.qty}&times;</span>
+                <span>{r.item}</span>
+              </li>
+            ))}
+          </ul>
+        </div>
+        <div class="card p-7">
+          <h3 class="font-sans font-semibold text-h4 text-warm-white mb-4">Where the Money Goes</h3>
+          <dl class="flex flex-col">
+            {caseSubtotals.map((s) => (
+              <div class="flex justify-between gap-6 py-3" style="border-bottom:1px solid rgba(255,255,255,0.06);">
+                <dt class="text-body-sm text-stone leading-relaxed">{s.label}</dt>
+                <dd class="font-sans text-warm-white text-sm whitespace-nowrap">{money(s.amount)}</dd>
+              </div>
+            ))}
+            <div class="flex justify-between gap-6 pt-4">
+              <dt class="font-sans font-semibold text-warm-white">Total</dt>
+              <dd class="font-sans font-semibold text-gold whitespace-nowrap">{money(caseTotal)}</dd>
+            </div>
+          </dl>
+        </div>
+      </div>
+      <p class="text-body-sm text-ash mt-4 max-w-3xl">
+        Retail prices checked October 25, 2026, at Best Buy, or at the manufacturer's US store where Best Buy does not carry the item. Items with no public retail price show KZ's price, as do wiring and installation. Prices change, so your written quote comes after a free in-home consultation.
+      </p>
     </div>
   </section>
 
