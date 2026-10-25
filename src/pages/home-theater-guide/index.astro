@@ -533,6 +533,48 @@ const check = `<svg class="flex-shrink-0 mt-1 text-gold" width="16" height="16" 
     </div>
   </section>
 
+  <!-- Kelly's own job story, 2026-10-25. The cause was never proven: the tower is a strong pattern,
+       so the copy states what we heard and tried, not a mechanism. -->
+  <section class="section bg-slate-surface">
+    <div class="container-main">
+      <div class="grid grid-cols-1 lg:grid-cols-12 gap-12 items-start">
+        <div class="lg:col-span-7">
+          <p class="overline mb-3">From the Field</p>
+          <h2 class="font-display text-h2 text-warm-white mb-6">When a Radio Station Came Through the Surround Sound</h2>
+          <p class="text-body-lg text-stone leading-relaxed mb-5">
+            In one living room we wired for surround sound, a radio station came through the speakers every time the receiver was on, even with it set to the TV input. It sounded like an AM station, and an AM radio tower stands just outside that neighborhood. In another house there, our tone tester (the tool we use to trace wires) picked up a radio broadcast every time we pressed its button. Yet that house, which we believe sits a little closer to the tower, ran surround sound with no trouble.
+          </p>
+          <p class="text-body text-stone leading-relaxed mb-5">
+            Nothing we tried stopped it. So we changed the system instead of fighting the house: a Sonos soundbar with Sonos rear speakers, surround sound with no receiver at all. That ended it.
+          </p>
+          <p class="text-body text-stone leading-relaxed">
+            <strong class="text-warm-white">The lesson:</strong> when a house will not let one kind of system run clean, the answer is a different system, not a family living with the noise.
+          </p>
+        </div>
+        <div class="lg:col-span-5 flex flex-col gap-5">
+          <article class="card p-7">
+            <h3 class="font-sans font-semibold text-h4 text-warm-white mb-4">What we tried</h3>
+            <ul class="flex flex-col gap-3">
+              {["A couple of different receivers", "An electrician's check of the house's ground (it tested good)", "Running it with and without the ground", "Noise filters"].map((t) => (
+                <li class="flex gap-3 text-body-sm text-stone leading-relaxed">
+                  <svg class="flex-shrink-0 mt-1 text-stone" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><line x1="18" y1="6" x2="6" y2="18"></line><line x1="6" y1="6" x2="18" y2="18"></line></svg>
+                  <span>{t}</span>
+                </li>
+              ))}
+            </ul>
+          </article>
+          <article class="card p-7">
+            <h3 class="font-sans font-semibold text-h4 text-warm-white mb-4">What worked</h3>
+            <p class="flex gap-3 text-body-sm text-stone leading-relaxed">
+              <Fragment set:html={check} />
+              <span>A Sonos soundbar and Sonos rear speakers: surround sound with no receiver in the room.</span>
+            </p>
+          </article>
+        </div>
+      </div>
+    </div>
+  </section>
+
   <CTASection
     heading="Questions About Your Specific Room?"
     body="Every room is different. Free in-home consultation: we come to you, measure the space, and give you a straight answer and a written quote. No pressure, no obligation."
