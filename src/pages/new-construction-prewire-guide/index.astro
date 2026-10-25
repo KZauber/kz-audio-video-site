@@ -13,6 +13,7 @@ import BaseLayout from '../../layouts/BaseLayout.astro';
 import HeroSection from '../../components/sections/HeroSection.astro';
 import TrustBar from '../../components/sections/TrustBar.astro';
 import CTASection from '../../components/sections/CTASection.astro';
+import FAQAccordion from '../../components/sections/FAQAccordion.astro';
 
 const PAGE_URL = 'https://kzaudioandvideo.com/new-construction-prewire-guide/';
 const PDF_PATH = '/guides/kz-new-construction-prewire-guide.pdf';
@@ -27,7 +28,7 @@ const articleSchema = {
   "mainEntityOfPage": PAGE_URL,
   "image": `https://kzaudioandvideo.com${HERO}`,
   "datePublished": "2026-08-12",
-  "dateModified": "2026-10-23",
+  "dateModified": "2026-10-25",
   "inLanguage": "en-US",
   "about": ["Low voltage prewire", "New construction", "Home theater prewire", "Structured wiring"],
   "author": { "@type": "Organization", "@id": "https://kzaudioandvideo.com/#business", "name": "KZ Audio & Video" },
@@ -142,6 +143,42 @@ const mistakes = [
   { t: 'Waiting too long to involve AV.', d: 'The best time is right before your electrical walkthrough, so power can be added at TV locations before the walls are closed.' },
 ];
 
+// Kelly, 2026-10-25: "those are the questions people ask." Questions in his words (logged in
+// SocialMedia/kz/website/faq-source-log.md); answers say only what this guide already says.
+// The same five run as Google Business Profile posts 4 to 8 in kz/website/gbp-post-queue.md.
+const faqs = [
+  {
+    question: 'What should I wire in my new home?',
+    answer: 'Wire for everything you might want, not just what you are sure of today. A cable run costs a few dollars at rough-in, and the same run after the drywall is up can cost hundreds of dollars plus a wall repair. At minimum: power, cable and a recessed media box behind every planned TV; in-ceiling or in-wall speaker wire for surround sound and whole-home music; hardwired network drops in every main room plus wired spots for Wi-Fi access points; camera wiring at every exterior door and the driveway; security contacts at every door and window before insulation; and conduit from the TV wall to the equipment location. You do not have to buy the equipment now. The low voltage goes in before drywall, and the install comes after.',
+  },
+  {
+    question: 'Should I wire for security?',
+    answer: 'Yes, and do it before insulation. That means contacts at every door and window, motion detectors, glass break sensors and two keypad locations. You do not have to sign up for monitoring to benefit from having it in the walls, and wiring a finished house costs a multiple of doing it at rough-in. KZ Audio & Video holds a license from the Texas Private Security Board, and we run the security wiring in the same low voltage rough-in as your speakers, network and cameras.',
+  },
+  {
+    question: 'Should I wire for cameras?',
+    answer: 'Yes. Wired cameras are more reliable than wireless ones, and the wire is cheap to run before drywall. Plan a camera at every exterior door, the driveway and the main entry, each wired back to the spot where your network gear will live. Decide your coverage before the walls close, even if you add the cameras later: the wire just has to be there. The low voltage goes in at rough-in, and the cameras go up after.',
+  },
+  {
+    question: 'Should I wire for data?',
+    answer: 'Yes. Wi-Fi is for phones; everything that sits still should be wired. That means hardwired network drops in every main room, two in a home office, at least one near every TV, and two in a golf simulator room, all run back to one central network location (a structured wiring panel) where internet, TV and phone come together. Your movie nights and video calls depend on it. It all goes in with the low voltage at rough-in, before drywall.',
+  },
+  {
+    question: 'How do I make sure I have good internet coverage?',
+    answer: 'Plan wired access points before the walls close. Stone walls, foam insulation and two stories block Wi-Fi signal, so run a network cable to each access point location, plus one for the patio (outdoor Wi-Fi dies fast without one), all back to a central network location. Then hardwire everything that stays put, like TVs and the home office, and leave the Wi-Fi for phones and laptops. The low voltage goes in at rough-in, and the access points go up after.',
+  },
+];
+
+const faqSchema = {
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": faqs.map(({ question, answer }) => ({
+    "@type": "Question",
+    "name": question,
+    "acceptedAnswer": { "@type": "Answer", "text": answer }
+  }))
+};
+
 const sequence = [
   { t: 'During design', d: 'We review the plans with you and your builder.' },
   { t: 'Right before your electrical walkthrough', d: 'We walk the home with you, so any outlets needed at TV locations can be added while the electrician is still planning.' },
@@ -154,7 +191,7 @@ const sequence = [
 <BaseLayout
   title="New Construction Prewire Guide San Antonio | KZ Audio"
   description="Free new construction prewire guide from KZ Audio & Video: a room-by-room checklist of what to wire in a San Antonio custom home before the drywall goes up."
-  schema={[articleSchema, breadcrumb]}
+  schema={[articleSchema, breadcrumb, faqSchema]}
 >
 
   <HeroSection
@@ -286,6 +323,11 @@ const sequence = [
       </div>
     </div>
   </section>
+
+  <FAQAccordion
+    heading="Wiring a New Home: The Questions We Hear Most"
+    faqs={faqs}
+  />
 
   <CTASection
     heading="Get Your New Home Wired Right"
