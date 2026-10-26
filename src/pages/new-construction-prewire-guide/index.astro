@@ -28,7 +28,7 @@ const articleSchema = {
   "mainEntityOfPage": PAGE_URL,
   "image": `https://kzaudioandvideo.com${HERO}`,
   "datePublished": "2026-08-12",
-  "dateModified": "2026-10-25",
+  "dateModified": "2026-10-26",
   "inLanguage": "en-US",
   "about": ["Low voltage prewire", "New construction", "Home theater prewire", "Structured wiring"],
   "author": { "@type": "Organization", "@id": "https://kzaudioandvideo.com/#business", "name": "KZ Audio & Video" },
@@ -116,7 +116,10 @@ const rooms = [
     title: 'Whole-Home and Infrastructure',
     items: [
       'In-ceiling speaker wiring in the kitchen, dining room, and main hallways for whole-home audio',
-      'A central network location (structured wiring panel) where internet, TV, and phone come together',
+      // OnQ and service-out wording from KZ's own proposals (proposal-builder, 103 Fortunate Son); Kelly, 2026-10-26.
+      'A Legrand On-Q (OnQ) structured wiring panel in the media closet, where every line in the house starts: internet, TV, network, cameras and security (a 30-inch panel on a full custom home)',
+      'Service out: a 1-inch flex tube from the OnQ panel out to the service location near the exterior electric meter, with a pull string, so fiber, coax, Cat6 or any future internet provider line pulls straight in',
+      'A garage apartment or casita gets its own flex tube to service and its own wire management can',
       'Hardwired network drops in every main room (Wi-Fi is for phones, everything that sits still should be wired)',
       'Camera wiring at every exterior door, the driveway, and the main entry',
       'Security prewire before insulation: contacts at every door and window, motion detectors, glass break sensors, and two keypad locations',
@@ -127,7 +130,7 @@ const rooms = [
 ];
 
 const decisions = [
-  { q: 'Where will your equipment live?', a: 'Every system needs a home for the receiver, the network gear, and the cable boxes. Pick that spot early and wire everything back to it.' },
+  { q: 'Where will your equipment live?', a: 'Every system needs a home for the receiver, the network gear, and the cable boxes. Pick that spot early, put the OnQ panel there, and wire everything back to it, including the service tube out to where the internet provider comes in.' },
   { q: 'How many TVs, and where?', a: 'Mark every wall that might ever hold a screen. Wire them all.' },
   { q: 'Do you want music in more than one room?', a: 'If yes, whole-home audio has to be wired before drywall. It is very hard to add later.' },
   { q: 'How strong does the Wi-Fi need to be?', a: 'Stone walls, foam insulation, and two stories block signal. Plan wired access point locations now.' },
@@ -161,7 +164,7 @@ const faqs = [
   },
   {
     question: 'Should I wire for data?',
-    answer: 'Yes. Wi-Fi is for phones; everything that sits still should be wired. That means hardwired network drops in every main room, two in a home office, at least one near every TV, and two in a golf simulator room, all run back to one central network location (a structured wiring panel) where internet, TV and phone come together. Your movie nights and video calls depend on it. It all goes in with the low voltage at rough-in, before drywall.',
+    answer: 'Yes. Wi-Fi is for phones; everything that sits still should be wired. That means hardwired network drops in every main room, two in a home office, at least one near every TV, and two in a golf simulator room, all run back to one OnQ structured wiring panel where internet, TV and phone come together. Your movie nights and video calls depend on it. It all goes in with the low voltage at rough-in, before drywall.',
   },
   {
     question: 'How do I make sure I have good internet coverage?',
@@ -218,7 +221,7 @@ const sequence = [
         What Should You Prewire in a New Custom Home?
       </h2>
       <p class="text-body-lg text-stone max-w-3xl leading-relaxed mb-6">
-        Run the wire for everything you might want, not just what you are sure of today. A cable run costs a few dollars at rough-in, and the same run after the drywall is up can cost hundreds of dollars plus a wall repair. At minimum that means power, cable and a recessed media box behind every planned TV; in-ceiling or in-wall speaker wire for surround sound and whole-home audio; full surround and overhead Atmos runs plus two subwoofer runs in a dedicated theater; hardwired network drops in every main room and wired access point locations; camera wiring at every exterior door and the driveway; security contacts at every door and window before insulation; and conduit from the TV wall to the equipment location. Outside, plan an outlet where the landscape lighting power supply plugs in, and lay its wire before the landscaping is finished. You do not have to buy the equipment now. You just have to run the wire.
+        Run the wire for everything you might want, not just what you are sure of today. A cable run costs a few dollars at rough-in and hundreds after drywall, plus a wall repair. At minimum that means power, cable and a recessed media box behind every planned TV; in-ceiling or in-wall speaker wire for surround sound and whole-home audio; full surround and overhead Atmos runs plus two subwoofer runs in a dedicated theater; hardwired network drops in every main room and wired access point locations; camera wiring at every exterior door and the driveway; security contacts at every door and window before insulation; conduit from the TV wall to an OnQ wiring panel where every line starts; and a flex tube from that panel out to where the internet provider comes in. Outside, plan an outlet for the landscape lighting power supply and lay its wire before the landscaping is finished. You do not have to buy the equipment now, just run the wire.
       </p>
       <p class="text-body text-stone max-w-3xl leading-relaxed">
         <strong class="text-warm-white">The one rule that saves the most money:</strong> wire for where you might want it, not just where you are certain today. Pre-wire is cheap. Retrofit is expensive. When in doubt, run the wire and cap it.
