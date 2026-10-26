@@ -20,7 +20,8 @@ import CTASection from '../../components/sections/CTASection.astro';
 import LowVoltageFirst from '../../components/sections/LowVoltageFirst.astro';
 
 const PAGE_URL = 'https://kzaudioandvideo.com/unifi-installer-san-antonio/';
-const HERO = '/images/projects/flat-tvs/patio-outdoor-tv-install-san-antonio.jpg';
+// Kelly's own rack photo (full-size original, 2026-10-25), cropped to a wide band for the hero.
+const HERO = '/images/projects/unifi-racks/unifi-network-rack-wall-cabinet-hero.jpg';
 
 const faqs = [
   {
@@ -63,18 +64,18 @@ const RACKS = '/images/projects/unifi-racks';
 const racks = [
   {
     src: `${RACKS}/unifi-network-rack-wall-cabinet-san-antonio.jpg`,
-    alt: 'Wall-mounted network cabinet in a finished home with a patch panel, a UniFi switch and gateway, labeled shelves and power at the bottom',
-    caption: 'A wall-mounted rack in a finished home: patch panel, UniFi switch and gateway, labeled shelves, and power at the bottom.',
+    alt: 'Wall-mounted network cabinet in a finished home with a patch panel, a UniFi switch and gateway, a recorder, and music shelves labeled Master Bathroom, Master Bedroom, Kitchen, Dining and Kitchen Patio',
+    caption: 'A wall-mounted rack in a finished home: patch panel, UniFi switch and gateway, and the music for each room on shelves labeled Master Bathroom, Master Bedroom, Kitchen, Dining and Kitchen Patio.',
   },
   {
     src: `${RACKS}/unifi-network-audio-rack-new-build-san-antonio.jpg`,
-    alt: 'Network and audio rack set before drywall in a new home, with a UniFi gateway, six multi-room audio units and a Furman power unit',
-    caption: 'Set before drywall in a new build: a UniFi gateway, a row of six multi-room audio units, and Furman power.',
+    alt: 'Network and audio rack set before drywall in a new home, with six multi-room audio units, an Illumivue camera recorder, a UniFi gateway and a Furman power unit',
+    caption: 'Set before drywall in a new build: six multi-room audio units, an Illumivue camera recorder, a UniFi gateway, and Furman power.',
   },
   {
     src: `${RACKS}/unifi-network-rack-closet-heos-denon-san-antonio.jpg`,
-    alt: 'Closet equipment rack with a UniFi switch and gateway above three HEOS amplifiers, a Denon receiver and a Marantz amplifier',
-    caption: 'A closet rack: UniFi switch and gateway above three HEOS amplifiers, a Denon receiver and a Marantz amplifier.',
+    alt: 'Closet equipment rack with a UniFi switch, a UniFi Dream Machine SE and a recorder above three HEOS amplifiers, a Denon receiver and a Panamax power unit',
+    caption: 'A closet rack: UniFi switch, Dream Machine SE and recorder above three HEOS amplifiers, a Denon receiver and Panamax power.',
   },
 ];
 
@@ -126,7 +127,7 @@ const breadcrumb = {
     secondaryCta="See camera prices"
     secondaryHref="/security-camera-installation-cost-san-antonio/"
     imageSrc={HERO}
-    imageAlt="Outdoor TV streaming on a covered patio in a San Antonio home, installed by KZ Audio & Video"
+    imageAlt="KZ-built wall-mounted network cabinet with a patch panel, a UniFi switch and gateway, a recorder, and music shelves labeled by room"
     imagePosition="object-center"
     scrim={0.55}
   />
@@ -169,7 +170,7 @@ const breadcrumb = {
     </div>
   </section>
 
-  <!-- Kelly's own rack photos, 2026-10-25 (sent at 480x640; ask for originals before using one as a hero) -->
+  <!-- Kelly's own rack photos, 2026-10-25; originals kept in Desktop\KZ Photos\UniFi Racks -->
   <section class="section bg-slate-surface">
     <div class="container-main">
       <p class="overline mb-3">Our Work</p>
@@ -181,7 +182,7 @@ const breadcrumb = {
         {racks.map(({ src, alt, caption }) => (
           <figure>
             <div class="aspect-[3/4] overflow-hidden rounded-lg">
-              <img src={src} alt={alt} class="w-full h-full object-cover object-center" loading="lazy" width="480" height="640" />
+              <img src={src} alt={alt} class="w-full h-full object-cover object-center" loading="lazy" width="900" height="1200" />
             </div>
             <figcaption class="text-body-sm text-stone leading-relaxed mt-3">{caption}</figcaption>
           </figure>
