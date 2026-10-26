@@ -10,6 +10,13 @@
  * and links to the cost page.
  * Prices come from /security-camera-installation-cost-san-antonio/; change them there first.
  * Still needed from Kelly: real camera job photos for the hero, and the DPS license number.
+ *
+ * Ring block (Kelly, 2026-10-26: "add a ring section please"). "ring doorbell installation" draws about
+ * 50 San Antonio searches a month, 90 in December (Google Ads tool, 2026-10-26). KZ quotes Ring
+ * Spotlight Cams with Ring solar panels (Hye Springs Ranch proposal, 2026-10-26). Ring facts from
+ * ring.com support, read 2026-10-26: saved video needs a Ring plan (live view and alerts are free);
+ * each wired doorbell needs a transformer rated for it, and Ring sends transformer work to an
+ * electrician, so the copy says we check it, not that we replace it. No price: none is set for Ring.
  */
 import BaseLayout from '../../layouts/BaseLayout.astro';
 import HeroSection from '../../components/sections/HeroSection.astro';
@@ -26,7 +33,7 @@ const faqs = [
   {
     question: 'What types of security cameras do you install?',
     // Brands per Kelly, 2026-10-25: "We do Illumavue, alibi and ubiquiti" (maker spells it Illumivue).
-    answer: 'We install wired and wireless indoor and outdoor security cameras from Illumivue, Alibi and Ubiquiti (UniFi Protect). We also install doorbell cameras and integrate camera systems with existing home technology setups. We recommend wired systems for permanent installations: they\'re more reliable, less susceptible to interference, and don\'t rely on Wi-Fi coverage.',
+    answer: 'We install wired and wireless indoor and outdoor security cameras from Illumivue, Alibi and Ubiquiti (UniFi Protect). We also install doorbell cameras, including Ring video doorbells and Ring cameras, and integrate camera systems with existing home technology setups. We recommend wired systems for permanent installations: they\'re more reliable, less susceptible to interference, and don\'t rely on Wi-Fi coverage.',
   },
   {
     // Google "People also ask" on "security camera installation san antonio", 2026-10-25.
@@ -62,7 +69,7 @@ const schema = {
   "name": "Security Camera Installation",
   "serviceType": "Security camera installation",
   "url": PAGE_URL,
-  "description": "Licensed security camera installation in San Antonio TX: wired 4K PoE cameras, local NVR recording, doorbell cameras and phone access, designed around a home's real entry points.",
+  "description": "Licensed security camera installation in San Antonio TX: wired 4K PoE cameras, local NVR recording, Ring and other doorbell cameras and phone access, designed around a home's real entry points.",
   "provider": { "@type": "HomeAndConstructionBusiness", "@id": "https://kzaudioandvideo.com/#business", "name": "KZ Audio & Video" },
   "areaServed": ["San Antonio", "Stone Oak", "Alamo Heights", "Helotes", "Boerne", "Bulverde", "Fair Oaks Ranch", "Timberwood Park", "New Braunfels", "Canyon Lake"].map((name) => ({ "@type": "City", "name": `${name}, TX` })),
   "offers": {
@@ -109,7 +116,7 @@ const featured = {
 
 <BaseLayout
   title="Licensed Security Camera Installation San Antonio | KZ"
-  description="Licensed security camera installation in San Antonio. Wired 4K PoE cameras, local NVR recording, doorbells and phone access. From $1,000. Call (210) 981-4098."
+  description="Licensed security camera installation in San Antonio. Wired 4K PoE cameras, local NVR recording, Ring doorbells, phone access. From $1,000. Call (210) 981-4098."
   schema={[schema, faqSchema, breadcrumb]}
 >
 
@@ -165,7 +172,7 @@ const featured = {
           { title: 'Outdoor Cameras', desc: 'Weather-resistant cameras covering driveways, entries, garages, side yards, and backyards. Properly aimed, properly lit, properly wired.' },
           { title: 'Indoor Cameras', desc: 'Interior cameras for entry points, common areas, and any space you want visibility into. Discreet mounting, clean installation.' },
           { title: 'Wired NVR Systems', desc: 'Network video recorder systems with local storage and remote access. More reliable than cloud-only systems. Footage stored on-site.' },
-          { title: 'Doorbell Cameras', desc: 'Video doorbell installation, wired for reliability, with remote access and motion notifications to your phone.' },
+          { title: 'Doorbell Cameras', desc: 'Video doorbell installation, Ring included, wired for reliability, with remote access and motion notifications to your phone.' },
           { title: 'New Construction Pre-Wire', desc: 'Camera wire runs at rough-in stage in new construction. Coordinate alongside AV and low voltage for a complete installation.' },
           { title: 'Home Automation Integration', desc: 'Camera systems integrated with existing home automation and smart home platforms. One app, full visibility.' },
         ].map(({ title, desc }) => (
@@ -201,6 +208,32 @@ const featured = {
           <p class="text-body text-stone leading-relaxed">
             Wireless cameras cost less to install and suit renters or a couple of quick coverage points. For a system you want to trust, wired PoE is the right long-term choice. Building a home? Our <a href="/new-construction-prewire-guide/" class="text-gold hover:text-warm-white transition-colors underline underline-offset-2 cursor-pointer">New Construction Prewire Guide</a> shows where the camera cable goes before drywall. Running UniFi at home? See our <a href="/unifi-installer-san-antonio/" class="text-gold hover:text-warm-white transition-colors underline underline-offset-2 cursor-pointer">UniFi installer page</a>.
           </p>
+        </div>
+      </div>
+
+      <!-- Ring. Inside this section so the page keeps its slate and charcoal alternation. -->
+      <div id="ring" class="mt-16 pt-16 border-t border-smoke/60 scroll-mt-28">
+        <p class="overline mb-3">Ring Doorbells and Cameras</p>
+        <h2 class="font-display text-h2 text-warm-white mb-6">Do You Install Ring Doorbells and Cameras?</h2>
+        <p class="text-body-lg text-stone max-w-3xl leading-relaxed mb-5">
+          Yes. We install Ring video doorbells and Ring cameras in San Antonio homes, and we set up the Ring app on your phone before we leave. A wired Ring doorbell runs on the home's existing doorbell wire and transformer, so there is no battery to charge. Each wired model needs a transformer rated for it, so we check yours before we mount anything and tell you up front if it falls short. Battery Ring cameras, like the Ring Spotlight Cam, need no wiring, and a Ring solar panel keeps them charged. Most Ring devices send video over Wi-Fi, so the signal where each one mounts matters: we check it first and fix the network when it needs it. Live view and alerts are free in the Ring app. Saving and replaying video takes a paid Ring plan.
+        </p>
+        <p class="text-body text-stone max-w-3xl leading-relaxed mb-10">
+          Want everything recorded at home with no monthly fee? That is what a wired PoE system with a local recorder does, and we install both.
+        </p>
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+          <article class="card p-7 flex flex-col gap-3">
+            <h3 class="font-sans font-semibold text-h4 text-warm-white">Ring Video Doorbells</h3>
+            <p class="text-body-sm text-stone leading-relaxed">Mounted on your existing doorbell wire, with the transformer checked first and the app set up on your phone.</p>
+          </article>
+          <article class="card p-7 flex flex-col gap-3">
+            <h3 class="font-sans font-semibold text-h4 text-warm-white">Ring Spotlight Cams</h3>
+            <p class="text-body-sm text-stone leading-relaxed">Aimed at the driveway, side yard or back gate, with a Ring solar panel on battery models so nobody climbs a ladder to charge them.</p>
+          </article>
+          <article class="card p-7 flex flex-col gap-3">
+            <h3 class="font-sans font-semibold text-h4 text-warm-white">Strong Wi-Fi Where Ring Records</h3>
+            <p class="text-body-sm text-stone leading-relaxed">We test the signal at every spot before we mount, and fix weak Wi-Fi with a proper <a href="/home-network-installation-san-antonio/" class="text-gold hover:text-warm-white transition-colors underline underline-offset-2 cursor-pointer">home network</a>.</p>
+          </article>
         </div>
       </div>
     </div>
