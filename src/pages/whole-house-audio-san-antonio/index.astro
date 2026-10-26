@@ -60,6 +60,24 @@ const featured = {
   service: 'Home AV Client: Nearly 10 Years',
   quote: "They're honest and will recommend what actually works for your situation rather than upselling you on equipment you don't need. I've never had a bad experience with them and would absolutely recommend them to anyone looking for AV services.",
 };
+
+const musicRacks = [
+  {
+    src: '/images/projects/music-racks/sonos-amps-anthem-music-rack-san-antonio.jpg',
+    alt: 'Music rack with a shelf of Sonos Amps, an Anthem receiver below and a Definitive Technology SubAmp600 on top',
+    caption: 'A shelf of Sonos Amps for the rooms of the house, an Anthem receiver, and a Definitive Technology SubAmp600.',
+  },
+  {
+    src: '/images/projects/unifi-racks/unifi-network-audio-rack-new-build-san-antonio.jpg',
+    alt: 'Rack set before drywall in a new home, with six Sonos Amps above the network gear and Furman power',
+    caption: 'Set before drywall in a new build: six Sonos Amps, with the network and power underneath.',
+  },
+  {
+    src: '/images/projects/unifi-racks/unifi-network-rack-wall-cabinet-san-antonio.jpg',
+    alt: 'Wall-mounted cabinet with music shelves labeled Master Bathroom, Master Bedroom, Kitchen, Dining and Kitchen Patio below the network gear',
+    caption: 'A wall cabinet with the music for each room on shelves labeled Master Bathroom, Master Bedroom, Kitchen, Dining and Kitchen Patio.',
+  },
+];
 ---
 
 <BaseLayout
@@ -136,6 +154,27 @@ const featured = {
   </section>
 
   <TestimonialsSection featured={featured} />
+
+  <!-- Kelly's own rack photos, 2026-10-25; originals in Desktop\KZ Photos\UniFi Racks -->
+  <section class="section bg-slate-surface">
+    <div class="container-main">
+      <p class="overline mb-3">Our Work</p>
+      <h2 class="font-display text-h2 text-warm-white mb-6">Where the Music Lives: Racks We Have Built</h2>
+      <p class="text-body-lg text-stone max-w-3xl leading-relaxed mb-12">
+        Every whole house audio system ends in a rack like these: one amplifier channel per room, labeled and easy to service. Real KZ installs, not stock photos.
+      </p>
+      <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+        {musicRacks.map(({ src, alt, caption }) => (
+          <figure>
+            <div class="aspect-[3/4] overflow-hidden rounded-lg">
+              <img src={src} alt={alt} class="w-full h-full object-cover object-center" loading="lazy" width="900" height="1200" />
+            </div>
+            <figcaption class="text-body-sm text-stone leading-relaxed mt-3">{caption}</figcaption>
+          </figure>
+        ))}
+      </div>
+    </div>
+  </section>
 
   <FAQAccordion
     heading="Whole House Audio: Frequently Asked Questions"
