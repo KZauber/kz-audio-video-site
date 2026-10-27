@@ -6,10 +6,11 @@ import TestimonialsSection from '../../components/sections/TestimonialsSection.a
 import FAQAccordion from '../../components/sections/FAQAccordion.astro';
 import CTASection from '../../components/sections/CTASection.astro';
 
+// KZ fixes setups, not equipment (Kelly, 2026-10-27). Never promise to repair a TV or other device here.
 const schema = {
   "@context": "https://schema.org",
   "@type": "Service",
-  "name": "AV Repair and Service",
+  "name": "AV Repair and Service: Setups, Not Devices",
   "provider": {
     "@type": "LocalBusiness",
     "name": "KZ Audio & Video",
@@ -17,7 +18,7 @@ const schema = {
     "telephone": "+12109814098"
   },
   "areaServed": "San Antonio, TX",
-  "description": "AV repair and troubleshooting in San Antonio TX. We work on home theaters, surround sound systems, and AV equipment we didn't install. Honest assessment, no guesswork.",
+  "description": "AV service in San Antonio TX for systems that stopped working because of the setup: wiring, connections and settings a cable or internet company or another installer left not working, including systems KZ did not install. KZ fixes setups and does not repair TVs, receivers, projectors or other devices.",
   "url": "https://kzaudioandvideo.com/av-repair-san-antonio-tx/"
 };
 
@@ -33,25 +34,35 @@ const breadcrumb = {
 const faqs = [
   {
     question: 'Do you work on systems you didn\'t install?',
-    answer: 'Yes. We service and repair AV systems regardless of who installed them. If your home theater is acting up, your surround sound has stopped working, or your system needs recalibration, give us a call. We\'ll assess it honestly and tell you what\'s fixable and what it costs.',
+    answer: 'Yes, when the problem is the setup. One homeowner called after a cable company visit left the AV system not working. We came out and got it working again. That is the kind of job we take: wiring, connections and settings that someone else left wrong. We do not repair TVs, receivers or other devices.',
   },
   {
     question: 'What kinds of problems do you fix?',
-    answer: 'Receivers that won\'t power on, systems that won\'t communicate, speakers that have stopped working, HDMI handshake issues, projector problems, calibration that\'s way off, remote control failures, and system configurations that have never worked right. We also diagnose systems that were installed poorly and recommend the most cost-effective path to getting them working correctly.',
+    answer: 'Setup problems. No picture or no sound because a connection or setting is wrong, HDMI handshake failures, 4K or Dolby Atmos not coming through, surround speakers wired wrong, remotes that stopped controlling the system, cameras that went offline, Wi-Fi that drops, music that stopped playing in some rooms, and cabling that was never run right. If the cause turns out to be one device that has failed, we tell you that plainly and point you to its maker.',
   },
   {
     question: 'My home theater was installed by someone else. Can you help?',
-    answer: 'Yes. We see a fair number of systems that were installed by someone who\'s no longer around, or that the homeowner inherited when they bought the house. We can assess the system, troubleshoot what\'s wrong, and either fix it or give you an honest recommendation on what\'s worth keeping.',
+    answer: 'Yes. We see systems from installers who stopped answering, and systems homeowners inherited when they bought the house. One homeowner\'s AV installer walked away and left the cameras and other systems in the house not working. We got them working. We work out what is installed and how it is wired, fix the setup, and tell you plainly what is worth keeping.',
   },
   {
     question: 'How do I know if my equipment can be repaired or needs to be replaced?',
-    answer: 'We\'ll tell you. If a repair costs more than the equipment is worth, we say so. We don\'t fix things for the sake of billing, we tell you the most cost-effective path. Sometimes that\'s a repair. Sometimes it\'s replacing one component. Sometimes it\'s a full upgrade, and sometimes it\'s just a reconfiguration.',
+    answer: 'We don\'t repair equipment, so the first question is whether the problem is the setup or the device. If the whole system or several rooms stopped working, or it broke after someone worked on it, that points to the setup, and that is our job. If one TV or receiver stopped working on its own and nothing else changed, take it to the maker\'s warranty or support line. If you decide to replace it, we can install the new one.',
   },
   {
     question: 'Do you do in-home service calls?',
-    answer: 'Yes. We come to you. Most AV problems are system-level issues: components talking to each other, room acoustics, mounting and placement. That need to be assessed in the actual space. We don\'t ask you to bring equipment to us.',
+    answer: 'Yes. We come to you. Setup problems live in the house: the wiring, the connections between components, and how everything is set. They have to be fixed where the system is, so we never ask you to bring equipment to us.',
   },
 ];
+
+const faqSchema = {
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": faqs.map(({ question, answer }) => ({
+    "@type": "Question",
+    "name": question,
+    "acceptedAnswer": { "@type": "Answer", "text": answer }
+  }))
+};
 
 const featured = {
   name: 'San Antonio Homeowner',
@@ -63,14 +74,14 @@ const featured = {
 
 <BaseLayout
   title="AV Repair San Antonio TX | KZ Audio & Video"
-  description="AV repair and home theater service in San Antonio TX. We fix systems we didn't install, give an honest assessment, and no guesswork. Call (210) 981-4098."
-  schema={[schema, breadcrumb]}
+  description="AV repair in San Antonio TX for the setup, not the device: wiring, connections and settings a cable company or installer left broken. Call (210) 981-4098."
+  schema={[schema, breadcrumb, faqSchema]}
 >
 
   <HeroSection
-    overline="AV Repair & Service · San Antonio · Hill Country · Since 1999"
+    overline="Setups, Not Devices · Since 1999"
     heading="AV Repair and Home Theater Service in San Antonio TX"
-    subhead="System acting up? We work on home theaters, surround sound, and AV equipment we didn't install. KZ Audio & Video has been diagnosing and fixing AV systems in San Antonio since 1999. We'll tell you what's wrong and whether it's worth fixing."
+    subhead="System stopped working after the cable company came out, or after your installer stopped answering? We fix the setup: the wiring, the connections and the settings. KZ Audio & Video has installed and fixed AV systems in San Antonio since 1999. We do not repair TVs or other devices."
     ctaLabel="Call (210) 981-4098"
     ctaHref="tel:2109814098"
     secondaryCta="Or book a service call"
@@ -86,22 +97,25 @@ const featured = {
   <!-- Services -->
   <section class="section bg-slate-surface">
     <div class="container-main">
-      <p class="overline mb-3">AV Repair Services</p>
+      <p class="overline mb-3">What a Service Call Fixes</p>
       <h2 class="font-display text-h2 text-warm-white mb-6">
-        We'll Tell You What's Wrong. And Whether It's Worth Fixing.
+        We Fix the Setup, Not the Device
       </h2>
+      <p class="text-body-lg text-stone mb-5 max-w-2xl">
+        KZ Audio & Video fixes AV setups in San Antonio, not equipment. When a home theater, surround sound system, camera system or whole-house music system stops working, the cause is often the setup: a cable or internet company moved the wrong wires, an installer walked away before the job was done, or a setting changed and nobody knows which one. That is what a KZ service call is for. We trace the wiring, check every connection and setting, and get the system working again, whether we installed it or not.
+      </p>
       <p class="text-body-lg text-stone mb-12 max-w-2xl">
-        We don't fix things to generate a bill. We assess your system honestly and give you the most cost-effective path forward. Sometimes that's a repair. Sometimes it's a component swap. Sometimes it's an honest "replace it."
+        We do not repair TVs, receivers, projectors, speakers or other devices. If one device stopped working on its own and nothing else in the house changed, the maker's warranty or support line is the right call, not a service visit, and we will say so up front.
       </p>
 
       <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
         {[
-          { title: 'Home Theater Troubleshooting', desc: 'Full system diagnostics: receiver, projector, display, speakers, sources, and control system. We find what\'s wrong and tell you what it takes to fix it.' },
-          { title: 'Surround Sound Repair', desc: 'Dead channels, calibration issues, receiver problems, speaker failures. We diagnose and repair or recommend replacement when repair isn\'t cost-effective.' },
-          { title: 'HDMI & Connectivity Issues', desc: 'HDMI handshake failures, 4K compatibility problems, signal distribution issues. More common than they should be, we\'ve seen all of them.' },
-          { title: 'System Recalibration', desc: 'Rooms change, equipment ages, people move things. We recalibrate systems to current conditions, whether we installed them or not.' },
-          { title: 'Inherited System Assessment', desc: 'Bought a house with an existing AV system and don\'t know what you have? We\'ll assess it, document it, and tell you what\'s worth keeping.' },
-          { title: 'Projector Service', desc: 'Alignment, lamp replacement, lens cleaning, connectivity. We service and reconfigure projection systems across San Antonio.' },
+          { title: 'Systems an Installer Left Not Working', desc: 'Your installer stopped answering and the cameras, music or theater never worked right? We work out what was installed and how it was wired, finish what was left undone, and get it working.' },
+          { title: 'After the Cable or Internet Company', desc: 'An install or service visit can unplug, move or reroute the wires your system depends on. We find what changed and put it back so everything works together again.' },
+          { title: 'Surround Sound Not Working', desc: 'Dead channels, no sound from the surrounds, speakers wired backward, wrong speaker settings in the receiver. We fix the wiring and the settings. We do not repair the receiver or speakers themselves.' },
+          { title: 'HDMI and Connection Problems', desc: 'HDMI handshake failures, no picture, 4K or Dolby Atmos not coming through, a long run to the projector that drops out. These are connection and settings problems, and they are more common than they should be.' },
+          { title: 'Cameras, Wi-Fi and Whole-House Music', desc: 'Cameras that went offline, Wi-Fi that drops, music that stopped playing in some rooms. Bad cabling and network setup are exactly what we fix.' },
+          { title: 'Inherited Systems and Recalibration', desc: 'Bought a house with a system nobody explained? We map what you have, get it working, and tell you what is worth keeping. Rooms change and people move things, so we recalibrate systems too, whether we installed them or not.' },
         ].map(({ title, desc }) => (
           <div class="card p-7 flex flex-col gap-3">
             <h3 class="font-sans font-semibold text-h4 text-warm-white">{title}</h3>
@@ -121,7 +135,7 @@ const featured = {
 
   <CTASection
     heading="Something Not Working Right?"
-    body="Give us a call or book a service visit. We'll come out, assess the system, and tell you what's going on, straight."
+    body="Call or book a service visit. We'll come out, find what is wrong with the setup, and tell you straight what it takes to get it working. If it is one device that broke on its own, its maker's support line is the faster fix."
     ctaLabel="Call (210) 981-4098"
     ctaHref="tel:2109814098"
     secondaryLabel="Book a Service Visit"

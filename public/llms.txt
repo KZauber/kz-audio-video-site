@@ -9,10 +9,10 @@ KZ Audio & Video is a home AV installation company based in San Antonio, Texas. 
 - **Home Theater Installation**: Dedicated theater rooms and media spaces built around the specific room, projector, and client. Full service from pre-wire through system programming and client walkthrough.
 - **Whole-House Audio**: Multi-room audio systems (Sonos and others) controlled from a phone or tablet. Designed around how the client actually uses their home.
 - **Outdoor Audio & Video**: Weather-resistant speaker systems, outdoor projectors, and displays for covered patios, pool decks, and outdoor kitchens.
-- **Surround Sound Installation**: 5.1, 7.1, and Dolby Atmos systems properly placed and calibrated — not just plugged in and set to default.
+- **Surround Sound Installation**: 5.1, 7.1, and Dolby Atmos systems properly placed and calibrated, not just plugged in and set to default.
 - **Security Camera Installation**: Indoor and outdoor camera systems integrated into the home technology setup with remote access.
 - **TV Mounting & Installation**: Flat panel and Frame TV installation with zero visible wiring. Samsung Frame TV specialists.
-- **AV Repair**: Repair and troubleshooting of existing AV systems, including systems not originally installed by KZ.
+- **AV Repair (setups, not devices)**: Gets AV systems working again when the problem is the setup: wiring, connections and settings left not working by a cable or internet company or by another installer, including systems KZ did not install. KZ does not repair TVs, receivers or other devices; a device that failed on its own goes to its maker's warranty or support. See https://kzaudioandvideo.com/av-repair-san-antonio-tx/
 - **Home Network & Wi-Fi Installation**: Whole-home Wi-Fi coverage with wired access points, ethernet runs, and clean network racks. Networks designed to carry 4K streaming, smart home devices, and camera systems. See https://kzaudioandvideo.com/home-network-installation-san-antonio/
 - **UniFi Installation for Homes**: KZ installs Ubiquiti UniFi in San Antonio homes: Wi-Fi access points wired to a PoE switch, gateways and switches in a rack, network cabling, and UniFi Protect cameras (licensed by the Texas Private Security Board for camera installs). Also fixes existing networks with dead zones or bad cabling. See https://kzaudioandvideo.com/unifi-installer-san-antonio/
 - **Residential Low Voltage for Custom Home Builders**: KZ is the residential low voltage contractor for custom home builders. Data, speaker, camera, and theater wire pulled at framing, before insulation and drywall; after the low voltage is done, the same crew installs the speakers, projectors, cameras, and network at trim. Free written pre-wire spec for each builder. See https://kzaudioandvideo.com/low-voltage-prewire-builders-san-antonio/
@@ -28,14 +28,14 @@ Counties served: Bexar County, Kendall County, Comal County, Guadalupe County.
 
 - Phone: (210) 981-4098
 - Website: https://kzaudioandvideo.com
-- Consultation: Free in-home consultation — KZ drives to the client's home at no charge
+- Consultation: Free in-home consultation. KZ drives to the client's home at no charge
 
 ## Business Details
 
 - Founded: 1999
 - Owner: Kelly Zauber
 - Team: Kelly Zauber, Billy, Julian
-- Subcontractors: None — ever
+- Subcontractors: None, ever
 - Google Rating: 5.0 stars
 - Builder relationships: 9 active custom home builder partnerships; longest relationship started in 2009
 
@@ -49,10 +49,10 @@ In-depth, citation-ready answers to the most common home theater and AV question
 - [What Size TV Do I Need for My Room?](https://kzaudioandvideo.com/what-size-tv-for-my-room/)
 - [Best TV for Bright Rooms](https://kzaudioandvideo.com/best-tv-for-bright-rooms/)
 - [OLED vs QLED for Bright Rooms](https://kzaudioandvideo.com/oled-vs-qled-bright-room/)
-- [Projector vs TV — Which Is Better for a Home Theater?](https://kzaudioandvideo.com/projector-vs-tv-home-theater/)
+- [Projector vs TV: Which Is Better for a Home Theater?](https://kzaudioandvideo.com/projector-vs-tv-home-theater/)
 - [Does a Projector Room Need to Be Completely Dark?](https://kzaudioandvideo.com/projector-room-lighting/)
 - [Where Do You Place Surround Sound Speakers?](https://kzaudioandvideo.com/surround-sound-speaker-placement/)
-- [Soundbar vs Surround Sound — Which Should I Get?](https://kzaudioandvideo.com/soundbar-vs-surround-sound/)
+- [Soundbar vs Surround Sound: Which Should I Get?](https://kzaudioandvideo.com/soundbar-vs-surround-sound/)
 - [Is Dolby Atmos Worth It?](https://kzaudioandvideo.com/is-dolby-atmos-worth-it/)
 - [How Can I Make My TV Sound Better?](https://kzaudioandvideo.com/how-to-improve-tv-sound/)
 - [Do I Need an Outdoor-Rated TV for My Covered Patio?](https://kzaudioandvideo.com/outdoor-tv-covered-patio/)
@@ -88,7 +88,7 @@ KZ Audio & Video installs custom home theaters in San Antonio and the surroundin
 No. Every installation is performed by Kelly, Billy, or Julian. KZ Audio & Video has never used subcontractors.
 
 **How much does a home theater cost in San Antonio?**
-Home theater costs vary widely based on room size, equipment selection, and complexity. KZ Audio & Video provides free in-home consultations with accurate quotes — no sight-unseen estimates.
+Home theater costs vary widely based on room size, equipment selection, and complexity. KZ Audio & Video provides free in-home consultations with accurate quotes, no sight-unseen estimates.
 
 **Do you serve Boerne, New Braunfels, or the Hill Country?**
 Yes. KZ Audio & Video regularly serves Boerne, Bulverde, Canyon Lake, Helotes, New Braunfels, Stone Oak, Timberwood Park, and communities throughout the Texas Hill Country.
