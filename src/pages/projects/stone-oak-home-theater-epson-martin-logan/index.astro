@@ -57,27 +57,40 @@ const gallery = [
 >
 
   <!-- Hero -->
-  <section class="relative overflow-hidden" style="height:65vh;min-height:420px;">
-    <img
-      src="/images/projects/young-theater/stone-oak-home-theater-hero.jpg"
-      alt="Custom home theater installation in Stone Oak San Antonio TX with projection screen and surround sound"
-      class="absolute inset-0 w-full h-full object-cover object-center"
-      loading="eager"
-      fetchpriority="high"
-      decoding="async"
-    />
-    <div class="absolute inset-0" style="background:linear-gradient(to top, rgba(14,16,18,0.75) 0%, rgba(14,16,18,0.15) 45%, rgba(14,16,18,0.00) 100%);" aria-hidden="true"></div>
-    <div class="absolute inset-0 flex flex-col justify-end pb-14 px-6 sm:px-10 lg:px-16">
-      <div class="container-main">
-        <h1 class="font-display text-warm-white mb-0" style="font-size:clamp(1.75rem,4vw,3rem);line-height:1.1;letter-spacing:-0.02em;">
+  <!-- This theater's own photo (Kelly, 2026-10-27); the old hero was a different house's theater.
+       The photo is tall (1200x1607), so it sits in a framed column like the project card instead of a
+       full-width banner, which zoomed it to the middle of the screen and put the headline on bright picture. -->
+  <section class="bg-charcoal px-4 sm:px-6 pt-32 pb-14 md:pt-40 md:pb-16">
+    <div class="container-main grid grid-cols-1 lg:grid-cols-12 gap-10 items-center">
+      <div class="lg:col-span-5">
+        <p class="overline mb-4">Project · Home Theater</p>
+        <h1 class="font-display text-warm-white mb-5" style="font-size:clamp(1.75rem,4vw,3rem);line-height:1.1;letter-spacing:-0.02em;">
           Home Theater Installation: Stone Oak, San Antonio TX
         </h1>
+        <p class="text-body-lg text-stone leading-relaxed">
+          Epson laser projector, Screen Innovations fixed-frame screen, Martin Logan on-wall speakers front and rear, and LED accent lighting, from prewire through the final walkthrough.
+        </p>
+      </div>
+      <div class="lg:col-span-7">
+        <div class="aspect-[16/10] overflow-hidden rounded-lg">
+          <img
+            src="/images/projects/asanka-theater/san-antonio-home-theater-project-cover.jpg"
+            alt="Dedicated home theater in Stone Oak, San Antonio: a fixed-frame projection screen between Martin Logan on-wall speakers"
+            class="w-full h-full object-cover"
+            style="object-position:center 42%;"
+            width="1200"
+            height="1607"
+            loading="eager"
+            fetchpriority="high"
+            decoding="async"
+          />
+        </div>
       </div>
     </div>
   </section>
 
   <!-- Details bar -->
-  <section class="bg-charcoal border-b border-smoke py-6">
+  <section class="bg-charcoal border-b border-smoke px-4 sm:px-6 py-6">
     <div class="container-main">
       <dl class="flex flex-wrap gap-x-10 gap-y-3">
         <div class="flex flex-col gap-0.5">
