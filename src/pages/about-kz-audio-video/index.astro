@@ -3,6 +3,7 @@ import BaseLayout from '../../layouts/BaseLayout.astro';
 import TrustBar from '../../components/sections/TrustBar.astro';
 import TestimonialsSection from '../../components/sections/TestimonialsSection.astro';
 import CTASection from '../../components/sections/CTASection.astro';
+import { DENNIS_GARRETT_BILLY, ERIC_TURNER_SHORT, GARY_S, WINSTON } from '../../data/reviews';
 
 const schema = [
   {
@@ -23,27 +24,9 @@ const schema = [
   }
 ];
 
-const featured = {
-  name: 'Builder Partner',
-  location: 'San Antonio, TX',
-  service: 'Builder Client, 16 Years',
-  quote: "I have been working with Kelly for 16 years. He and his team are true professionals. They show up on time, do quality work, and handle our homeowners with the utmost professionalism.",
-};
+const featured = WINSTON;
 
-const secondary = [
-  {
-    name: 'San Antonio Homeowner',
-    location: 'San Antonio, TX',
-    service: 'Home Theater Client: Nearly 10 Years',
-    quote: "They're honest and will recommend what actually works for your situation rather than upselling you on equipment you don't need.",
-  },
-  {
-    name: 'Clay Bostick',
-    location: 'San Antonio, TX',
-    service: 'Custom Home Builder',
-    quote: 'Kelly and his crew are great. They show up when they say they will, the work is clean, and our homeowners love working with them.',
-  },
-];
+const secondary = [ERIC_TURNER_SHORT, GARY_S];
 ---
 
 <BaseLayout
@@ -133,9 +116,9 @@ const secondary = [
         </div>
         <div class="card p-8 border-l-4 border-gold rounded-l-none">
           <p class="font-display text-h3 text-warm-white italic mb-4">
-            "Billy, Julien and Kelly did an outstanding job on my home theater build. From start to finish they were professional, knowledgeable, and easy to work with."
+            "{DENNIS_GARRETT_BILLY.quote}"
           </p>
-          <footer class="text-caption text-stone uppercase tracking-widest">Canyon Lake, TX · Home Theater Client</footer>
+          <footer class="text-caption text-stone uppercase tracking-widest">{DENNIS_GARRETT_BILLY.name} · {DENNIS_GARRETT_BILLY.location} · {DENNIS_GARRETT_BILLY.service}</footer>
         </div>
       </div>
     </div>

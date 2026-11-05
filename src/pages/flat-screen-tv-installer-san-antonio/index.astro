@@ -5,6 +5,7 @@ import TestimonialsSection from '../../components/sections/TestimonialsSection.a
 import FAQAccordion from '../../components/sections/FAQAccordion.astro';
 import CTASection from '../../components/sections/CTASection.astro';
 import { RATING, REVIEW_COUNT } from '../../data/business';
+import { ROBERT_WELSH_INSTALL } from '../../data/reviews';
 
 const schema = {
   "@context": "https://schema.org",
@@ -145,12 +146,7 @@ const faqs = [
   },
 ];
 
-const featured = {
-  name: 'San Antonio Homeowner',
-  location: 'San Antonio, TX',
-  service: 'TV Installation Client',
-  quote: "Kelly and crew did an amazing job installing our TV above the fireplace. Clean installation, no visible wires, and he set up our surround sound at the same time. Worth every penny to have it done right.",
-};
+const featured = ROBERT_WELSH_INSTALL;
 
 const installs = [
   {

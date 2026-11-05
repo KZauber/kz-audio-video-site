@@ -26,3 +26,6 @@ export const REVIEWS_LABEL = `${REVIEW_COUNT} Google Reviews`;
 
 /** "5.0 stars across 33 Google reviews", for prose and meta descriptions. */
 export const REVIEWS_SENTENCE = `${RATING} stars across ${REVIEW_COUNT} Google reviews`;
+
+/** Google's own review page for KZ. It carries no number here because Google keeps it current. */
+export const GOOGLE_REVIEWS_URL = 'https://search.google.com/local/reviews?placeid=ChIJeyItl2-9XIYRWX6BQteFGlY';

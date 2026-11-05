@@ -6,6 +6,7 @@ import ProjectsGrid from '../../components/sections/ProjectsGrid.astro';
 import TestimonialsSection from '../../components/sections/TestimonialsSection.astro';
 import FAQAccordion from '../../components/sections/FAQAccordion.astro';
 import CTASection from '../../components/sections/CTASection.astro';
+import { MONTY_HEINS } from '../../data/reviews';
 
 const schema = {
   "@context": "https://schema.org",
@@ -54,12 +55,7 @@ const projects = [
   },
 ];
 
-const featured = {
-  name: "Canyon Lake Homeowner",
-  location: "Canyon Lake, TX",
-  service: "Home Theater",
-  quote: "Billy, Julien and Kelly did an outstanding job on my home theater build. From start to finish they were professional, knowledgeable, and easy to work with. The theater came out better than I had hoped.",
-};
+const featured = MONTY_HEINS;
 
 const faqs = [
   {

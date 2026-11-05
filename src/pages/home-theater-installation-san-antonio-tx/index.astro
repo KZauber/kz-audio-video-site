@@ -8,6 +8,7 @@ import FAQAccordion from "../../components/sections/FAQAccordion.astro";
 import CTASection from "../../components/sections/CTASection.astro";
 import LowVoltageFirst from "../../components/sections/LowVoltageFirst.astro";
 import { REVIEWS_SENTENCE } from "../../data/business";
+import { BRANDE_SCHRIEWER, DENNIS_GARRETT, MONTY_HEINS } from "../../data/reviews";
 
 const schema = {
   "@context": "https://schema.org",
@@ -72,27 +73,9 @@ const projects = [
   },
 ];
 
-const featured = {
-  name: "Canyon Lake Homeowner",
-  location: "Canyon Lake, TX",
-  service: "Dedicated Home Theater",
-  quote: "Billy, Julien and Kelly did an outstanding job on my home theater build. From start to finish they were professional, knowledgeable, and easy to work with. The theater came out better than I had hoped.",
-};
+const featured = MONTY_HEINS;
 
-const secondary = [
-  {
-    name: "San Antonio Homeowner",
-    location: "San Antonio, TX",
-    service: "Home Theater",
-    quote: "KZ Audio and Video did a great job installing our home theater system. They were professional, on time, and their attention to detail was outstanding.",
-  },
-  {
-    name: "San Antonio Homeowner",
-    location: "San Antonio, TX",
-    service: "Home AV Client: Nearly 10 Years",
-    quote: "They are honest and will recommend what actually works for your situation rather than upselling you on equipment you do not need. I have never had a bad experience with them.",
-  },
-];
+const secondary = [DENNIS_GARRETT, BRANDE_SCHRIEWER];
 
 const faqs = [
   {

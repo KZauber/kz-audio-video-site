@@ -6,6 +6,7 @@ import ServicesGrid from '../../components/sections/ServicesGrid.astro';
 import ProjectsGrid from '../../components/sections/ProjectsGrid.astro';
 import TestimonialsSection from '../../components/sections/TestimonialsSection.astro';
 import CTASection from '../../components/sections/CTASection.astro';
+import { MONTY_HEINS } from '../../data/reviews';
 
 const schema = {
   "@context": "https://schema.org",
@@ -50,12 +51,7 @@ const projects = [
   },
 ];
 
-const featured = {
-  name: 'San Antonio Homeowner',
-  location: 'San Antonio, TX',
-  service: 'Home Theater Client: Nearly 10 Years',
-  quote: "I've been a customer of KZ Audio for going on a decade. Kelly and crew have always been great to work with. They're honest and will recommend what actually works for your situation rather than upselling you on equipment you don't need.",
-};
+const featured = MONTY_HEINS;
 ---
 
 <BaseLayout

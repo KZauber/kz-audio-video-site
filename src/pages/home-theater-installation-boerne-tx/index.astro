@@ -6,6 +6,7 @@ import ProjectsGrid from '../../components/sections/ProjectsGrid.astro';
 import TestimonialsSection from '../../components/sections/TestimonialsSection.astro';
 import FAQAccordion from '../../components/sections/FAQAccordion.astro';
 import CTASection from '../../components/sections/CTASection.astro';
+import { ERIC_TURNER } from '../../data/reviews';
 
 const schema = {
   "@context": "https://schema.org",
@@ -54,12 +55,7 @@ const projects = [
   },
 ];
 
-const featured = {
-  name: 'San Antonio Homeowner',
-  location: 'San Antonio, TX',
-  service: 'Home AV Client: Nearly 10 Years',
-  quote: "They're honest and will recommend what actually works for your situation rather than upselling you on equipment you don't need. I've never had a bad experience with them and would absolutely recommend them to anyone looking for AV services.",
-};
+const featured = ERIC_TURNER;
 
 const faqs = [
   {

@@ -5,6 +5,7 @@ import TrustBar from '../../components/sections/TrustBar.astro';
 import TestimonialsSection from '../../components/sections/TestimonialsSection.astro';
 import FAQAccordion from '../../components/sections/FAQAccordion.astro';
 import CTASection from '../../components/sections/CTASection.astro';
+import { MIKE_POTTORFF } from '../../data/reviews';
 
 const schema = {
   "@context": "https://schema.org",
@@ -124,12 +125,7 @@ const faqs = [
   },
 ];
 
-const featured = {
-  name: 'San Antonio Homeowner',
-  location: 'San Antonio, TX',
-  service: 'Home AV Client: Nearly 10 Years',
-  quote: "I've been a customer of KZ Audio for going on a decade. Kelly and crew have always been great to work with. They're honest and will recommend what actually works for your situation rather than upselling you on equipment you don't need.",
-};
+const featured = MIKE_POTTORFF;
 ---
 
 <BaseLayout

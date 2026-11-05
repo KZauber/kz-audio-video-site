@@ -2,6 +2,7 @@
 import LandingLayout from '../../layouts/LandingLayout.astro';
 import TrustBar from '../../components/sections/TrustBar.astro';
 import TestimonialsSection from '../../components/sections/TestimonialsSection.astro';
+import { MONTY_HEINS } from '../../data/reviews';
 
 // Paid landing page for the ChatGPT Ads beta campaign (premium TV install,
 // whole-house audio, home theater). noindex by default via LandingLayout.
@@ -59,12 +60,7 @@ const steps = [
   { n: '03', title: 'Clean, Expert Install', copy: 'A meticulous installation by a team that\'s been doing this since 1999, and leaves your home like we found it.' },
 ];
 
-const featured = {
-  name: 'San Antonio Homeowner',
-  location: 'San Antonio, TX',
-  service: 'Home AV Client: Nearly 10 Years',
-  quote: "They're honest and will recommend what actually works for your situation rather than upselling you on equipment you don't need. I've never had a bad experience with them and would absolutely recommend them to anyone looking for AV services.",
-};
+const featured = MONTY_HEINS;
 ---
 
 <LandingLayout

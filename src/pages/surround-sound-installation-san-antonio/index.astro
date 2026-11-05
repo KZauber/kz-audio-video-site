@@ -6,6 +6,7 @@ import TestimonialsSection from '../../components/sections/TestimonialsSection.a
 import FAQAccordion from '../../components/sections/FAQAccordion.astro';
 import CTASection from '../../components/sections/CTASection.astro';
 import LowVoltageFirst from '../../components/sections/LowVoltageFirst.astro';
+import { CHARLIE_CHAFFIN } from '../../data/reviews';
 
 const schema = {
   "@context": "https://schema.org",
@@ -161,12 +162,7 @@ const faqs = [
   },
 ];
 
-const featured = {
-  name: 'San Antonio Homeowner',
-  location: 'San Antonio, TX',
-  service: 'Home Theater',
-  quote: 'KZ Audio and Video did a great job installing our home theater system. They were professional, on time, and their attention to detail was outstanding.',
-};
+const featured = CHARLIE_CHAFFIN;
 ---
 
 <BaseLayout

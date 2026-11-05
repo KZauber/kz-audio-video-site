@@ -25,6 +25,7 @@ import TestimonialsSection from '../../components/sections/TestimonialsSection.a
 import FAQAccordion from '../../components/sections/FAQAccordion.astro';
 import CTASection from '../../components/sections/CTASection.astro';
 import LowVoltageFirst from '../../components/sections/LowVoltageFirst.astro';
+import { ALY_BEYNON } from '../../data/reviews';
 
 const PAGE_URL = 'https://kzaudioandvideo.com/security-camera-installation-san-antonio/';
 const COST_URL = '/security-camera-installation-cost-san-antonio/';
@@ -106,12 +107,7 @@ const priceTiers = [
   { t: 'Nine or more cameras', d: 'Large property, high-capacity recording', p: '$5,000 to $8,000 and up' },
 ];
 
-const featured = {
-  name: 'San Antonio Homeowner',
-  location: 'San Antonio, TX',
-  service: 'Home AV Client: Nearly 10 Years',
-  quote: "They're honest and will recommend what actually works for your situation rather than upselling you on equipment you don't need. I've never had a bad experience with them and would absolutely recommend them.",
-};
+const featured = ALY_BEYNON;
 ---
 
 <BaseLayout

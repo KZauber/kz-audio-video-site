@@ -1,5 +1,5 @@
 ---
-import { RATING, REVIEWS_LABEL } from '../../data/business';
+import { GOOGLE_REVIEWS_URL, RATING, REVIEWS_LABEL } from '../../data/business';
 
 interface Testimonial {
   name: string;
@@ -94,8 +94,9 @@ const stars = Array(5).fill(null);
       </div>
     )}
 
-    <div class="reveal reveal-delay-3">
-      <a href="/reviews-kz-audio-video-san-antonio/" class="btn-text text-sm">Read all reviews &rarr;</a>
+    <div class="reveal reveal-delay-3 flex flex-wrap gap-x-6 gap-y-2">
+      <a href="/reviews-kz-audio-video-san-antonio/" class="btn-text text-sm cursor-pointer">Read more reviews &rarr;</a>
+      <a href={GOOGLE_REVIEWS_URL} target="_blank" rel="noopener" class="btn-text text-sm cursor-pointer">See every review on Google &rarr;</a>
     </div>
 
   </div>

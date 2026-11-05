@@ -53,20 +53,4 @@ const faqs = defineCollection({
   }),
 });
 
-const testimonials = defineCollection({
-  type: 'data',
-  schema: z.object({
-    name:     z.string(),
-    location: z.string(),
-    service:  z.string(),
-    quote:    z.string(),
-    rating:   z.number().min(1).max(5),
-    date:     z.string(),
-    source:   z.enum(['google', 'direct', 'yelp', 'houzz']),
-    verified: z.boolean().default(true),
-    featured: z.boolean().default(false),
-    audiences: z.array(z.enum(['residential', 'builder'])).default(['residential']),
-  }),
-});
-
-export const collections = { services, projects, locations, faqs, testimonials };
+export const collections = { services, projects, locations, faqs };

@@ -2,12 +2,8 @@
 import BaseLayout from '../../layouts/BaseLayout.astro';
 import HeroSection from '../../components/sections/HeroSection.astro';
 import CTASection from '../../components/sections/CTASection.astro';
-import testimonials from '../../content/testimonials/testimonials.json';
-import { RATING, REVIEW_COUNT, REVIEWS_SENTENCE } from '../../data/business';
-
-const verified = testimonials.filter((t) => t.verified);
-const residential = verified.filter((t) => t.audiences?.includes('residential'));
-const builder = verified.filter((t) => t.audiences?.includes('builder'));
+import { RESIDENTIAL_REVIEWS as residential, BUILDER_REVIEWS as builder } from '../../data/reviews';
+import { GOOGLE_REVIEWS_URL, RATING, REVIEW_COUNT, REVIEWS_SENTENCE } from '../../data/business';
 
 const businessSchema = {
   "@context": "https://schema.org",
@@ -24,13 +20,12 @@ const businessSchema = {
     "bestRating": "5",
     "worstRating": "1"
   },
-  "review": verified.map((t) => ({
+  "review": [...residential, ...builder].map((t) => ({
     "@type": "Review",
     "author": { "@type": "Person", "name": t.name },
-    "datePublished": t.date,
     "reviewRating": {
       "@type": "Rating",
-      "ratingValue": String(t.rating),
+      "ratingValue": "5",
       "bestRating": "5",
       "worstRating": "1"
     },
@@ -95,7 +90,7 @@ const stars = Array(5).fill(null);
                reviews, so it never goes stale (Kelly, 2026-10-23). -->
           <div class="flex flex-wrap gap-4">
             <a
-              href="https://search.google.com/local/reviews?placeid=ChIJeyItl2-9XIYRWX6BQteFGlY"
+              href={GOOGLE_REVIEWS_URL}
               target="_blank"
               rel="noopener"
               class="btn-primary text-sm cursor-pointer"

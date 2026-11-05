@@ -7,6 +7,7 @@ import TestimonialsSection from '../components/sections/TestimonialsSection.astr
 import ProjectsGrid from '../components/sections/ProjectsGrid.astro';
 import CTASection from '../components/sections/CTASection.astro';
 import { RATING, REVIEW_COUNT } from '../data/business';
+import { ERIC_TURNER, MONTY_HEINS, ROBERT_WELSH_INSTALL } from '../data/reviews';
 
 const localBusiness = {
   "@context": "https://schema.org",
@@ -116,27 +117,9 @@ const featuredProjects = [
   },
 ];
 
-const ericTurner = {
-  name: 'San Antonio Homeowner',
-  location: 'San Antonio, TX',
-  service: 'Home Theater Client: Nearly 10 Years',
-  quote: "I've been a customer of KZ Audio for going on a decade. Kelly and crew have always been great to work with. They're honest and will recommend what actually works for your situation rather than upselling you on equipment you don't need. I've never had a bad experience with them and would absolutely recommend them to anyone looking for AV services.",
-};
+const ericTurner = ERIC_TURNER;
 
-const secondaryReviews = [
-  {
-    name: 'Canyon Lake Homeowner',
-    location: 'Canyon Lake, TX',
-    service: 'Home Theater',
-    quote: 'Billy, Julien and Kelly did an outstanding job on my home theater build. From start to finish they were professional, knowledgeable, and easy to work with. The theater came out better than I had hoped.',
-  },
-  {
-    name: 'San Antonio Homeowner',
-    location: 'San Antonio, TX',
-    service: 'Home Theater',
-    quote: 'KZ Audio and Video did a great job installing our home theater system. They were professional, on time, and their attention to detail was outstanding.',
-  },
-];
+const secondaryReviews = [MONTY_HEINS, ROBERT_WELSH_INSTALL];
 ---
 
 <BaseLayout
