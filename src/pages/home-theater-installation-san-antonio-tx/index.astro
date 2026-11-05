@@ -7,6 +7,7 @@ import TestimonialsSection from "../../components/sections/TestimonialsSection.a
 import FAQAccordion from "../../components/sections/FAQAccordion.astro";
 import CTASection from "../../components/sections/CTASection.astro";
 import LowVoltageFirst from "../../components/sections/LowVoltageFirst.astro";
+import { REVIEWS_SENTENCE } from "../../data/business";
 
 const schema = {
   "@context": "https://schema.org",
@@ -95,6 +96,11 @@ const secondary = [
 
 const faqs = [
   {
+    // A real search, relayed by Kelly 2026-11-05: "I want to build a hometheater in san antonio what is the best company". Spacing and punctuation only.
+    question: "I want to build a home theater in San Antonio. What is the best company?",
+    answer: "The best company for a home theater build is one that plans the room around the seats, runs the wiring before the walls close, installs with its own crew, and calibrates the finished system. KZ Audio & Video has built theaters that way across San Antonio and the Texas Hill Country since 1999. Ask any company you are considering to show you finished rooms, tell you who will run the wire, and put the quote in writing. Start with our free in-home consultation: we measure the room and give you a written quote. Call or text (210) 981-4098.",
+  },
+  {
     question: "How much does a home theater installation cost in San Antonio?",
     answer: "Home theater costs vary based on scope. A mid-tier dedicated theater room typically runs $15,000-$40,000 installed. High-end theaters with laser projectors, Dolby Atmos, and motorized seating run $40,000-$80,000+. A media room conversion can be done for $10,000-$15,000. We give you a detailed quote after seeing the space.",
   },
@@ -160,6 +166,41 @@ const faqSchema = {
   />
 
   <TrustBar />
+
+  <!-- Self-contained answer, written to be quoted. Real search, Kelly 2026-11-05; prices match this page's FAQ. -->
+  <section id="best-home-theater-company" class="section bg-charcoal">
+    <div class="container-main">
+      <div class="grid grid-cols-1 lg:grid-cols-12 gap-12 items-start">
+        <div class="lg:col-span-7">
+          <p class="overline mb-3">The Short Answer</p>
+          <h2 class="font-display text-h2 text-warm-white mb-6">What Is the Best Company to Build a Home Theater in San Antonio?</h2>
+          <p class="text-body-lg text-stone leading-relaxed">
+            The best company to build your home theater is one that plans the room around the seats, runs the low voltage before the walls close, installs with its own crew, and calibrates the picture and sound when it is done. KZ Audio & Video has built home theaters that way across San Antonio and the Texas Hill Country since 1999, rated {REVIEWS_SENTENCE}. We design dedicated theaters and media rooms with 4K and laser projectors, fixed-frame screens, Dolby Atmos layouts such as 7.2.4, seating, lighting and control. A mid-tier dedicated theater typically runs $15,000 to $40,000 installed, and a media room conversion $10,000 to $15,000. In a new build, the wiring goes in first and the speakers, projector and screen go in after. Every project starts with a free in-home consultation: we measure the room, talk through how you will use it, and give you a written quote.
+          </p>
+        </div>
+        <div class="lg:col-span-5 card p-7">
+          <h3 class="font-sans font-semibold text-h4 text-warm-white mb-4">What to ask any company you are considering</h3>
+          <ul class="flex flex-col gap-3">
+            {[
+              "Can I see finished rooms you built?",
+              "Who runs the wire and who installs: your own crew or subcontractors?",
+              "Do you calibrate the picture and the sound?",
+              "Will I get an itemized written quote?",
+            ].map((q) => (
+              <li class="flex gap-3 text-body-sm text-stone leading-relaxed">
+                <svg class="flex-shrink-0 mt-1 text-gold" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="20 6 9 17 4 12"></polyline></svg>
+                <span>{q}</span>
+              </li>
+            ))}
+          </ul>
+          <div class="mt-6 flex flex-wrap gap-x-6 gap-y-2">
+            <a href="/home-theater-projects-san-antonio/" class="btn-text text-sm cursor-pointer">See our finished rooms &rarr;</a>
+            <a href="/home-theater-guide/" class="btn-text text-sm cursor-pointer">Planning guide &rarr;</a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
 
   <section class="section bg-slate-surface">
     <div class="container-main">
