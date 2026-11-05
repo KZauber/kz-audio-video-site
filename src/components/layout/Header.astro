@@ -1,5 +1,6 @@
 ---
 const navLinks = [
+  { label: 'Cameras',           href: '/security-camera-installation-san-antonio/' },
   { label: 'Whole House Audio', href: '/whole-house-audio-san-antonio/' },
   { label: 'Outdoor AV',        href: '/outdoor-audio-video-san-antonio/' },
   { label: 'Pricing',           href: '/home-theater-cost-san-antonio/' },
@@ -39,7 +40,9 @@ const currentPath = Astro.url.pathname;
   <!-- Desktop sizing: logo + nav + CTA need 1265px at full logo size, more than the
        1280px container holds once padded, which pushed "Book a Consult" past the screen
        edge at 1440 wide. From xl to 2xl the logo drops to h-16 so the row fits; from 2xl
-       the header gets a 1440px container and the full-size logo back. -->
+       the header gets a 1440px container and the full-size logo back. Adding Cameras to the
+       nav (2026-11-05) took the row past the edge at 1280, so nav text and gaps step down
+       from xl to 2xl as well. -->
   <div class="container-wide 2xl:max-w-[1440px] w-full flex items-center justify-between px-4 sm:px-6 lg:px-8 xl:px-6">
 
     <!-- Logo -->
@@ -55,13 +58,13 @@ const currentPath = Astro.url.pathname;
     </a>
 
     <!-- Desktop nav -->
-    <nav class="hidden xl:flex items-center gap-4" aria-label="Main navigation">
+    <nav class="hidden xl:flex items-center gap-3 2xl:gap-4" aria-label="Main navigation">
       <!-- Home Theater dropdown -->
       <div class="relative group">
         <a
           href="/home-theater-installation-san-antonio-tx/"
           class:list={[
-            'font-sans font-medium text-body-sm transition-colors duration-fast flex items-center gap-1',
+            'font-sans font-medium text-[13px] 2xl:text-body-sm transition-colors duration-fast flex items-center gap-1',
             currentPath.startsWith('/home-theater') || currentPath === '/micro-led-wall-san-antonio/'
               ? 'text-gold'
               : 'text-stone hover:text-warm-white',
@@ -93,7 +96,7 @@ const currentPath = Astro.url.pathname;
         <a
           href={href}
           class:list={[
-            'font-sans font-medium text-body-sm whitespace-nowrap transition-colors duration-fast',
+            'font-sans font-medium text-[13px] 2xl:text-body-sm whitespace-nowrap transition-colors duration-fast',
             currentPath === href
               ? 'text-gold'
               : 'text-stone hover:text-warm-white',
@@ -108,7 +111,7 @@ const currentPath = Astro.url.pathname;
         <a
           href="/service-areas/"
           class:list={[
-            'font-sans font-medium text-body-sm transition-colors duration-fast flex items-center gap-1',
+            'font-sans font-medium text-[13px] 2xl:text-body-sm transition-colors duration-fast flex items-center gap-1',
             currentPath.startsWith('/service-areas/')
               ? 'text-gold'
               : 'text-stone hover:text-warm-white',

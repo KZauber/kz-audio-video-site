@@ -9,7 +9,11 @@
  * directories). This rebuild adds the licensing answer, the cost answer, wired vs Wi-Fi, FAQ schema
  * and links to the cost page.
  * Prices come from /security-camera-installation-cost-san-antonio/; change them there first.
- * Still needed from Kelly: real camera job photos for the hero, and the DPS license number.
+ * Still needed from Kelly: real camera job photos for the hero. License B-15669: Kelly, 2026-10-26.
+ *
+ * Wired first (Kelly, 2026-11-05): "Wired is best but if there is no way to wire them, we do WiFi cams."
+ * The two lead questions are real people's words: Facebook "San Antonio - Ask A Local" titles Google showed
+ * for "security camera installation san antonio", San Antonio, 2026-11-05 (kz/website/faq-source-log.md).
  *
  * Ring block (Kelly, 2026-10-26: "add a ring section please"). "ring doorbell installation" draws about
  * 50 San Antonio searches a month, 90 in December (Google Ads tool, 2026-10-26). KZ quotes Ring
@@ -25,16 +29,26 @@ import TestimonialsSection from '../../components/sections/TestimonialsSection.a
 import FAQAccordion from '../../components/sections/FAQAccordion.astro';
 import CTASection from '../../components/sections/CTASection.astro';
 import LowVoltageFirst from '../../components/sections/LowVoltageFirst.astro';
-import { ALY_BEYNON } from '../../data/reviews';
+import { ALY_BEYNON, ANDRES_PEREZ, ZACK_CROFT } from '../../data/reviews';
 
 const PAGE_URL = 'https://kzaudioandvideo.com/security-camera-installation-san-antonio/';
 const COST_URL = '/security-camera-installation-cost-san-antonio/';
 
 const faqs = [
   {
+    // Facebook, San Antonio - Ask A Local, shown by Google 2026-11-05: "Who installs hardwired security cameras in San Antonio".
+    question: 'Who installs hardwired security cameras in San Antonio?',
+    answer: 'KZ Audio & Video does. Wired is the best way to do cameras, so we run a network cable to every camera and back to a recorder in your home whenever there is a way to run it. If there is truly no way to wire a spot, we put a WiFi camera there. We hold Texas Private Security Board license B-15669, and our own crew does the work. Call or text (210) 981-4098.',
+  },
+  {
+    // Facebook, San Antonio - Ask A Local, shown by Google 2026-11-05: "Who installs self-monitored home security cameras in San" (title cut off by Google).
+    question: 'Who installs self-monitored home security cameras in San Antonio?',
+    answer: 'KZ Audio & Video installs them. A self-monitored system records to a recorder in your home with no monthly monitoring fee, and sends live video and motion alerts to your phone. We set up the app and show you how to use it before we leave. Call or text (210) 981-4098.',
+  },
+  {
     question: 'What types of security cameras do you install?',
     // Brands per Kelly, 2026-10-25: "We do Illumavue, alibi and ubiquiti" (maker spells it Illumivue).
-    answer: 'We install wired and wireless indoor and outdoor security cameras from Illumivue, Alibi and Ubiquiti (UniFi Protect). We also install doorbell cameras, including Ring video doorbells and Ring cameras, and integrate camera systems with existing home technology setups. We recommend wired systems for permanent installations: they\'re more reliable, less susceptible to interference, and don\'t rely on Wi-Fi coverage.',
+    answer: 'We install wired and wireless indoor and outdoor security cameras from Illumivue, Alibi and Ubiquiti (UniFi Protect). We also install doorbell cameras, including Ring video doorbells and Ring cameras, and integrate camera systems with existing home technology setups. Wired is best: more reliable, less susceptible to interference, and not relying on Wi-Fi coverage. It is what we install whenever there is a way to run the cable. If there is no way to wire a spot, we use a WiFi camera there.',
   },
   {
     // Google "People also ask" on "security camera installation san antonio", 2026-10-25.
@@ -44,7 +58,7 @@ const faqs = [
   {
     // Google "People also ask" on "low voltage contractor san antonio", 2026-10-25.
     question: 'Do you need a license to do low voltage work in Texas?',
-    answer: 'It depends on the work. Texas\'s electrician licensing law exempts most low voltage wiring, such as speaker, TV and network cable (Texas Occupations Code 1305.003). Security is different: a camera system that records counts as an alarm system under Texas Occupations Code 1702.002, so installing one for someone else takes a license from the Texas Private Security Board, part of the Department of Public Safety. KZ Audio & Video holds that license.',
+    answer: 'It depends on the work. Texas\'s electrician licensing law exempts most low voltage wiring, such as speaker, TV and network cable (Texas Occupations Code 1305.003). Security is different: a camera system that records counts as an alarm system under Texas Occupations Code 1702.002, so installing one for someone else takes a license from the Texas Private Security Board, part of the Department of Public Safety. KZ Audio & Video holds that license, number B-15669.',
   },
   {
     question: 'Can I monitor my cameras remotely from my phone?',
@@ -108,6 +122,7 @@ const priceTiers = [
 ];
 
 const featured = ALY_BEYNON;
+const secondary = [ZACK_CROFT, ANDRES_PEREZ];
 ---
 
 <BaseLayout
@@ -119,7 +134,7 @@ const featured = ALY_BEYNON;
   <HeroSection
     overline="Security Cameras · Licensed in Texas · Since 1999"
     heading="Security Camera Installation in San Antonio TX"
-    subhead="Wired camera systems designed around your home's real entry points, recorded on-site, and on your phone. KZ Audio & Video is licensed by the Texas Private Security Board and has run low voltage in San Antonio since 1999."
+    subhead="Wired camera systems designed around your home's real entry points, recorded on-site, and on your phone. KZ Audio & Video is licensed by the Texas Private Security Board (B-15669) and has run low voltage in San Antonio since 1999."
     ctaLabel="See Camera Prices"
     ctaHref={COST_URL}
     secondaryCta="Or call: (210) 981-4098"
@@ -131,13 +146,44 @@ const featured = ALY_BEYNON;
 
   <TrustBar />
 
+  <!-- Self-contained answer, written to be quoted. Prices match the cost page. -->
+  <section id="hardwired-security-cameras" class="section bg-charcoal">
+    <div class="container-main">
+      <div class="grid grid-cols-1 lg:grid-cols-12 gap-12 items-start">
+        <div class="lg:col-span-7">
+          <p class="overline mb-3">The Short Answer</p>
+          <h2 class="font-display text-h2 text-warm-white mb-6">Who Installs Hardwired Security Cameras in San Antonio?</h2>
+          <p class="text-body-lg text-stone leading-relaxed">
+            KZ Audio & Video installs hardwired security cameras in homes across San Antonio and the Texas Hill Country. Wired is the best way to do cameras, so it is what we install whenever there is a way to run the cable. Each camera gets one network cable back to a recorder in your home. That cable carries its power and its video, so it keeps recording when the Wi-Fi drops and there are no batteries to change. Your footage stays on your own recorder with no monthly monitoring fee, and you watch it from your phone. If there is truly no way to wire a spot, we put a WiFi camera there and test the signal first. KZ Audio & Video holds Texas Private Security Board license B-15669, and our own crew runs the cable, mounts the cameras and sets up the app. At KZ, five to eight wired 4K cameras with a recorder run $2,500 to $5,000 installed. Call or text (210) 981-4098.
+          </p>
+        </div>
+        <div class="lg:col-span-5 card p-7">
+          <h3 class="font-sans font-semibold text-h4 text-warm-white mb-4">How we decide: wired or WiFi</h3>
+          <ul class="flex flex-col gap-3">
+            {[
+              'New home: the camera cable goes in before the walls close.',
+              'Finished home: we run the cable through the attic and walls first.',
+              'No way to wire a spot: a WiFi camera goes there, with the signal tested first.',
+            ].map((q) => (
+              <li class="flex gap-3 text-body-sm text-stone leading-relaxed">
+                <svg class="flex-shrink-0 mt-1 text-gold" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="20 6 9 17 4 12"></polyline></svg>
+                <span>{q}</span>
+              </li>
+            ))}
+          </ul>
+          <a href={COST_URL} class="btn-text text-sm cursor-pointer inline-block mt-6">See camera prices &rarr;</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
   <!-- Self-contained answer, written to be quoted. Numbers match the cost page. -->
   <section class="section bg-slate-surface">
     <div class="container-main">
       <p class="overline mb-3">The Short Answer</p>
       <h2 class="font-display text-h2 text-warm-white mb-6">What Does Security Camera Installation Cost in San Antonio?</h2>
       <p class="text-body-lg text-stone max-w-3xl leading-relaxed mb-10">
-        Professional security camera installation in San Antonio typically costs $1,000 to $8,000, depending on how many cameras you need and how they are wired. Two to four cameras with an app and cloud or local recording run about $1,000 to $2,500 installed. A whole-home system of five to eight wired 4K PoE cameras with a local recorder (an NVR, so there is no monthly fee) runs $2,500 to $5,000. Nine or more cameras on a large property run $5,000 to $8,000 and up. As a planning number, that is about $250 to $600 per camera, including the camera, wiring, mounting and setup. The main cost drivers are camera count, wired versus wireless, resolution, recording storage, and the labor to run cable on a finished home. We walk the property, find the real entry points, and give you a written quote.
+        At KZ Audio & Video, professional security camera installation in San Antonio typically costs $1,000 to $8,000, depending on how many cameras you need and how they are wired. Two to four cameras with an app and cloud or local recording run about $1,000 to $2,500 installed. A whole-home system of five to eight wired 4K PoE cameras with a local recorder (an NVR, so there is no monthly fee) runs $2,500 to $5,000. Nine or more cameras on a large property run $5,000 to $8,000 and up. As a planning number, that is about $250 to $600 per camera, including the camera, wiring, mounting and setup. The main cost drivers are camera count, wired versus wireless, resolution, recording storage, and the labor to run cable on a finished home. We walk the property, find the real entry points, and give you a written quote.
       </p>
       <div class="grid grid-cols-1 md:grid-cols-3 gap-6 mb-8">
         {priceTiers.map(({ t, d, p }) => (
@@ -192,17 +238,17 @@ const featured = ALY_BEYNON;
             Yes, for a system that records. Texas law counts a camera system that records images of a home or business as an alarm system (Texas Occupations Code 1702.002), so installing one for someone else takes a license from the Texas Private Security Board, part of the Department of Public Safety.
           </p>
           <p class="text-body text-stone leading-relaxed">
-            KZ Audio & Video holds that license, and the same crew runs the cable, mounts the cameras and sets up the recorder. Ask any installer you are considering for theirs.
+            KZ Audio & Video holds that license, number B-15669, and the same crew runs the cable, mounts the cameras and sets up the recorder. Ask any installer you are considering for theirs.
           </p>
         </div>
         <div>
           <p class="overline mb-3">Wired or Wireless</p>
-          <h2 class="font-display text-h2 text-warm-white mb-6">Why We Recommend Wired PoE Cameras</h2>
+          <h2 class="font-display text-h2 text-warm-white mb-6">Wired Is Best. WiFi Only When There Is No Way to Wire.</h2>
           <p class="text-body-lg text-stone leading-relaxed mb-5">
             A PoE camera gets power and data over one network cable back to the recorder. It records continuously, it does not drop when the Wi-Fi does, and there are no batteries to change.
           </p>
           <p class="text-body text-stone leading-relaxed">
-            Wireless cameras cost less to install and suit renters or a couple of quick coverage points. For a system you want to trust, wired PoE is the right long-term choice. Building a home? Our <a href="/new-construction-prewire-guide/" class="text-gold hover:text-warm-white transition-colors underline underline-offset-2 cursor-pointer">New Construction Prewire Guide</a> shows where the camera cable goes before drywall. Running UniFi at home? See our <a href="/unifi-installer-san-antonio/" class="text-gold hover:text-warm-white transition-colors underline underline-offset-2 cursor-pointer">UniFi installer page</a>.
+            That is why wired is what we install whenever there is a way to run the cable, in new homes and finished homes alike. If there is truly no way to wire a spot, we put a WiFi camera there and test the signal first. Building a home? Our <a href="/new-construction-prewire-guide/" class="text-gold hover:text-warm-white transition-colors underline underline-offset-2 cursor-pointer">New Construction Prewire Guide</a> shows where the camera cable goes before drywall. Running UniFi at home? See our <a href="/unifi-installer-san-antonio/" class="text-gold hover:text-warm-white transition-colors underline underline-offset-2 cursor-pointer">UniFi installer page</a>.
           </p>
         </div>
       </div>
@@ -235,7 +281,7 @@ const featured = ALY_BEYNON;
     </div>
   </section>
 
-  <TestimonialsSection featured={featured} />
+  <TestimonialsSection featured={featured} secondary={secondary} />
 
   <LowVoltageFirst
     heading="Low Voltage First, Then the Cameras"
