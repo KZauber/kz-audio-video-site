@@ -8,7 +8,7 @@
  * Google Maps listings, an AI answer built from them, and thin pages (a tag page, Facebook answers,
  * directories). This rebuild adds the licensing answer, the cost answer, wired vs Wi-Fi, FAQ schema
  * and links to the cost page.
- * Prices come from /security-camera-installation-cost-san-antonio/; change them there first.
+ * Prices come from src/data/camera-prices.ts (Kelly approved 2026-11-05); the sentences here match it.
  * Still needed from Kelly: real camera job photos for the hero. License B-15669: Kelly, 2026-10-26.
  *
  * Wired first (Kelly, 2026-11-05): "Wired is best but if there is no way to wire them, we do WiFi cams."
@@ -29,6 +29,7 @@ import TestimonialsSection from '../../components/sections/TestimonialsSection.a
 import FAQAccordion from '../../components/sections/FAQAccordion.astro';
 import CTASection from '../../components/sections/CTASection.astro';
 import LowVoltageFirst from '../../components/sections/LowVoltageFirst.astro';
+import CameraPrices from '../../components/sections/CameraPrices.astro';
 import { ALY_BEYNON, ANDRES_PEREZ, ZACK_CROFT } from '../../data/reviews';
 
 const PAGE_URL = 'https://kzaudioandvideo.com/security-camera-installation-san-antonio/';
@@ -90,8 +91,8 @@ const schema = {
   "offers": {
     "@type": "AggregateOffer",
     "priceCurrency": "USD",
-    "lowPrice": "1000",
-    "highPrice": "8000",
+    "lowPrice": "700",
+    "highPrice": "13100",
     "url": `https://kzaudioandvideo.com${COST_URL}`
   }
 };
@@ -115,19 +116,13 @@ const breadcrumb = {
   ]
 };
 
-const priceTiers = [
-  { t: 'Two to four cameras', d: 'App plus cloud or local recording', p: '$1,000 to $2,500' },
-  { t: 'Five to eight 4K PoE cameras', d: 'Wired, with a local NVR recorder', p: '$2,500 to $5,000' },
-  { t: 'Nine or more cameras', d: 'Large property, high-capacity recording', p: '$5,000 to $8,000 and up' },
-];
-
 const featured = ALY_BEYNON;
 const secondary = [ZACK_CROFT, ANDRES_PEREZ];
 ---
 
 <BaseLayout
   title="Licensed Security Camera Installation San Antonio | KZ"
-  description="Licensed security camera installation in San Antonio. Wired 4K PoE cameras, local NVR recording, Ring doorbells, phone access. From $1,000. Call (210) 981-4098."
+  description="Licensed security camera installation in San Antonio. Wired 4K PoE cameras, local NVR recording, Ring doorbells, phone access. From $2,200. Call (210) 981-4098."
   schema={[schema, faqSchema, breadcrumb]}
 >
 
@@ -154,7 +149,7 @@ const secondary = [ZACK_CROFT, ANDRES_PEREZ];
           <p class="overline mb-3">The Short Answer</p>
           <h2 class="font-display text-h2 text-warm-white mb-6">Who Installs Hardwired Security Cameras in San Antonio?</h2>
           <p class="text-body-lg text-stone leading-relaxed">
-            KZ Audio & Video installs hardwired security cameras in homes across San Antonio and the Texas Hill Country. Wired is the best way to do cameras, so it is what we install whenever there is a way to run the cable. Each camera gets one network cable back to a recorder in your home. That cable carries its power and its video, so it keeps recording when the Wi-Fi drops and there are no batteries to change. Your footage stays on your own recorder with no monthly monitoring fee, and you watch it from your phone. If there is truly no way to wire a spot, we put a WiFi camera there and test the signal first. KZ Audio & Video holds Texas Private Security Board license B-15669, and our own crew runs the cable, mounts the cameras and sets up the app. At KZ, five to eight wired 4K cameras with a recorder run $2,500 to $5,000 installed. Call or text (210) 981-4098.
+            KZ Audio & Video installs hardwired security cameras in homes across San Antonio and the Texas Hill Country. Wired is the best way to do cameras, so it is what we install whenever there is a way to run the cable. Each camera gets one network cable back to a recorder in your home. That cable carries its power and its video, so it keeps recording when the Wi-Fi drops and there are no batteries to change. Your footage stays on your own recorder with no monthly monitoring fee, and you watch it from your phone. If there is truly no way to wire a spot, we put a WiFi camera there and test the signal first. KZ Audio & Video holds Texas Private Security Board license B-15669, and our own crew runs the cable, mounts the cameras and sets up the app. At KZ, five to eight wired 4K cameras with a recorder run $3,300 to $6,200 installed. Call or text (210) 981-4098.
           </p>
         </div>
         <div class="lg:col-span-5 card p-7">
@@ -183,17 +178,9 @@ const secondary = [ZACK_CROFT, ANDRES_PEREZ];
       <p class="overline mb-3">The Short Answer</p>
       <h2 class="font-display text-h2 text-warm-white mb-6">What Does Security Camera Installation Cost in San Antonio?</h2>
       <p class="text-body-lg text-stone max-w-3xl leading-relaxed mb-10">
-        At KZ Audio & Video, professional security camera installation in San Antonio typically costs $1,000 to $8,000, depending on how many cameras you need and how they are wired. Two to four cameras with an app and cloud or local recording run about $1,000 to $2,500 installed. A whole-home system of five to eight wired 4K PoE cameras with a local recorder (an NVR, so there is no monthly fee) runs $2,500 to $5,000. Nine or more cameras on a large property run $5,000 to $8,000 and up. As a planning number, that is about $250 to $600 per camera, including the camera, wiring, mounting and setup. The main cost drivers are camera count, wired versus wireless, resolution, recording storage, and the labor to run cable on a finished home. We walk the property, find the real entry points, and give you a written quote.
+        At KZ Audio & Video, a wired security camera system in San Antonio typically costs $2,200 to $12,300 installed, depending on how many cameras you need and how the cable gets there. Three to four wired 4K cameras with a recorder run $2,200 to $3,700. Five to eight run $3,300 to $6,200, and nine to sixteen run $6,000 to $12,300. The recorder (an NVR) means there is no monthly fee. As a planning number, that is about $600 to $900 per wired camera, counting the camera, cable, mounting, setup and its share of the recorder. If there is truly no way to wire a spot, a WiFi camera runs about $335 with a solar panel. A sharper low-light camera adds $275 each, and a dual-lens zoom camera is $1,900 each plus cable and install. We walk the property, find the real entry points, and give you a written quote.
       </p>
-      <div class="grid grid-cols-1 md:grid-cols-3 gap-6 mb-8">
-        {priceTiers.map(({ t, d, p }) => (
-          <article class="card p-7 flex flex-col gap-2">
-            <h3 class="font-sans font-semibold text-h4 text-warm-white">{t}</h3>
-            <p class="text-body-sm text-stone leading-relaxed">{d}</p>
-            <p class="font-display font-bold text-gold mt-2" style="font-size:1.6rem;line-height:1.1;">{p}</p>
-          </article>
-        ))}
-      </div>
+      <CameraPrices />
       <a href={COST_URL} class="text-gold text-body font-medium hover:text-warm-white transition-colors cursor-pointer">Full price breakdown and estimate calculator &rarr;</a>
     </div>
   </section>

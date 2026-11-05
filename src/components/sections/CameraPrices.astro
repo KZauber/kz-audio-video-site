@@ -1,0 +1,28 @@
+---
+import { CAMERA_TIERS, CAMERA_JOBS, CAMERA_PRICE_NOTE } from '../../data/camera-prices';
+---
+
+<div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 mb-12">
+  {CAMERA_TIERS.map(({ t, d, p }) => (
+    <article class="card p-7 flex flex-col gap-2">
+      <h3 class="font-sans font-semibold text-h4 text-warm-white">{t}</h3>
+      <p class="text-body-sm text-stone leading-relaxed">{d}</p>
+      <p class="font-display font-bold text-gold mt-auto pt-2 whitespace-nowrap" style="font-size:1.3rem;line-height:1.15;">{p}</p>
+    </article>
+  ))}
+</div>
+
+<h3 class="font-display text-h3 text-warm-white mb-6">What Real KZ Camera Jobs Came To</h3>
+<div class="grid grid-cols-1 md:grid-cols-2 gap-6 mb-5">
+  {CAMERA_JOBS.map(({ t, d, p, s }) => (
+    <article class="card p-7 flex flex-col gap-2">
+      <div class="flex items-baseline justify-between gap-4">
+        <h4 class="font-sans font-semibold text-h4 text-warm-white">{t}</h4>
+        <p class="font-display font-bold text-gold flex-shrink-0" style="font-size:1.5rem;line-height:1.15;">{p}</p>
+      </div>
+      <p class="text-body-sm text-stone leading-relaxed">{d}</p>
+      <p class="text-[0.7rem] font-sans text-stone uppercase tracking-widest mt-1">{s}</p>
+    </article>
+  ))}
+</div>
+<p class="text-body-sm text-stone leading-relaxed mb-8">{CAMERA_PRICE_NOTE}</p>

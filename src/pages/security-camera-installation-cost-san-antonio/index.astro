@@ -3,6 +3,7 @@ import BaseLayout from "../../layouts/BaseLayout.astro";
 import HeroSection from "../../components/sections/HeroSection.astro";
 import TrustBar from "../../components/sections/TrustBar.astro";
 import CTASection from "../../components/sections/CTASection.astro";
+import CameraPrices from "../../components/sections/CameraPrices.astro";
 
 const schema = {
   "@context": "https://schema.org",
@@ -20,8 +21,8 @@ const schema = {
   "offers": {
     "@type": "AggregateOffer",
     "priceCurrency": "USD",
-    "lowPrice": "1000",
-    "highPrice": "15000",
+    "lowPrice": "700",
+    "highPrice": "13100",
     "offerCount": "4",
   },
 };
@@ -39,22 +40,22 @@ const costFaqs = [
   {
     question: "How much does security camera installation cost in San Antonio?",
     answer:
-      "At KZ Audio & Video, professional security camera installation in San Antonio typically costs $1,000 to $8,000, depending on the number of cameras and the system. A basic setup of two to four cameras with an app and cloud or local recording runs about $1,000 to $2,500 installed. A whole-home wired system of five to eight 4K PoE cameras with a local NVR for recording runs $2,500 to $5,000. A large system of nine or more cameras covering a big property, with high-capacity recording and smart-home integration, runs $5,000 to $8,000 and up. The main cost drivers are camera count, wired versus wireless, camera resolution and features, recording storage, and the labor to run wire on an existing home. KZ Audio & Video designs coverage around your property's actual entry points and gives a written quote after a free assessment.",
+      "At KZ Audio & Video, a wired security camera system in San Antonio typically costs $2,200 to $12,300 installed, depending on how many cameras you need and how the cable gets there. Three to four wired 4K cameras with a recorder run $2,200 to $3,700. Five to eight run $3,300 to $6,200. Nine to sixteen run $6,000 to $12,300. Wired is best, and it is what we install whenever there is a way to run the cable. If there is truly no way to wire a spot, a WiFi camera runs about $335 with a solar panel. A sharper low-light camera adds $275 each, and a dual-lens zoom camera is $1,900 each plus cable and install. Prices are before sales tax on materials. KZ Audio & Video designs coverage around your property's actual entry points and gives a written quote after a free assessment. Call or text (210) 981-4098.",
   },
   {
     question: "How much does security camera installation cost per camera?",
     answer:
-      "As a planning number, a security camera installed by KZ Audio & Video in San Antonio runs about $250 to $600 per camera, including the camera, wiring, mounting, and configuration. Per-camera cost drops as you add cameras because the recorder (NVR), network equipment, and setup labor are shared across the whole system. Wired PoE cameras cost a bit more per unit to install than wireless ones because of the cabling, but they are more reliable and do not depend on Wi-Fi or batteries. Premium 4K cameras with color night vision or specialty features (like license-plate capture) cost more per camera. The recorder and storage are a separate shared cost on top of the per-camera figure. We size the system to cover your real vulnerable points rather than just hitting a camera count.",
+      "A wired security camera installed by KZ Audio & Video in San Antonio runs about $600 to $900 per camera, counting the camera, cable, mounting, setup and its share of the recorder. Per-camera cost drops a little as you add cameras, because the recorder and setup are shared across the system. A WiFi camera runs about $335, but it depends on Wi-Fi signal and a battery or outlet, so we only use one where there is truly no way to wire. Sharper low-light cameras add $275 each, and dual-lens zoom cameras are $1,900 each plus cable and install. We size the system to cover your real vulnerable points rather than just hitting a camera count.",
   },
   {
     question: "Wired vs wireless security cameras, what is the cost difference?",
     answer:
-      "Wireless (Wi-Fi) cameras are cheaper and faster to install because there is no cabling. They are the budget choice for a few cameras, though they depend on Wi-Fi signal and either batteries or a nearby outlet. Wired PoE (Power over Ethernet) cameras cost more to install: expect roughly $500 to $2,500 more across a system for the cabling labor: but they are the right long-term choice: one cable carries both power and data, they record continuously and reliably, they are not subject to Wi-Fi dropouts or dead batteries, and they support higher resolution. For a serious whole-home or property system you want to trust, we recommend wired PoE. For renters or a couple of quick coverage points, wireless is reasonable. We will tell you which makes sense for your situation honestly.",
+      "Wired is best, and it is what we install whenever there is a way to run the cable. One cable carries both power and video, so the camera records continuously and does not depend on Wi-Fi or batteries. At KZ Audio & Video, a wired system runs about $600 to $900 per camera. A WiFi camera runs about $335 with a solar panel, with no recorder or cable to pay for, but it depends on Wi-Fi signal, and saving video on Ring takes a paid plan. If there is truly no way to wire a spot, we put a WiFi camera there and test the signal first.",
   },
   {
     question: "Do I need an NVR, and how much does cloud vs local recording cost?",
     answer:
-      "You need somewhere to store footage, and there are two paths. Local recording uses an NVR (network video recorder): a one-time cost of about $400 to $3,000 depending on capacity and how many days of footage you want to keep, with no monthly fee, and your video stays on-site and private. Cloud recording has little or no upfront hardware cost but charges a monthly subscription per camera, which adds up over time. For most homeowners we recommend a local NVR: you own it, there is no ongoing bill, and 24/7 recording with weeks of history is straightforward. Cloud makes sense for a couple of cameras or where running to an NVR is impractical. Some systems do both, local recording plus optional cloud backup of key clips. We size storage to the days of history you actually want.",
+      "You need somewhere to store footage, and there are two paths. Local recording uses an NVR (network video recorder): a one-time cost of about $750 to $2,000 at KZ Audio & Video, depending on how many cameras it handles and how many days of footage you want to keep, with no monthly fee, and your video stays on-site and private. Cloud recording has little or no upfront hardware cost but charges a monthly subscription per camera, which adds up over time. For most homeowners we recommend a local NVR: you own it, there is no ongoing bill, and 24/7 recording with weeks of history is straightforward. Cloud makes sense for a couple of cameras or where running to an NVR is impractical. Some systems do both, local recording plus optional cloud backup of key clips. We size storage to the days of history you actually want.",
   },
   {
     question: "How many security cameras do I need for my home?",
@@ -69,7 +70,7 @@ const costFaqs = [
   {
     question: "How much does it cost to cover a large lot or acreage in the Hill Country?",
     answer:
-      "Covering a large lot or Hill Country acreage typically costs $4,000 to $12,000 or more, above a standard home system. The added cost comes from distance and infrastructure: long cable runs to a gate, barn, casita, or shop; weatherproof and sometimes long-range cameras; network equipment to extend reliable connectivity across the property; and sometimes a separate recorder or links between buildings. Driveway and gate cameras, often with license-plate capture, are common on these properties. Acreage also means more entry points and approaches to cover than a city lot. The system is built to handle the distances and the elements while keeping everything on one app and recorder. We walk the property, map the runs and coverage, and give you a written scope, every acreage job is different, so the quote is specific to your land.",
+      "Covering a large lot or Hill Country acreage is quoted per job, because the added cost comes from distance and infrastructure: long cable runs to a gate, barn, casita, or shop; weatherproof and sometimes long-range cameras; network equipment to extend reliable connectivity across the property; and sometimes a separate recorder or links between buildings. Driveway and gate cameras, often with license-plate capture, are common on these properties. Acreage also means more entry points and approaches to cover than a city lot. The system is built to handle the distances and the elements while keeping everything on one app and recorder. For scale, KZ Audio & Video's nine-camera system on a Boerne home, with three dual-lens zoom cameras, came to $13,100, and poles, trenching and long runs are priced on top of the camera system. We walk the property, map the runs and coverage, and give you a written scope, every acreage job is different, so the quote is specific to your land.",
   },
   {
     question: "Can security cameras integrate with my smart home, and what does it cost?",
@@ -91,61 +92,43 @@ const faqSchema = {
 const calcGroups = [
   {
     id: "count",
-    label: "1. How many cameras?",
+    label: "1. How many wired cameras?",
     options: [
-      { t: "2–4 cameras", min: 1000, max: 2500, on: true },
-      { t: "5–8 cameras", min: 2200, max: 4500 },
-      { t: "9–12 cameras", min: 4000, max: 7000 },
-      { t: "13+ cameras", min: 6500, max: 12000 },
+      { t: "3 to 4 cameras", min: 2160, max: 2850, cams: [3, 4], on: true },
+      { t: "5 to 8 cameras", min: 3300, max: 4620, cams: [5, 8] },
+      { t: "9 to 16 cameras", min: 5960, max: 9040, cams: [9, 16] },
     ],
   },
   {
-    id: "type",
-    label: "2. Camera type?",
+    id: "cable",
+    label: "2. How does the cable get there?",
     options: [
-      { t: "Wireless / Wi-Fi", min: 0, max: 0, on: true },
-      { t: "Wired PoE (recommended)", min: 500, max: 2500 },
-      { t: "Premium 4K PoE", min: 1500, max: 5000 },
+      { t: "Finished home, new cable", per: 200, on: true },
+      { t: "New build, before the walls close", per: 125 },
+      { t: "Cable already there", per: 0 },
     ],
   },
   {
-    id: "storage",
-    label: "3. Recording / storage?",
+    id: "quality",
+    label: "3. Camera quality?",
     options: [
-      { t: "Cloud (subscription)", min: 0, max: 0, on: true },
-      { t: "Local NVR (no monthly)", min: 400, max: 1500 },
-      { t: "High-capacity NVR (30+ days)", min: 1000, max: 3000 },
+      { t: "4K", per: 0, on: true },
+      { t: "Sharper low-light 8MP", per: 275 },
     ],
   },
   {
-    id: "property",
-    label: "4. Property size?",
+    id: "zoom",
+    label: "4. Dual-lens zoom cameras, in place of standard ones?",
     options: [
-      { t: "Standard lot", min: 0, max: 0, on: true },
-      { t: "Large lot / acreage", min: 800, max: 3000 },
-      { t: "Multiple buildings", min: 1500, max: 5000 },
-    ],
-  },
-  {
-    id: "specialty",
-    label: "5. Night vision / specialty?",
-    options: [
-      { t: "Standard night vision", min: 0, max: 0, on: true },
-      { t: "Color night vision / spotlight", min: 400, max: 1500 },
-      { t: "License-plate / specialty cams", min: 800, max: 3000 },
-    ],
-  },
-  {
-    id: "wiring",
-    label: "6. Your home is…",
-    options: [
-      { t: "New construction (pre-wire)", min: 0, max: 0, on: true },
-      { t: "Existing finished home (retrofit)", min: 500, max: 2500 },
+      { t: "None", min: 0, max: 0, on: true },
+      { t: "One", min: 1625, max: 1625 },
+      { t: "Two", min: 3250, max: 3250 },
+      { t: "Three", min: 4875, max: 4875 },
     ],
   },
   {
     id: "integration",
-    label: "7. Smart home integration?",
+    label: "5. Smart home integration?",
     options: [
       { t: "Standalone app", min: 0, max: 0, on: true },
       { t: "Integrate (home control / RTI)", min: 1000, max: 4000 },
@@ -181,6 +164,9 @@ const calcGroups = [
       <p class="text-body text-stone max-w-3xl">
         We design camera coverage around your property's actual entry points across San Antonio and the Hill Country. Use the calculator for an instant ballpark, then read the honest cost answers below. When you want a real number, we walk the property, map the coverage, and hand you a written quote, free, no obligation.
       </p>
+      <div class="mt-10">
+        <CameraPrices />
+      </div>
     </div>
   </section>
 
@@ -204,8 +190,11 @@ const calcGroups = [
                   <button
                     type="button"
                     class:list={["calc-opt", opt.on ? "is-active" : ""]}
-                    data-min={opt.min}
-                    data-max={opt.max}
+                    data-min={opt.min ?? 0}
+                    data-max={opt.max ?? 0}
+                    data-per={opt.per ?? 0}
+                    data-cams-min={opt.cams?.[0]}
+                    data-cams-max={opt.cams?.[1]}
                   >
                     {opt.t}
                   </button>
@@ -217,8 +206,8 @@ const calcGroups = [
 
         <div class="card p-7 lg:sticky lg:top-28">
           <p class="overline mb-2">Your Estimated Range</p>
-          <p class="font-display text-h2 text-gold mb-1" id="calc-result">$1,000 – $2,500</p>
-          <p class="text-body-sm text-ash mb-6">Estimate for the San Antonio market. Final price depends on cameras, storage, and property size.</p>
+          <p class="font-display text-h2 text-gold mb-1" id="calc-result">$2,760 to $3,650</p>
+          <p class="text-body-sm text-stone mb-6">Estimate from KZ's real camera jobs, before sales tax on materials. No way to wire a spot? A WiFi camera runs about $335. Poles, trenching and long runs are quoted per job.</p>
           <a href="/contact-kz-audio-video-san-antonio-tx/" class="btn-primary gold-shimmer w-full text-center mb-3 cursor-pointer">
             Get My Exact Quote
           </a>
@@ -299,13 +288,17 @@ const calcGroups = [
       function format(n) { return "$" + Math.round(n).toLocaleString("en-US"); }
       function recalc() {
         var total = 0, top = 0;
+        var count = document.querySelector('.calc-group[data-group="count"] .calc-opt.is-active');
+        var fewest = parseInt(count.getAttribute("data-cams-min"), 10) || 0;
+        var most = parseInt(count.getAttribute("data-cams-max"), 10) || 0;
         var active = document.querySelectorAll(".calc-opt.is-active");
         for (var i = 0; i < active.length; i++) {
-          total += parseInt(active[i].getAttribute("data-min"), 10) || 0;
-          top += parseInt(active[i].getAttribute("data-max"), 10) || 0;
+          var per = parseInt(active[i].getAttribute("data-per"), 10) || 0;
+          total += (parseInt(active[i].getAttribute("data-min"), 10) || 0) + per * fewest;
+          top += (parseInt(active[i].getAttribute("data-max"), 10) || 0) + per * most;
         }
         var out = document.getElementById("calc-result");
-        if (out) out.textContent = format(total) + " – " + format(top);
+        if (out) out.textContent = format(total) + " to " + format(top);
       }
       var groups = document.querySelectorAll(".calc-group");
       for (var g = 0; g < groups.length; g++) {
