@@ -6,8 +6,8 @@
  * If a number changes here, also change the sentences on the camera page, the camera cost page,
  * the UniFi page and public/llms.txt.
  *
- * RULE: no customer names, no addresses, no per-cable prices, no builder rates. A job says "sold"
- * only when Kelly has said so; otherwise it says "quoted".
+ * RULE: no customer names, no addresses, no per-cable prices, and no builder prices or builder jobs
+ * (Kelly, 2026-11-05). A job says "sold" only when Kelly has said so; otherwise it says "quoted".
  */
 
 export const CAMERA_TIERS = [
@@ -20,7 +20,6 @@ export const CAMERA_TIERS = [
 export const CAMERA_JOBS = [
   { t: 'Two Ring cameras with solar', d: 'Two Ring Spotlight Cams with solar panels, mounted, aimed and set up on your devices.', p: '$670', s: 'Quoted, October 2026' },
   { t: 'Three wired 4K cameras, replacing old ones', d: 'A four-channel recorder with 2TB, three Illumivue 4K turret cameras, the old cameras taken down, and the app set up on your devices.', p: '$2,160', s: 'Quoted, October 2026' },
-  { t: 'Four wired 4K cameras in a new build', d: 'Cable to each camera before the walls close, an eight-channel recorder with 4TB, four Illumivue 4K turret cameras, and the app set up on your devices.', p: '$3,350', s: 'Quoted, October 2026' },
   { t: 'Nine cameras on a Boerne home', d: 'A sixteen-channel recorder with 10TB, six Illumivue 8MP low-light turret cameras, three dual-lens zoom cameras, and three new cable runs.', p: '$13,100', s: 'Sold, quoted October 2026' },
 ];
 
