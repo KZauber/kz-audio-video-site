@@ -1,0 +1,211 @@
+---
+/**
+ * Starlink installation, San Antonio and the Hill Country.
+ *
+ * Billy asked for it, Kelly, 2026-11-05: "We have houses we do in Driftwood, Drippning, SPicewood etc...
+ * That need starlink internet." Also Kelly that day: "We've installed many of these and the mount we use
+ * doesn't screw into the roof" (three wall mounts sent as examples) and "we do set poles."
+ * Search numbers (Google Ads, 2026-11-05): "starlink installation" about 20 a month in San Antonio, 10 in
+ * each Hill Country town, so this is proof for buyers and ChatGPT and an add-on to rural jobs, not a big
+ * Google play. Research: SocialMedia/kz/logs/KZ-Starlink-Research-2026-11-05.md.
+ * Starlink facts come from its Help Center article "Does Starlink provide installers?", read 2026-11-05.
+ * Never call KZ certified or authorized: no public way to join Starlink's installer list was found.
+ * FAQs are real questions Google showed (logged in SocialMedia/kz/website/faq-source-log.md).
+ * The Dripping Springs figure is a real KZ quote, 2026-09-30, with no customer name.
+ * No Starlink job photos yet, so the hero is Kelly's own network cabinet, the part that comes after the dish.
+ */
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import HeroSection from '../../components/sections/HeroSection.astro';
+import TrustBar from '../../components/sections/TrustBar.astro';
+import FAQAccordion from '../../components/sections/FAQAccordion.astro';
+import CTASection from '../../components/sections/CTASection.astro';
+import LowVoltageFirst from '../../components/sections/LowVoltageFirst.astro';
+
+const PAGE_URL = 'https://kzaudioandvideo.com/starlink-installation-san-antonio/';
+const HERO = '/images/projects/unifi-racks/unifi-network-rack-wall-cabinet-hero.jpg';
+const STARLINK_HELP = 'https://starlink.com/support/article/8900d5b8-8c20-3731-8406-a43af529d6e0';
+
+const faqs = [
+  {
+    // Google "People also ask" on "starlink installation", Dripping Springs, 2026-11-05.
+    question: 'Do I need to drill a hole in my house for Starlink?',
+    answer: 'Not in your roof. KZ Audio & Video uses wall mounts that do not screw into the roof, or sets a pole in the yard when that is where the dish can see the sky. The cable still has to get inside, so it comes in through an exterior wall or an existing opening. We show you the plan before we start. Call or text (210) 981-4098.',
+  },
+  {
+    // Google "People also ask" on "starlink installation", Dripping Springs, 2026-11-05.
+    question: 'How much does it cost to get Starlink installed?',
+    answer: 'It depends on the mount and on what comes after the dish. A wall mount and a short cable run cost the least, and a pole, a long cable run or WiFi for a large home add to that. As a real example, KZ Audio & Video quoted a Dripping Springs home $2,980 with tax to move the dish, add four eero WiFi units and link a barn and a detached shop. We give you a written quote after seeing the property. Call or text (210) 981-4098.',
+  },
+  {
+    // Google related search on "starlink installation", Dripping Springs, 2026-11-05.
+    question: 'What does Starlink installation include?',
+    answer: 'Starlink says its standard professional install includes a site assessment, a standard mount, routing the cable to the nearest entry point of the home, router setup at that entry point, and testing. Pole mounts are not included, and longer cables, trenching and accessories can cost extra. A KZ Audio & Video install covers the mount or pole, the cable to where your network lives, WiFi for the whole house, and setting up the app with you.',
+  },
+  {
+    // Google "people also search" on "starlink installation", Dripping Springs, 2026-11-05.
+    question: 'Does Starlink come with installation?',
+    answer: 'No. Starlink describes itself as built for self-installation, and it comes with a standard kit you set up yourself. Starlink also sells professional installation through third-party installers in select markets, for Residential plans only. You can also hire an independent low voltage contractor, like KZ Audio & Video, to mount it, run the cable and build the WiFi network behind it.',
+  },
+  {
+    // Google "People also ask" on "starlink installation", Dripping Springs, 2026-11-05.
+    question: 'What is the negative side of Starlink?',
+    answer: 'It needs a clear view of the sky, so trees are the usual problem on Hill Country properties, and that is often why a dish ends up on a pole instead of the house. The router also sits in one spot, so it will not cover a large home, a barn or a shop on its own. Both have fixes, and that is the work we do. Plan prices and speeds are set by Starlink, so check them with Starlink for your address.',
+  },
+];
+
+const services = [
+  { title: 'Wall Mounts, Nothing Screwed Into the Roof', desc: 'We mount the dish on an exterior wall with an adjustable mount that does not screw into your roof, placed where it has the clearest view of the sky.' },
+  { title: 'Poles When the Trees Are in the Way', desc: 'We set a pole in the yard where the dish can see the sky, then run the cable back to the house. Starlink says its own installers cannot do pole mounts.' },
+  { title: 'Long Cable Runs', desc: 'When the best spot for the dish is a long way from the house, we plan the route and the cable it needs, and keep the run out of sight.' },
+  { title: 'WiFi for the Whole House', desc: 'One router will not cover a large home. We add wired access points or mesh units so the signal reaches every room, on a network that can also carry your TVs and cameras.' },
+  { title: 'Barns, Shops and Casitas', desc: 'A wireless bridge carries the internet from the house to the other buildings, with WiFi at the far end. It needs a clear line of sight between the radios.' },
+  { title: 'New Construction', desc: 'On a rural build, we plan the dish spot and run the cable at rough-in with the rest of the low voltage, so nothing shows when the house is finished.' },
+];
+
+const schema = {
+  "@context": "https://schema.org",
+  "@type": "Service",
+  "name": "Starlink Installation",
+  "serviceType": "Starlink dish mounting, pole setting, cabling and whole-house WiFi",
+  "url": PAGE_URL,
+  "description": "Independent Starlink installation for homes in San Antonio and the Texas Hill Country: wall mounts that do not screw into the roof, set poles, long cable runs and whole-house WiFi.",
+  "provider": { "@type": "HomeAndConstructionBusiness", "@id": "https://kzaudioandvideo.com/#business", "name": "KZ Audio & Video" },
+  "areaServed": ["San Antonio", "Boerne", "Bulverde", "Canyon Lake", "New Braunfels", "Driftwood", "Dripping Springs", "Spicewood"].map((name) => ({ "@type": "City", "name": `${name}, TX` })),
+};
+
+const faqSchema = {
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": faqs.map(({ question, answer }) => ({
+    "@type": "Question",
+    "name": question,
+    "acceptedAnswer": { "@type": "Answer", "text": answer }
+  }))
+};
+
+const breadcrumb = {
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": [
+    { "@type": "ListItem", "position": 1, "name": "Home", "item": "https://kzaudioandvideo.com" },
+    { "@type": "ListItem", "position": 2, "name": "Home Network Installation", "item": "https://kzaudioandvideo.com/home-network-installation-san-antonio/" },
+    { "@type": "ListItem", "position": 3, "name": "Starlink Installation San Antonio" }
+  ]
+};
+---
+
+<BaseLayout
+  title="Starlink Installation San Antonio & Hill Country | KZ"
+  description="Starlink installation in San Antonio and the Hill Country: wall mounts with no roof screws, set poles, long cable runs and whole-house WiFi. (210) 981-4098."
+  schema={[schema, faqSchema, breadcrumb]}
+>
+
+  <HeroSection
+    overline="Starlink · Mounts · Poles · WiFi"
+    heading="Starlink Installation in San Antonio TX"
+    subhead="For homes across San Antonio and the Hill Country. We mount the dish on the wall or set a pole where it can see the sky, run the cable, and build the WiFi behind it. Nothing gets screwed into your roof."
+    ctaLabel="Call or Text (210) 981-4098"
+    ctaHref="tel:2109814098"
+    secondaryCta="See our home networks"
+    secondaryHref="/home-network-installation-san-antonio/"
+    imageSrc={HERO}
+    imageAlt="KZ-built wall-mounted network cabinet with a patch panel, a switch and gateway, the part of a home's internet that comes after the Starlink dish"
+    imagePosition="object-center"
+    scrim={0.65}
+  />
+
+  <TrustBar />
+
+  <!-- Self-contained answer, written to be quoted -->
+  <section id="starlink-installer" class="section bg-slate-surface">
+    <div class="container-main">
+      <div class="grid grid-cols-1 lg:grid-cols-12 gap-12 items-start">
+        <div class="lg:col-span-7">
+          <p class="overline mb-3">The Short Answer</p>
+          <h2 class="font-display text-h2 text-warm-white mb-6">Need a Starlink Installer Near San Antonio?</h2>
+          <p class="text-body-lg text-stone leading-relaxed">
+            KZ Audio & Video installs Starlink at homes across San Antonio and the Texas Hill Country, including Boerne, Canyon Lake, Driftwood, Dripping Springs and Spicewood, and we have installed many of them. We use wall mounts that do not screw into your roof. When trees or the house block the view of the sky, we set a pole where the dish can see it and run the cable back to the house. Starlink's own help page says its installers cannot do pole mounts, and its standard install stops at the nearest entry point to the home. We keep going from there: the cable to where your network lives, WiFi that reaches every room, and wireless links out to a barn or shop. That second half is what makes Starlink work in a big house or on acreage. We give you a written quote after seeing where the dish can see the sky. Call or text (210) 981-4098.
+          </p>
+        </div>
+        <div class="lg:col-span-5 card p-7">
+          <h3 class="font-sans font-semibold text-h4 text-warm-white mb-4">What Starlink's standard install leaves out</h3>
+          <ul class="flex flex-col gap-3 mb-5">
+            {[
+              'Pole mounts',
+              'Cable past the nearest entry point to the home',
+              'Accessories beyond the standard mount and cable',
+              'WiFi for the rest of the house, a barn or a shop',
+            ].map((q) => (
+              <li class="flex gap-3 text-body-sm text-stone leading-relaxed">
+                <svg class="flex-shrink-0 mt-1 text-gold" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="20 6 9 17 4 12"></polyline></svg>
+                <span>{q}</span>
+              </li>
+            ))}
+          </ul>
+          <p class="text-body-sm text-stone leading-relaxed">
+            In Starlink's words: "Pole mount installations are not included and cannot be performed by installers." <a href={STARLINK_HELP} target="_blank" rel="noopener" class="text-gold hover:text-warm-white transition-colors underline underline-offset-2 cursor-pointer">Read Starlink's help page</a>.
+          </p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- What we install -->
+  <section class="section bg-charcoal">
+    <div class="container-main">
+      <p class="overline mb-3">What We Install</p>
+      <h2 class="font-display text-h2 text-warm-white mb-12">The Dish, the Cable and the Network Behind It</h2>
+      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+        {services.map(({ title, desc }) => (
+          <article class="card p-7 flex flex-col gap-3">
+            <h3 class="font-sans font-semibold text-h4 text-warm-white">{title}</h3>
+            <p class="text-body-sm text-stone leading-relaxed">{desc}</p>
+          </article>
+        ))}
+      </div>
+      <div class="mt-10 flex flex-wrap gap-x-8 gap-y-3">
+        <a href="/home-network-installation-san-antonio/" class="btn-text text-sm cursor-pointer">Home Network and Wi-Fi &rarr;</a>
+        <a href="/unifi-installer-san-antonio/" class="btn-text text-sm cursor-pointer">UniFi Installation &rarr;</a>
+        <a href="/new-construction-prewire-guide/" class="btn-text text-sm cursor-pointer">New Construction Prewire Guide &rarr;</a>
+      </div>
+      <p class="text-body-sm text-stone mt-10">Starlink is a trademark of SpaceX. KZ Audio & Video is an independent installer, not affiliated with Starlink. You buy your kit and plan from Starlink.</p>
+    </div>
+  </section>
+
+  <!-- A real KZ quote, no customer name -->
+  <section class="section bg-slate-surface">
+    <div class="container-main">
+      <div class="max-w-3xl">
+        <p class="overline mb-3">A Real Job</p>
+        <h2 class="font-display text-h2 text-warm-white mb-6">Starlink for a House, a Barn and a Shop in Dripping Springs</h2>
+        <p class="text-body-lg text-stone leading-relaxed mb-5">
+          A Dripping Springs homeowner needed the dish moved and the internet carried out to a barn and a detached shop. KZ Audio & Video's quote covered taking the dish down and remounting it in the new spot, two network cables through the attic, four eero WiFi units (the router behind Starlink, one in the middle of the house, one in the barn and one in the shop), and a wireless bridge from the house to both buildings.
+        </p>
+        <p class="font-display font-bold text-gold mb-2" style="font-size:1.8rem;line-height:1.15;">$2,980</p>
+        <p class="text-body-sm text-stone">Quoted September 2026, including tax. Most of that work is the network, not the dish.</p>
+      </div>
+    </div>
+  </section>
+
+  <LowVoltageFirst
+    heading="Low Voltage First, Then Starlink"
+    rough="On a new build we plan the dish spot and run the cable and the network at rough-in, before the walls close."
+    installs="We mount the dish or set the pole, connect Starlink, set up the WiFi and walk you through the app."
+    existing="On a finished home we run the cable through the attic and walls first, then mount the dish."
+  />
+
+  <FAQAccordion
+    heading="Starlink Installation: Questions People Ask"
+    faqs={faqs}
+  />
+
+  <CTASection
+    heading="Get Starlink Working Across the Whole Property"
+    body="Free walkthrough of your home: we find where the dish can see the sky and where the WiFi needs to reach, then give you a written quote."
+    ctaLabel="Book a Free Walkthrough"
+    ctaHref="/contact-kz-audio-video-san-antonio-tx/"
+    secondaryLabel="Call (210) 981-4098"
+    secondaryHref="tel:2109814098"
+  />
+
+</BaseLayout>
