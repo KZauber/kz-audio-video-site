@@ -14,17 +14,17 @@
  * Lagging reality is cosmetic. Overstating it is an AggregateRating violation
  * Google can act on, and it is the kind of thing a competitor can report.
  *
- * Last checked against the Google Business Profile: 2026-11-05 (5.0, 33 reviews, live Google
- * search via DataForSEO; down from 34 on 2026-10-22)
+ * Last checked against the Google Business Profile: 2026-11-10 (5.0, 34 reviews, live Google
+ * search via DataForSEO; up from 33 on 2026-11-05)
  */
 
 export const RATING = '5.0';
-export const REVIEW_COUNT = '33';
+export const REVIEW_COUNT = '34';
 
-/** "33 Google Reviews", for trust bars and badges. */
+/** "34 Google Reviews", for trust bars and badges. */
 export const REVIEWS_LABEL = `${REVIEW_COUNT} Google Reviews`;
 
-/** "5.0 stars across 33 Google reviews", for prose and meta descriptions. */
+/** "5.0 stars across 34 Google reviews", for prose and meta descriptions. */
 export const REVIEWS_SENTENCE = `${RATING} stars across ${REVIEW_COUNT} Google reviews`;
 
 /** Google's own review page for KZ. It carries no number here because Google keeps it current. */
