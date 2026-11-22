@@ -1,0 +1,270 @@
+---
+/**
+ * Horseshoe Bay, Marble Falls and the Highland Lakes area page (Kelly, 2026-11-22: "Yes, build them").
+ * Why one page for the area, not one per town: every search naming a town out here measured too small
+ * for Google's ad tool, and the generic searches run about 10 a month per county (SocialMedia repo,
+ * kz/logs/KZ-Highland-Lakes-Blanco-2026-11-22.md). One substantive page beats several thin ones.
+ * FAQ questions are Google "People also ask" wording, word for word, from searches run from Horseshoe
+ * Bay and Marble Falls on 2026-11-22, logged in kz/website/faq-source-log.md.
+ * Prices come from the cost pages and src/data/camera-prices.ts. No past job out here is claimed.
+ */
+import BaseLayout from '../../../layouts/BaseLayout.astro';
+import HeroSection from '../../../components/sections/HeroSection.astro';
+import TrustBar from '../../../components/sections/TrustBar.astro';
+import CTASection from '../../../components/sections/CTASection.astro';
+import FAQAccordion from '../../../components/sections/FAQAccordion.astro';
+import { REVIEWS_SENTENCE } from '../../../data/business';
+import { CAMERA_TIERS } from '../../../data/camera-prices';
+
+const PAGE_URL = 'https://kzaudioandvideo.com/service-areas/horseshoe-bay-marble-falls/';
+const smallCams = CAMERA_TIERS[0].p;
+
+const towns = ['Horseshoe Bay', 'Marble Falls', 'Kingsland', 'Granite Shoals', 'Burnet', 'Buchanan Dam'];
+
+const schema = {
+  "@context": "https://schema.org",
+  "@type": "LocalBusiness",
+  "name": "KZ Audio & Video",
+  "url": "https://kzaudioandvideo.com",
+  "telephone": "+12109814098",
+  "description": "Home theater, wired security cameras, Starlink and Wi-Fi, whole-house and outdoor audio, and home control for homes around Horseshoe Bay, Marble Falls, Kingsland, Burnet and Lake Buchanan.",
+  "address": {
+    "@type": "PostalAddress",
+    "addressLocality": "San Antonio",
+    "addressRegion": "TX",
+    "addressCountry": "US"
+  },
+  "areaServed": towns.map((name) => ({
+    "@type": "City",
+    "name": name,
+    "containedInPlace": { "@type": "State", "name": "Texas" }
+  })),
+};
+
+const breadcrumb = {
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": [
+    { "@type": "ListItem", "position": 1, "name": "Home", "item": "https://kzaudioandvideo.com" },
+    { "@type": "ListItem", "position": 2, "name": "Service Areas", "item": "https://kzaudioandvideo.com/service-areas/" },
+    { "@type": "ListItem", "position": 3, "name": "Horseshoe Bay & Marble Falls, TX", "item": PAGE_URL }
+  ]
+};
+
+const faqs = [
+  {
+    question: 'How much does it cost to install a home theater system?',
+    answer: "At KZ Audio & Video, surround sound added to a TV or projector you already have typically costs $3,000 to $5,000 for the speakers, subwoofer and AV receiver. A 4K projector and screen from KZ typically adds $4,000 to $25,000 for the projection parts, depending on the projector and the screen size. The biggest drivers are room size, projector or TV, how many speakers, and whether the room is new construction or already finished. In a new home around the Highland Lakes, the speaker and projector wire goes in at framing, so the finished room shows no cables. You get an itemized written quote after a free in-home consultation.",
+  },
+  {
+    question: 'How much does it cost to install a home theater room?',
+    answer: "At KZ Audio & Video, a media room in a room you already have, with a large 4K TV, surround sound and hidden wiring, runs $10,000 to $15,000. A dedicated KZ theater room with 4K projection, Dolby Atmos, tiered seating and acoustic treatment runs $15,000 to $40,000, and large custom rooms from KZ go to $80,000 or more. What moves the number is room size, projector or TV, how many speakers, and whether the walls are still open. If you are building, bring us in before drywall.",
+  },
+  {
+    question: 'Can I install security cameras myself?',
+    answer: `You can put up Wi-Fi cameras yourself, and for a spot with no way to run a cable, a Wi-Fi camera is what we would use too. A wired system is a different job: every camera needs a cable through the attic or walls to a recorder inside the house, each camera has to be placed and aimed, and the recorder and phone app have to be set up. In Texas, installing a camera system that records takes a license from the Texas Private Security Board, so look for a licensed installer. KZ Audio & Video holds license B-15669. At KZ, three to four wired 4K cameras with a recorder in your home run ${smallCams} installed, with no monthly fee.`,
+  },
+  {
+    question: 'Where not to put security cameras?',
+    answer: "Not where a camera cannot see what matters, and not where it sees what it should not. Skip spots that look straight into the afternoon sun or a bright light at night, places someone can reach the camera and turn it by hand, and anywhere it would look into a neighbor's windows or a bathroom. Mounted too high, every clip shows the top of a hat instead of a face. At a lake house, people forget the water side: the dock and the path up from the water are ways in too. We walk the property, find the real entry points, and give you a written quote.",
+  },
+];
+
+const faqSchema = {
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": faqs.map((f) => ({
+    "@type": "Question",
+    "name": f.question,
+    "acceptedAnswer": { "@type": "Answer", "text": f.answer },
+  })),
+};
+
+const services = [
+  {
+    title: 'Home Theaters and Media Rooms',
+    desc: 'A dedicated theater with a projector, Dolby Atmos and tiered seating, or a media room built around a big TV. At KZ Audio & Video, a dedicated theater runs $15,000 to $40,000 and large rooms go to $80,000 or more.',
+    href: '/home-theater-installation-san-antonio-tx/',
+  },
+  {
+    title: 'Wired Security Cameras',
+    desc: 'Wired 4K cameras on the house, the driveway and the water side, recording to a recorder inside your home and viewed on your phone. A wired KZ system has no monthly fee.',
+    href: '/security-camera-installation-san-antonio/',
+  },
+  {
+    title: 'Starlink and Wi-Fi',
+    desc: 'The dish on a wall mount that does not screw into the roof, or on a pole in the yard, the cable to your network, and Wi-Fi for every room, a barn or a shop. KZ is an independent installer.',
+    href: '/starlink-installation-san-antonio/',
+  },
+  {
+    title: 'Music Inside and Out',
+    desc: 'Speakers in the rooms you choose, plus outdoor speakers for the patio, the pool and the yard, all played from your phone.',
+    href: '/outdoor-audio-video-san-antonio/',
+  },
+  {
+    title: 'Home Control',
+    desc: 'One system for lighting, shades, thermostats, the security alarm and AV, on keypads, a touchscreen or your phone. At KZ Audio & Video, a focused system starts around $5,000 to $12,000 installed.',
+    href: '/smart-home-automation-san-antonio/',
+  },
+  {
+    title: 'Low Voltage for Builders',
+    desc: 'Speaker, TV, camera, network and theater wire pulled at framing, before insulation and drywall, then the same crew installs everything at trim.',
+    href: '/low-voltage-prewire-builders-san-antonio/',
+  },
+];
+
+const awayList = [
+  'Every camera on your phone, recorded inside the house',
+  'No monthly fee on a wired camera system',
+  'Thermostat and alarm from your phone',
+  'Wi-Fi that reaches every room',
+  'Music on the patio and by the pool',
+  'Low voltage done at framing on a new build',
+];
+
+const nearby = [
+  { label: 'Johnson City & Blanco', href: '/service-areas/johnson-city-blanco/' },
+  { label: 'Canyon Lake', href: '/service-areas/canyon-lake/' },
+  { label: 'New Braunfels', href: '/service-areas/new-braunfels/' },
+  { label: 'Boerne', href: '/service-areas/boerne/' },
+];
+---
+
+<BaseLayout
+  title="Horseshoe Bay & Marble Falls AV and Home Theater | KZ Audio"
+  description="Home theaters, wired security cameras, Starlink, Wi-Fi and outdoor audio for homes in Horseshoe Bay, Marble Falls, Kingsland and Lake Buchanan. (210) 981-4098."
+  schema={[schema, breadcrumb, faqSchema]}
+>
+
+  <HeroSection
+    overline="Highland Lakes · Lake LBJ · Lake Buchanan"
+    heading="Horseshoe Bay and Marble Falls Home Theater, Cameras and AV"
+    subhead="KZ Audio & Video wires lake homes from Horseshoe Bay and Marble Falls to Kingsland, Burnet and Lake Buchanan: home theaters, wired security cameras, Starlink and Wi-Fi, music inside and out, and the low voltage behind all of it."
+    imageSrc="/images/projects/outdoor-av/san-antonio-projector-pool.jpg"
+    imageAlt="Outdoor projector screen over a lit pool at a home KZ Audio & Video wired near San Antonio"
+    imagePosition="object-center"
+    scrim={0.55}
+    compact={true}
+  />
+
+  <TrustBar />
+
+  <!-- Self-contained answer, written to be quoted. -->
+  <section id="highland-lakes-av" class="section bg-charcoal">
+    <div class="container-main">
+      <div class="grid grid-cols-1 lg:grid-cols-12 gap-12 items-start">
+        <div class="lg:col-span-7">
+          <p class="overline mb-3">The Short Answer</p>
+          <h2 class="font-display text-h2 text-warm-white mb-6">Who Installs Home Theaters and Security Cameras Around Horseshoe Bay and Marble Falls?</h2>
+          <p class="text-body-lg text-stone leading-relaxed">
+            KZ Audio & Video designs and installs home theaters, wired security cameras, Starlink and Wi-Fi, whole-house and outdoor audio, and home control for homes around Horseshoe Bay, Marble Falls, Kingsland, Burnet and Lake Buchanan. We have done this work since 1999 and are rated {REVIEWS_SENTENCE}. Our own crew runs the low voltage wire first, then installs and sets up the equipment, and we walk you through every piece before we leave. Camera work is done under our Texas Private Security Board license, B-15669. At KZ, three to four wired 4K cameras with a recorder in your home run {smallCams} with no monthly fee, a media room runs $10,000 to $15,000, and a dedicated theater runs $15,000 to $40,000. Building with a custom builder out here? We wire the house at framing, so the theater, speakers, cameras and Wi-Fi go in clean at trim. Every project starts with a free in-home consultation and an itemized written quote.
+          </p>
+        </div>
+        <div class="lg:col-span-5 card p-7">
+          <h3 class="font-sans font-semibold text-h4 text-warm-white mb-4">Where we work around the Highland Lakes</h3>
+          <ul class="grid grid-cols-2 gap-x-6 gap-y-3">
+            {[...towns.slice(0, 5), 'Lake Buchanan'].map((t) => (
+              <li class="flex gap-3 text-body-sm text-stone">
+                <svg class="flex-shrink-0 mt-1 text-gold" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M21 10c0 7-9 13-9 13S3 17 3 10a9 9 0 0 1 18 0z"></path><circle cx="12" cy="10" r="3"></circle></svg>
+                <span>{t}</span>
+              </li>
+            ))}
+          </ul>
+          <div class="mt-6 flex flex-wrap gap-x-6 gap-y-2">
+            <a href="/home-theater-cost-san-antonio/" class="btn-text text-sm cursor-pointer">Home theater prices &rarr;</a>
+            <a href="/new-construction-prewire-guide/" class="btn-text text-sm cursor-pointer">Building a home? &rarr;</a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Services -->
+  <section class="section bg-slate-surface">
+    <div class="container-main">
+      <p class="overline mb-3">What We Install</p>
+      <h2 class="font-display text-h2 text-warm-white mb-4">AV, Cameras and Internet for Highland Lakes Homes</h2>
+      <p class="text-body-lg text-stone mb-10 max-w-2xl">
+        The low voltage goes in first, then the equipment. Each service below has its own page with prices and real jobs.
+      </p>
+      <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
+        {services.map(({ title, desc, href }) => (
+          <a href={href} class="card card-hover flex flex-col gap-3 p-6 cursor-pointer">
+            <h3 class="font-sans font-semibold text-h4 text-warm-white">{title}</h3>
+            <p class="text-body-sm text-stone leading-relaxed">{desc}</p>
+            <span class="text-gold text-body-sm font-sans font-medium mt-auto flex items-center gap-1">
+              Learn more
+              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+            </span>
+          </a>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <!-- The weekend-house angle -->
+  <section class="section bg-charcoal">
+    <div class="container-main">
+      <div class="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
+        <div>
+          <p class="overline mb-3">When You Are Not There</p>
+          <h2 class="font-display text-h2 text-warm-white mb-6">A Lake House That Works While You Are Gone</h2>
+          <p class="text-body-lg text-stone leading-relaxed mb-4">
+            If the house is a weekend place, the system has to do its job when nobody is home. A wired KZ camera system records to a recorder inside the house and shows every camera on your phone. Home control lets you set the thermostat and arm the alarm before you drive up, and shut everything down after you leave.
+          </p>
+          <p class="text-body text-stone leading-relaxed mb-8">
+            It all runs on the home network, so we build that first: a network cabinet like the one pictured, wired access points, and cable to the TVs, the office and the cameras.
+          </p>
+          <ul class="flex flex-col">
+            {awayList.map((item) => (
+              <li class="flex items-start gap-3 py-3 border-b border-smoke/60">
+                <svg class="flex-shrink-0 mt-1 text-gold" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="20 6 9 17 4 12"></polyline></svg>
+                <span class="text-body text-stone">{item}</span>
+              </li>
+            ))}
+          </ul>
+        </div>
+        <figure class="card overflow-hidden">
+          <img
+            src="/images/projects/unifi-racks/unifi-network-rack-wall-cabinet-hero.jpg"
+            alt="Wall-mounted network cabinet with UniFi equipment installed by KZ Audio & Video"
+            width="1400"
+            height="788"
+            loading="lazy"
+            class="w-full h-auto"
+          />
+          <figcaption class="p-5 text-body-sm text-stone">A KZ network cabinet. The Wi-Fi, the cameras and the music all start here.</figcaption>
+        </figure>
+      </div>
+    </div>
+  </section>
+
+  <FAQAccordion
+    heading="Highland Lakes Home Theater and Camera Questions"
+    faqs={faqs}
+  />
+
+  <!-- Nearby areas -->
+  <section class="section bg-slate-surface">
+    <div class="container-main">
+      <p class="overline mb-3">Nearby</p>
+      <h2 class="font-display text-h2 text-warm-white mb-8">Other Hill Country Areas We Serve</h2>
+      <div class="flex flex-wrap gap-4">
+        {nearby.map(({ label, href }) => (
+          <a href={href} class="card card-hover px-6 py-4 text-body text-warm-white cursor-pointer">{label}</a>
+        ))}
+        <a href="/service-areas/" class="btn-text self-center cursor-pointer">All service areas &rarr;</a>
+      </div>
+    </div>
+  </section>
+
+  <CTASection
+    heading="Book a Free Consultation Around the Highland Lakes"
+    body="Tell us about the house, the lot and the builder if there is one. We come out, walk it with you, and send an itemized written quote."
+    ctaLabel="Book a Free Consultation"
+    ctaHref="/contact-kz-audio-video-san-antonio-tx/"
+    secondaryLabel="Call (210) 981-4098"
+    secondaryHref="tel:2109814098"
+  />
+
+</BaseLayout>

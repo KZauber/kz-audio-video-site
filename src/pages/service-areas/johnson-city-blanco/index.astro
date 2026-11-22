@@ -1,0 +1,258 @@
+---
+/**
+ * Johnson City and Blanco County area page (Kelly, 2026-11-22: "Yes, build them").
+ * One page for the county, not one per town: town-name searches out here measured too small for
+ * Google's ad tool (SocialMedia repo, kz/logs/KZ-Highland-Lakes-Blanco-2026-11-22.md).
+ * FAQ questions are Google "People also ask" wording, word for word, from searches run from Johnson
+ * City on 2026-11-22 ("starlink installation", "home theater installation"), logged in
+ * kz/website/faq-source-log.md. The Dripping Springs Starlink quote is the one on
+ * /starlink-installation-san-antonio/; no past job in Blanco County is claimed.
+ */
+import BaseLayout from '../../../layouts/BaseLayout.astro';
+import HeroSection from '../../../components/sections/HeroSection.astro';
+import TrustBar from '../../../components/sections/TrustBar.astro';
+import CTASection from '../../../components/sections/CTASection.astro';
+import FAQAccordion from '../../../components/sections/FAQAccordion.astro';
+import { REVIEWS_SENTENCE } from '../../../data/business';
+
+const PAGE_URL = 'https://kzaudioandvideo.com/service-areas/johnson-city-blanco/';
+
+const schema = {
+  "@context": "https://schema.org",
+  "@type": "LocalBusiness",
+  "name": "KZ Audio & Video",
+  "url": "https://kzaudioandvideo.com",
+  "telephone": "+12109814098",
+  "description": "Starlink and Wi-Fi out to the barn, wired security cameras, home theaters, whole-house audio and home control for homes and ranch properties around Johnson City, Blanco and Round Mountain.",
+  "address": {
+    "@type": "PostalAddress",
+    "addressLocality": "San Antonio",
+    "addressRegion": "TX",
+    "addressCountry": "US"
+  },
+  "areaServed": [
+    ...['Johnson City', 'Blanco', 'Round Mountain'].map((name) => ({
+      "@type": "City",
+      "name": name,
+      "containedInPlace": { "@type": "State", "name": "Texas" }
+    })),
+    { "@type": "AdministrativeArea", "name": "Blanco County, Texas" },
+  ],
+};
+
+const breadcrumb = {
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": [
+    { "@type": "ListItem", "position": 1, "name": "Home", "item": "https://kzaudioandvideo.com" },
+    { "@type": "ListItem", "position": 2, "name": "Service Areas", "item": "https://kzaudioandvideo.com/service-areas/" },
+    { "@type": "ListItem", "position": 3, "name": "Johnson City & Blanco, TX", "item": PAGE_URL }
+  ]
+};
+
+const faqs = [
+  {
+    question: 'How much does it cost to have someone install your Starlink?',
+    answer: "At KZ Audio & Video, the price depends on the mount and how far the internet has to travel. A wall mount and a short cable run cost the least; a pole, a long cable run, or Wi-Fi for a large home, a barn or a shop add to that. As a real example, KZ quoted a Dripping Springs home $2,980 with tax to move the dish, add four eero Wi-Fi units and link a barn and a detached shop. A KZ install covers the mount or pole, the cable to where your network lives, Wi-Fi for the whole house, and setting up the app with you. KZ is an independent low voltage contractor, not Starlink, and you get a written quote first.",
+  },
+  {
+    question: 'What is Starlink internet?',
+    answer: "Starlink is satellite internet from SpaceX. A dish on your property connects to satellites overhead, so it can bring internet to a home that cable or fiber does not reach. The dish needs a clear view of the sky, and the router that comes in the box sits in one spot, so it will not cover a large home, a barn or a shop on its own. That second half is what KZ Audio & Video handles: mounting the dish where it can see the sky, running the cable to your network, and building Wi-Fi for the house with wireless links out to the outbuildings. KZ is an independent installer, not Starlink.",
+  },
+  {
+    question: 'What does a home theater cost?',
+    answer: "At KZ Audio & Video, a home theater costs $10,000 to $80,000 or more, depending on scope. A KZ media room, with a large 4K TV, surround sound and hidden wiring in a room you already have, runs $10,000 to $15,000. A dedicated KZ theater with 4K projection, Dolby Atmos, tiered seating and acoustic treatment runs $15,000 to $40,000, and large custom rooms go higher. The biggest drivers are room size, projector or TV, speaker count, and whether the house is new construction or finished. On a new build in Blanco County, the theater wire goes in at framing while the walls are open, so nothing shows when the room is done.",
+  },
+  {
+    question: 'Are home theaters worth it?',
+    answer: "Yes, when the room is planned around how your family actually watches. The rooms that earn their cost have the right screen size for where people sit, speakers placed for that room, and one remote or one app anyone in the house can run. The ones that disappoint were bought off a spec sheet and never set up properly. At KZ Audio & Video, a media room starts at $10,000 and a dedicated theater runs $15,000 to $40,000. If a media room in the living area would serve you better than a separate theater, we will tell you. On a new build, plan it at framing, while the walls are open.",
+  },
+];
+
+const faqSchema = {
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": faqs.map((f) => ({
+    "@type": "Question",
+    "name": f.question,
+    "acceptedAnswer": { "@type": "Answer", "text": f.answer },
+  })),
+};
+
+const services = [
+  {
+    title: 'Starlink and Wi-Fi to the Barn',
+    desc: 'The dish on a wall mount that does not screw into the roof, or on a pole where it sees the sky, then Wi-Fi through the house and wireless links out to a barn, a shop or a casita.',
+    href: '/starlink-installation-san-antonio/',
+  },
+  {
+    title: 'Wired Cameras for the House and the Drive',
+    desc: 'Wired 4K cameras recording to a recorder inside the house, viewed on your phone, with no monthly fee on a wired KZ system.',
+    href: '/security-camera-installation-san-antonio/',
+  },
+  {
+    title: 'Home Theaters',
+    desc: 'Media rooms and dedicated theaters, planned at framing on a new build. A dedicated theater from KZ Audio & Video runs $15,000 to $40,000.',
+    href: '/home-theater-installation-san-antonio-tx/',
+  },
+  {
+    title: 'Whole-House and Porch Audio',
+    desc: 'Music in the rooms you pick and outside on the porch or the patio, all played from your phone.',
+    href: '/whole-house-audio-san-antonio/',
+  },
+  {
+    title: 'Home Control',
+    desc: 'Lighting, shades, thermostats, the alarm and AV on one system. At KZ Audio & Video, a whole-home system runs $30,000 to $150,000 or more.',
+    href: '/smart-home-automation-san-antonio/',
+  },
+  {
+    title: 'Prewire for Custom Builders',
+    desc: 'Building in Blanco County? Data, speaker, camera and theater wire go in at framing, and the same crew installs the equipment at trim.',
+    href: '/low-voltage-prewire-builders-san-antonio/',
+  },
+];
+
+const nearby = [
+  { label: 'Horseshoe Bay & Marble Falls', href: '/service-areas/horseshoe-bay-marble-falls/' },
+  { label: 'Boerne', href: '/service-areas/boerne/' },
+  { label: 'Bulverde', href: '/service-areas/bulverde/' },
+  { label: 'Canyon Lake', href: '/service-areas/canyon-lake/' },
+];
+---
+
+<BaseLayout
+  title="Johnson City TX & Blanco: AV, Starlink, Cameras | KZ Audio"
+  description="Starlink and Wi-Fi to the barn, security cameras, home theaters and audio for homes and ranches in Johnson City, Blanco and Round Mountain. (210) 981-4098."
+  schema={[schema, breadcrumb, faqSchema]}
+>
+
+  <HeroSection
+    overline="Blanco County · Johnson City · Round Mountain"
+    heading="Johnson City and Blanco Home Theater, Starlink and Cameras"
+    subhead="KZ Audio & Video brings Starlink and Wi-Fi out to the barn, wired cameras to the house and the drive, and home theaters and music to homes and ranch properties across Blanco County."
+    imageSrc="/images/projects/outdoor-av/outdoor-av-hero.jpg"
+    imageAlt="Landscape rock speaker beside a courtyard fountain, outdoor audio installed by KZ Audio & Video"
+    scrim={0.55}
+    compact={true}
+  />
+
+  <TrustBar />
+
+  <!-- Self-contained answer, written to be quoted. -->
+  <section id="blanco-county-av" class="section bg-charcoal">
+    <div class="container-main">
+      <div class="grid grid-cols-1 lg:grid-cols-12 gap-12 items-start">
+        <div class="lg:col-span-7">
+          <p class="overline mb-3">The Short Answer</p>
+          <h2 class="font-display text-h2 text-warm-white mb-6">Who Installs Starlink, Cameras and Home Theaters in Johnson City and Blanco?</h2>
+          <p class="text-body-lg text-stone leading-relaxed">
+            KZ Audio & Video installs Starlink and Wi-Fi, wired security cameras, home theaters, whole-house audio and home control for homes and ranch properties around Johnson City, Blanco and Round Mountain. We have done low voltage and AV work since 1999 and are rated {REVIEWS_SENTENCE}. On acreage, the job usually starts with getting the internet everywhere you live and work: the dish on a wall mount or a pole where it can see the sky, the cable to your network, Wi-Fi through the whole house, and wireless links out to a barn or shop. Cameras go on the house and the drive, wired to a recorder inside, under our Texas Private Security Board license, B-15669. As a real example, KZ quoted a Dripping Springs home $2,980 with tax to move the dish, add four eero Wi-Fi units and link a barn and a detached shop. Every project starts with a free in-home consultation and an itemized written quote.
+          </p>
+        </div>
+        <div class="lg:col-span-5 card p-7">
+          <h3 class="font-sans font-semibold text-h4 text-warm-white mb-4">Where we work in Blanco County</h3>
+          <ul class="flex flex-col gap-3">
+            {['Johnson City', 'Blanco', 'Round Mountain', 'Ranch properties across the county'].map((t) => (
+              <li class="flex gap-3 text-body-sm text-stone">
+                <svg class="flex-shrink-0 mt-1 text-gold" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M21 10c0 7-9 13-9 13S3 17 3 10a9 9 0 0 1 18 0z"></path><circle cx="12" cy="10" r="3"></circle></svg>
+                <span>{t}</span>
+              </li>
+            ))}
+          </ul>
+          <div class="mt-6 flex flex-wrap gap-x-6 gap-y-2">
+            <a href="/starlink-installation-san-antonio/" class="btn-text text-sm cursor-pointer">Starlink installs &rarr;</a>
+            <a href="/new-construction-prewire-guide/" class="btn-text text-sm cursor-pointer">Building a home? &rarr;</a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Services -->
+  <section class="section bg-slate-surface">
+    <div class="container-main">
+      <p class="overline mb-3">What We Install</p>
+      <h2 class="font-display text-h2 text-warm-white mb-4">For Blanco County Homes and Ranches</h2>
+      <p class="text-body-lg text-stone mb-10 max-w-2xl">
+        Internet, cameras and entertainment, with the low voltage done first. Each service has its own page with prices and real jobs.
+      </p>
+      <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
+        {services.map(({ title, desc, href }) => (
+          <a href={href} class="card card-hover flex flex-col gap-3 p-6 cursor-pointer">
+            <h3 class="font-sans font-semibold text-h4 text-warm-white">{title}</h3>
+            <p class="text-body-sm text-stone leading-relaxed">{desc}</p>
+            <span class="text-gold text-body-sm font-sans font-medium mt-auto flex items-center gap-1">
+              Learn more
+              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+            </span>
+          </a>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <!-- Acreage -->
+  <section class="section bg-charcoal">
+    <div class="container-main">
+      <div class="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
+        <figure class="lg:col-span-5 card overflow-hidden order-last lg:order-first">
+          <img
+            src="/images/projects/unifi-racks/unifi-network-rack-closet-heos-denon-san-antonio.jpg"
+            alt="Closet equipment rack with UniFi network gear and audio amplifiers installed by KZ Audio & Video"
+            width="900"
+            height="1200"
+            loading="lazy"
+            class="w-full h-auto"
+          />
+          <figcaption class="p-5 text-body-sm text-stone">A KZ closet rack: the network, the recorder and the music in one place.</figcaption>
+        </figure>
+        <div class="lg:col-span-7">
+          <p class="overline mb-3">On Acreage</p>
+          <h2 class="font-display text-h2 text-warm-white mb-6">Internet and Cameras That Reach the Barn</h2>
+          <p class="text-body-lg text-stone leading-relaxed mb-4">
+            On a few acres, one router in the house is not enough. The Starlink router sits in one spot, so it will not cover a large home, a barn or a shop on its own. We mount the dish where it sees the sky, run the cable to where your network lives, and build Wi-Fi for the house with wireless links out to the outbuildings.
+          </p>
+          <p class="text-body text-stone leading-relaxed mb-8">
+            Wired cameras cover the house and the drive and record to a recorder inside, so the video stays on your property. A camera far from the house can need a pole, a trench or a long cable run, and KZ quotes those per job.
+          </p>
+          <div class="card p-7">
+            <p class="overline mb-2">Real Job, Quoted</p>
+            <h3 class="font-sans font-semibold text-h4 text-warm-white mb-3">A House, a Barn and a Shop in Dripping Springs</h3>
+            <p class="text-body text-stone leading-relaxed">
+              KZ Audio & Video quoted this homeowner $2,980 with tax to move the Starlink dish, add four eero Wi-Fi units, and link a barn and a detached shop to the house network.
+            </p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <FAQAccordion
+    heading="Johnson City and Blanco Starlink and Theater Questions"
+    faqs={faqs}
+  />
+
+  <!-- Nearby areas -->
+  <section class="section bg-slate-surface">
+    <div class="container-main">
+      <p class="overline mb-3">Nearby</p>
+      <h2 class="font-display text-h2 text-warm-white mb-8">Other Hill Country Areas We Serve</h2>
+      <div class="flex flex-wrap gap-4">
+        {nearby.map(({ label, href }) => (
+          <a href={href} class="card card-hover px-6 py-4 text-body text-warm-white cursor-pointer">{label}</a>
+        ))}
+        <a href="/service-areas/" class="btn-text self-center cursor-pointer">All service areas &rarr;</a>
+      </div>
+    </div>
+  </section>
+
+  <CTASection
+    heading="Book a Free Consultation in Blanco County"
+    body="Tell us about the property: the house, the barn, where the dish sits now and where you want cameras. We come out, walk it with you, and send an itemized written quote."
+    ctaLabel="Book a Free Consultation"
+    ctaHref="/contact-kz-audio-video-san-antonio-tx/"
+    secondaryLabel="Call (210) 981-4098"
+    secondaryHref="tel:2109814098"
+  />
+
+</BaseLayout>
