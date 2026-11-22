@@ -31,6 +31,7 @@ import CTASection from '../../components/sections/CTASection.astro';
 import LowVoltageFirst from '../../components/sections/LowVoltageFirst.astro';
 import CameraPrices from '../../components/sections/CameraPrices.astro';
 import { ALY_BEYNON, ANDRES_PEREZ, ZACK_CROFT } from '../../data/reviews';
+import { REVIEWS_SENTENCE } from '../../data/business';
 
 const PAGE_URL = 'https://kzaudioandvideo.com/security-camera-installation-san-antonio/';
 const COST_URL = '/security-camera-installation-cost-san-antonio/';
@@ -45,6 +46,11 @@ const faqs = [
     // Facebook, San Antonio - Ask A Local, shown by Google 2026-11-05: "Who installs self-monitored home security cameras in San" (title cut off by Google).
     question: 'Who installs self-monitored home security cameras in San Antonio?',
     answer: 'KZ Audio & Video installs them. A self-monitored system records to a recorder in your home with no monthly monitoring fee, and sends live video and motion alerts to your phone. We set up the app and show you how to use it before we leave. Call or text (210) 981-4098.',
+  },
+  {
+    // Google "People also ask" on "best security camera installer san antonio", San Antonio, 2026-11-22.
+    question: 'Which company is the best for home security cameras?',
+    answer: 'Look for a company that wires every camera it can, records to a recorder in your home with no monthly fee, holds a Texas Private Security Board license, and sets up the app on your phone before it leaves. KZ Audio & Video does all four in San Antonio and the Texas Hill Country: wired 4K cameras, a recorder in your home, license B-15669, and our own crew on every job. At KZ, three to four wired 4K cameras with a recorder run $2,200 to $3,700 installed. Call or text (210) 981-4098.',
   },
   {
     question: 'What types of security cameras do you install?',
@@ -172,8 +178,41 @@ const secondary = [ZACK_CROFT, ANDRES_PEREZ];
     </div>
   </section>
 
+  <!-- Self-contained answer, written to be quoted. Real question: Google "People also ask" on
+       "best security camera installer san antonio", San Antonio, 2026-11-22. Prices match camera-prices.ts. -->
+  <section id="best-security-camera-company" class="section bg-slate-surface">
+    <div class="container-main">
+      <div class="grid grid-cols-1 lg:grid-cols-12 gap-12 items-start">
+        <div class="lg:col-span-7">
+          <p class="overline mb-3">The Short Answer</p>
+          <h2 class="font-display text-h2 text-warm-white mb-6">Which Company Is the Best for Home Security Cameras in San Antonio?</h2>
+          <p class="text-body-lg text-stone leading-relaxed">
+            The best company for home security cameras runs a cable to every camera it can, records to a recorder in your home, holds a Texas security license, and sets up the app on your phone before it leaves. KZ Audio & Video installs cameras that way across San Antonio and the Texas Hill Country and has run low voltage here since 1999, rated {REVIEWS_SENTENCE}. Each wired camera gets its power and video over one network cable, so it keeps recording when the WiFi drops. Your footage stays on your own recorder with no monthly monitoring fee, and you watch live or recorded video from your phone. We hold Texas Private Security Board license B-15669, and our own crew runs the cable, mounts the cameras and does the setup. At KZ, three to four wired 4K cameras with a recorder run $2,200 to $3,700 installed. Every job starts with a walk of the property and a written quote.
+          </p>
+        </div>
+        <div class="lg:col-span-5 card p-7">
+          <h3 class="font-sans font-semibold text-h4 text-warm-white mb-4">What to ask any camera installer</h3>
+          <ul class="flex flex-col gap-3">
+            {[
+              'Is every camera wired, or are some on WiFi and batteries?',
+              'Where does the video record, and is there a monthly fee?',
+              'What is your Texas Private Security Board license number?',
+              'Will you set up the app on my phone before you leave?',
+            ].map((q) => (
+              <li class="flex gap-3 text-body-sm text-stone leading-relaxed">
+                <svg class="flex-shrink-0 mt-1 text-gold" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="20 6 9 17 4 12"></polyline></svg>
+                <span>{q}</span>
+              </li>
+            ))}
+          </ul>
+          <a href={COST_URL} class="btn-text text-sm cursor-pointer inline-block mt-6">See camera prices &rarr;</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
   <!-- Self-contained answer, written to be quoted. Numbers match the cost page. -->
-  <section class="section bg-slate-surface">
+  <section class="section bg-charcoal">
     <div class="container-main">
       <p class="overline mb-3">The Short Answer</p>
       <h2 class="font-display text-h2 text-warm-white mb-6">What Does Security Camera Installation Cost in San Antonio?</h2>
@@ -186,7 +225,7 @@ const secondary = [ZACK_CROFT, ANDRES_PEREZ];
   </section>
 
   <!-- Services -->
-  <section class="section bg-charcoal">
+  <section class="section bg-slate-surface">
     <div class="container-main">
       <p class="overline mb-3">Camera Systems</p>
       <h2 class="font-display text-h2 text-warm-white mb-6">
@@ -215,7 +254,7 @@ const secondary = [ZACK_CROFT, ANDRES_PEREZ];
   </section>
 
   <!-- Licensing and wired vs wireless -->
-  <section class="section bg-slate-surface">
+  <section class="section bg-charcoal">
     <div class="container-main">
       <div class="grid grid-cols-1 lg:grid-cols-2 gap-12 items-start">
         <div>
