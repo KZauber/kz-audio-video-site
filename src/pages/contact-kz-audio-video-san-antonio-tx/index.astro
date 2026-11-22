@@ -16,6 +16,32 @@ const schema = {
   }
 };
 
+// Questionnaire steps. Values for service keep the old dropdown's values where the
+// service is the same, so past and new leads read alike in Netlify and GHL.
+const serviceOptions = [
+  { value: 'home-theater', label: 'Home theater or media room' },
+  { value: 'home-control', label: 'Home control: lighting, shades, music and TV' },
+  { value: 'security-cameras', label: 'Security cameras' },
+  { value: 'whole-house-audio', label: 'Music in every room' },
+  { value: 'outdoor-av', label: 'Outdoor audio and TV' },
+  { value: 'network', label: 'WiFi and network' },
+  { value: 'new-construction', label: 'Building a new home: low voltage prewire' },
+  { value: 'av-repair', label: "Something isn't working right" },
+  { value: 'not-sure', label: 'Not sure yet' },
+];
+const homeOptions = [
+  { value: 'building-now', label: 'Building now, walls still open' },
+  { value: 'existing-home', label: 'A home I already live in' },
+  { value: 'buying-or-remodeling', label: 'Buying or remodeling' },
+];
+const timelineOptions = [
+  { value: 'asap', label: 'As soon as possible' },
+  { value: 'within-3-months', label: 'In the next 3 months' },
+  { value: '3-to-6-months', label: '3 to 6 months out' },
+  { value: 'planning', label: 'Just planning for now' },
+];
+const inputClass = 'bg-graphite border border-smoke rounded-sm px-4 py-3 text-warm-white text-body placeholder-stone/50 focus:outline-none focus:border-gold transition-colors';
+
 const breadcrumb = {
   "@context": "https://schema.org",
   "@type": "BreadcrumbList",
@@ -45,7 +71,7 @@ const breadcrumb = {
             Book a Free Consultation
           </h1>
           <p class="text-body-lg text-stone mb-8">
-            We come to you. Tell us about your project: what you're looking for, the space, and the timeline. We'll schedule a time to meet at your home or job site. No obligation, no pressure.
+            We come to you. Answer a few questions about the project so we arrive prepared, then we'll set a time to meet at your home or job site. No obligation, no pressure.
           </p>
 
           <!-- Phone -->
@@ -103,91 +129,92 @@ const breadcrumb = {
             <input type="hidden" name="referrer" value="" />
             <input type="hidden" name="came-from" value="" />
 
-            <div class="grid grid-cols-1 sm:grid-cols-2 gap-5">
+            <!-- Progress, shown only once the step script runs. Without JavaScript every
+                 step shows at once and the form works as one page. -->
+            <p data-q-progress style="display:none" class="text-body text-stone" aria-live="polite"></p>
+
+            <!-- Step 1 -->
+            <fieldset data-q-step data-q-auto class="flex flex-col gap-3">
+              <legend tabindex="-1" class="font-sans font-semibold text-h4 text-warm-white mb-3 outline-none">What can we help with? *</legend>
+              {serviceOptions.map((o, i) => (
+                <label class="block cursor-pointer">
+                  <input type="radio" name="service" value={o.value} required={i === 0} class="peer sr-only" />
+                  <span class="block border border-smoke rounded-sm px-4 py-3 text-body text-warm-white transition-colors hover:border-gold peer-checked:border-gold peer-checked:bg-gold/10 peer-focus-visible:ring-2 peer-focus-visible:ring-gold">{o.label}</span>
+                </label>
+              ))}
+            </fieldset>
+
+            <!-- Step 2 -->
+            <fieldset data-q-step data-q-auto class="flex flex-col gap-3">
+              <legend tabindex="-1" class="font-sans font-semibold text-h4 text-warm-white mb-3 outline-none">Is this a new build or an existing home?</legend>
+              {homeOptions.map((o) => (
+                <label class="block cursor-pointer">
+                  <input type="radio" name="home-type" value={o.value} class="peer sr-only" />
+                  <span class="block border border-smoke rounded-sm px-4 py-3 text-body text-warm-white transition-colors hover:border-gold peer-checked:border-gold peer-checked:bg-gold/10 peer-focus-visible:ring-2 peer-focus-visible:ring-gold">{o.label}</span>
+                </label>
+              ))}
+            </fieldset>
+
+            <!-- Step 3 -->
+            <fieldset data-q-step data-q-auto class="flex flex-col gap-3">
+              <legend tabindex="-1" class="font-sans font-semibold text-h4 text-warm-white mb-3 outline-none">When would you like it done?</legend>
+              {timelineOptions.map((o) => (
+                <label class="block cursor-pointer">
+                  <input type="radio" name="timeline" value={o.value} class="peer sr-only" />
+                  <span class="block border border-smoke rounded-sm px-4 py-3 text-body text-warm-white transition-colors hover:border-gold peer-checked:border-gold peer-checked:bg-gold/10 peer-focus-visible:ring-2 peer-focus-visible:ring-gold">{o.label}</span>
+                </label>
+              ))}
+            </fieldset>
+
+            <!-- Step 4 -->
+            <fieldset data-q-step class="flex flex-col gap-5">
+              <legend tabindex="-1" class="font-sans font-semibold text-h4 text-warm-white mb-3 outline-none">Where is the home?</legend>
               <div class="flex flex-col gap-2">
-                <label for="name" class="text-caption text-stone uppercase tracking-widest">Name *</label>
-                <input
-                  type="text"
-                  id="name"
-                  name="name"
-                  required
-                  class="bg-graphite border border-smoke rounded-sm px-4 py-3 text-warm-white text-body
-                         placeholder-stone/50 focus:outline-none focus:border-gold transition-colors"
-                  placeholder="Your name"
-                />
+                <label for="location" class="text-body text-stone">Town or ZIP code</label>
+                <input type="text" id="location" name="location" autocomplete="postal-code" class={inputClass} placeholder="Boerne, 78006" />
               </div>
               <div class="flex flex-col gap-2">
-                <label for="phone" class="text-caption text-stone uppercase tracking-widest">Phone *</label>
-                <input
-                  type="tel"
-                  id="phone"
-                  name="phone"
-                  required
-                  class="bg-graphite border border-smoke rounded-sm px-4 py-3 text-warm-white text-body
-                         placeholder-stone/50 focus:outline-none focus:border-gold transition-colors"
-                  placeholder="(210) 555-0000"
-                />
+                <label for="message" class="text-body text-stone">Anything else we should know? (optional)</label>
+                <textarea id="message" name="message" rows="4" class={`${inputClass} resize-none`} placeholder="Room size, what you're picturing, what's there now."></textarea>
               </div>
+            </fieldset>
+
+            <!-- Step 5 -->
+            <fieldset data-q-step class="flex flex-col gap-5">
+              <legend tabindex="-1" class="font-sans font-semibold text-h4 text-warm-white mb-3 outline-none">How do we reach you?</legend>
+              <div class="grid grid-cols-1 sm:grid-cols-2 gap-5">
+                <div class="flex flex-col gap-2">
+                  <label for="name" class="text-body text-stone">Name *</label>
+                  <input type="text" id="name" name="name" required autocomplete="name" class={inputClass} placeholder="Your name" />
+                </div>
+                <div class="flex flex-col gap-2">
+                  <label for="phone" class="text-body text-stone">Phone *</label>
+                  <input type="tel" id="phone" name="phone" required autocomplete="tel" class={inputClass} placeholder="(210) 555-0000" />
+                </div>
+              </div>
+              <div class="flex flex-col gap-2">
+                <label for="email" class="text-body text-stone">Email (optional)</label>
+                <input type="email" id="email" name="email" autocomplete="email" class={inputClass} placeholder="your@email.com" />
+              </div>
+
+              <p class="text-caption text-stone/70 leading-relaxed">
+                By submitting this form you agree to receive calls, texts, and emails from
+                KZ Audio &amp; Video about your inquiry. Msg &amp; data rates may apply, message
+                frequency varies. Reply STOP to opt out, HELP for help. Consent is not a
+                condition of purchase. See our
+                <a href="/privacy/" class="text-gold hover:text-gold-light underline">Privacy Policy</a>.
+              </p>
+
+              <button type="submit" class="btn-primary w-full justify-center cursor-pointer">
+                Request My Free Consultation
+              </button>
+            </fieldset>
+
+            <!-- Step buttons, shown only once the step script runs -->
+            <div data-q-nav style="display:none" class="flex items-center justify-between gap-4">
+              <button type="button" data-q-back class="text-body text-stone hover:text-gold transition-colors cursor-pointer">Back</button>
+              <button type="button" data-q-next class="btn-primary justify-center cursor-pointer">Next</button>
             </div>
-
-            <div class="flex flex-col gap-2">
-              <label for="email" class="text-caption text-stone uppercase tracking-widest">Email</label>
-              <input
-                type="email"
-                id="email"
-                name="email"
-                class="bg-graphite border border-smoke rounded-sm px-4 py-3 text-warm-white text-body
-                       placeholder-stone/50 focus:outline-none focus:border-gold transition-colors"
-                placeholder="your@email.com"
-              />
-            </div>
-
-            <div class="flex flex-col gap-2">
-              <label for="service" class="text-caption text-stone uppercase tracking-widest">What Are You Looking For?</label>
-              <select
-                id="service"
-                name="service"
-                class="bg-graphite border border-smoke rounded-sm px-4 py-3 text-warm-white text-body
-                       focus:outline-none focus:border-gold transition-colors appearance-none"
-              >
-                <option value="" class="text-stone">Select a service...</option>
-                <option value="home-theater">Home Theater</option>
-                <option value="whole-house-audio">Whole House Audio</option>
-                <option value="outdoor-av">Outdoor Audio & Video</option>
-                <option value="surround-sound">Surround Sound</option>
-                <option value="security-cameras">Security Cameras</option>
-                <option value="av-repair">AV Repair / Service</option>
-                <option value="new-construction">New Construction / Builder</option>
-                <option value="not-sure">Not Sure Yet</option>
-              </select>
-            </div>
-
-            <div class="flex flex-col gap-2">
-              <label for="message" class="text-caption text-stone uppercase tracking-widest">Tell Us About Your Project</label>
-              <textarea
-                id="message"
-                name="message"
-                rows="5"
-                class="bg-graphite border border-smoke rounded-sm px-4 py-3 text-warm-white text-body
-                       placeholder-stone/50 focus:outline-none focus:border-gold transition-colors resize-none"
-                placeholder="Room size, what you're envisioning, timeline, budget range, anything that helps us understand the project."
-              ></textarea>
-            </div>
-
-            <p class="text-caption text-stone/70 leading-relaxed">
-              By submitting this form you agree to receive calls, texts, and emails from
-              KZ Audio &amp; Video about your inquiry. Msg &amp; data rates may apply, message
-              frequency varies. Reply STOP to opt out, HELP for help. Consent is not a
-              condition of purchase. See our
-              <a href="/privacy/" class="text-gold hover:text-gold-light underline">Privacy Policy</a>.
-            </p>
-
-            <button
-              type="submit"
-              class="btn-primary w-full justify-center"
-            >
-              Send Message
-            </button>
 
             <p class="text-caption text-stone text-center">
               Or call us directly: <a href="tel:2109814098" class="text-gold hover:text-gold-light">(210) 981-4098</a>
@@ -234,6 +261,67 @@ const breadcrumb = {
 
     fillAttribution();
     document.addEventListener('astro:page-load', fillAttribution);
+
+    // One question at a time. The HTML shows every step, so the form still works
+    // with JavaScript off; this only hides the steps that are not current.
+    function initSteps() {
+      const form = document.querySelector<HTMLFormElement>('form[name="contact"]');
+      if (!form || form.dataset.qReady) return;
+      form.dataset.qReady = '1';
+
+      const steps = Array.from(form.querySelectorAll<HTMLFieldSetElement>('[data-q-step]'));
+      const nav = form.querySelector<HTMLElement>('[data-q-nav]');
+      const back = form.querySelector<HTMLButtonElement>('[data-q-back]');
+      const next = form.querySelector<HTMLButtonElement>('[data-q-next]');
+      const progress = form.querySelector<HTMLElement>('[data-q-progress]');
+      if (!steps.length || !nav || !back || !next || !progress) return;
+
+      let current = 0;
+      const show = (i: number, moveFocus: boolean) => {
+        current = Math.max(0, Math.min(i, steps.length - 1));
+        // Inline display, not the hidden attribute: the flex utility classes would
+        // override [hidden] and leave every step showing.
+        steps.forEach((s, n) => { s.style.display = n === current ? '' : 'none'; });
+        progress.textContent = `Step ${current + 1} of ${steps.length}`;
+        back.style.visibility = current === 0 ? 'hidden' : 'visible';
+        next.style.display = current === steps.length - 1 ? 'none' : '';
+        if (moveFocus) steps[current].querySelector<HTMLElement>('legend')?.focus();
+      };
+      const stepIsValid = () => {
+        const fields = Array.from(steps[current].querySelectorAll<HTMLInputElement>('input, textarea, select'));
+        return fields.every((f) => f.reportValidity());
+      };
+
+      next.addEventListener('click', () => { if (stepIsValid()) show(current + 1, true); });
+      back.addEventListener('click', () => show(current - 1, true));
+      steps.forEach((s, n) => {
+        if (!s.hasAttribute('data-q-auto')) return;
+        s.addEventListener('change', (e) => {
+          const t = e.target as HTMLInputElement;
+          if (t.type === 'radio' && n === current) window.setTimeout(() => show(n + 1, true), 220);
+        });
+      });
+      // Enter in a text box moves on instead of submitting early.
+      form.addEventListener('keydown', (e) => {
+        const t = e.target as HTMLElement;
+        if (e.key === 'Enter' && t.tagName === 'INPUT' && current < steps.length - 1) {
+          e.preventDefault();
+          if (stepIsValid()) show(current + 1, true);
+        }
+      });
+      form.addEventListener('submit', () => {
+        const w = window as unknown as { gtag?: (...a: unknown[]) => void; fbq?: (...a: unknown[]) => void };
+        if (w.gtag) w.gtag('event', 'generate_lead', { event_category: 'lead', event_label: 'contact-questionnaire' });
+        if (w.fbq) w.fbq('track', 'Lead');
+      });
+
+      nav.style.display = '';
+      progress.style.display = '';
+      show(0, false);
+    }
+
+    initSteps();
+    document.addEventListener('astro:page-load', initSteps);
   </script>
 
 </BaseLayout>
