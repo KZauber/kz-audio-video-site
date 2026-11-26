@@ -11,7 +11,7 @@ const schema = {
   "name": "KZ Audio & Video",
   "url": "https://kzaudioandvideo.com",
   "telephone": "+12109814098",
-  "description": "Home theater and AV installation in Stone Oak, San Antonio TX. Custom home specialists serving North San Antonio since 1999.",
+  "description": "Security cameras, Wi-Fi and whole-house audio for Stone Oak homes in North San Antonio, wired right from the very start. KZ Audio & Video: (210) 981-4098.",
   "address": {
     "@type": "PostalAddress",
     "addressLocality": "San Antonio",
@@ -59,16 +59,18 @@ const faqs = [
 ---
 
 <BaseLayout
-  title="AV & Home Theater Services Stone Oak SA | KZ Audio"
-  description="Home theater and AV installation in Stone Oak, San Antonio TX. Custom home and new construction specialists serving North San Antonio since 1999. (210) 981-4098"
+  title="Security Cameras, Wi-Fi & Audio Stone Oak | KZ Audio"
+  description="Security cameras, Wi-Fi and whole-house audio for Stone Oak homes in North San Antonio, wired right from the very start. KZ Audio & Video: (210) 981-4098."
   schema={[schema, breadcrumb]}
 >
 
   <HeroSection
-    heading="Home Theater & AV Installation in Stone Oak"
+    heading="Security Cameras, Wi-Fi and Audio in Stone Oak, San Antonio"
     subhead="North San Antonio's established custom home community, and one of our busiest service areas. We've been wiring Stone Oak homes for over 25 years."
-    imageSrc="/images/projects/monty-theater/home-theater-near-san-antonio-hero.jpg"
-    imageAlt="Custom home theater installation in Stone Oak San Antonio Texas"
+    imageSrc="/images/projects/young-theater/stone-oak-theater-left-speaker-wire.jpg"
+    imageAlt="Low voltage cable run to a wall box at framing, before drywall, in a custom home"
+    imagePosition="object-center"
+    scrim={0.55}
     compact={true}
   />
 
@@ -90,9 +92,14 @@ const faqs = [
       <div class="grid grid-cols-1 sm:grid-cols-2 gap-6 mt-10">
         {[
           {
-            title: 'Home Theater',
-            desc: 'Dedicated theater rooms designed for the large, open floor plans common in Stone Oak. 4K projection, Dolby Atmos, acoustic treatment, and custom seating coordination.',
-            href: '/home-theater-installation-san-antonio-tx/',
+            title: 'Security Cameras',
+            desc: 'Professional camera coverage for larger lots, long driveways, and multi-entry custom homes, remote viewing from anywhere.',
+            href: '/security-camera-installation-san-antonio/',
+          },
+          {
+            title: 'Wi-Fi and Networks',
+            desc: 'Wi-Fi that reaches every room of a Stone Oak home, out to the patio and the garage, on wired access points and a tidy network rack.',
+            href: '/home-network-installation-san-antonio/',
           },
           {
             title: 'Whole House Audio',
@@ -105,12 +112,13 @@ const faqs = [
             href: '/outdoor-audio-video-san-antonio/',
           },
           {
-            title: 'Security Cameras',
-            desc: 'Professional camera coverage for larger lots, long driveways, and multi-entry custom homes, remote viewing from anywhere.',
-            href: '/security-camera-installation-san-antonio/',
+            title: 'Home Theater',
+            desc: 'Dedicated theater rooms designed for the large, open floor plans common in Stone Oak. 4K projection, Dolby Atmos, acoustic treatment, and custom seating coordination.',
+            href: '/home-theater-installation-stone-oak-san-antonio/',
+            wide: true,
           },
-        ].map(({ title, desc, href }) => (
-          <a href={href} class="card card-hover flex flex-col gap-3 p-6 reveal">
+        ].map(({ title, desc, href, wide }) => (
+          <a href={href} class:list={['card card-hover flex flex-col gap-3 p-6 reveal', wide && 'sm:col-span-2']}>
             <h3 class="font-sans font-semibold text-h4 text-warm-white">{title}</h3>
             <p class="text-body text-stone leading-relaxed">{desc}</p>
             <span class="text-gold text-body-sm font-sans font-medium mt-auto flex items-center gap-1">

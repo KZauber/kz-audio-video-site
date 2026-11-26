@@ -11,7 +11,7 @@ const schema = {
   "name": "KZ Audio & Video",
   "url": "https://kzaudioandvideo.com",
   "telephone": "+12109814098",
-  "description": "Home theater and AV installation in Bulverde TX. New construction pre-wire and custom home AV specialists in Comal County.",
+  "description": "Security cameras, Wi-Fi and whole-house audio for Bulverde TX homes, wired at framing in new Comal County builds or added later. Call KZ at (210) 981-4098.",
   "address": {
     "@type": "PostalAddress",
     "addressLocality": "San Antonio",
@@ -59,16 +59,18 @@ const faqs = [
 ---
 
 <BaseLayout
-  title="AV & Home Theater Services Bulverde TX | KZ Audio"
-  description="Home theater and AV installation in Bulverde TX. New construction pre-wire and custom home specialists in Comal County. Call (210) 981-4098."
+  title="Security Cameras, Wi-Fi & Audio Bulverde TX | KZ Audio"
+  description="Security cameras, Wi-Fi and whole-house audio for Bulverde TX homes, wired at framing in new Comal County builds or added later. Call KZ at (210) 981-4098."
   schema={[schema, breadcrumb]}
 >
 
   <HeroSection
-    heading="Home Theater & AV Installation in Bulverde TX"
+    heading="Security Cameras, Wi-Fi and Audio in Bulverde TX"
     subhead="Comal County's rapid new construction boom is creating some of the best-built family homes in the region, and the best opportunity to get your AV right from day one."
-    imageSrc="/images/projects/monty-theater/home-theater-near-san-antonio-hero.jpg"
-    imageAlt="Home theater installation in Bulverde Texas Comal County"
+    imageSrc="/images/projects/young-theater/stone-oak-theater-left-speaker-wire.jpg"
+    imageAlt="Low voltage cable run to a wall box at framing, before drywall, in a custom home"
+    imagePosition="object-center"
+    scrim={0.55}
     compact={true}
   />
 
@@ -90,9 +92,14 @@ const faqs = [
       <div class="grid grid-cols-1 sm:grid-cols-2 gap-6 mt-10">
         {[
           {
-            title: 'Home Theater',
-            desc: 'New construction gives you the chance to build a true dedicated theater, not a corner of the living room. We design the room around the technology: screen size, speaker placement, acoustic panels, and seating.',
-            href: '/home-theater-installation-san-antonio-tx/',
+            title: 'Security Cameras',
+            desc: 'Bulverde\'s acreage lots and new subdivisions are perfect candidates for a complete camera system. Remote viewing, local storage, and clean installations from the start.',
+            href: '/security-camera-installation-san-antonio/',
+          },
+          {
+            title: 'Wi-Fi and Networks',
+            desc: 'Wi-Fi that reaches every room of a Bulverde home, out to the patio and the garage, on wired access points and a tidy network rack.',
+            href: '/home-network-installation-san-antonio/',
           },
           {
             title: 'Whole House Audio',
@@ -105,12 +112,13 @@ const faqs = [
             href: '/outdoor-audio-video-san-antonio/',
           },
           {
-            title: 'Security Cameras',
-            desc: 'Bulverde\'s acreage lots and new subdivisions are perfect candidates for a complete camera system. Remote viewing, local storage, and clean installations from the start.',
-            href: '/security-camera-installation-san-antonio/',
+            title: 'Home Theater',
+            desc: 'New construction gives you the chance to build a true dedicated theater, not a corner of the living room. We design the room around the technology: screen size, speaker placement, acoustic panels, and seating.',
+            href: '/home-theater-installation-bulverde-tx/',
+            wide: true,
           },
-        ].map(({ title, desc, href }) => (
-          <a href={href} class="card card-hover flex flex-col gap-3 p-6 reveal">
+        ].map(({ title, desc, href, wide }) => (
+          <a href={href} class:list={['card card-hover flex flex-col gap-3 p-6 reveal', wide && 'sm:col-span-2']}>
             <h3 class="font-sans font-semibold text-h4 text-warm-white">{title}</h3>
             <p class="text-body text-stone leading-relaxed">{desc}</p>
             <span class="text-gold text-body-sm font-sans font-medium mt-auto flex items-center gap-1">

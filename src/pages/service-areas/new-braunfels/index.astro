@@ -11,7 +11,7 @@ const schema = {
   "name": "KZ Audio & Video",
   "url": "https://kzaudioandvideo.com",
   "telephone": "+12109814098",
-  "description": "Home theater and AV installation in New Braunfels TX. Serving the Guadalupe River corridor, custom homes, and vacation properties in Comal County.",
+  "description": "Security cameras, Wi-Fi and whole-house audio for New Braunfels TX homes and river houses in Comal County, from KZ Audio & Video. Call (210) 981-4098.",
   "address": {
     "@type": "PostalAddress",
     "addressLocality": "San Antonio",
@@ -59,16 +59,18 @@ const faqs = [
 ---
 
 <BaseLayout
-  title="AV & Home Theater Services New Braunfels | KZ Audio"
-  description="Home theater and AV installation in New Braunfels TX. Serving custom homes and vacation properties along the Guadalupe River in Comal County. (210) 981-4098"
+  title="Security Cameras, Wi-Fi & Audio New Braunfels TX | KZ Audio"
+  description="Security cameras, Wi-Fi and whole-house audio for New Braunfels TX homes and river houses in Comal County, from KZ Audio & Video. Call (210) 981-4098."
   schema={[schema, breadcrumb]}
 >
 
   <HeroSection
-    heading="Home Theater & AV Installation in New Braunfels TX"
+    heading="Security Cameras, Wi-Fi and Audio in New Braunfels TX"
     subhead="Comal County's growth is bringing some of the best custom home construction in the region. We're here for the pre-wire, the install, and the long term."
-    imageSrc="/images/projects/monty-theater/home-theater-near-san-antonio-hero.jpg"
-    imageAlt="Home theater installation in New Braunfels Texas Comal County"
+    imageSrc="/images/projects/young-theater/stone-oak-theater-left-speaker-wire.jpg"
+    imageAlt="Low voltage cable run to a wall box at framing, before drywall, in a custom home"
+    imagePosition="object-center"
+    scrim={0.55}
     compact={true}
   />
 
@@ -90,9 +92,14 @@ const faqs = [
       <div class="grid grid-cols-1 sm:grid-cols-2 gap-6 mt-10">
         {[
           {
-            title: 'Home Theater',
-            desc: 'Dedicated media rooms and home theaters for New Braunfels custom homes. Projectors, large-format TVs, Dolby Atmos surround, designed around your room and how you use it.',
-            href: '/home-theater-installation-san-antonio-tx/',
+            title: 'Security Cameras',
+            desc: 'Property security for homes along the river corridor and beyond. Remote viewing, local storage, and camera coverage designed for larger lots and multiple entry points.',
+            href: '/security-camera-installation-san-antonio/',
+          },
+          {
+            title: 'Wi-Fi and Networks',
+            desc: 'Wi-Fi that reaches every room of a New Braunfels home, out to the patio and the garage, on wired access points and a tidy network rack.',
+            href: '/home-network-installation-san-antonio/',
           },
           {
             title: 'Whole House Audio',
@@ -105,12 +112,13 @@ const faqs = [
             href: '/outdoor-audio-video-san-antonio/',
           },
           {
-            title: 'Security Cameras',
-            desc: 'Property security for homes along the river corridor and beyond. Remote viewing, local storage, and camera coverage designed for larger lots and multiple entry points.',
-            href: '/security-camera-installation-san-antonio/',
+            title: 'Home Theater',
+            desc: 'Dedicated media rooms and home theaters for New Braunfels custom homes. Projectors, large-format TVs, Dolby Atmos surround, designed around your room and how you use it.',
+            href: '/home-theater-installation-new-braunfels-tx/',
+            wide: true,
           },
-        ].map(({ title, desc, href }) => (
-          <a href={href} class="card card-hover flex flex-col gap-3 p-6 reveal">
+        ].map(({ title, desc, href, wide }) => (
+          <a href={href} class:list={['card card-hover flex flex-col gap-3 p-6 reveal', wide && 'sm:col-span-2']}>
             <h3 class="font-sans font-semibold text-h4 text-warm-white">{title}</h3>
             <p class="text-body text-stone leading-relaxed">{desc}</p>
             <span class="text-gold text-body-sm font-sans font-medium mt-auto flex items-center gap-1">

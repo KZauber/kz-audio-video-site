@@ -16,6 +16,18 @@
 /home-theater-stone-oak-san-antonio/    /home-theater-installation-stone-oak-san-antonio/    301
 /home-theater-timberwood-park-tx/   /home-theater-installation-timberwood-park-tx/   301
 
+# 2026-11-25: competing pages, second pass (Kelly: "I need you to make sure we don't have
+# competing pages"). Each page below aimed at the same search as the page it now points to.
+# The San Antonio area page repeated the home page ("Home Theater & AV Installation in San
+# Antonio TX"); the other two were orphans with no internal links, next to the linked page
+# for the same job. The eight town area pages stayed, re-aimed at cameras, Wi-Fi and audio.
+/service-areas/san-antonio/                 /                                    301
+/service-areas/san-antonio                  /                                    301
+/flat-screen-tv-installer-san-antonio/      /tv-mounting-san-antonio-tx/         301
+/flat-screen-tv-installer-san-antonio       /tv-mounting-san-antonio-tx/         301
+/outdoor-entertainment-system-san-antonio/  /outdoor-audio-video-san-antonio/    301
+/outdoor-entertainment-system-san-antonio   /outdoor-audio-video-san-antonio/    301
+
 # 2026-10-25: Search Console still held a /sitemap.xml entry from May that "Couldn't fetch"
 # (the real sitemap is the Astro index). Point the conventional address at it so any crawler
 # or tool that guesses /sitemap.xml finds the page list.
