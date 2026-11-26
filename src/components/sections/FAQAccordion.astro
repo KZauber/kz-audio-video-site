@@ -7,13 +7,30 @@ interface FAQ {
 interface Props {
   heading?: string;
   faqs: FAQ[];
+  /** Emit FAQPage JSON-LD built from these same questions. Leave off on pages that already carry their own FAQPage block. */
+  schema?: boolean;
 }
 
 const {
   heading = 'Frequently Asked Questions',
   faqs,
+  schema = false,
 } = Astro.props;
+
+const faqSchema = schema
+  ? {
+      '@context': 'https://schema.org',
+      '@type': 'FAQPage',
+      mainEntity: faqs.map(({ question, answer }) => ({
+        '@type': 'Question',
+        name: question,
+        acceptedAnswer: { '@type': 'Answer', text: answer },
+      })),
+    }
+  : null;
 ---
+
+{faqSchema && <script type="application/ld+json" set:html={JSON.stringify(faqSchema)} />}
 
 <section class="section bg-charcoal">
   <div class="container-content">
