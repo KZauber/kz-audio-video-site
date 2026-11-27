@@ -43,7 +43,12 @@ const steps = [
   { src: `${IMG}/scope-camera-inside-wall-wire-path.jpg`, alt: 'Scope camera screen showing the inside of the wall behind a stone fireplace', caption: 'A scope camera inside the wall finds a clear path.' },
   { src: `${IMG}/fishing-wire-through-wall.jpg`, alt: 'Installer fishing wire through a hole in the wall', caption: 'Fish the wire through.' },
   { src: `${IMG}/wire-pulled-out-of-stone.jpg`, alt: 'Wire pulled out through a hole cut in a stone fireplace wall', caption: 'Pull it out the other side, behind where the TV hangs.' },
-  { src: `${IMG}/connecting-98-inch-tv-wall-niche.jpg`, alt: 'Two installers connecting a 98-inch TV set into a bedroom wall niche', caption: 'The second 98-inch TV, hung, leveled and connected in a bedroom wall niche.' },
+];
+
+const secondTv = [
+  { src: `${IMG}/second-98-inch-tv-wall-niche-new-braunfels.jpg`, alt: 'Two KZ Audio & Video installers setting a 98-inch TV into a bedroom wall niche', caption: 'Set into the niche.' },
+  { src: `${IMG}/connecting-98-inch-tv-wall-niche.jpg`, alt: 'Two installers connecting a 98-inch TV set into a bedroom wall niche', caption: 'Leveled and connected from below.' },
+  { src: `${IMG}/second-98-inch-tv-wall-niche-on-new-braunfels.jpg`, alt: '98-inch TCL TV powered on with the Google TV logo, set into a bedroom wall niche in New Braunfels TX', caption: 'Up and running.' },
 ];
 ---
 
@@ -194,8 +199,34 @@ const steps = [
     </div>
   </section>
 
-  <!-- More nearby -->
+  <!-- The second TV -->
   <section class="section bg-charcoal">
+    <div class="container-main">
+      <p class="overline mb-3">The Second TV</p>
+      <h2 class="font-display text-h2 text-warm-white mb-10">A 98-Inch TV Set Into a Bedroom Wall</h2>
+      <div class="grid grid-cols-1 sm:grid-cols-3 gap-4">
+        {secondTv.map(({ src, alt, caption }) => (
+          <figure class="flex flex-col gap-2">
+            <button
+              class="proj-lb-trigger group overflow-hidden rounded-sm cursor-pointer focus:outline-none focus-visible:ring-2 focus-visible:ring-gold"
+              data-img={src}
+              data-alt={caption}
+              aria-label={`View full size: ${alt}`}
+              type="button"
+            >
+              <div class="overflow-hidden" style="aspect-ratio:3/4;">
+                <img src={src} alt={alt} class="w-full h-full object-cover transition-transform duration-slow group-hover:scale-[1.04]" loading="lazy" decoding="async" />
+              </div>
+            </button>
+            <figcaption class="text-body-sm text-stone leading-snug">{caption}</figcaption>
+          </figure>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <!-- More nearby -->
+  <section class="section bg-slate-surface">
     <div class="container-main">
       <p class="overline mb-3">More in New Braunfels</p>
       <h2 class="font-display text-h2 text-warm-white mb-6">Planning a Big TV or a Theater Nearby?</h2>
