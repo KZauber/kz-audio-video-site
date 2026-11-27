@@ -4,6 +4,8 @@ import HeroSection from '../../../components/sections/HeroSection.astro';
 import TrustBar from '../../../components/sections/TrustBar.astro';
 import CTASection from '../../../components/sections/CTASection.astro';
 import FAQAccordion from '../../../components/sections/FAQAccordion.astro';
+import ProjectsGrid from '../../../components/sections/ProjectsGrid.astro';
+import { jobsNear } from '../../../data/area-jobs';
 
 const schema = {
   "@context": "https://schema.org",
@@ -170,6 +172,14 @@ const faqs = [
       </div>
     </div>
   </section>
+
+  <ProjectsGrid
+    projects={jobsNear(29.744, -98.453)}
+    overline="Cameras, Wi-Fi and Audio"
+    heading="Real KZ Jobs Near Bulverde"
+    bg="bg-slate-surface"
+    showLink={false}
+  />
 
   <FAQAccordion
     schema

@@ -13,6 +13,8 @@ import HeroSection from '../../../components/sections/HeroSection.astro';
 import TrustBar from '../../../components/sections/TrustBar.astro';
 import CTASection from '../../../components/sections/CTASection.astro';
 import FAQAccordion from '../../../components/sections/FAQAccordion.astro';
+import ProjectsGrid from '../../../components/sections/ProjectsGrid.astro';
+import { jobsNear } from '../../../data/area-jobs';
 import { REVIEWS_SENTENCE } from '../../../data/business';
 import { CAMERA_TIERS } from '../../../data/camera-prices';
 
@@ -238,6 +240,14 @@ const nearby = [
       </div>
     </div>
   </section>
+
+  <ProjectsGrid
+    projects={jobsNear(30.55, -98.3)}
+    overline="Cameras, Wi-Fi and Audio"
+    heading="Real KZ Jobs Near Horseshoe Bay and Marble Falls"
+    bg="bg-slate-surface"
+    showLink={false}
+  />
 
   <FAQAccordion
     heading="Highland Lakes Home Theater and Camera Questions"

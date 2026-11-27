@@ -44,13 +44,14 @@ const breadcrumb = {
 const cities = [
   {
     slug: 'san-antonio',
+    href: '/',
     name: 'San Antonio, TX',
     description: 'Our home base. Home theaters, whole house audio, outdoor AV, and security cameras across every San Antonio neighborhood.',
   },
   {
     slug: 'stone-oak',
     name: 'Stone Oak',
-    description: 'North San Antonio\'s premier established neighborhood. We\'ve wired custom homes throughout Stone Oak for over 25 years.',
+    description: 'Established custom homes in north San Antonio. Home theaters, whole house audio and wired cameras, including a dedicated theater on our projects page.',
   },
   {
     slug: 'boerne',
@@ -60,12 +61,12 @@ const cities = [
   {
     slug: 'bulverde',
     name: 'Bulverde, TX',
-    description: 'Comal County is booming. Families moving out of San Antonio are building their dream homes, and their dream AV setups.',
+    description: 'Comal County is booming. Families moving out of San Antonio are building new homes, and wiring them for theater, music and cameras.',
   },
   {
     slug: 'helotes',
     name: 'Helotes, TX',
-    description: 'Established Hill Country living near Leon Springs. We\'ve served Helotes homeowners for decades.',
+    description: 'Hill Country living near Leon Springs, on bigger lots. Wired cameras that cover the whole property, Wi-Fi out to the patio, and music inside and out.',
   },
   {
     slug: 'canyon-lake',
@@ -97,6 +98,28 @@ const cities = [
     name: 'Johnson City & Blanco',
     description: 'Homes and ranch properties across Blanco County: Starlink and Wi-Fi out to the barn, wired cameras and home theaters.',
   },
+] as { slug: string; href?: string; name: string; description: string }[];
+
+// Every town home theater page, so each one has a link pointing to it.
+const theaterTowns = [
+  ['San Antonio', 'san-antonio-tx'],
+  ['New Braunfels', 'new-braunfels-tx'],
+  ['Canyon Lake', 'canyon-lake-tx'],
+  ['Bulverde', 'bulverde-tx'],
+  ['Boerne', 'boerne-tx'],
+  ['Stone Oak', 'stone-oak-san-antonio'],
+  ['Alamo Heights', 'alamo-heights-san-antonio'],
+  ['Shavano Park', 'shavano-park-tx'],
+  ['Timberwood Park', 'timberwood-park-tx'],
+  ['Fair Oaks Ranch', 'fair-oaks-ranch-tx'],
+  ['Helotes', 'helotes-tx'],
+  ['Schertz', 'schertz-tx'],
+  ['Cibolo', 'cibolo-tx'],
+  ['San Marcos', 'san-marcos-tx'],
+  ['Floresville', 'floresville-tx'],
+  ['Pleasanton', 'pleasanton-tx'],
+  ['Jourdanton', 'jourdanton-tx'],
+  ['the Hill Country', 'san-antonio-hill-country'],
 ];
 ---
 
@@ -135,9 +158,9 @@ const cities = [
       </p>
 
       <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
-        {cities.map(({ slug, name, description }, i) => (
+        {cities.map(({ slug, href, name, description }, i) => (
           <a
-            href={`/service-areas/${slug}/`}
+            href={href ?? `/service-areas/${slug}/`}
             class:list={[
               "card card-hover flex flex-col gap-4 p-6 reveal",
               i === 0 ? "reveal-delay-1" : i === 1 ? "reveal-delay-2" : i === 2 ? "reveal-delay-3" : ""
@@ -162,6 +185,20 @@ const cities = [
           </a>
         ))}
       </div>
+
+      <h3 class="font-sans font-semibold text-h4 text-warm-white mt-16 mb-5 reveal">Home Theater Installation by Town</h3>
+      <ul class="flex flex-wrap gap-3 reveal" role="list">
+        {theaterTowns.map(([name, slug]) => (
+          <li>
+            <a
+              href={`/home-theater-installation-${slug}/`}
+              class="inline-block cursor-pointer rounded-full border border-smoke px-4 py-2 text-body-sm text-stone hover:text-warm-white hover:border-gold transition-colors duration-fast"
+            >
+              Home theater in {name}
+            </a>
+          </li>
+        ))}
+      </ul>
     </div>
   </section>
 

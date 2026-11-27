@@ -3,6 +3,8 @@ import BaseLayout from '../../layouts/BaseLayout.astro';
 import HeroSection from '../../components/sections/HeroSection.astro';
 import TrustBar from '../../components/sections/TrustBar.astro';
 import FAQAccordion from '../../components/sections/FAQAccordion.astro';
+import ProjectsGrid from '../../components/sections/ProjectsGrid.astro';
+import { THEATER_PROJECTS } from '../../data/area-jobs';
 import CTASection from '../../components/sections/CTASection.astro';
 
 const schema = {
@@ -187,6 +189,13 @@ const faqs = [
       </div>
     </div>
   </section>
+
+  <ProjectsGrid
+    projects={THEATER_PROJECTS}
+    overline="Recent Work"
+    heading="Home Theater Installs Near Schertz"
+    bg="bg-charcoal"
+  />
 
   <FAQAccordion
     schema

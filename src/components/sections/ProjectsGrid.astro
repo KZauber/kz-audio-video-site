@@ -7,6 +7,8 @@ interface Project {
   imageSrc: string;
   imageAlt: string;
   href?: string;
+  /** Link text on the card. Defaults to "View Full Project". */
+  linkLabel?: string;
 }
 
 interface Props {
@@ -14,6 +16,9 @@ interface Props {
   overline?: string;
   projects: Project[];
   showLink?: boolean;
+  /** Section background class, so the grid can sit between two sections of the other color. */
+  bg?: string;
+  intro?: string;
 }
 
 const {
@@ -21,20 +26,22 @@ const {
   overline = 'Recent Work',
   projects,
   showLink = true,
+  bg = 'bg-charcoal',
+  intro = 'Every project below was designed, installed, and programmed by our team.',
 } = Astro.props;
 
 const delayClasses = ['reveal-delay-2','reveal-delay-3','reveal-delay-4','reveal-delay-5','reveal-delay-6','reveal-delay-6'];
 ---
 
-<section class="section bg-charcoal">
+<section class:list={['section', bg]}>
   <div class="container-main">
     <p class="overline mb-3 reveal">{overline}</p>
     <h2 class="font-display text-h2 text-warm-white mb-3 reveal reveal-delay-1">{heading}</h2>
-    <p class="text-body-sm text-stone mb-10 reveal reveal-delay-2" style="max-width:48ch;">Every project below was designed, installed, and programmed by our team.</p>
+    <p class="text-body-sm text-stone mb-10 reveal reveal-delay-2" style="max-width:60ch;">{intro}</p>
 
     <!-- Portrait-friendly grid: 3 columns on desktop, 2 on tablet, 1 on mobile -->
     <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-5">
-      {projects.map(({ title, location, service, description, imageSrc, imageAlt, href }, i) => (
+      {projects.map(({ title, location, service, description, imageSrc, imageAlt, href, linkLabel }, i) => (
         href ? (
           <a
             href={href}
@@ -75,7 +82,7 @@ const delayClasses = ['reveal-delay-2','reveal-delay-3','reveal-delay-4','reveal
               <h3 class="font-sans font-semibold text-warm-white mb-3 leading-snug" style="font-size:1rem;">{title}</h3>
               <p class="text-body-sm text-stone leading-relaxed text-[0.875rem] flex-1">{description}</p>
               <p class="mt-4 text-gold text-[0.8rem] font-sans font-semibold uppercase tracking-wider transition-colors duration-fast group-hover:text-gold-light">
-                View Full Project →
+                {linkLabel ?? 'View Full Project'} →
               </p>
             </div>
           </a>

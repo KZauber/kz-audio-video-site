@@ -13,6 +13,8 @@ import HeroSection from '../../../components/sections/HeroSection.astro';
 import TrustBar from '../../../components/sections/TrustBar.astro';
 import CTASection from '../../../components/sections/CTASection.astro';
 import FAQAccordion from '../../../components/sections/FAQAccordion.astro';
+import ProjectsGrid from '../../../components/sections/ProjectsGrid.astro';
+import { jobsNear } from '../../../data/area-jobs';
 import { REVIEWS_SENTENCE } from '../../../data/business';
 
 const PAGE_URL = 'https://kzaudioandvideo.com/service-areas/johnson-city-blanco/';
@@ -226,6 +228,14 @@ const nearby = [
       </div>
     </div>
   </section>
+
+  <ProjectsGrid
+    projects={jobsNear(30.19, -98.41)}
+    overline="Cameras, Wi-Fi and Audio"
+    heading="Real KZ Jobs Near Johnson City and Blanco"
+    bg="bg-slate-surface"
+    showLink={false}
+  />
 
   <FAQAccordion
     heading="Johnson City and Blanco Starlink and Theater Questions"
