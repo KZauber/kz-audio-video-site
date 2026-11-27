@@ -1,0 +1,268 @@
+---
+import BaseLayout from '../../../layouts/BaseLayout.astro';
+
+// Real KZ job, 2026-09-16: two 98-inch TCL TVs at one house (Kelly, 2026-11-27). The town is not shown in
+// any photo, so it is named New Braunfels under Kelly's rule for projects that show no town (KZ-Rules.md).
+// Photos and stills come from Kelly's own phone footage of the job. No customer name, no address.
+
+const IMG = '/images/projects/tv-98-stone';
+const URL = 'https://kzaudioandvideo.com/projects/98-inch-tvs-stone-fireplace-new-braunfels/';
+
+const projectSchema = {
+  "@context": "https://schema.org",
+  "@type": "CreativeWork",
+  "name": "Two 98-Inch TVs: Stone Fireplace and Wall Niche, New Braunfels TX",
+  "description": "Two 98-inch TCL TVs at one New Braunfels home: one on a solid stone fireplace with the wiring run inside the stone, one set into a bedroom wall niche. Installed by KZ Audio & Video.",
+  "url": URL,
+  "image": `https://kzaudioandvideo.com${IMG}/98-inch-tcl-tv-stone-fireplace-new-braunfels.jpg`,
+  "creator": {
+    "@type": "LocalBusiness",
+    "name": "KZ Audio & Video",
+    "telephone": "+12109814098",
+    "url": "https://kzaudioandvideo.com"
+  },
+  "locationCreated": {
+    "@type": "Place",
+    "name": "New Braunfels, TX"
+  }
+};
+
+const breadcrumb = {
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": [
+    { "@type": "ListItem", "position": 1, "name": "Home", "item": "https://kzaudioandvideo.com" },
+    { "@type": "ListItem", "position": 2, "name": "Projects", "item": "https://kzaudioandvideo.com/home-theater-projects-san-antonio/" },
+    { "@type": "ListItem", "position": 3, "name": "Two 98-Inch TVs: Stone Fireplace and Wall Niche" }
+  ]
+};
+
+const steps = [
+  { src: `${IMG}/chisel-stone-for-tv-wiring.jpg`, alt: 'KZ Audio & Video installer chiseling into a stone fireplace wall to run TV wiring', caption: 'Chisel into the stone where the TV will cover it.' },
+  { src: `${IMG}/cutting-box-into-stone-fireplace.jpg`, alt: 'Oscillating tool cutting a box into a stone fireplace wall for a TV outlet', caption: 'Cut a clean box into the stone.' },
+  { src: `${IMG}/scope-camera-inside-wall-wire-path.jpg`, alt: 'Scope camera screen showing the inside of the wall behind a stone fireplace', caption: 'A scope camera inside the wall finds a clear path.' },
+  { src: `${IMG}/fishing-wire-through-wall.jpg`, alt: 'Installer fishing wire through a hole in the wall', caption: 'Fish the wire through.' },
+  { src: `${IMG}/wire-pulled-out-of-stone.jpg`, alt: 'Wire pulled out through a hole cut in a stone fireplace wall', caption: 'Pull it out the other side, behind where the TV hangs.' },
+  { src: `${IMG}/connecting-98-inch-tv-wall-niche.jpg`, alt: 'Two installers connecting a 98-inch TV set into a bedroom wall niche', caption: 'The second 98-inch TV, hung, leveled and connected in a bedroom wall niche.' },
+];
+---
+
+<BaseLayout
+  title="Two 98-Inch TVs on Stone, New Braunfels TX | KZ Audio"
+  description="Two 98-inch TCL TVs at one New Braunfels home by KZ Audio & Video: one on solid stone with the wiring run inside it, one set into a bedroom wall niche."
+  canonical={URL}
+  schema={[projectSchema, breadcrumb]}
+>
+
+  <!-- Hero: the photo is portrait, so it sits whole beside the headline instead of being cropped to a strip -->
+  <section class="bg-charcoal pt-28 pb-14 px-4 sm:px-6">
+    <div class="container-main grid grid-cols-1 lg:grid-cols-2 gap-10 items-center">
+      <div>
+        <p class="overline mb-3">TV Installation · New Braunfels, TX</p>
+        <h1 class="font-display text-warm-white mb-5" style="font-size:clamp(2rem,4vw,3.25rem);line-height:1.08;letter-spacing:-0.02em;max-width:18ch;">
+          Two 98-Inch TVs: Stone Fireplace and Wall Niche, New Braunfels TX
+        </h1>
+        <p class="text-body-lg text-stone" style="max-width:44ch;">
+          One TV on solid stone with the wiring run inside the stone, one set into a bedroom wall. Both went up the same day.
+        </p>
+      </div>
+      <div class="overflow-hidden rounded-sm mx-auto w-full" style="max-width:520px;aspect-ratio:3/4;">
+        <img
+          src={`${IMG}/98-inch-tcl-tv-stone-fireplace-new-braunfels.jpg`}
+          alt="98-inch TCL TV mounted on a solid stone fireplace with no wires showing, installed by KZ Audio & Video in New Braunfels TX"
+          class="w-full h-full object-cover"
+          width="1050"
+          height="1400"
+          loading="eager"
+          fetchpriority="high"
+          decoding="async"
+        />
+      </div>
+    </div>
+  </section>
+
+  <!-- Details bar -->
+  <section class="bg-charcoal border-b border-smoke px-4 sm:px-6 py-6">
+    <div class="container-main">
+      <dl class="flex flex-wrap gap-x-10 gap-y-3">
+        {[
+          ['Location', 'New Braunfels, TX'],
+          ['Service', 'TV Installation and Wiring'],
+          ['Equipment', 'Two 98-inch TCL TVs'],
+          ['Walls', 'Solid stone fireplace · Bedroom wall niche'],
+        ].map(([dt, dd]) => (
+          <div class="flex flex-col gap-0.5">
+            <dt class="text-[0.65rem] font-sans uppercase tracking-widest text-stone">{dt}</dt>
+            <dd class="text-warm-white text-sm font-sans font-semibold">{dd}</dd>
+          </div>
+        ))}
+      </dl>
+    </div>
+  </section>
+
+  <!-- Project details -->
+  <section class="section bg-slate-surface">
+    <div class="container-main">
+      <div class="grid grid-cols-1 lg:grid-cols-3 gap-10">
+        <div class="lg:col-span-2">
+          <p class="overline mb-3">About This Project</p>
+          <h2 class="font-display text-h2 text-warm-white mb-6">Wiring Run Inside Solid Stone</h2>
+          <div class="flex flex-col gap-4 text-body text-stone leading-relaxed">
+            <p>This New Braunfels home got two 98-inch TCL TVs from KZ Audio &amp; Video in one day. The first went over the fireplace, on a wall of solid stone. The second went into a recessed niche in a bedroom wall.</p>
+            <p>Stone does not open up like drywall, so the wiring is the real work. Our crew chiseled and cut a box into the stone where the TV would cover it, ran a scope camera inside the wall to find a clear path, fished the wire through and pulled it out behind where the TV hangs. The 98-inch TV went up on the stone with no wires showing.</p>
+            <p>On a stone or brick fireplace, we find the path with a camera first, then cut only where the TV will cover the opening. The wall stays the way it was built, with the TV on it and nothing hanging below.</p>
+          </div>
+        </div>
+        <div class="flex flex-col gap-4">
+          <div class="card p-6">
+            <h3 class="font-sans font-semibold text-warm-white mb-4 text-sm uppercase tracking-wider">Project Details</h3>
+            <ul class="flex flex-col gap-3">
+              {[
+                { label: 'TVs', value: 'Two 98-inch TCL TVs, one house, one day' },
+                { label: 'The challenge', value: 'Getting the wiring inside a solid stone fireplace wall with nothing showing' },
+                { label: 'How', value: 'A box cut where the TV covers it, a scope camera to find the path, wire fished through' },
+                { label: 'Result', value: 'No wires showing on the stone' },
+                { label: 'Location', value: 'New Braunfels, TX' },
+              ].map(({ label, value }) => (
+                <li class="flex flex-col gap-0.5">
+                  <span class="text-[0.65rem] font-sans uppercase tracking-widest text-stone">{label}</span>
+                  <span class="text-warm-white text-sm">{value}</span>
+                </li>
+              ))}
+            </ul>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Before / After -->
+  <section class="section bg-charcoal">
+    <div class="container-main">
+      <p class="overline mb-3">Before &amp; After</p>
+      <h2 class="font-display text-h2 text-warm-white mb-10">The Stone Fireplace, Before and After</h2>
+      <div class="grid grid-cols-1 sm:grid-cols-2 gap-4 max-w-4xl">
+        {[
+          { src: `${IMG}/stone-fireplace-before-tv-wiring-new-braunfels.jpg`, alt: 'Stone fireplace wall with the TV mount and the new outlet in the stone, before the 98-inch TV went up', tag: 'Before', color: '#A09080' },
+          { src: `${IMG}/98-inch-tcl-tv-stone-fireplace-new-braunfels.jpg`, alt: '98-inch TCL TV on the stone fireplace with no wires showing', tag: 'After', color: '#C9A84C' },
+        ].map(({ src, alt, tag, color }) => (
+          <button
+            class="proj-lb-trigger group relative overflow-hidden rounded-sm cursor-pointer focus:outline-none focus-visible:ring-2 focus-visible:ring-gold text-left"
+            data-img={src}
+            data-alt={alt}
+            aria-label={`View full size: ${tag.toLowerCase()} photo`}
+            type="button"
+          >
+            <div class="overflow-hidden" style="aspect-ratio:3/4;">
+              <img src={src} alt={alt} class="w-full h-full object-cover transition-transform duration-slow group-hover:scale-[1.03]" loading="lazy" decoding="async" />
+            </div>
+            <div class="absolute top-3 left-3">
+              <span class="text-[0.65rem] font-sans font-700 uppercase tracking-widest px-3 py-1 rounded"
+                style={`background:rgba(14,16,18,0.85);color:${color};border:1px solid ${color}66;`}>
+                {tag}
+              </span>
+            </div>
+          </button>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <!-- How it was done -->
+  <section class="section bg-slate-surface">
+    <div class="container-main">
+      <p class="overline mb-3">How It Was Done</p>
+      <h2 class="font-display text-h2 text-warm-white mb-10">From Solid Stone to No Wires Showing</h2>
+      <div class="grid grid-cols-2 md:grid-cols-3 gap-4">
+        {steps.map(({ src, alt, caption }, i) => (
+          <figure class="flex flex-col gap-2">
+            <button
+              class="proj-lb-trigger group overflow-hidden rounded-sm cursor-pointer focus:outline-none focus-visible:ring-2 focus-visible:ring-gold"
+              data-img={src}
+              data-alt={caption}
+              aria-label={`View full size: ${alt}`}
+              type="button"
+            >
+              <div class="overflow-hidden" style="aspect-ratio:3/4;">
+                <img src={src} alt={alt} class="w-full h-full object-cover transition-transform duration-slow group-hover:scale-[1.04]" loading="lazy" decoding="async" />
+              </div>
+            </button>
+            <figcaption class="text-body-sm text-stone leading-snug"><span class="text-gold font-semibold">{i + 1}.</span> {caption}</figcaption>
+          </figure>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <!-- More nearby -->
+  <section class="section bg-charcoal">
+    <div class="container-main">
+      <p class="overline mb-3">More in New Braunfels</p>
+      <h2 class="font-display text-h2 text-warm-white mb-6">Planning a Big TV or a Theater Nearby?</h2>
+      <p class="text-body-lg text-stone mb-8" style="max-width:60ch;">
+        See what KZ Audio &amp; Video does across New Braunfels, from wired cameras and Wi-Fi to dedicated home theaters, or call (210) 981-4098.
+      </p>
+      <div class="flex flex-col sm:flex-row gap-4">
+        <a href="/service-areas/new-braunfels/" class="btn-ghost cursor-pointer">Cameras, Wi-Fi and Audio in New Braunfels</a>
+        <a href="/home-theater-installation-new-braunfels-tx/" class="btn-ghost cursor-pointer">Home Theaters in New Braunfels</a>
+      </div>
+    </div>
+  </section>
+
+</BaseLayout>
+
+<!-- Lightbox -->
+<div
+  id="proj-lightbox"
+  role="dialog"
+  aria-modal="true"
+  aria-label="Project photo"
+  style="display:none; position:fixed; inset:0; z-index:9999; background:rgba(14,16,18,0.96); cursor:pointer; backdrop-filter:blur(8px);"
+>
+  <button
+    id="proj-lb-close"
+    aria-label="Close photo"
+    style="position:absolute;top:1.25rem;right:1.5rem;background:none;border:none;color:#F2EDE6;font-size:1.75rem;cursor:pointer;line-height:1;opacity:0.7;transition:opacity 150ms;"
+    onmouseover="this.style.opacity='1'" onmouseout="this.style.opacity='0.7'"
+  >&#x2715;</button>
+  <div style="position:absolute;inset:0;display:flex;flex-direction:column;align-items:center;justify-content:center;padding:5rem 1.5rem 2rem;">
+    <img
+      id="proj-lb-img"
+      src=""
+      alt=""
+      style="max-width:100%;max-height:78vh;object-fit:contain;border-radius:0.375rem;box-shadow:0 32px 80px rgba(0,0,0,0.8);"
+    />
+    <p id="proj-lb-caption" style="margin-top:1.25rem;font-family:'Jost',sans-serif;color:#A09080;font-size:0.8rem;text-align:center;max-width:56ch;line-height:1.6;"></p>
+  </div>
+</div>
+
+<script>
+  const lb      = document.getElementById('proj-lightbox') as HTMLElement;
+  const lbImg   = document.getElementById('proj-lb-img') as HTMLImageElement;
+  const lbCap   = document.getElementById('proj-lb-caption') as HTMLElement;
+  const lbClose = document.getElementById('proj-lb-close') as HTMLElement;
+
+  function openLb(img: string, alt: string) {
+    lbImg.src = img;
+    lbImg.alt = alt;
+    lbCap.textContent = alt;
+    lb.style.display = 'block';
+    document.body.style.overflow = 'hidden';
+  }
+
+  function closeLb() {
+    lb.style.display = 'none';
+    document.body.style.overflow = '';
+    lbImg.src = '';
+  }
+
+  document.querySelectorAll<HTMLElement>('.proj-lb-trigger').forEach(el => {
+    const open = () => openLb(el.dataset.img ?? '', el.dataset.alt ?? '');
+    el.addEventListener('click', open);
+    el.addEventListener('keydown', (e: KeyboardEvent) => { if (e.key === 'Enter' || e.key === ' ') { e.preventDefault(); open(); } });
+  });
+
+  lb.addEventListener('click', (e) => { if (e.target !== lbImg) closeLb(); });
+  lbClose.addEventListener('click', closeLb);
+  document.addEventListener('keydown', (e: KeyboardEvent) => { if (e.key === 'Escape') closeLb(); });
+</script>
